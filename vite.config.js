@@ -38,7 +38,8 @@ export default defineConfig({
         forms: resolve(__dirname, 'src/forms.html'),
         wizard: resolve(__dirname, 'src/wizard.html'),
         datatables: resolve(__dirname, 'src/datatables.html'),
-        modals: resolve(__dirname, 'src/modals.html')
+        modals: resolve(__dirname, 'src/modals.html'),
+        charts: resolve(__dirname, 'src/charts.html')
       }
     }
   }
