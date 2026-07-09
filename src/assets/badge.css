@@ -1,0 +1,57 @@
+/* Badge Component Styles */
+
+@utility badge {
+  @apply inline-flex items-center justify-center font-bold border border-black select-none text-center;
+  border-radius: var(--radius-default);
+  line-height: 1;
+}
+
+/* Badge Sizing */
+@utility badge-sm {
+  padding: 2px 6px;
+  font-size: 10px;
+}
+@utility badge-md {
+  padding: 3px 8px;
+  font-size: 11px;
+}
+@utility badge-lg {
+  padding: 4px 10px;
+  font-size: 13px;
+}
+
+/* Pill Badges (Fully Rounded) */
+@utility badge-pill {
+  border-radius: 9999px;
+}
+
+/* Badge Themes */
+@utility badge-primary {
+  @apply bg-primary text-white;
+}
+@utility badge-secondary {
+  @apply bg-gray-500 text-white;
+}
+@utility badge-success {
+  @apply bg-[#006229] text-white;
+}
+@utility badge-success-bright {
+  @apply bg-green-500 text-white;
+}
+@utility badge-danger {
+  @apply bg-error text-white;
+}
+@utility badge-warning {
+  @apply bg-secondary-container text-black;
+}
+@utility badge-dark {
+  @apply bg-inverse-surface text-white;
+}
+@utility badge-light {
+  @apply bg-white text-black;
+}
+
+/* Badge Shadow (Mini Neo-Brutalist Effect) */
+@utility badge-shadow {
+  box-shadow: 1px 1px 0px 0px #000000;
+}

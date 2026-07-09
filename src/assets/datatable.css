@@ -1,0 +1,435 @@
+/* ============================================================
+   DataTables — Neo-Brutalist Theme Override
+   Overrides DataTables default CSS to match presensio design
+   ============================================================ */
+
+/* ── Wrapper / Container ─────────────────────────────────── */
+.dt-container {
+  font-family: var(--font-body-md, 'Inter', sans-serif);
+  font-size: 12px;
+  color: #000;
+}
+
+/* ── Layout: top toolbar (search + length) ─────────────── */
+.dt-layout-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* spacing between top controls and table */
+.dt-layout-row + .dt-layout-row {
+  margin-top: 8px;
+}
+
+/* When INSIDE a dt-card, the controls rows get contained padding */
+.dt-card .dt-container > .dt-layout-row:not(:last-child) {
+  padding: 10px 16px 0;
+}
+
+/* Bottom controls (info + paging) — inside card footer area */
+.dt-card .dt-container > .dt-layout-row:last-child {
+  padding: 0;
+}
+
+/* ── Length selector (show N entries) ───────────────────── */
+.dt-length label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #555;
+}
+
+.dt-length select {
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  padding: 5px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+  appearance: auto;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.dt-length select:focus {
+  outline: none;
+  border-color: #000;
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.08);
+}
+
+/* ── Search box ──────────────────────────────────────────── */
+.dt-search {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dt-search label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #555;
+}
+
+.dt-search input {
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: 400;
+  background: #fff;
+  color: #000;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  min-width: 200px;
+}
+
+.dt-search input:focus {
+  outline: none;
+  border-color: #000;
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.08);
+}
+
+/* ── Info text ───────────────────────────────────────────── */
+.dt-info {
+  font-size: 11px;
+  font-weight: 600;
+  color: #555;
+}
+
+/* ── Table ────────────────────────────────────────────────── */
+table.dataTable {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  background: #fff;
+  font-size: 12px;
+  font-family: var(--font-body-md, 'Inter', sans-serif);
+}
+
+table.dataTable thead th,
+table.dataTable thead td {
+  padding: 11px 16px;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #374151;
+  background: #f9fafb;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #e5e7eb;
+  user-select: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+table.dataTable thead th:last-child,
+table.dataTable thead td:last-child {
+  border-right: none;
+}
+
+table.dataTable tbody tr td {
+  padding: 11px 16px;
+  font-size: 12px;
+  color: #111827;
+  border-bottom: 1px solid #f3f4f6;
+  border-right: 1px solid #f3f4f6;
+  vertical-align: middle;
+  line-height: 1.5;
+}
+
+table.dataTable tbody tr td:last-child {
+  border-right: none;
+}
+
+table.dataTable tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Hover row */
+table.dataTable tbody tr:hover {
+  background-color: #fffdf0 !important;
+}
+
+/* Striped odd rows */
+table.dataTable.table-striped tbody tr:nth-of-type(even) {
+  background-color: #fafafa;
+}
+
+/* ── Sort arrows ─────────────────────────────────────────── */
+table.dataTable thead th.dt-orderable-asc,
+table.dataTable thead th.dt-orderable-desc {
+  cursor: pointer;
+}
+
+table.dataTable thead th .dt-column-order {
+  float: right;
+  margin-left: 6px;
+  opacity: 0.3;
+}
+
+table.dataTable thead th.dt-ordering-asc .dt-column-order::before { content: '↑'; opacity: 1; }
+table.dataTable thead th.dt-ordering-desc .dt-column-order::after { content: '↓'; opacity: 1; }
+
+/* ── Pagination ──────────────────────────────────────────── */
+.dt-paging {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dt-paging .dt-paging-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 8px;
+  font-size: 11px;
+  font-weight: 700;
+  border: 2px solid #000;
+  border-radius: 4px;
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 #000;
+  transition: all 0.15s;
+  user-select: none;
+}
+
+.dt-paging .dt-paging-button:hover:not(.disabled) {
+  background: #fed01b;
+  box-shadow: 3px 3px 0 #000;
+  transform: translate(-1px, -1px);
+}
+
+.dt-paging .dt-paging-button.current {
+  background: #fed01b;
+  font-weight: 900;
+  box-shadow: 3px 3px 0 #000;
+}
+
+.dt-paging .dt-paging-button.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Row selection (checkbox) ────────────────────────────── */
+table.dataTable tbody tr.selected {
+  background-color: #fff8d6 !important;
+}
+
+table.dataTable tbody tr.selected td {
+  color: #000 !important;
+}
+
+/* ── Processing overlay ──────────────────────────────────── */
+.dt-processing {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: 4px 4px 0 #000;
+}
+
+/* ── Empty table message ─────────────────────────────────── */
+table.dataTable tbody td.dataTables_empty {
+  text-align: center;
+  padding: 32px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #999;
+}
+
+/* ── Scrollable table wrapper (scrollX/scrollY) ─────────── */
+.dataTables_scrollHead table thead th {
+  border-bottom: 1px solid #000 !important;
+}
+
+.dataTables_scrollBody {
+  border-bottom: 1px solid #d1d5db;
+}
+
+/* ── Buttons extension (ColVis / Export) ─────────────────── */
+.dt-buttons {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.dt-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  border: 2px solid #000 !important;
+  border-radius: 4px;
+  background: #fff !important;
+  color: #000 !important;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 #000;
+  transition: all 0.15s;
+}
+
+.dt-button:hover {
+  background: #fed01b !important;
+  box-shadow: 3px 3px 0 #000 !important;
+  transform: translate(-1px, -1px);
+}
+
+.dt-button.active {
+  background: #fed01b !important;
+  box-shadow: 3px 3px 0 #000 !important;
+}
+
+/* ── Responsive detail rows ──────────────────────────────── */
+table.dataTable.dtr-inline.collapsed tbody tr td.dtr-control::before {
+  background-color: var(--color-primary, #fed01b);
+  border: 2px solid #000;
+  box-shadow: 1px 1px 0 #000;
+  line-height: 14px;
+}
+
+table.dataTable.dtr-inline.collapsed tbody tr.parent td.dtr-control::before {
+  background-color: #000;
+}
+
+/* detail row child */
+table.dataTable tr.child {
+  background: #fffef0 !important;
+}
+
+table.dataTable tr.child td.child {
+  padding: 10px 14px;
+}
+
+table.dataTable tr.child ul.dtr-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+table.dataTable tr.child ul.dtr-details li {
+  display: flex;
+  gap: 8px;
+  font-size: 11px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 4px;
+}
+
+table.dataTable tr.child ul.dtr-details li:last-child {
+  border-bottom: none;
+}
+
+table.dataTable tr.child ul.dtr-details li .dtr-title {
+  font-weight: 700;
+  min-width: 110px;
+  color: #555;
+}
+
+/* ── FixedColumns box shadow ─────────────────────────────── */
+.dtfc-left-top-blocker,
+.dtfc-right-top-blocker {
+  background: #f5f5f5;
+}
+
+/* ── Full outer card wrapper — matches .card exactly ────── */
+.dt-card {
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: var(--radius-default, 6px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Shadow modifier — matches .card-shadow */
+.dt-card-shadow {
+  box-shadow: 4px 4px 0px 0px #000000;
+}
+
+/* No-border table variant: strip all cell borders */
+.dt-card-noborder table.dataTable thead th,
+.dt-card-noborder table.dataTable thead td {
+  border-right: none;
+  border-bottom: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+
+.dt-card-noborder table.dataTable tbody tr td {
+  border-bottom: 1px solid #f3f4f6;
+  border-right: none;
+}
+
+.dt-card-noborder table.dataTable tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Toolbar — matches .card-header exactly */
+.dt-card .dt-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 16px;
+  border-bottom: 1px solid #000;
+  background: #f9fafb;
+  flex-wrap: wrap;
+  border-top-left-radius: calc(var(--radius-default, 6px) - 1px);
+  border-top-right-radius: calc(var(--radius-default, 6px) - 1px);
+}
+
+.dt-card .dt-toolbar-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: #000;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Controls zone — padded area between toolbar and table */
+.dt-card .dt-container {
+  padding: 12px 16px 0;
+}
+
+.dt-card .dt-table-wrap {
+  overflow-x: auto;
+  padding: 0 0 0 0;   /* table runs full-width inside the container */
+}
+
+/* Give the actual table a horizontal padding by overriding the wrapper */
+.dt-card table.dataTable {
+  margin: 0;
+}
+
+/* Footer — matches .card-footer exactly */
+.dt-card .dt-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-top: 1px solid #e5e7eb;
+  background: #f9fafb;
+  flex-wrap: wrap;
+  gap: 8px;
+  border-bottom-left-radius: calc(var(--radius-default, 6px) - 1px);
+  border-bottom-right-radius: calc(var(--radius-default, 6px) - 1px);
+}

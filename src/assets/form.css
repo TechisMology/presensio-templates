@@ -1,0 +1,79 @@
+/* Form and Input Component Styles */
+
+@utility form-group {
+  @apply flex flex-col mb-md;
+}
+
+@utility form-label {
+  @apply text-xs font-black text-black mb-xs select-none flex items-center gap-xs;
+  
+  &.required::after {
+    content: "*";
+    @apply text-error ml-[2px] font-black;
+  }
+}
+
+@utility form-control {
+  @apply w-full text-xs border border-black bg-white text-black px-md py-sm rounded transition-all;
+  
+  &:focus {
+    outline: none;
+    box-shadow: 2px 2px 0px 0px #000000;
+  }
+  
+  &:disabled, &[readonly] {
+    @apply bg-gray-50 text-gray-500 cursor-not-allowed border-gray-300;
+  }
+  
+  /* Sizing */
+  &.form-control-sm {
+    @apply py-xs px-sm text-[11px];
+  }
+  &.form-control-lg {
+    @apply py-md px-lg text-sm;
+  }
+  
+  /* Validation Error state */
+  &.is-invalid {
+    border-color: var(--color-error);
+    background-color: #fff5f5;
+    &:focus {
+      box-shadow: 2px 2px 0px 0px var(--color-error);
+    }
+  }
+}
+
+@utility invalid-feedback {
+  @apply text-[10px] font-bold text-error mt-xs select-none block;
+}
+
+/* Custom Checkboxes and Radios */
+@utility form-check {
+  @apply flex items-center gap-xs cursor-pointer select-none mb-sm;
+}
+
+@utility form-check-input {
+  @apply rounded border-2 border-black text-primary w-4 h-4 cursor-pointer focus:ring-0 focus:ring-offset-0 focus:outline-none transition-all;
+  
+  &[type="radio"] {
+    @apply rounded-full;
+  }
+  
+  &:checked {
+    @apply bg-primary border-black;
+    box-shadow: 1px 1px 0px 0px #000000;
+  }
+  
+  &.is-invalid {
+    @apply border-error bg-[#fff5f5];
+  }
+}
+
+@utility form-check-label {
+  @apply text-xs font-bold text-black cursor-pointer;
+}
+
+/* File Upload Drag Area */
+@utility form-file-drop {
+  @apply border border-dashed border-black rounded p-lg text-center bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors flex flex-col items-center justify-center gap-xs;
+}

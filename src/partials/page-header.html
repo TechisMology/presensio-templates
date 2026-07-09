@@ -1,0 +1,40 @@
+{% macro pageHeader(title, breadcrumbs, showPeriodFilter=true) %}
+<div class="page-header">
+  <div>
+    <!-- BREADCRUMB -->
+    <nav class="flex items-center gap-xs text-[10px] font-bold text-gray-400 uppercase mb-1">
+      {% for item in breadcrumbs %}
+        {% if not loop.last %}
+          <a href="{{ item.href }}" class="hover:text-black transition-colors">{{ item.label }}</a>
+          <span class="text-gray-300">/</span>
+        {% else %}
+          <span class="text-black">{{ item.label }}</span>
+        {% endif %}
+      {% endfor %}
+    </nav>
+    <h2 class="text-xl font-bold text-black">{{ title }}</h2>
+  </div>
+
+  {% if showPeriodFilter %}
+  <div
+    class="flex border border-black rounded overflow-hidden text-[11px] font-bold"
+  >
+    <button
+      class="px-4 py-1.5 bg-white border-r border-black hover:bg-gray-50"
+    >
+      14 D
+    </button>
+    <button
+      class="px-4 py-1.5 bg-white border-r border-black hover:bg-gray-50"
+    >
+      28 D
+    </button>
+    <button
+      class="px-4 py-1.5 bg-primary-container text-white hover:bg-primary"
+    >
+      3 M
+    </button>
+  </div>
+  {% endif %}
+</div>
+{% endmacro %}

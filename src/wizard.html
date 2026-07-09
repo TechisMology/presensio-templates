@@ -1,0 +1,683 @@
+{% set page = "wizard" %}
+{% extends "layouts/main.html" %}
+{% from "partials/page-header.html" import pageHeader %}
+
+{% block content %}
+<div class="content-canvas">
+  {{ pageHeader('Form Wizard Components', [
+    { label: 'Home', href: '/index.html' },
+    { label: 'Components', href: '#' },
+    { label: 'Wizard', href: '/wizard.html' }
+  ], showPeriodFilter=false) }}
+
+  <div class="row">
+
+    <!-- 0. Basic Wizard -->
+    <div class="col-12 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header">
+          <span class="h6 mb-0">Basic Wizard</span>
+          <span class="badge badge-sm badge-light border border-black" id="bw-badge">Step 1 of 3</span>
+        </div>
+        <div class="card-body">
+
+          <!-- Step indicators -->
+          <div class="flex items-center gap-0 mb-lg" id="bw-steps">
+            <!-- Step 1 -->
+            <div class="flex items-center flex-1 bw-step" data-bw-step="1">
+              <div class="flex flex-col items-center">
+                <div class="bw-circle w-10 h-10 flex items-center justify-center rounded-full border-2 border-black bg-primary text-white font-black text-sm transition-all" style="box-shadow:2px 2px 0 #000">1</div>
+                <span class="text-[10px] fw-bold text-black mt-xs whitespace-nowrap">Account</span>
+              </div>
+              <div class="flex-1 h-[2px] bg-black mx-xs bw-connector"></div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex items-center flex-1 bw-step" data-bw-step="2">
+              <div class="flex flex-col items-center">
+                <div class="bw-circle w-10 h-10 flex items-center justify-center rounded-full border-2 border-black bg-white text-black font-black text-sm transition-all" style="box-shadow:2px 2px 0 #000">2</div>
+                <span class="text-[10px] fw-bold text-gray-400 mt-xs whitespace-nowrap">Details</span>
+              </div>
+              <div class="flex-1 h-[2px] bg-black mx-xs bw-connector"></div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex flex-col items-center bw-step" data-bw-step="3">
+              <div class="bw-circle w-10 h-10 flex items-center justify-center rounded-full border-2 border-black bg-white text-black font-black text-sm transition-all" style="box-shadow:2px 2px 0 #000">3</div>
+              <span class="text-[10px] fw-bold text-gray-400 mt-xs whitespace-nowrap">Done</span>
+            </div>
+          </div>
+
+          <!-- Panels -->
+          <div id="bw-content">
+
+            <!-- Panel 1 -->
+            <div class="wizard-panel active" data-bw-panel="1">
+              <h5 class="h6 mb-sm">Account Information</h5>
+              <div class="form-group">
+                <label class="form-label required" for="bw-name">Full Name</label>
+                <input type="text" id="bw-name" class="form-control" placeholder="Enter your full name" />
+              </div>
+              <div class="form-group mb-0">
+                <label class="form-label required" for="bw-email">Email Address</label>
+                <input type="email" id="bw-email" class="form-control" placeholder="e.g. user@school.id" />
+              </div>
+            </div>
+
+            <!-- Panel 2 -->
+            <div class="wizard-panel" data-bw-panel="2">
+              <h5 class="h6 mb-sm">Additional Details</h5>
+              <div class="form-group">
+                <label class="form-label required" for="bw-role">Role</label>
+                <select id="bw-role" class="form-control">
+                  <option value="">-- Select a role --</option>
+                  <option>Admin</option>
+                  <option>Teacher</option>
+                  <option>Student</option>
+                </select>
+              </div>
+              <div class="form-group mb-0">
+                <label class="form-label" for="bw-phone">Phone Number</label>
+                <input type="tel" id="bw-phone" class="form-control" placeholder="+62 812 3456 7890" />
+              </div>
+            </div>
+
+            <!-- Panel 3 Confirmation -->
+            <div class="wizard-panel" data-bw-panel="3">
+              <h5 class="h6 mb-sm">Confirmation</h5>
+              <div class="p-md border border-black rounded mb-sm" style="box-shadow:2px 2px 0 #000; background:#fffef5;">
+                <div class="flex justify-between py-xs border-b border-gray-100">
+                  <span class="fs-7 text-secondary">Full Name</span>
+                  <span class="fs-7 fw-bold" id="bw-confirm-name">—</span>
+                </div>
+                <div class="flex justify-between py-xs border-b border-gray-100">
+                  <span class="fs-7 text-secondary">Email</span>
+                  <span class="fs-7 fw-bold" id="bw-confirm-email">—</span>
+                </div>
+                <div class="flex justify-between py-xs">
+                  <span class="fs-7 text-secondary">Role</span>
+                  <span class="fs-7 fw-bold" id="bw-confirm-role">—</span>
+                </div>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" id="bw-agree" class="form-check-input" />
+                <label for="bw-agree" class="form-check-label fw-bold">I confirm all information is correct.</label>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Nav -->
+          <div class="wizard-nav mt-sm">
+            <button class="btn btn-md btn-light btn-shadow" id="bw-prev-btn" onclick="bwNav(-1)" disabled>
+              <span class="material-symbols-outlined fs-6">arrow_back</span> Previous
+            </button>
+            <button class="btn btn-md btn-primary btn-shadow" id="bw-next-btn" onclick="bwNav(1)">
+              Next <span class="material-symbols-outlined fs-6">arrow_forward</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header">
+          <span class="h6 mb-0">Horizontal Step Wizard — New Student Registration</span>
+          <span class="badge badge-sm badge-primary">Step <span id="hw-current-label">1</span> of 4</span>
+        </div>
+        <div class="card-body">
+
+          <!-- Step Indicator -->
+          <div class="wizard-steps mb-md" id="hw-steps">
+            <div class="wizard-steps-line"></div>
+
+            <div class="wizard-step active" data-wizard="hw" data-step="1">
+              <div class="wizard-step-circle">1</div>
+              <span class="wizard-step-label">Personal<br>Info</span>
+            </div>
+            <div class="wizard-step" data-wizard="hw" data-step="2">
+              <div class="wizard-step-circle">2</div>
+              <span class="wizard-step-label">Parent<br>Data</span>
+            </div>
+            <div class="wizard-step" data-wizard="hw" data-step="3">
+              <div class="wizard-step-circle">3</div>
+              <span class="wizard-step-label">Academic<br>Info</span>
+            </div>
+            <div class="wizard-step" data-wizard="hw" data-step="4">
+              <div class="wizard-step-circle">
+                <span class="material-symbols-outlined" style="font-size:14px;">check</span>
+              </div>
+              <span class="wizard-step-label">Review &<br>Submit</span>
+            </div>
+          </div>
+
+          <!-- Panels -->
+          <div class="wizard-content" id="hw-content">
+
+            <!-- Step 1 -->
+            <div class="wizard-panel active" data-wizard-panel="hw" data-panel="1">
+              <h5 class="h6 mb-sm">Step 1: Personal Information</h5>
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label class="form-label required" for="hw-name">Full Name</label>
+                    <input type="text" id="hw-name" class="form-control" placeholder="e.g. Ahmad Fauzi" />
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label class="form-label required" for="hw-nik">NIK / ID Number</label>
+                    <input type="text" id="hw-nik" class="form-control" placeholder="16-digit NIK" />
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="form-group">
+                    <label class="form-label required" for="hw-dob">Date of Birth</label>
+                    <input type="date" id="hw-dob" class="form-control" />
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="form-group">
+                    <label class="form-label required" for="hw-gender">Gender</label>
+                    <select id="hw-gender" class="form-control">
+                      <option value="">-- Select --</option>
+                      <option>Male</option>
+                      <option>Female</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="form-group">
+                    <label class="form-label" for="hw-religion">Religion</label>
+                    <select id="hw-religion" class="form-control">
+                      <option value="">-- Select --</option>
+                      <option>Islam</option>
+                      <option>Christian</option>
+                      <option>Hindu</option>
+                      <option>Buddhist</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group mb-0">
+                    <label class="form-label" for="hw-address">Home Address</label>
+                    <textarea id="hw-address" class="form-control" rows="2" placeholder="Full residential address..."></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="wizard-panel" data-wizard-panel="hw" data-panel="2">
+              <h5 class="h6 mb-sm">Step 2: Parent / Guardian Data</h5>
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label class="form-label required" for="hw-father">Father's Full Name</label>
+                    <input type="text" id="hw-father" class="form-control" placeholder="e.g. Budi Santoso" />
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label class="form-label required" for="hw-mother">Mother's Full Name</label>
+                    <input type="text" id="hw-mother" class="form-control" placeholder="e.g. Siti Rahayu" />
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label class="form-label required" for="hw-parent-phone">Parent Phone Number</label>
+                    <input type="tel" id="hw-parent-phone" class="form-control" placeholder="+62 812..." />
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label class="form-label" for="hw-parent-job">Parent Occupation</label>
+                    <input type="text" id="hw-parent-job" class="form-control" placeholder="e.g. Civil Servant" />
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group mb-0">
+                    <label class="form-label" for="hw-parent-income">Monthly Household Income</label>
+                    <select id="hw-parent-income" class="form-control">
+                      <option value="">-- Select range --</option>
+                      <option>Below Rp 1.000.000</option>
+                      <option>Rp 1.000.000 – Rp 3.000.000</option>
+                      <option>Rp 3.000.000 – Rp 7.000.000</option>
+                      <option>Above Rp 7.000.000</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="wizard-panel" data-wizard-panel="hw" data-panel="3">
+              <h5 class="h6 mb-sm">Step 3: Academic Background</h5>
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label class="form-label required" for="hw-school-prev">Previous School</label>
+                    <input type="text" id="hw-school-prev" class="form-control" placeholder="e.g. SMPN 1 Jakarta" />
+                  </div>
+                </div>
+                <div class="col-12 col-md-3">
+                  <div class="form-group">
+                    <label class="form-label required" for="hw-grad-year">Graduation Year</label>
+                    <input type="number" id="hw-grad-year" class="form-control" min="2015" max="2030" placeholder="e.g. 2024" />
+                  </div>
+                </div>
+                <div class="col-12 col-md-3">
+                  <div class="form-group">
+                    <label class="form-label" for="hw-gpa">Final GPA</label>
+                    <input type="number" id="hw-gpa" class="form-control" min="0" max="100" step="0.01" placeholder="e.g. 88.50" />
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-group">
+                    <label class="form-label required" for="hw-major">Requested Major</label>
+                    <select id="hw-major" class="form-control">
+                      <option value="">-- Select --</option>
+                      <option>Natural Sciences (IPA)</option>
+                      <option>Social Sciences (IPS)</option>
+                      <option>Language (Bahasa)</option>
+                      <option>Vocational (SMK)</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-group mb-0">
+                    <label class="form-label" for="hw-certificate">Upload Certificate (PDF)</label>
+                    <input type="file" id="hw-certificate" class="form-control" accept=".pdf,.jpg,.png" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 4 Review -->
+            <div class="wizard-panel" data-wizard-panel="hw" data-panel="4">
+              <h5 class="h6 mb-sm">Step 4: Review & Submit</h5>
+              <div class="alert alert-success">
+                <div class="flex items-center gap-xs">
+                  <span class="material-symbols-outlined text-success fs-5">check_circle</span>
+                  <span class="fw-bold">All steps completed!</span> Please review and submit your registration.
+                </div>
+              </div>
+              <div class="row mt-sm">
+                <div class="col-12 col-md-6">
+                  <div class="card" style="box-shadow: none; border-color: #ddd;">
+                    <div class="card-header bg-gray-50"><span class="h6 mb-0 fs-7">Personal Info</span></div>
+                    <div class="card-body py-xs">
+                      <div class="flex justify-between py-xs border-b border-gray-100"><span class="fs-7 text-secondary">Full Name</span><span class="fs-7 fw-bold">Ahmad Fauzi</span></div>
+                      <div class="flex justify-between py-xs border-b border-gray-100"><span class="fs-7 text-secondary">Gender</span><span class="fs-7 fw-bold">Male</span></div>
+                      <div class="flex justify-between py-xs"><span class="fs-7 text-secondary">Date of Birth</span><span class="fs-7 fw-bold">15 June 2008</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="card" style="box-shadow: none; border-color: #ddd;">
+                    <div class="card-header bg-gray-50"><span class="h6 mb-0 fs-7">Academic Info</span></div>
+                    <div class="card-body py-xs">
+                      <div class="flex justify-between py-xs border-b border-gray-100"><span class="fs-7 text-secondary">Previous School</span><span class="fs-7 fw-bold">SMPN 1 Jakarta</span></div>
+                      <div class="flex justify-between py-xs border-b border-gray-100"><span class="fs-7 text-secondary">Major</span><span class="fs-7 fw-bold">IPA</span></div>
+                      <div class="flex justify-between py-xs"><span class="fs-7 text-secondary">GPA</span><span class="fs-7 fw-bold">88.50</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-check mt-sm">
+                <input type="checkbox" id="hw-agree" class="form-check-input" />
+                <label for="hw-agree" class="form-check-label fw-bold">I confirm all data entered is correct and complete.</label>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Navigation -->
+          <div class="wizard-nav" id="hw-nav">
+            <button class="btn btn-md btn-light btn-shadow" id="hw-prev" onclick="wizardNav('hw', -1)" disabled>
+              <span class="material-symbols-outlined fs-6">arrow_back</span> Previous
+            </button>
+            <button class="btn btn-md btn-primary btn-shadow" id="hw-next" onclick="wizardNav('hw', 1)">
+              Next <span class="material-symbols-outlined fs-6">arrow_forward</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Progress Bar Style Wizard -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header">
+          <span class="h6 mb-0">Progress Bar Wizard</span>
+          <span class="badge badge-sm badge-warning" id="pb-label">Step 1 of 3</span>
+        </div>
+        <div class="card-body">
+
+          <!-- Progress Bar -->
+          <div class="wizard-progress-bar mb-md">
+            <div class="wizard-progress-track">
+              <div class="wizard-progress-fill" id="pb-fill" style="width: 33.33%"></div>
+            </div>
+            <span class="wizard-progress-label" id="pb-pct">33%</span>
+          </div>
+
+          <!-- Content panels -->
+          <div class="wizard-content" id="pb-content">
+            <div class="wizard-panel active" data-wizard-panel="pb" data-panel="1">
+              <h5 class="h6 mb-sm">Account Setup</h5>
+              <div class="form-group">
+                <label class="form-label required" for="pb-username">Username</label>
+                <input type="text" id="pb-username" class="form-control" placeholder="Choose a username..." />
+              </div>
+              <div class="form-group mb-0">
+                <label class="form-label required" for="pb-email">Email</label>
+                <input type="email" id="pb-email" class="form-control" placeholder="admin@school.id" />
+              </div>
+            </div>
+            <div class="wizard-panel" data-wizard-panel="pb" data-panel="2">
+              <h5 class="h6 mb-sm">Security Settings</h5>
+              <div class="form-group">
+                <label class="form-label required" for="pb-pass">Password</label>
+                <input type="password" id="pb-pass" class="form-control" placeholder="Min 8 characters" />
+              </div>
+              <div class="form-group mb-0">
+                <label class="form-label required" for="pb-pass2">Confirm Password</label>
+                <input type="password" id="pb-pass2" class="form-control" placeholder="Re-enter password" />
+              </div>
+            </div>
+            <div class="wizard-panel" data-wizard-panel="pb" data-panel="3">
+              <h5 class="h6 mb-sm">Account Ready!</h5>
+              <div class="alert alert-bg-success">
+                <div class="flex items-center gap-xs">
+                  <span class="material-symbols-outlined fs-5">check_circle</span>
+                  <span class="fw-bold">Setup Complete!</span> Your account has been configured.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wizard-nav">
+            <button class="btn btn-sm btn-light btn-shadow" id="pb-prev" onclick="pbNav(-1)" disabled>
+              <span class="material-symbols-outlined fs-6">arrow_back</span> Back
+            </button>
+            <button class="btn btn-sm btn-primary btn-shadow" id="pb-next" onclick="pbNav(1)">
+              Continue <span class="material-symbols-outlined fs-6">arrow_forward</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Sidebar (Vertical) Wizard -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header"><span class="h6 mb-0">Sidebar / Vertical Wizard</span></div>
+        <div class="card-body">
+
+          <div class="wizard-sidebar">
+            <!-- Sidebar Steps -->
+            <div class="wizard-sidebar-steps" id="sb-steps">
+              <div class="wizard-sidebar-step active" data-wizard="sb" data-step="1" onclick="sbNav(1)">
+                <div class="wizard-sidebar-circle">1</div>
+                <div>
+                  <div class="wizard-sidebar-label fw-bold">School Info</div>
+                  <div class="wizard-sidebar-label">Basic details</div>
+                </div>
+              </div>
+              <div class="wizard-sidebar-step" data-wizard="sb" data-step="2" onclick="sbNav(2)">
+                <div class="wizard-sidebar-circle">2</div>
+                <div>
+                  <div class="wizard-sidebar-label fw-bold">Curriculum</div>
+                  <div class="wizard-sidebar-label">Academic setup</div>
+                </div>
+              </div>
+              <div class="wizard-sidebar-step" data-wizard="sb" data-step="3" onclick="sbNav(3)">
+                <div class="wizard-sidebar-circle">3</div>
+                <div>
+                  <div class="wizard-sidebar-label fw-bold">Confirm</div>
+                  <div class="wizard-sidebar-label">Save settings</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sidebar Panels -->
+            <div class="wizard-sidebar-content">
+              <div id="sb-panels">
+                <div class="wizard-panel active" data-wizard-panel="sb" data-panel="1">
+                  <div class="form-group">
+                    <label class="form-label required" for="sb-sname">School Name</label>
+                    <input type="text" id="sb-sname" class="form-control" placeholder="e.g. SMA Negeri 5" />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="sb-npsn">NPSN</label>
+                    <input type="text" id="sb-npsn" class="form-control" placeholder="8-digit NPSN" />
+                  </div>
+                  <div class="form-group mb-0">
+                    <label class="form-label" for="sb-phone">School Phone</label>
+                    <input type="tel" id="sb-phone" class="form-control" placeholder="+62 21 ..." />
+                  </div>
+                </div>
+                <div class="wizard-panel" data-wizard-panel="sb" data-panel="2">
+                  <div class="form-group">
+                    <label class="form-label required" for="sb-grades">Active Grade Levels</label>
+                    <div class="flex flex-col gap-xs">
+                      <div class="form-check">
+                        <input type="checkbox" id="sb-g10" class="form-check-input" checked /><label for="sb-g10" class="form-check-label">Grade 10</label>
+                      </div>
+                      <div class="form-check">
+                        <input type="checkbox" id="sb-g11" class="form-check-input" checked /><label for="sb-g11" class="form-check-label">Grade 11</label>
+                      </div>
+                      <div class="form-check">
+                        <input type="checkbox" id="sb-g12" class="form-check-input" /><label for="sb-g12" class="form-check-label">Grade 12</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group mb-0">
+                    <label class="form-label" for="sb-curriculum">Curriculum</label>
+                    <select id="sb-curriculum" class="form-control">
+                      <option>Kurikulum Merdeka</option>
+                      <option>K-13</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="wizard-panel" data-wizard-panel="sb" data-panel="3">
+                  <div class="alert alert-success mb-sm">
+                    <div class="flex items-center gap-xs">
+                      <span class="material-symbols-outlined text-success fs-5">check_circle</span>
+                      <span class="fw-bold">Ready to save!</span> All settings confirmed.
+                    </div>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="sb-agree" class="form-check-input" />
+                    <label for="sb-agree" class="form-check-label fw-bold">Confirm all data is correct.</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="wizard-nav">
+                <button class="btn btn-sm btn-light btn-shadow" id="sb-prev" onclick="sbNav(sbStep - 1)" disabled>
+                  <span class="material-symbols-outlined fs-6">arrow_back</span> Back
+                </button>
+                <button class="btn btn-sm btn-primary btn-shadow" id="sb-next" onclick="sbNav(sbStep + 1)">
+                  Next <span class="material-symbols-outlined fs-6">arrow_forward</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // ─── Horizontal Wizard ───────────────────────────────────────────
+  let hwStep = 1;
+  const hwTotal = 4;
+
+  function wizardNav(id, dir) {
+    const next = hwStep + dir;
+    if (next < 1 || next > hwTotal) return;
+
+    // mark old step completed if going forward
+    if (dir > 0) {
+      document.querySelector(`[data-wizard="${id}"][data-step="${hwStep}"]`)
+        .classList.replace('active', 'completed');
+    } else {
+      const cur = document.querySelector(`[data-wizard="${id}"][data-step="${hwStep}"]`);
+      cur.classList.remove('active', 'completed');
+    }
+
+    hwStep = next;
+
+    // hide all panels
+    document.querySelectorAll(`[data-wizard-panel="${id}"]`).forEach(p => p.classList.remove('active'));
+    document.querySelector(`[data-wizard-panel="${id}"][data-panel="${hwStep}"]`).classList.add('active');
+
+    // activate step circle
+    document.querySelectorAll(`[data-wizard="${id}"]`).forEach(s => s.classList.remove('active'));
+    document.querySelector(`[data-wizard="${id}"][data-step="${hwStep}"]`).classList.add('active');
+
+    // update label
+    document.getElementById('hw-current-label').textContent = hwStep;
+
+    // button states
+    document.getElementById('hw-prev').disabled = hwStep === 1;
+    const nextBtn = document.getElementById('hw-next');
+    if (hwStep === hwTotal) {
+      nextBtn.innerHTML = '<span class="material-symbols-outlined fs-6">send</span> Submit';
+      nextBtn.onclick = () => alert('Form submitted!');
+    } else {
+      nextBtn.innerHTML = 'Next <span class="material-symbols-outlined fs-6">arrow_forward</span>';
+      nextBtn.onclick = () => wizardNav('hw', 1);
+    }
+  }
+
+  // ─── Progress Bar Wizard ─────────────────────────────────────────
+  let pbStep = 1;
+  const pbTotal = 3;
+
+  function pbNav(dir) {
+    const next = pbStep + dir;
+    if (next < 1 || next > pbTotal) return;
+    pbStep = next;
+
+    document.querySelectorAll('[data-wizard-panel="pb"]').forEach(p => p.classList.remove('active'));
+    document.querySelector(`[data-wizard-panel="pb"][data-panel="${pbStep}"]`).classList.add('active');
+
+    const pct = Math.round((pbStep / pbTotal) * 100);
+    document.getElementById('pb-fill').style.width = pct + '%';
+    document.getElementById('pb-pct').textContent = pct + '%';
+    document.getElementById('pb-label').textContent = `Step ${pbStep} of ${pbTotal}`;
+
+    document.getElementById('pb-prev').disabled = pbStep === 1;
+    const nextBtn = document.getElementById('pb-next');
+    if (pbStep === pbTotal) {
+      nextBtn.innerHTML = '<span class="material-symbols-outlined fs-6">send</span> Finish';
+      nextBtn.onclick = () => alert('Account setup complete!');
+    } else {
+      nextBtn.innerHTML = 'Continue <span class="material-symbols-outlined fs-6">arrow_forward</span>';
+      nextBtn.onclick = () => pbNav(1);
+    }
+  }
+
+  // ─── Sidebar Wizard ──────────────────────────────────────────────
+  let sbStep = 1;
+  const sbTotal = 3;
+
+  function sbNav(target) {
+    if (target < 1 || target > sbTotal) return;
+    sbStep = target;
+
+    document.querySelectorAll('[data-wizard-panel="sb"]').forEach(p => p.classList.remove('active'));
+    document.querySelector(`[data-wizard-panel="sb"][data-panel="${sbStep}"]`).classList.add('active');
+
+    document.querySelectorAll('[data-wizard="sb"]').forEach((s, i) => {
+      s.classList.remove('active', 'completed');
+      const stepNum = parseInt(s.dataset.step);
+      if (stepNum === sbStep) s.classList.add('active');
+      else if (stepNum < sbStep) s.classList.add('completed');
+    });
+
+    document.getElementById('sb-prev').disabled = sbStep === 1;
+    const nextBtn = document.getElementById('sb-next');
+    if (sbStep === sbTotal) {
+      nextBtn.innerHTML = '<span class="material-symbols-outlined fs-6">send</span> Save';
+      nextBtn.onclick = () => alert('Settings saved!');
+    } else {
+      nextBtn.innerHTML = 'Next <span class="material-symbols-outlined fs-6">arrow_forward</span>';
+      nextBtn.onclick = () => sbNav(sbStep + 1);
+    }
+  }
+
+  // ─── Basic Wizard ────────────────────────────────────────────────
+  let bwStep = 1;
+  const bwTotal = 3;
+
+  function bwNav(dir) {
+    const next = bwStep + dir;
+    if (next < 1 || next > bwTotal) return;
+
+    // If going to confirmation step, populate review fields
+    if (next === 3) {
+      const name = document.getElementById('bw-name').value || '—';
+      const email = document.getElementById('bw-email').value || '—';
+      const role = document.getElementById('bw-role').value || '—';
+      document.getElementById('bw-confirm-name').textContent = name;
+      document.getElementById('bw-confirm-email').textContent = email;
+      document.getElementById('bw-confirm-role').textContent = role;
+    }
+
+    bwStep = next;
+
+    // Panels
+    document.querySelectorAll('[data-bw-panel]').forEach(p => p.classList.remove('active'));
+    document.querySelector(`[data-bw-panel="${bwStep}"]`).classList.add('active');
+
+    // Step circles: update bg and label color
+    document.querySelectorAll('.bw-step').forEach(s => {
+      const circle = s.querySelector('.bw-circle');
+      const label = s.querySelector('span');
+      const num = parseInt(s.dataset.bwStep);
+      if (num < bwStep) {
+        // completed — green with checkmark
+        circle.style.backgroundColor = '#006229';
+        circle.style.color = '#fff';
+        circle.innerHTML = '<span class="material-symbols-outlined" style="font-size:14px;">check</span>';
+        if (label) { label.classList.remove('text-gray-400'); label.classList.add('text-black'); }
+      } else if (num === bwStep) {
+        // active — primary yellow
+        circle.style.backgroundColor = 'var(--color-primary)';
+        circle.style.color = '#fff';
+        circle.textContent = num;
+        if (label) { label.classList.remove('text-gray-400'); label.classList.add('text-black'); }
+      } else {
+        // future — white
+        circle.style.backgroundColor = '#fff';
+        circle.style.color = '#000';
+        circle.textContent = num;
+        if (label) { label.classList.add('text-gray-400'); label.classList.remove('text-black'); }
+      }
+    });
+
+    // Badge
+    document.getElementById('bw-badge').textContent = `Step ${bwStep} of ${bwTotal}`;
+
+    // Buttons
+    document.getElementById('bw-prev-btn').disabled = bwStep === 1;
+    const nextBtn = document.getElementById('bw-next-btn');
+    if (bwStep === bwTotal) {
+      nextBtn.innerHTML = '<span class="material-symbols-outlined fs-6">send</span> Submit';
+      nextBtn.onclick = () => alert('Form submitted successfully!');
+    } else {
+      nextBtn.innerHTML = 'Next <span class="material-symbols-outlined fs-6">arrow_forward</span>';
+      nextBtn.onclick = () => bwNav(1);
+    }
+  }
+</script>
+{% endblock %}

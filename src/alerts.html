@@ -1,0 +1,227 @@
+{% set page = "alerts" %} {% extends "layouts/main.html" %} {% from
+"partials/page-header.html" import pageHeader %} {% block content %}
+<div class="content-canvas">
+  {{ pageHeader('Alert Components', [ { label: 'Home', href: '/index.html' }, {
+  label: 'Components', href: '#' }, { label: 'Alert', href: '/alerts.html' } ],
+  showPeriodFilter=false) }}
+
+  <div class="row">
+    <!-- 1. Accent Outline Alerts -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header">
+          <span class="h6 mb-0">Accent Outline Alerts</span>
+        </div>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-sm">
+            Standard alerts with left-accent borders. Click the close button to
+            dismiss.
+          </p>
+
+          <!-- Success -->
+          <div class="alert alert-success">
+            <div class="flex items-center gap-xs">
+              <span class="material-symbols-outlined text-success fs-5"
+                >check_circle</span
+              >
+              <span class="fw-bold">Success Alert:</span> Information saved
+              correctly.
+            </div>
+            <button class="alert-close">
+              <span class="material-symbols-outlined fs-6">close</span>
+            </button>
+          </div>
+
+          <!-- Danger -->
+          <div class="alert alert-danger">
+            <div class="flex items-center gap-xs">
+              <span class="material-symbols-outlined text-danger fs-5"
+                >error</span
+              >
+              <span class="fw-bold">Danger Alert:</span> Something went wrong.
+            </div>
+            <button class="alert-close">
+              <span class="material-symbols-outlined fs-6">close</span>
+            </button>
+          </div>
+
+          <!-- Warning -->
+          <div class="alert alert-warning">
+            <div class="flex items-center gap-xs">
+              <span class="material-symbols-outlined text-warning fs-5"
+                >warning</span
+              >
+              <span class="fw-bold">Warning Alert:</span> Disk capacity is
+              almost full.
+            </div>
+            <button class="alert-close">
+              <span class="material-symbols-outlined fs-6">close</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Full Background Alerts -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header">
+          <span class="h6 mb-0">Full Background Alerts</span>
+        </div>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-sm">
+            Banners with solid theme backgrounds and matching text contrasts.
+          </p>
+
+          <!-- Primary Full BG -->
+          <div class="alert alert-bg-primary">
+            <div class="flex items-center gap-xs">
+              <span class="material-symbols-outlined fs-5">info</span>
+              <span class="fw-bold">Primary Info:</span> New system updates are
+              available.
+            </div>
+            <button class="alert-close">
+              <span class="material-symbols-outlined fs-6">close</span>
+            </button>
+          </div>
+
+          <!-- Success Full BG -->
+          <div class="alert alert-bg-success">
+            <div class="flex items-center gap-xs">
+              <span class="material-symbols-outlined fs-5">check_circle</span>
+              <span class="fw-bold">Success Status:</span> All attendance
+              records synced!
+            </div>
+            <button class="alert-close">
+              <span class="material-symbols-outlined fs-6">close</span>
+            </button>
+          </div>
+
+          <!-- Danger Full BG -->
+          <div class="alert alert-bg-danger">
+            <div class="flex items-center gap-xs">
+              <span class="material-symbols-outlined fs-5">error</span>
+              <span class="fw-bold">Critical Error:</span> Database credentials
+              incorrect.
+            </div>
+            <button class="alert-close">
+              <span class="material-symbols-outlined fs-6">close</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Neo-Brutalist Shadow Banners -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header">
+          <span class="h6 mb-0">Neo-Brutalist Shadow Banners</span>
+        </div>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-sm">
+            Banners utilizing the `.alert-shadow` utility class for signature
+            hard offset border shadows.
+          </p>
+
+          <!-- Outline Shadow Warning -->
+          <div class="alert alert-warning alert-shadow">
+            <div class="flex items-center gap-xs">
+              <span class="material-symbols-outlined text-warning fs-5"
+                >warning</span
+              >
+              <span class="fw-bold">Shadow Warning:</span> Unsaved changes will
+              be lost.
+            </div>
+            <button class="alert-close">
+              <span class="material-symbols-outlined fs-6">close</span>
+            </button>
+          </div>
+
+          <!-- Full BG Shadow Primary -->
+          <div class="alert alert-bg-primary alert-shadow">
+            <div class="flex items-center gap-xs">
+              <span class="material-symbols-outlined fs-5">info</span>
+              <span class="fw-bold">Shadow Banner:</span> System dispatch queue
+              is now empty.
+            </div>
+            <button class="alert-close">
+              <span class="material-symbols-outlined fs-6">close</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Alerts with Progress Countdowns -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header">
+          <span class="h6 mb-0">Countdown Progress Alerts</span>
+        </div>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-sm">
+            Alerts with countdown progress timers animating at the bottom.
+            Auto-close behaviors can be attached.
+          </p>
+
+          <!-- Warning with Progress -->
+          <div class="alert alert-warning alert-shadow" id="alert-countdown-1">
+            <div class="flex items-center gap-xs">
+              <span class="material-symbols-outlined text-warning fs-5"
+                >hourglass_empty</span
+              >
+              <span class="fw-bold">Auto Closing:</span> Session expires in 5
+              seconds.
+            </div>
+            <button class="alert-close">
+              <span class="material-symbols-outlined fs-6">close</span>
+            </button>
+            <div
+              class="alert-progress-bar"
+              style="animation: alert-progress 5000ms linear forwards"
+            ></div>
+          </div>
+
+          <!-- Danger with Progress (Full BG) -->
+          <div class="alert alert-bg-danger" id="alert-countdown-2">
+            <div class="flex items-center gap-xs">
+              <span class="material-symbols-outlined fs-5">error</span>
+              <span class="fw-bold">Emergency Stop:</span> Server restarting in
+              8 seconds.
+            </div>
+            <button class="alert-close">
+              <span class="material-symbols-outlined fs-6">close</span>
+            </button>
+            <div
+              class="alert-progress-bar"
+              style="animation: alert-progress 8000ms linear forwards"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Dynamic Auto-Close for the countdown previews
+  setTimeout(() => {
+    const alert1 = document.getElementById("alert-countdown-1");
+    if (alert1) {
+      alert1.style.transition = "opacity 0.25s ease";
+      alert1.style.opacity = "0";
+      setTimeout(() => alert1.remove(), 250);
+    }
+  }, 5000);
+
+  setTimeout(() => {
+    const alert2 = document.getElementById("alert-countdown-2");
+    if (alert2) {
+      alert2.style.transition = "opacity 0.25s ease";
+      alert2.style.opacity = "0";
+      setTimeout(() => alert2.remove(), 250);
+    }
+  }, 8000);
+</script>
+{% endblock %}

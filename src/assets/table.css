@@ -1,0 +1,114 @@
+/* Table and Pagination Component Styles */
+
+@utility table-container {
+  @apply w-full overflow-x-auto border border-black rounded;
+}
+@utility table-container-shadow {
+  box-shadow: 4px 4px 0px 0px #000000;
+}
+
+@utility table {
+  @apply w-full border-collapse text-left bg-white;
+  font-family: var(--font-body-md);
+  
+  & th {
+    @apply px-md py-sm font-bold text-xs uppercase text-black border-b border-black bg-gray-50;
+  }
+  
+  & td {
+    @apply px-md py-sm text-xs text-gray-700 border-b border-gray-200;
+  }
+  
+  & tr:last-child td {
+    border-bottom: none;
+  }
+}
+
+/* Border Variations */
+@utility table-bordered {
+  & th, & td {
+    @apply border border-black;
+  }
+  & tr:last-child td {
+    @apply border-b border-black;
+  }
+}
+
+@utility table-border-y {
+  & th {
+    @apply border-t border-b border-black;
+  }
+  & td {
+    @apply border-b border-black;
+  }
+  & tr:last-child td {
+    @apply border-b-0;
+  }
+}
+
+/* Row Styling Modifiers */
+@utility table-striped {
+  & tbody tr:nth-of-type(odd) {
+    @apply bg-gray-50;
+  }
+}
+
+@utility table-hover {
+  & tbody tr:hover {
+    @apply bg-gray-100;
+  }
+}
+
+/* Header Background Variations */
+@utility table-thead-primary {
+  & th {
+    @apply bg-primary text-white border-b border-black;
+  }
+}
+
+@utility table-thead-dark {
+  & th {
+    @apply bg-inverse-surface text-white border-b border-black;
+  }
+}
+
+@utility table-thead-alert {
+  & th {
+    @apply bg-secondary-container text-black border-b border-black;
+  }
+}
+
+/* Contextual Row Highlights */
+@utility table-row-success {
+  background-color: #d1fae5 !important;
+  color: #065f46 !important;
+  & td {
+    color: #065f46 !important;
+  }
+}
+
+@utility table-row-danger {
+  background-color: #fee2e2 !important;
+  color: #991b1b !important;
+  & td {
+    color: #991b1b !important;
+  }
+}
+
+/* Pagination Component */
+@utility pagination {
+  @apply flex items-center justify-center gap-xs mt-md;
+}
+@utility page-link {
+  @apply btn btn-sm btn-light;
+  min-width: 32px;
+  height: 32px;
+  @apply p-0 flex items-center justify-center;
+  
+  &.active {
+    @apply btn-primary;
+  }
+  &.disabled {
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
+  }
+}

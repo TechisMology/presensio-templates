@@ -1,0 +1,137 @@
+/* Form Wizard Component Styles */
+
+/* ── Wrapper ── */
+@utility wizard {
+  @apply flex flex-col gap-md;
+}
+
+/* ── Step Track (horizontal by default) ── */
+@utility wizard-steps {
+  @apply flex items-start relative;
+}
+
+/* connector line between steps */
+@utility wizard-steps-line {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #000;
+  z-index: 0;
+}
+
+/* ── Individual step indicator ── */
+@utility wizard-step {
+  @apply flex flex-col items-center flex-1 relative z-10 cursor-pointer select-none;
+}
+
+@utility wizard-step-circle {
+  @apply w-8 h-8 flex items-center justify-center rounded-full border-2 border-black bg-white text-black font-black text-xs mb-xs transition-all;
+  box-shadow: 2px 2px 0px 0px #000;
+}
+
+@utility wizard-step-label {
+  @apply text-[10px] font-bold text-gray-400 text-center leading-tight;
+}
+
+/* Active step */
+.wizard-step.active .wizard-step-circle {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  box-shadow: 3px 3px 0px 0px #000;
+}
+.wizard-step.active .wizard-step-label {
+  color: #000000;
+}
+
+/* Completed step */
+.wizard-step.completed .wizard-step-circle {
+  background-color: #006229;
+  color: #ffffff;
+  box-shadow: 2px 2px 0px 0px #000;
+}
+.wizard-step.completed .wizard-step-label {
+  color: #006229;
+}
+
+/* ── Step panels (content) ── */
+@utility wizard-content {
+  @apply relative overflow-hidden;
+}
+
+@utility wizard-panel {
+  @apply hidden flex-col gap-sm;
+  
+  &.active {
+    @apply flex;
+  }
+}
+
+/* ── Progress bar variant ── */
+@utility wizard-progress-bar {
+  @apply flex items-center mb-md;
+}
+
+@utility wizard-progress-track {
+  @apply flex-1 h-2 bg-gray-200 border border-black rounded overflow-hidden;
+}
+
+@utility wizard-progress-fill {
+  @apply h-full bg-primary transition-all duration-300;
+}
+
+@utility wizard-progress-label {
+  @apply text-xs font-black text-black ml-sm whitespace-nowrap;
+}
+
+/* ── Numbered sidebar variant ── */
+@utility wizard-sidebar {
+  @apply flex gap-md;
+}
+
+@utility wizard-sidebar-steps {
+  @apply flex flex-col gap-sm w-40 shrink-0;
+}
+
+@utility wizard-sidebar-step {
+  @apply flex items-center gap-sm py-sm px-sm rounded cursor-pointer select-none border border-transparent transition-colors;
+  
+  &.active {
+    @apply border-black bg-white;
+    box-shadow: 2px 2px 0px 0px #000;
+  }
+  &.completed {
+    @apply border-transparent opacity-70;
+  }
+}
+
+@utility wizard-sidebar-circle {
+  @apply w-7 h-7 shrink-0 flex items-center justify-center rounded-full border-2 border-black bg-white text-black font-black text-[10px];
+}
+
+.wizard-sidebar-step.active .wizard-sidebar-circle {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+.wizard-sidebar-step.completed .wizard-sidebar-circle {
+  background-color: #006229;
+  color: #ffffff;
+}
+
+@utility wizard-sidebar-label {
+  @apply text-[10px] font-bold text-gray-500 leading-tight;
+}
+.wizard-sidebar-step.active .wizard-sidebar-label,
+.wizard-sidebar-step.completed .wizard-sidebar-label {
+  color: #000;
+}
+
+@utility wizard-sidebar-content {
+  @apply flex-1 min-w-0;
+}
+
+/* ── Navigation Buttons ── */
+@utility wizard-nav {
+  @apply flex justify-between items-center pt-sm border-t border-black mt-sm;
+}

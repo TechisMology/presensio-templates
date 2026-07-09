@@ -1,0 +1,524 @@
+<!doctype html>
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Presensio Admin Dashboard</title>
+<link
+  href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&amp;family=Space+Grotesk:wght@700&amp;display=swap"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+  rel="stylesheet"
+/>
+
+    <script type="module" crossorigin src="/assets/tables-DyQW9MnY.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/main-CchPDCuZ.js">
+    <link rel="stylesheet" crossorigin href="/assets/main-O-gb7aDW.css">
+  </head>
+  <body class="main-wrapper">
+    <div class="flex h-screen overflow-hidden">
+      <!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-brand">
+    <div class="sidebar-logo">B</div>
+    <h1 class="sidebar-title">rutalism</h1>
+  </div>
+  <nav class="sidebar-nav">
+    <a
+      class="sidebar-link "
+      href="/index.html"
+    >
+      <span class="material-symbols-outlined">dashboard</span>
+      <span class="text-sm font-medium">Dashboard</span>
+    </a>
+    <a
+      class="sidebar-link "
+      href="/cards.html"
+    >
+      <span class="material-symbols-outlined">grid_view</span>
+      <span class="text-sm font-medium">Card</span>
+    </a>
+    <a
+      class="sidebar-link "
+      href="/texts.html"
+    >
+      <span class="material-symbols-outlined">text_fields</span>
+      <span class="text-sm font-medium">Typography</span>
+    </a>
+    <a
+      class="sidebar-link "
+      href="/buttons.html"
+    >
+      <span class="material-symbols-outlined">smart_button</span>
+      <span class="text-sm font-medium">Button</span>
+    </a>
+    <a
+      class="sidebar-link active"
+      href="/tables.html"
+    >
+      <span class="material-symbols-outlined">table_chart</span>
+      <span class="text-sm font-medium">Table</span>
+    </a>
+    <a
+      class="sidebar-link "
+      href="/badges.html"
+    >
+      <span class="material-symbols-outlined">label</span>
+      <span class="text-sm font-medium">Badge</span>
+    </a>
+    <a
+      class="sidebar-link "
+      href="/dropdowns.html"
+    >
+      <span class="material-symbols-outlined">arrow_drop_down_circle</span>
+      <span class="text-sm font-medium">Dropdown</span>
+    </a>
+    <a
+      class="sidebar-link "
+      href="/list-groups.html"
+    >
+      <span class="material-symbols-outlined">view_list</span>
+      <span class="text-sm font-medium">List Group</span>
+    </a>
+    <a
+      class="sidebar-link "
+      href="/progress.html"
+    >
+      <span class="material-symbols-outlined">percentage</span>
+      <span class="text-sm font-medium">Progress</span>
+    </a>
+    <a
+      class="sidebar-link "
+      href="/tabs.html"
+    >
+      <span class="material-symbols-outlined">tab</span>
+      <span class="text-sm font-medium">Tab</span>
+    </a>
+    <a
+      class="sidebar-link "
+      href="/toasts.html"
+    >
+      <span class="material-symbols-outlined">chat_bubble</span>
+      <span class="text-sm font-medium">Toast</span>
+    </a>
+    <a
+      class="sidebar-link "
+      href="/alerts.html"
+    >
+      <span class="material-symbols-outlined">warning_amber</span>
+      <span class="text-sm font-medium">Alert</span>
+    </a>
+    <a
+      class="sidebar-link "
+      href="/forms.html"
+    >
+      <span class="material-symbols-outlined">edit_note</span>
+      <span class="text-sm font-medium">Form</span>
+    </a>
+    <a
+      class="sidebar-link "
+      href="/wizard.html"
+    >
+      <span class="material-symbols-outlined">linear_scale</span>
+      <span class="text-sm font-medium">Form Wizard</span>
+    </a>
+    <a
+      class="sidebar-link "
+      href="/datatables.html"
+    >
+      <span class="material-symbols-outlined">table_chart</span>
+      <span class="text-sm font-medium">DataTables</span>
+    </a>
+    <a
+      class="sidebar-link "
+      href="/modals.html"
+    >
+      <span class="material-symbols-outlined">web_asset</span>
+      <span class="text-sm font-medium">Modals</span>
+    </a>
+  </nav>
+</aside>
+
+
+      <!-- RIGHT SIDE CONTAINER -->
+      <div class="flex-1 flex flex-col h-full overflow-hidden">
+        <!-- TOP APP BAR -->
+<header class="app-header">
+  <div class="flex items-center gap-md flex-1">
+    <div class="search-box">
+      <span class="material-symbols-outlined text-gray-400">search</span>
+      <input
+        class="border-none focus:ring-0 bg-transparent text-[13px] w-full"
+        placeholder="Search..."
+        type="text"
+      />
+    </div>
+  </div>
+  <div class="header-actions">
+    <button class="header-btn">
+      <span class="material-symbols-outlined">light_mode</span>
+    </button>
+    <button class="header-btn">
+      <span class="material-symbols-outlined">translate</span>
+    </button>
+    <button class="header-btn relative">
+      <span class="material-symbols-outlined">mail</span>
+      <span class="header-badge">4</span>
+    </button>
+    <button class="header-btn relative">
+      <span class="material-symbols-outlined">notifications</span>
+      <span class="header-badge">1</span>
+    </button>
+    <div class="header-avatar">
+      <img
+        class="w-full h-full object-cover"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTxW-SCaflPUu4H3RECGfkedzcsDUB9rh1rL0GOvCHLfi1RhU9z10Big4Cr14T8cMhgc6PYv-8kDUZsZU-XxCanQHYCQFL4cUf0VhUe1Aq--yTqxPPZQ5xARa4O9PQBR0ZubUdRIvnoTRSWKk3KYzp-esBnkeUv4VsiJtet4TDju69z6opAfqWO55Yfw4uw-uW5d-FwUSusVWpdPyH8UaOwwnvzp0bcE-n7HZCgsUMy62ukNEmHlUGKzylXL4EO6N2v1ss22aVaz8"
+      />
+    </div>
+  </div>
+</header>
+
+
+        <!-- SCROLLABLE CONTENT -->
+        <main class="main-content">
+          
+<div class="content-canvas">
+  
+<div class="page-header">
+  <div>
+    <!-- BREADCRUMB -->
+    <nav class="flex items-center gap-xs text-[10px] font-bold text-gray-400 uppercase mb-1">
+      
+        
+          <a href="/index.html" class="hover:text-black transition-colors">Home</a>
+          <span class="text-gray-300">/</span>
+        
+      
+        
+          <a href="#" class="hover:text-black transition-colors">Components</a>
+          <span class="text-gray-300">/</span>
+        
+      
+        
+          <span class="text-black">Table</span>
+        
+      
+    </nav>
+    <h2 class="text-xl font-bold text-black">Table Components</h2>
+  </div>
+
+  
+</div>
+
+
+  <div class="row">
+    <!-- 1. Standard Striped & Hover Table -->
+    <div class="col-12 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header"><span class="h6 mb-0">Standard Striped & Hover Table</span></div>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-sm">Standard table with bottom row borders, alternating row colors, and hover highlight effects.</p>
+          <div class="table-container">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Username</th>
+                  <th>Email Address</th>
+                  <th>Role</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>alex_dev</td>
+                  <td>alex@company.com</td>
+                  <td>Administrator</td>
+                  <td><span class="px-2 py-0.5 rounded text-bg-success fs-7">Active</span></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>jane_smith</td>
+                  <td>jane.s@company.com</td>
+                  <td>Editor</td>
+                  <td><span class="px-2 py-0.5 rounded text-bg-success fs-7">Active</span></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>bobby_k</td>
+                  <td>bobby@company.com</td>
+                  <td>Viewer</td>
+                  <td><span class="px-2 py-0.5 rounded text-bg-secondary fs-7">Suspended</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Full Bordered Grid Table & Dark Header -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header"><span class="h6 mb-0">Full Bordered & Dark Header</span></div>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-sm">A full bordered grid layout table utilizing the dark header configuration.</p>
+          <div class="table-container">
+            <table class="table table-bordered table-thead-dark">
+              <thead>
+                <tr>
+                  <th>Code</th>
+                  <th>Item Name</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>PRD-01</td>
+                  <td>Brutalist Mug</td>
+                  <td>$12.50</td>
+                </tr>
+                <tr>
+                  <td>PRD-02</td>
+                  <td>Yellow Notebook</td>
+                  <td>$8.99</td>
+                </tr>
+                <tr>
+                  <td>PRD-03</td>
+                  <td>Black Pencil Pack</td>
+                  <td>$4.50</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Outer/Horizontal Bordered Only & Alert Header -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header"><span class="h6 mb-0">Row-Borders Only & Alert Header</span></div>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-sm">Table with horizontal dividers only (no vertical lines) and alert accent header.</p>
+          <div class="table-container">
+            <table class="table table-border-y table-thead-alert">
+              <thead>
+                <tr>
+                  <th>Service</th>
+                  <th>Uptime</th>
+                  <th>Latency</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Auth API</td>
+                  <td class="fw-bold text-success">99.98%</td>
+                  <td>45ms</td>
+                </tr>
+                <tr>
+                  <td>Database</td>
+                  <td class="fw-bold text-success">100%</td>
+                  <td>8ms</td>
+                </tr>
+                <tr>
+                  <td>CDN Storage</td>
+                  <td class="fw-bold text-danger">92.40%</td>
+                  <td>450ms</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Card Integration: Teacher Schedule Table -->
+    <div class="col-12 col-lg-8 mb-md">
+      <div class="card card-shadow h-full">
+        <div class="card-header">
+          <h4 class="fs-6 fw-bold flex items-center gap-xs">
+            <span class="material-symbols-outlined text-secondary fs-6">calendar_today</span>
+            Jadwal Guru Hari Ini
+          </h4>
+          <span class="fs-7 fw-bold text-secondary">Senin, 12 Juli 2026</span>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="table table-hover">
+            <thead>
+              <tr class="bg-white">
+                <th class="text-secondary bg-white w-1/3">Guru</th>
+                <th class="text-secondary bg-white">Mata Pelajaran</th>
+                <th class="text-secondary bg-white">Kelas</th>
+                <th class="text-secondary bg-white">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="px-md py-sm fw-bold flex items-center gap-sm">
+                  <div class="w-7 h-7 rounded bg-gray-100 border border-black overflow-hidden shrink-0">
+                    <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeXB4QTtnxza5GADZns-cYweKLqInz52a_EgtZ2FgAFxSdldtWmeU9zUnFByt0z4CYF9PEzBeONcC2EqdxiTHiedmVQ9KfNzaLQObRgGP-mt7WkGdomUYLSYDe3qfMeaM1GSyhaCc-VCZPK-i5v_CVpTtHtJY-zsS1F4GVXSE6HQfIsuSUMtXy6NXopJPQxctzhUgSzI9XfZ5Yo6wZsh-9GDTTSTbFczdww2hbfJsckjI7FVLRn-neVO17NPsLYElUpXt0-9L0GKE">
+                  </div>
+                  <span>Drs. Bambang H.</span>
+                </td>
+                <td class="px-md py-sm text-secondary">Matematika Wajib</td>
+                <td class="px-md py-sm fw-bold text-primary">XII-IPA-1</td>
+                <td class="px-md py-sm">
+                  <span class="badge badge-sm badge-success-bright">
+                    HADIR
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-md py-sm fw-bold flex items-center gap-sm">
+                  <div class="w-7 h-7 rounded bg-gray-100 border border-black overflow-hidden shrink-0">
+                    <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALQ2NK1DKRPoFiruoVHN4vlENjW8NXIYkQl6ri7uCihZVHubjhUVoJlfGSbAdv_11Rwz7Z0kflgRpcqLJUULoktPd_8xMGGL9PGT08-6DOTfZeHGkRS8Sj2vN04u3mQefnbHac-AyUSGZ3FtTxkgdaGAl_uQHPJ6WBPGR0fcTRcp7iZ7dShvrYcEqWP29KWH5Q7DfLQ495ZOuBWJX5mlNAsW_FySMtbHoqTfSlqTl9A8rnRq3muDXDWMQiR_0VLHOO-MKfHBt7WAg">
+                  </div>
+                  <span>Siti Aminah, M.Pd</span>
+                </td>
+                <td class="px-md py-sm text-secondary">Bahasa Indonesia</td>
+                <td class="px-md py-sm fw-bold text-primary">X-IPS-3</td>
+                <td class="px-md py-sm">
+                  <span class="badge badge-sm badge-warning">
+                    BELUM ABSEN
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-md py-sm fw-bold flex items-center gap-sm">
+                  <div class="w-7 h-7 rounded bg-gray-100 border border-black overflow-hidden shrink-0">
+                    <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTGajvUgmpf5TLHspqLMAmQB1X4TRDCdz0XUZPJ7xIfIzgc2Jf5JJxcRvh7VDNrIDeDRhn8aNBDJmJUaOx3-EZ1VNcYqSb7YsHtBu6tQc3lgCeGGs6dz8o6sylTUwfd5NhK7_SiISE6F5tk0NDqlJh11TBdEXpMilDUJq9FsB9uX4HdBUaqj8IWtydcOk6kHH9PPaiKh1kiQJnXikgKtwg_n4afTHV2UVbSr8SBhe6TfBffJ8Vv84E4PQ5Q9t6BswZ5NgB4-e6jfY">
+                  </div>
+                  <span>Eko Prasetyo, S.Or</span>
+                </td>
+                <td class="px-md py-sm text-secondary">Penjaskes</td>
+                <td class="px-md py-sm fw-bold text-primary">XI-IPA-4</td>
+                <td class="px-md py-sm">
+                  <span class="badge badge-sm badge-success-bright">
+                    HADIR
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-md py-sm fw-bold flex items-center gap-sm">
+                  <div class="w-7 h-7 rounded bg-gray-100 border border-black overflow-hidden shrink-0">
+                    <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWO_GiLwx2TL9Pi0vlsU0KrMQjbn75csf_MNs00qVjOITFxe6w9XWGdwbMNnc8ApeLuiI0XbT_zIJ03QkaKBJw5NYKgrN0XoLjqv6UndSIQmodmUEelRlYLgsFTaNL-tR9x7DOZGlEnYbUfc4V4wIpiIL9SLhw5dO848NTSgWEhv-vuq1qps82IoKsdgTF7RsodZ7tD-ycLoeiC5hyMqFsnYvTpPK4Y9E4WiVmLmnRg7Ray5OMtTMmz-snf2vuVBet884g3XmydQk">
+                  </div>
+                  <span>Hj. Ratna Sari</span>
+                </td>
+                <td class="px-md py-sm text-secondary">Biologi</td>
+                <td class="px-md py-sm fw-bold text-primary">XII-IPA-2</td>
+                <td class="px-md py-sm">
+                  <span class="badge badge-sm badge-warning">
+                    BELUM ABSEN
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer">
+          <button class="fs-7 fw-bold text-uppercase tracking-wider text-secondary hover:text-dark hover:underline">
+            View All Schedule →
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Contextual Row Highlights & Pagination -->
+    <div class="col-12 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header"><span class="h6 mb-0">Contextual Highlights & Pagination Showcase</span></div>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-sm">Demonstrating row-level alert highlights and a clean Neo-Brutalist pagination bar.</p>
+          
+          <div class="table-container mb-md">
+            <table class="table table-bordered">
+              <thead class="table-thead-primary">
+                <tr>
+                  <th>Job ID</th>
+                  <th>Task Description</th>
+                  <th>Priority</th>
+                  <th>System Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-row-success">
+                  <td>#8024</td>
+                  <td>Daily automated database backup and replication completed successfully</td>
+                  <td>High</td>
+                  <td>Success</td>
+                </tr>
+                <tr>
+                  <td>#8025</td>
+                  <td>Standard log clearance scheduler execution</td>
+                  <td>Low</td>
+                  <td>Idle</td>
+                </tr>
+                <tr class="table-row-danger">
+                  <td>#8026</td>
+                  <td>System disk volume space exceeded 95% critical warning limit</td>
+                  <td>Critical</td>
+                  <td>Warning</td>
+                </tr>
+                <tr>
+                  <td>#8027</td>
+                  <td>Sync email verification server queue dispatch</td>
+                  <td>Medium</td>
+                  <td>Pending</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- PAGINATION -->
+          <div class="flex flex-col sm:flex-row justify-between items-center gap-sm pt-xs">
+            <span class="fs-7 text-secondary">Showing 1 to 4 of 24 entries</span>
+            
+            <nav class="pagination">
+              <a href="#" class="page-link disabled" aria-label="Previous">
+                <span class="material-symbols-outlined fs-6">chevron_left</span>
+              </a>
+              <a href="#" class="page-link active">1</a>
+              <a href="#" class="page-link">2</a>
+              <a href="#" class="page-link">3</a>
+              <span class="fs-7 text-secondary px-xs">...</span>
+              <a href="#" class="page-link">6</a>
+              <a href="#" class="page-link" aria-label="Next">
+                <span class="material-symbols-outlined fs-6">chevron_right</span>
+              </a>
+            </nav>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+          <!-- FOOTER -->
+<footer
+  class="p-md text-center text-gray-400 font-medium text-[10px] border-t border-gray-100 mt-auto"
+>
+  © 2026 Presensio Digital Education Ecosystem. All Rights Reserved.
+</footer>
+
+        </main>
+      </div>
+    </div>
+
+    <!-- FAB -->
+    <button
+      class="fixed bottom-lg right-lg w-12 h-12 bg-primary-container border border-black rounded-full flex items-center justify-center text-white hover:bg-primary transition-colors z-50"
+    >
+      <span class="material-symbols-outlined font-bold text-white">add</span>
+    </button>
+
+    <!-- JS Entry Point -->
+  </body>
+</html>

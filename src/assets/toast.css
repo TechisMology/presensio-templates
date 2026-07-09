@@ -1,0 +1,162 @@
+/* Toast and Notification Component Styles */
+
+@utility toast-container {
+  @apply fixed top-lg right-lg flex flex-col gap-sm z-50 pointer-events-none;
+  max-width: 320px;
+  width: 100%;
+}
+
+@utility toast {
+  @apply relative flex flex-col bg-white border border-black rounded p-md pointer-events-auto select-none overflow-hidden;
+  box-shadow: 4px 4px 0px 0px #000000;
+  opacity: 0;
+  transform: translateX(120%);
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.2s ease;
+  
+  &.show {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@utility toast-header {
+  @apply flex justify-between items-center mb-xs gap-sm;
+}
+
+@utility toast-title {
+  @apply text-xs font-black text-black flex items-center gap-xs;
+}
+
+@utility toast-body {
+  @apply text-xs text-gray-700 pr-md;
+}
+
+@utility toast-close {
+  @apply text-gray-400 hover:text-black cursor-pointer border-none bg-transparent p-0 flex items-center justify-center shrink-0;
+}
+
+/* Themes */
+@utility toast-primary {
+  border-left: 6px solid var(--color-primary);
+}
+@utility toast-success {
+  border-left: 6px solid #006229;
+}
+@utility toast-danger {
+  border-left: 6px solid var(--color-error);
+}
+@utility toast-warning {
+  border-left: 6px solid var(--color-secondary-container);
+}
+@utility toast-dark {
+  border-left: 6px solid var(--color-inverse-surface);
+}
+
+/* Progress bar timer */
+@keyframes toast-progress {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+@utility toast-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background-color: var(--color-primary);
+}
+
+.toast-success .toast-progress-bar {
+  background-color: #006229;
+}
+.toast-danger .toast-progress-bar {
+  background-color: var(--color-error);
+}
+.toast-warning .toast-progress-bar {
+  background-color: var(--color-secondary-container);
+}
+.toast-dark .toast-progress-bar {
+  background-color: var(--color-inverse-surface);
+}
+
+/* Full Background Toast Variants */
+.toast-bg-primary {
+  background-color: var(--color-primary) !important;
+  color: #ffffff !important;
+  border-color: #000000 !important;
+}
+.toast-bg-success {
+  background-color: #006229 !important;
+  color: #ffffff !important;
+  border-color: #000000 !important;
+}
+.toast-bg-danger {
+  background-color: var(--color-error) !important;
+  color: #ffffff !important;
+  border-color: #000000 !important;
+}
+.toast-bg-warning {
+  background-color: var(--color-secondary-container) !important;
+  color: #000000 !important;
+  border-color: #000000 !important;
+}
+.toast-bg-dark {
+  background-color: var(--color-inverse-surface) !important;
+  color: #ffffff !important;
+  border-color: #000000 !important;
+}
+
+/* Descendants in full bg toasts */
+.toast-bg-primary .toast-title,
+.toast-bg-success .toast-title,
+.toast-bg-danger .toast-title,
+.toast-bg-dark .toast-title {
+  color: #ffffff !important;
+}
+.toast-bg-warning .toast-title {
+  color: #000000 !important;
+}
+
+.toast-bg-primary .toast-body,
+.toast-bg-success .toast-body,
+.toast-bg-danger .toast-body,
+.toast-bg-dark .toast-body {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+.toast-bg-warning .toast-body {
+  color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.toast-bg-primary .toast-close,
+.toast-bg-success .toast-close,
+.toast-bg-danger .toast-close,
+.toast-bg-dark .toast-close {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+.toast-bg-primary .toast-close:hover,
+.toast-bg-success .toast-close:hover,
+.toast-bg-danger .toast-close:hover,
+.toast-bg-dark .toast-close:hover {
+  color: #ffffff !important;
+}
+.toast-bg-warning .toast-close {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+.toast-bg-warning .toast-close:hover {
+  color: #000000 !important;
+}
+
+.toast-bg-primary .toast-progress-bar,
+.toast-bg-success .toast-progress-bar,
+.toast-bg-danger .toast-progress-bar,
+.toast-bg-dark .toast-progress-bar {
+  background-color: rgba(255, 255, 255, 0.4) !important;
+}
+.toast-bg-warning .toast-progress-bar {
+  background-color: rgba(0, 0, 0, 0.25) !important;
+}

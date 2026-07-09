@@ -1,0 +1,107 @@
+/* List Group Component Styles */
+
+@utility list-group {
+  @apply flex flex-col pl-0 mb-0 border border-black rounded overflow-hidden bg-white;
+}
+
+@utility list-group-shadow {
+  box-shadow: 4px 4px 0px 0px #000000;
+}
+
+@utility list-group-item {
+  @apply relative block px-md py-sm text-xs font-medium text-black border-b border-black bg-white transition-colors;
+  text-decoration: none;
+  
+  &:last-child {
+    @apply border-b-0;
+  }
+  
+  &.active {
+    @apply bg-primary text-white border-b-primary;
+    & .text-secondary, & .text-muted {
+      @apply text-white/80;
+    }
+  }
+  
+  &.disabled {
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
+  }
+}
+
+/* Actionable Items (Links and Buttons) */
+@utility list-group-item-action {
+  @apply cursor-pointer;
+  &:hover {
+    @apply bg-gray-50;
+  }
+  &:active {
+    @apply bg-gray-100;
+  }
+}
+
+/* Flush Variant (Edge-to-edge inside parent card) */
+@utility list-group-flush {
+  @apply border-0 rounded-none;
+  & .list-group-item {
+    @apply border-x-0 rounded-none;
+    &:first-child {
+      @apply border-t-0;
+    }
+  }
+}
+
+/* Numbered Variant */
+@utility list-group-numbered {
+  counter-reset: list-group-counter;
+  
+  & .list-group-item {
+    counter-increment: list-group-counter;
+    @apply flex items-start gap-xs;
+    
+    &::before {
+      content: counter(list-group-counter) ".";
+      @apply font-bold text-black shrink-0;
+      min-width: 14px;
+    }
+    
+    &.active::before {
+      @apply text-white;
+    }
+  }
+}
+
+/* Horizontal Variant */
+@utility list-group-horizontal {
+  @apply flex-row overflow-x-auto;
+  & .list-group-item {
+    @apply border-b-0 border-r border-black flex-1 text-center py-sm px-md;
+    &:last-child {
+      @apply border-r-0;
+    }
+  }
+}
+
+/* Contextual Classes */
+@utility list-group-item-success {
+  background-color: #d1fae5 !important;
+  color: #065f46 !important;
+  &.list-group-item-action:hover {
+    background-color: #a7f3d0 !important;
+  }
+}
+
+@utility list-group-item-danger {
+  background-color: #fee2e2 !important;
+  color: #991b1b !important;
+  &.list-group-item-action:hover {
+    background-color: #fca5a5 !important;
+  }
+}
+
+@utility list-group-item-warning {
+  background-color: #fef3c7 !important;
+  color: #92400e !important;
+  &.list-group-item-action:hover {
+    background-color: #fde68a !important;
+  }
+}

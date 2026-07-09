@@ -1,0 +1,98 @@
+/* Button Component Styles */
+
+@utility btn {
+  @apply inline-flex items-center justify-center font-bold border border-black cursor-pointer select-none transition-all duration-75 text-center gap-xs;
+  border-radius: var(--radius-default);
+  font-family: var(--font-body-md);
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 0.875rem;
+}
+
+/* Button Sizing */
+@utility btn-sm {
+  padding: 6px 12px;
+  font-size: 0.75rem;
+}
+@utility btn-md {
+  padding: 10px 20px;
+  font-size: 0.875rem;
+}
+@utility btn-lg {
+  padding: 14px 28px;
+  font-size: 1rem;
+}
+
+/* Button Themes */
+@utility btn-primary {
+  @apply bg-primary text-white;
+  &:hover {
+    @apply bg-blue-700;
+  }
+}
+@utility btn-secondary {
+  @apply bg-gray-100 text-black;
+  &:hover {
+    @apply bg-gray-200;
+  }
+}
+@utility btn-success {
+  @apply bg-[#006229] text-white;
+  &:hover {
+    background-color: #004d20;
+  }
+}
+@utility btn-danger {
+  @apply bg-error text-white;
+  &:hover {
+    background-color: #a51010;
+  }
+}
+@utility btn-warning {
+  @apply bg-secondary-container text-black;
+  &:hover {
+    background-color: #eec200;
+  }
+}
+@utility btn-dark {
+  @apply bg-inverse-surface text-white;
+  &:hover {
+    background-color: #1e1e1e;
+  }
+}
+@utility btn-light {
+  @apply bg-white text-black;
+  &:hover {
+    @apply bg-gray-50;
+  }
+}
+
+/* Button Shadow (Neo-Brutalist Effect) */
+@utility btn-shadow {
+  box-shadow: 2px 2px 0px 0px #000000;
+  &:hover {
+    box-shadow: 4px 4px 0px 0px #000000;
+    transform: translate(-2px, -2px);
+  }
+  &:active {
+    box-shadow: 0px 0px 0px 0px #000000;
+    transform: translate(2px, 2px);
+  }
+}
+
+/* Icon Buttons (Centering & Sizing) */
+@utility btn-icon-only {
+  @apply p-0 rounded-full flex items-center justify-center shrink-0;
+}
+@utility btn-icon-sm {
+  width: 28px;
+  height: 28px;
+}
+@utility btn-icon-md {
+  width: 36px;
+  height: 36px;
+}
+@utility btn-icon-lg {
+  width: 44px;
+  height: 44px;
+}

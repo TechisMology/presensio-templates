@@ -1,0 +1,51 @@
+/* Dropdown Component Styles */
+
+@utility dropdown {
+  @apply relative inline-block;
+}
+
+@utility dropdown-toggle {
+  &::after {
+    display: inline-block;
+    margin-left: 0.35em;
+    vertical-align: 0.25em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+  }
+}
+
+@utility dropdown-menu {
+  @apply absolute left-0 mt-1 hidden min-w-[160px] bg-white border border-black rounded z-50 flex flex-col py-1;
+  box-shadow: 4px 4px 0px 0px #000000;
+  
+  &.show {
+    @apply flex;
+  }
+  
+  &.dropdown-menu-end {
+    @apply right-0 left-auto;
+  }
+}
+
+@utility dropdown-item {
+  @apply px-md py-2 text-xs font-bold text-black text-left block w-full hover:bg-gray-50 transition-colors cursor-pointer;
+  
+  &.active {
+    @apply bg-primary text-white;
+  }
+  
+  &.disabled {
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
+  }
+}
+
+@utility dropdown-divider {
+  @apply border-t border-black my-1;
+}
+
+@utility dropdown-header {
+  @apply px-md py-1 text-[10px] font-black uppercase text-gray-400 tracking-wider;
+}

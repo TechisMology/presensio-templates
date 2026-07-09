@@ -1,0 +1,66 @@
+/* Progress Component Styles */
+
+@utility progress {
+  @apply flex w-full overflow-hidden bg-gray-100 border border-black rounded;
+  height: 16px;
+}
+
+@utility progress-shadow {
+  box-shadow: 2px 2px 0px 0px #000000;
+}
+
+/* Progress Sizes */
+@utility progress-sm {
+  height: 8px;
+}
+@utility progress-md {
+  height: 16px;
+}
+@utility progress-lg {
+  height: 24px;
+}
+
+@utility progress-bar {
+  @apply flex flex-col justify-center overflow-hidden text-white text-center font-bold text-[10px] bg-primary transition-all duration-300 select-none;
+  height: 100%;
+}
+
+/* Themes */
+@utility progress-bar-success {
+  @apply bg-[#006229];
+}
+@utility progress-bar-danger {
+  @apply bg-error;
+}
+@utility progress-bar-warning {
+  @apply bg-secondary-container text-black;
+}
+@utility progress-bar-dark {
+  @apply bg-inverse-surface;
+}
+
+/* Striped variation */
+@utility progress-bar-striped {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+}
+
+/* Animated stripes */
+@keyframes progress-bar-stripes {
+  0% {
+    background-position-x: 1rem;
+  }
+}
+
+@utility progress-bar-animated {
+  animation: progress-bar-stripes 1s linear infinite;
+}

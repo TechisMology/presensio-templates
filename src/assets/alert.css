@@ -1,0 +1,116 @@
+/* Alert Component Styles */
+
+@utility alert {
+  @apply relative flex items-center justify-between p-md border border-black rounded bg-white text-xs select-none mb-md gap-sm overflow-hidden;
+}
+
+@utility alert-shadow {
+  box-shadow: 4px 4px 0px 0px #000000;
+}
+
+@utility alert-close {
+  @apply cursor-pointer text-gray-400 hover:text-black transition-colors shrink-0 flex items-center justify-center p-0 bg-transparent border-none;
+}
+
+/* Accent Outline Variations */
+.alert-primary {
+  border-left: 6px solid var(--color-primary);
+}
+.alert-success {
+  border-left: 6px solid #006229;
+}
+.alert-danger {
+  border-left: 6px solid var(--color-error);
+}
+.alert-warning {
+  border-left: 6px solid var(--color-secondary-container);
+}
+.alert-dark {
+  border-left: 6px solid var(--color-inverse-surface);
+}
+
+/* Full Background Variations */
+.alert-bg-primary {
+  background-color: var(--color-primary) !important;
+  color: #ffffff !important;
+}
+.alert-bg-success {
+  background-color: #006229 !important;
+  color: #ffffff !important;
+}
+.alert-bg-danger {
+  background-color: var(--color-error) !important;
+  color: #ffffff !important;
+}
+.alert-bg-warning {
+  background-color: var(--color-secondary-container) !important;
+  color: #000000 !important;
+}
+.alert-bg-dark {
+  background-color: var(--color-inverse-surface) !important;
+  color: #ffffff !important;
+}
+
+/* Close button on full bg alerts */
+.alert-bg-primary .alert-close,
+.alert-bg-success .alert-close,
+.alert-bg-danger .alert-close,
+.alert-bg-dark .alert-close {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+.alert-bg-primary .alert-close:hover,
+.alert-bg-success .alert-close:hover,
+.alert-bg-danger .alert-close:hover,
+.alert-bg-dark .alert-close:hover {
+  color: #ffffff !important;
+}
+.alert-bg-warning .alert-close {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+.alert-bg-warning .alert-close:hover {
+  color: #000000 !important;
+}
+
+/* Alert Timer Progress Bar */
+@keyframes alert-progress {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+@utility alert-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+}
+
+.alert-primary .alert-progress-bar {
+  background-color: var(--color-primary);
+}
+.alert-success .alert-progress-bar {
+  background-color: #006229;
+}
+.alert-danger .alert-progress-bar {
+  background-color: var(--color-error);
+}
+.alert-warning .alert-progress-bar {
+  background-color: var(--color-secondary-container);
+}
+.alert-dark .alert-progress-bar {
+  background-color: var(--color-inverse-surface);
+}
+
+.alert-bg-primary .alert-progress-bar,
+.alert-bg-success .alert-progress-bar,
+.alert-bg-danger .alert-progress-bar,
+.alert-bg-dark .alert-progress-bar {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.alert-bg-warning .alert-progress-bar {
+  background-color: rgba(0, 0, 0, 0.25);
+}

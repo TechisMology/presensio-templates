@@ -1,0 +1,108 @@
+/* Tab Component Styles */
+
+@utility nav-tabs {
+  @apply flex flex-wrap pl-0 mb-0 list-none border-b border-black gap-xs;
+}
+
+@utility nav-link {
+  @apply inline-flex items-center justify-center px-md py-sm text-xs font-bold text-gray-500 border border-transparent cursor-pointer select-none transition-all duration-75;
+  text-decoration: none;
+  
+  &:hover {
+    @apply text-black;
+  }
+}
+
+/* 1. Brutalist / Bordered Tabs */
+@utility nav-tabs-brutalist {
+  & .nav-link {
+    @apply rounded-t border-black bg-gray-50 -mb-[1px] border-b-black;
+    
+    &.active {
+      @apply bg-white text-black border-b-transparent;
+      /* Prevent the bottom line from drawing */
+      z-index: 2;
+    }
+  }
+}
+
+/* 2. Pill Tabs */
+@utility nav-pills {
+  @apply flex flex-wrap pl-0 mb-0 list-none gap-xs;
+  
+  & .nav-link {
+    @apply rounded border border-black bg-white text-black;
+    
+    &.active {
+      @apply bg-primary text-white;
+    }
+    
+    &:hover:not(.active) {
+      @apply bg-gray-50;
+    }
+  }
+}
+
+/* 3. Neo-Brutalist Block Shadow Pills */
+@utility nav-pills-brutalist {
+  @apply flex flex-wrap pl-0 mb-0 list-none gap-sm;
+  
+  & .nav-link {
+    @apply border border-black bg-white text-black;
+    box-shadow: 2px 2px 0px 0px #000000;
+    border-radius: var(--radius-default);
+    
+    &.active {
+      @apply bg-[#fed01b] text-black;
+    }
+    
+    &:hover:not(.active) {
+      box-shadow: 4px 4px 0px 0px #000000;
+      transform: translate(-2px, -2px);
+    }
+    
+    &:active:not(.active) {
+      box-shadow: 0px 0px 0px 0px #000000;
+      transform: translate(2px, 2px);
+    }
+  }
+}
+
+/* 4. Underline / Flat Tabs */
+@utility nav-underline {
+  @apply flex flex-wrap pl-0 mb-0 list-none border-b border-gray-200 gap-md;
+  
+  & .nav-link {
+    @apply px-0 py-sm border-b-2 border-transparent font-medium;
+    
+    &.active {
+      @apply border-b-primary text-primary font-bold;
+    }
+  }
+}
+
+/* 5. Underline Modern Bold Tabs */
+@utility nav-underline-bold {
+  @apply flex flex-wrap pl-0 mb-0 list-none border-b-2 border-black gap-lg;
+  
+  & .nav-link {
+    @apply px-0 py-sm border-b-[4px] border-transparent text-gray-500 font-bold;
+    
+    &.active {
+      @apply border-b-black text-black font-extrabold;
+    }
+  }
+}
+
+/* Tab Pane Contents */
+@utility tab-content {
+  @apply mt-md;
+}
+
+@utility tab-pane {
+  @apply hidden;
+  
+  &.active {
+    @apply block;
+  }
+}

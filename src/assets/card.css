@@ -1,0 +1,58 @@
+/* Card Component Styles */
+@utility card {
+  @apply bg-white border border-black rounded flex flex-col;
+}
+@utility card-shadow {
+  box-shadow: 4px 4px 0px 0px #000000;
+}
+@utility card-body {
+  @apply p-md flex-1;
+}
+@utility card-header {
+  @apply p-sm px-md border-b border-black flex justify-between items-center bg-gray-50;
+  border-top-left-radius: calc(var(--radius-default) - 1px);
+  border-top-right-radius: calc(var(--radius-default) - 1px);
+}
+@utility card-footer {
+  @apply p-sm bg-gray-50 border-t border-black text-center;
+  border-bottom-left-radius: calc(var(--radius-default) - 1px);
+  border-bottom-right-radius: calc(var(--radius-default) - 1px);
+}
+@utility card-title {
+  @apply text-base font-bold text-black;
+}
+@utility card-subtitle {
+  @apply text-[11px] font-bold text-gray-500;
+}
+
+/* Background Color Variations */
+@utility card-primary {
+  @apply bg-primary text-white border border-black;
+  & .card-title, & .card-subtitle {
+    @apply text-white;
+  }
+}
+@utility card-danger {
+  @apply bg-error text-white border border-black;
+  & .card-title, & .card-subtitle {
+    @apply text-white;
+  }
+}
+@utility card-alert {
+  @apply bg-secondary-container text-black border border-black;
+  & .card-title, & .card-subtitle {
+    @apply text-black;
+  }
+}
+@utility card-dark {
+  @apply bg-inverse-surface text-white border border-black;
+  & .card-title, & .card-subtitle {
+    @apply text-white;
+  }
+}
+@utility card-success {
+  @apply bg-[#2563eb] text-white border border-black;
+  & .card-title, & .card-subtitle {
+    @apply text-white;
+  }
+}

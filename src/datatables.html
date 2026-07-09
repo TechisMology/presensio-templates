@@ -1,0 +1,1060 @@
+{% set page = "datatables" %} {% extends "layouts/main.html" %} {% from
+"partials/page-header.html" import pageHeader %} {% block content %}
+<div class="content-canvas">
+  {{ pageHeader('DataTables', [ { label: 'Home', href: '/index.html' }, { label:
+  'Components', href: '#' }, { label: 'DataTables', href: '/datatables.html' }
+  ], showPeriodFilter=false) }}
+
+  <div class="row">
+    <!-- 1. Default DataTable — with shadow -->
+    <div class="col-12 mb-md">
+      <div class="dt-card">
+        <div class="dt-toolbar">
+          <span class="dt-toolbar-title">
+            <span class="material-symbols-outlined fs-6 align-middle"
+              >table_chart</span
+            >
+            Default DataTable — Student List
+          </span>
+          <div class="flex items-center gap-xs">
+            <code
+              class="fs-7 bg-gray-100 border border-gray-300 rounded px-xs py-[2px]"
+              >dt-card dt-card-shadow</code
+            >
+            <span class="badge badge-sm badge-primary">Client-side</span>
+          </div>
+        </div>
+        <div class="dt-table-wrap">
+          <table
+            id="dt-default"
+            class="dataTable table-striped table-hover w-full"
+          >
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Class</th>
+                <th>NISN</th>
+                <th>Status</th>
+                <th>Score</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Ahmad Fauzi</td>
+                <td>X-IPA-1</td>
+                <td>0012345678</td>
+                <td>
+                  <span class="badge badge-sm badge-success">Active</span>
+                </td>
+                <td>88.5</td>
+                <td>
+                  <button class="btn btn-xs btn-primary btn-shadow">
+                    Edit
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Siti Rahmawaati</td>
+                <td>X-IPA-1</td>
+                <td>0012345679</td>
+                <td>
+                  <span class="badge badge-sm badge-success">Active</span>
+                </td>
+                <td>92.0</td>
+                <td>
+                  <button class="btn btn-xs btn-primary btn-shadow">
+                    Edit
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Budi Santoso</td>
+                <td>XI-IPS-2</td>
+                <td>0012345680</td>
+                <td>
+                  <span class="badge badge-sm badge-warning">Inactive</span>
+                </td>
+                <td>74.3</td>
+                <td>
+                  <button class="btn btn-xs btn-primary btn-shadow">
+                    Edit
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Dewi Lestari</td>
+                <td>XI-IPS-2</td>
+                <td>0012345681</td>
+                <td>
+                  <span class="badge badge-sm badge-success">Active</span>
+                </td>
+                <td>85.0</td>
+                <td>
+                  <button class="btn btn-xs btn-primary btn-shadow">
+                    Edit
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Eko Prasetyo</td>
+                <td>XII-IPA-3</td>
+                <td>0012345682</td>
+                <td>
+                  <span class="badge badge-sm badge-danger">Dropped</span>
+                </td>
+                <td>63.1</td>
+                <td>
+                  <button class="btn btn-xs btn-primary btn-shadow">
+                    Edit
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>Fitri Handayani</td>
+                <td>XII-IPA-3</td>
+                <td>0012345683</td>
+                <td>
+                  <span class="badge badge-sm badge-success">Active</span>
+                </td>
+                <td>95.5</td>
+                <td>
+                  <button class="btn btn-xs btn-primary btn-shadow">
+                    Edit
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>Galih Permana</td>
+                <td>X-IPA-2</td>
+                <td>0012345684</td>
+                <td>
+                  <span class="badge badge-sm badge-success">Active</span>
+                </td>
+                <td>77.8</td>
+                <td>
+                  <button class="btn btn-xs btn-primary btn-shadow">
+                    Edit
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>Hana Pertiwi</td>
+                <td>X-IPA-2</td>
+                <td>0012345685</td>
+                <td>
+                  <span class="badge badge-sm badge-warning">Inactive</span>
+                </td>
+                <td>60.0</td>
+                <td>
+                  <button class="btn btn-xs btn-primary btn-shadow">
+                    Edit
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td>Irfan Hakim</td>
+                <td>XI-IPA-1</td>
+                <td>0012345686</td>
+                <td>
+                  <span class="badge badge-sm badge-success">Active</span>
+                </td>
+                <td>89.2</td>
+                <td>
+                  <button class="btn btn-xs btn-primary btn-shadow">
+                    Edit
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td>Jasmine Putri</td>
+                <td>XI-IPA-1</td>
+                <td>0012345687</td>
+                <td>
+                  <span class="badge badge-sm badge-success">Active</span>
+                </td>
+                <td>91.0</td>
+                <td>
+                  <button class="btn btn-xs btn-primary btn-shadow">
+                    Edit
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>11</td>
+                <td>Kevin Ananta</td>
+                <td>XII-IPS-1</td>
+                <td>0012345688</td>
+                <td>
+                  <span class="badge badge-sm badge-success">Active</span>
+                </td>
+                <td>80.4</td>
+                <td>
+                  <button class="btn btn-xs btn-primary btn-shadow">
+                    Edit
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>12</td>
+                <td>Laila Sari</td>
+                <td>XII-IPS-1</td>
+                <td>0012345689</td>
+                <td>
+                  <span class="badge badge-sm badge-danger">Dropped</span>
+                </td>
+                <td>55.0</td>
+                <td>
+                  <button class="btn btn-xs btn-primary btn-shadow">
+                    Edit
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="dt-footer" id="dt-default-footer">
+          <!-- DataTables injects info + paging here via dom option -->
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Export Buttons Table -->
+    <div class="col-12 mb-md">
+      <div class="dt-card">
+        <div class="dt-toolbar">
+          <span class="dt-toolbar-title">
+            <span class="material-symbols-outlined fs-6 align-middle"
+              >download</span
+            >
+            Export Table — Teacher Data
+          </span>
+          <span class="badge badge-sm badge-warning border border-black"
+            >CSV · Excel · PDF · Print</span
+          >
+        </div>
+        <div class="dt-table-wrap">
+          <table id="dt-export" class="dataTable table-hover w-full">
+            <thead>
+              <tr>
+                <th>NIP</th>
+                <th>Name</th>
+                <th>Subject</th>
+                <th>Class Count</th>
+                <th>Status</th>
+                <th>Joined</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>198001012003121001</td>
+                <td>Drs. Bambang H.</td>
+                <td>Mathematics</td>
+                <td>6</td>
+                <td>
+                  <span class="badge badge-sm badge-success">Active</span>
+                </td>
+                <td>2003-12-01</td>
+              </tr>
+              <tr>
+                <td>198205152005022002</td>
+                <td>Siti Aminah, S.Pd</td>
+                <td>Biology</td>
+                <td>4</td>
+                <td>
+                  <span class="badge badge-sm badge-success">Active</span>
+                </td>
+                <td>2005-02-15</td>
+              </tr>
+              <tr>
+                <td>197809102001011003</td>
+                <td>Eko Prasetyo</td>
+                <td>Physics</td>
+                <td>5</td>
+                <td>
+                  <span class="badge badge-sm badge-warning">On Leave</span>
+                </td>
+                <td>2001-01-10</td>
+              </tr>
+              <tr>
+                <td>198512252007032004</td>
+                <td>Hj. Ratna Sari</td>
+                <td>Chemistry</td>
+                <td>3</td>
+                <td>
+                  <span class="badge badge-sm badge-success">Active</span>
+                </td>
+                <td>2007-03-25</td>
+              </tr>
+              <tr>
+                <td>198901012010011005</td>
+                <td>Agus Setiawan, M.Pd</td>
+                <td>History</td>
+                <td>7</td>
+                <td>
+                  <span class="badge badge-sm badge-danger">Resigned</span>
+                </td>
+                <td>2010-01-01</td>
+              </tr>
+              <tr>
+                <td>199003152012012006</td>
+                <td>Rina Wulandari</td>
+                <td>English</td>
+                <td>5</td>
+                <td>
+                  <span class="badge badge-sm badge-success">Active</span>
+                </td>
+                <td>2012-01-15</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="dt-footer" id="dt-export-footer"></div>
+      </div>
+    </div>
+
+    <!-- 3. Column Visibility (ColVis) — no-border variant -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="dt-card dt-card-noborder">
+        <div class="dt-toolbar">
+          <span class="dt-toolbar-title">
+            <span class="material-symbols-outlined fs-6 align-middle"
+              >view_column</span
+            >
+            Column Visibility
+          </span>
+          <div class="flex items-center gap-xs">
+            <code
+              class="fs-7 bg-gray-100 border border-gray-300 rounded px-xs py-[2px]"
+              >dt-card-noborder</code
+            >
+            <span class="badge badge-sm badge-light border border-black"
+              >ColVis</span
+            >
+          </div>
+        </div>
+        <div class="dt-table-wrap">
+          <table id="dt-colvis" class="dataTable table-striped w-full">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Class</th>
+                <th>Score</th>
+                <th>Absent</th>
+                <th>Late</th>
+                <th>Grade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Ahmad Fauzi</td>
+                <td>X-IPA-1</td>
+                <td>88</td>
+                <td>2</td>
+                <td>3</td>
+                <td>A</td>
+              </tr>
+              <tr>
+                <td>Siti Rahmawati</td>
+                <td>X-IPA-1</td>
+                <td>92</td>
+                <td>0</td>
+                <td>1</td>
+                <td>A+</td>
+              </tr>
+              <tr>
+                <td>Budi Santoso</td>
+                <td>XI-IPS-2</td>
+                <td>74</td>
+                <td>5</td>
+                <td>8</td>
+                <td>B</td>
+              </tr>
+              <tr>
+                <td>Dewi Lestari</td>
+                <td>XI-IPS-2</td>
+                <td>85</td>
+                <td>1</td>
+                <td>2</td>
+                <td>A</td>
+              </tr>
+              <tr>
+                <td>Eko Prasetyo</td>
+                <td>XII-IPA-3</td>
+                <td>63</td>
+                <td>9</td>
+                <td>6</td>
+                <td>C</td>
+              </tr>
+              <tr>
+                <td>Fitri Handayani</td>
+                <td>XII-IPA-3</td>
+                <td>96</td>
+                <td>0</td>
+                <td>0</td>
+                <td>A+</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="dt-footer" id="dt-colvis-footer"></div>
+      </div>
+    </div>
+
+    <!-- 4. Row Selection (Checkbox) -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="dt-card">
+        <div class="dt-toolbar">
+          <span class="dt-toolbar-title">
+            <span class="material-symbols-outlined fs-6 align-middle"
+              >check_box</span
+            >
+            Row Selection
+          </span>
+          <span class="badge badge-sm badge-primary">Multi-select</span>
+        </div>
+        <div class="dt-table-wrap">
+          <table id="dt-select" class="dataTable table-hover w-full">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Class</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td>Ahmad Fauzi</td>
+                <td>X-IPA-1</td>
+                <td>
+                  <span class="badge badge-sm badge-success">Active</span>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Siti Rahmawati</td>
+                <td>X-IPA-1</td>
+                <td>
+                  <span class="badge badge-sm badge-success">Active</span>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Budi Santoso</td>
+                <td>XI-IPS-2</td>
+                <td>
+                  <span class="badge badge-sm badge-warning">Inactive</span>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Dewi Lestari</td>
+                <td>XI-IPS-2</td>
+                <td>
+                  <span class="badge badge-sm badge-success">Active</span>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Eko Prasetyo</td>
+                <td>XII-IPA-3</td>
+                <td>
+                  <span class="badge badge-sm badge-danger">Dropped</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div
+          class="dt-footer flex items-center justify-between"
+          id="dt-select-footer"
+        >
+          <span class="fs-7 text-secondary" id="dt-select-count"
+            >0 rows selected</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Responsive DataTable -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="dt-card">
+        <div class="dt-toolbar">
+          <span class="dt-toolbar-title">
+            <span class="material-symbols-outlined fs-6 align-middle"
+              >phone_iphone</span
+            >
+            Responsive DataTable
+          </span>
+          <span class="badge badge-sm badge-light border border-black"
+            >Collapse on mobile</span
+          >
+        </div>
+        <div class="dt-table-wrap">
+          <table id="dt-responsive" class="dataTable table-hover w-full">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Class</th>
+                <th>NISN</th>
+                <th>Score</th>
+                <th>Status</th>
+                <th>Address</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Ahmad Fauzi</td>
+                <td>X-IPA-1</td>
+                <td>0012345678</td>
+                <td>88.5</td>
+                <td>
+                  <span class="badge badge-sm badge-success">Active</span>
+                </td>
+                <td>Jl. Merdeka No.1, Jakarta</td>
+              </tr>
+              <tr>
+                <td>Siti Rahmawati</td>
+                <td>X-IPA-1</td>
+                <td>0012345679</td>
+                <td>92.0</td>
+                <td>
+                  <span class="badge badge-sm badge-success">Active</span>
+                </td>
+                <td>Jl. Sudirman No.5, Bandung</td>
+              </tr>
+              <tr>
+                <td>Budi Santoso</td>
+                <td>XI-IPS-2</td>
+                <td>0012345680</td>
+                <td>74.3</td>
+                <td>
+                  <span class="badge badge-sm badge-warning">Inactive</span>
+                </td>
+                <td>Jl. Pahlawan No.12, Surabaya</td>
+              </tr>
+              <tr>
+                <td>Dewi Lestari</td>
+                <td>XI-IPS-2</td>
+                <td>0012345681</td>
+                <td>85.0</td>
+                <td>
+                  <span class="badge badge-sm badge-success">Active</span>
+                </td>
+                <td>Jl. Diponegoro No.7, Semarang</td>
+              </tr>
+              <tr>
+                <td>Eko Prasetyo</td>
+                <td>XII-IPA-3</td>
+                <td>0012345682</td>
+                <td>63.1</td>
+                <td>
+                  <span class="badge badge-sm badge-danger">Dropped</span>
+                </td>
+                <td>Jl. Ahmad Yani No.3, Yogyakarta</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="dt-footer" id="dt-responsive-footer"></div>
+      </div>
+    </div>
+
+    <!-- 6. Server-side Simulation -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="dt-card">
+        <div class="dt-toolbar">
+          <span class="dt-toolbar-title">
+            <span class="material-symbols-outlined fs-6 align-middle"
+              >cloud_sync</span
+            >
+            Server-side Processing
+          </span>
+          <span class="badge badge-sm badge-warning border border-black"
+            >AJAX Simulated</span
+          >
+        </div>
+        <div class="dt-table-wrap">
+          <table
+            id="dt-serverside"
+            class="dataTable table-striped table-hover w-full"
+          >
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Class</th>
+                <th>Score</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- populated by JS ajax simulation -->
+            </tbody>
+          </table>
+        </div>
+        <div class="dt-footer" id="dt-serverside-footer"></div>
+      </div>
+    </div>
+
+    <!-- 7. Scrollable Table (ScrollX + ScrollY) -->
+    <div class="col-12 mb-md">
+      <div class="dt-card">
+        <div class="dt-toolbar">
+          <span class="dt-toolbar-title">
+            <span class="material-symbols-outlined fs-6 align-middle"
+              >swap_horiz</span
+            >
+            Scrollable Table (X + Y Scroll)
+          </span>
+          <span class="badge badge-sm badge-light border border-black"
+            >Fixed height + horizontal</span
+          >
+        </div>
+        <div class="dt-table-wrap">
+          <table id="dt-scroll" class="dataTable table-bordered w-full">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Class</th>
+                <th>NISN</th>
+                <th>Score</th>
+                <th>Attendance</th>
+                <th>Absent</th>
+                <th>Late</th>
+                <th>Grade</th>
+                <th>Status</th>
+                <th>Address</th>
+                <th>Phone</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Ahmad Fauzi</td>
+                <td>X-IPA-1</td>
+                <td>001234</td>
+                <td>88.5</td>
+                <td>97%</td>
+                <td>2</td>
+                <td>3</td>
+                <td>A</td>
+                <td>
+                  <span class="badge badge-sm badge-success">Active</span>
+                </td>
+                <td>Jl. Merdeka 1</td>
+                <td>08123456789</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Siti Rahmawati</td>
+                <td>X-IPA-1</td>
+                <td>001235</td>
+                <td>92.0</td>
+                <td>100%</td>
+                <td>0</td>
+                <td>1</td>
+                <td>A+</td>
+                <td>
+                  <span class="badge badge-sm badge-success">Active</span>
+                </td>
+                <td>Jl. Sudirman 5</td>
+                <td>08234567890</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Budi Santoso</td>
+                <td>XI-IPS-2</td>
+                <td>001236</td>
+                <td>74.3</td>
+                <td>80%</td>
+                <td>5</td>
+                <td>8</td>
+                <td>B</td>
+                <td>
+                  <span class="badge badge-sm badge-warning">Inactive</span>
+                </td>
+                <td>Jl. Pahlawan 12</td>
+                <td>08345678901</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Dewi Lestari</td>
+                <td>XI-IPS-2</td>
+                <td>001237</td>
+                <td>85.0</td>
+                <td>95%</td>
+                <td>1</td>
+                <td>2</td>
+                <td>A</td>
+                <td>
+                  <span class="badge badge-sm badge-success">Active</span>
+                </td>
+                <td>Jl. Diponegoro 7</td>
+                <td>08456789012</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Eko Prasetyo</td>
+                <td>XII-IPA-3</td>
+                <td>001238</td>
+                <td>63.1</td>
+                <td>70%</td>
+                <td>9</td>
+                <td>6</td>
+                <td>C</td>
+                <td>
+                  <span class="badge badge-sm badge-danger">Dropped</span>
+                </td>
+                <td>Jl. Ahmad Yani 3</td>
+                <td>08567890123</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>Fitri Handayani</td>
+                <td>XII-IPA-3</td>
+                <td>001239</td>
+                <td>95.5</td>
+                <td>100%</td>
+                <td>0</td>
+                <td>0</td>
+                <td>A+</td>
+                <td>
+                  <span class="badge badge-sm badge-success">Active</span>
+                </td>
+                <td>Jl. Gajah Mada 2</td>
+                <td>08678901234</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>Galih Permana</td>
+                <td>X-IPA-2</td>
+                <td>001240</td>
+                <td>77.8</td>
+                <td>88%</td>
+                <td>3</td>
+                <td>4</td>
+                <td>B+</td>
+                <td>
+                  <span class="badge badge-sm badge-success">Active</span>
+                </td>
+                <td>Jl. Veteran 9</td>
+                <td>08789012345</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>Hana Pertiwi</td>
+                <td>X-IPA-2</td>
+                <td>001241</td>
+                <td>60.0</td>
+                <td>75%</td>
+                <td>6</td>
+                <td>5</td>
+                <td>C</td>
+                <td>
+                  <span class="badge badge-sm badge-warning">Inactive</span>
+                </td>
+                <td>Jl. Hayam Wuruk 4</td>
+                <td>08890123456</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DataTables CSS -->
+<link
+  rel="stylesheet"
+  href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn.datatables.net/buttons/3.1.2/css/buttons.dataTables.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn.datatables.net/responsive/3.0.3/css/responsive.dataTables.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn.datatables.net/select/2.1.0/css/select.dataTables.min.css"
+/>
+
+<!-- DataTables JS loaded AFTER main.js module sets window.jQuery -->
+<script>
+  // Wait until window.jQuery is available (main.js sets it as an ES module)
+  function waitForJQuery(cb) {
+    if (window.jQuery && window.jQuery.fn) {
+      cb();
+    } else {
+      setTimeout(function () {
+        waitForJQuery(cb);
+      }, 30);
+    }
+  }
+
+  function loadScript(src, cb) {
+    const s = document.createElement("script");
+    s.src = src;
+    s.onload = cb;
+    document.body.appendChild(s);
+  }
+
+  waitForJQuery(function () {
+    const scripts = [
+      "https://cdn.datatables.net/2.1.8/js/dataTables.min.js",
+      "https://cdn.datatables.net/buttons/3.1.2/js/dataTables.buttons.min.js",
+      "https://cdn.datatables.net/buttons/3.1.2/js/buttons.colVis.min.js",
+      "https://cdn.datatables.net/buttons/3.1.2/js/buttons.print.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js",
+      "https://cdn.datatables.net/buttons/3.1.2/js/buttons.html5.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js",
+      "https://cdn.datatables.net/responsive/3.0.3/js/dataTables.responsive.min.js",
+      "https://cdn.datatables.net/select/2.1.0/js/dataTables.select.min.js",
+    ];
+    let i = 0;
+    function next() {
+      if (i >= scripts.length) {
+        initDataTables();
+        return;
+      }
+      loadScript(scripts[i++], next);
+    }
+    next();
+  });
+
+  function initDataTables() {
+    const $ = window.jQuery;
+
+    // ── 1. Default ────────────────────────────────────────────
+    $("#dt-default").DataTable({
+      pageLength: 5,
+      lengthMenu: [5, 10, 25],
+      language: { search: "", searchPlaceholder: "Search students..." },
+      layout: {
+        topStart: "pageLength",
+        topEnd: "search",
+        bottomStart: "info",
+        bottomEnd: "paging",
+      },
+    });
+
+    // ── 2. Export Buttons ─────────────────────────────────────
+    $("#dt-export").DataTable({
+      pageLength: 5,
+      layout: {
+        topStart: {
+          buttons: [
+            {
+              extend: "csv",
+              text: '<span class="material-symbols-outlined" style="font-size:13px;vertical-align:middle">description</span> CSV',
+            },
+            {
+              extend: "excel",
+              text: '<span class="material-symbols-outlined" style="font-size:13px;vertical-align:middle">table_view</span> Excel',
+            },
+            {
+              extend: "pdf",
+              text: '<span class="material-symbols-outlined" style="font-size:13px;vertical-align:middle">picture_as_pdf</span> PDF',
+            },
+            {
+              extend: "print",
+              text: '<span class="material-symbols-outlined" style="font-size:13px;vertical-align:middle">print</span> Print',
+            },
+          ],
+        },
+        topEnd: "search",
+        bottomStart: "info",
+        bottomEnd: "paging",
+      },
+      language: { search: "", searchPlaceholder: "Search teachers..." },
+    });
+
+    // ── 3. ColVis ─────────────────────────────────────────────
+    $("#dt-colvis").DataTable({
+      pageLength: 5,
+      layout: {
+        topStart: {
+          buttons: [
+            {
+              extend: "colvis",
+              text: '<span class="material-symbols-outlined" style="font-size:13px;vertical-align:middle">view_column</span> Columns',
+            },
+          ],
+        },
+        topEnd: "search",
+        bottomStart: "info",
+        bottomEnd: "paging",
+      },
+      language: { search: "", searchPlaceholder: "Search..." },
+    });
+
+    // ── 4. Row Selection ──────────────────────────────────────
+    const dtSelect = $("#dt-select").DataTable({
+      columnDefs: [
+        {
+          orderable: false,
+          render: $.fn.dataTable.render.select
+            ? $.fn.dataTable.render.select()
+            : function () {
+                return "";
+              },
+          targets: 0,
+        },
+      ],
+      select: { style: "multi", selector: "td:first-child" },
+      order: [[1, "asc"]],
+      layout: {
+        topStart: null,
+        topEnd: "search",
+        bottomStart: "info",
+        bottomEnd: "paging",
+      },
+      language: { search: "", searchPlaceholder: "Search..." },
+    });
+    dtSelect.on("select deselect", function () {
+      const count = dtSelect.rows({ selected: true }).count();
+      $("#dt-select-count").text(
+        count + " row" + (count !== 1 ? "s" : "") + " selected",
+      );
+    });
+
+    // ── 5. Responsive ─────────────────────────────────────────
+    $("#dt-responsive").DataTable({
+      responsive: true,
+      pageLength: 5,
+      layout: {
+        topStart: "pageLength",
+        topEnd: "search",
+        bottomStart: "info",
+        bottomEnd: "paging",
+      },
+      language: { search: "", searchPlaceholder: "Search..." },
+    });
+
+    // ── 6. Server-side Simulation ─────────────────────────────
+    const allData = [];
+    const statuses = ["Active", "Inactive", "Dropped"];
+    const classes = [
+      "X-IPA-1",
+      "X-IPA-2",
+      "XI-IPS-1",
+      "XI-IPS-2",
+      "XII-IPA-3",
+      "XII-IPS-1",
+    ];
+    const names = [
+      "Ahmad",
+      "Siti",
+      "Budi",
+      "Dewi",
+      "Eko",
+      "Fitri",
+      "Galih",
+      "Hana",
+      "Irfan",
+      "Jasmine",
+      "Kevin",
+      "Laila",
+      "Mira",
+      "Nanda",
+      "Omar",
+      "Putri",
+      "Qori",
+      "Reza",
+      "Sari",
+      "Tono",
+    ];
+    for (let i = 0; i < 50; i++) {
+      const status = statuses[Math.floor(Math.random() * statuses.length)];
+      allData.push({
+        id: i + 1,
+        name:
+          names[i % names.length] +
+          " " +
+          String.fromCharCode(65 + (i % 26)) +
+          ".",
+        cls: classes[i % classes.length],
+        score: (55 + Math.random() * 45).toFixed(1),
+        status,
+      });
+    }
+    function renderBadge(s) {
+      const m = {
+        Active: "badge-success",
+        Inactive: "badge-warning",
+        Dropped: "badge-danger",
+      };
+      return (
+        '<span class="badge badge-sm ' + (m[s] || "") + '">' + s + "</span>"
+      );
+    }
+    $("#dt-serverside").DataTable({
+      processing: true,
+      serverSide: true,
+      ajax: function (data, cb) {
+        setTimeout(function () {
+          let filtered = allData.filter(
+            (r) =>
+              !data.search.value ||
+              r.name.toLowerCase().includes(data.search.value.toLowerCase()),
+          );
+          const page = filtered.slice(data.start, data.start + data.length);
+          cb({
+            draw: data.draw,
+            recordsTotal: allData.length,
+            recordsFiltered: filtered.length,
+            data: page.map((r) => [
+              r.id,
+              r.name,
+              r.cls,
+              r.score,
+              renderBadge(r.status),
+            ]),
+          });
+        }, 300);
+      },
+      layout: {
+        topStart: "pageLength",
+        topEnd: "search",
+        bottomStart: "info",
+        bottomEnd: "paging",
+      },
+      language: { search: "", searchPlaceholder: "Search by name..." },
+    });
+
+    // ── 7. Scroll X + Y ───────────────────────────────────────
+    $("#dt-scroll").DataTable({
+      scrollX: true,
+      scrollY: "250px",
+      scrollCollapse: true,
+      paging: false,
+      layout: {
+        topStart: null,
+        topEnd: "search",
+        bottomStart: "info",
+        bottomEnd: null,
+      },
+      language: { search: "", searchPlaceholder: "Filter..." },
+    });
+  }
+</script>
+{% endblock %}
