@@ -1,0 +1,59 @@
+{% set page = "charts" %}
+{% extends "layouts/main.html" %}
+{% from "partials/page-header.html" import pageHeader %}
+
+{% block content %}
+<div class="content-canvas">
+  {{ pageHeader('Charts (Chart.js)', [
+    { label: 'Home', href: '/index.html' },
+    { label: 'Components', href: '#' },
+    { label: 'Charts', href: '/charts.html' }
+  ], showPeriodFilter=false) }}
+
+  <!-- SECTION: BAR CHART -->
+  <div class="mb-lg">
+    <h3 class="fs-6 fw-bold text-secondary text-uppercase tracking-wider mb-sm">1. Bar Chart</h3>
+    <div class="row">
+      <div class="col-12 col-lg-8">
+        <div class="card btn-shadow border border-black">
+          <div class="card-body">
+            <canvas id="brutalistBarChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: LINE CHART -->
+  <div class="mb-lg">
+    <h3 class="fs-6 fw-bold text-secondary text-uppercase tracking-wider mb-sm">2. Line Chart</h3>
+    <div class="row">
+      <div class="col-12 col-lg-8">
+        <div class="card btn-shadow border border-black">
+          <div class="card-body">
+            <canvas id="brutalistLineChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: DOUGHNUT CHART -->
+  <div class="mb-lg">
+    <h3 class="fs-6 fw-bold text-secondary text-uppercase tracking-wider mb-sm">3. Doughnut Chart</h3>
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card btn-shadow border border-black">
+          <div class="card-body">
+            <canvas id="brutalistDoughnutChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Initialize Charts -->
+<script type="module" src="/assets/charts-demo.js"></script>
+{% endblock %}
