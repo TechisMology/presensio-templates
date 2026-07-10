@@ -1,7 +1,7 @@
 /* Alert Component Styles */
 
 @utility alert {
-  @apply relative flex items-center justify-between p-md border border-black rounded bg-white text-xs select-none mb-md gap-sm overflow-hidden;
+  @apply relative flex items-center justify-between p-md border border-black rounded bg-white text-sm select-none mb-md gap-sm overflow-hidden;
 }
 
 @utility alert-shadow {

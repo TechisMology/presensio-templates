@@ -1,0 +1,370 @@
+{% set page = "sales" %}
+{% extends "layouts/main.html" %}
+{% from "partials/page-header.html" import pageHeader %}
+
+{% block content %}
+<div class="content-canvas">
+  {{ pageHeader('Sales Dashboard', [
+    { label: 'Home', href: '/index.html' },
+    { label: 'Sales Dashboard', href: '/sales-dashboard.html' }
+  ]) }}
+
+  <!-- TOP SECTION: Metrics & Charts -->
+  <div class="row mb-md">
+    <!-- LEFT: 4 Stat Cards in a Grid -->
+    <div class="col-12 col-xl-4 mb-md mb-xl-0 flex flex-col gap-md">
+      <div class="row flex-1">
+        <!-- Total Sales -->
+        <div class="col-6 mb-md">
+          <div class="card card-shadow card-primary h-full">
+            <div class="card-body flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-start mb-xs">
+                  <span class="material-symbols-outlined fs-2">payments</span>
+                  <span class="badge badge-sm badge-light text-success">+15.8%</span>
+                </div>
+                <h6 class="fs-7 text-uppercase mb-0">Total Sales</h6>
+                <h3 class="display-6 fw-bolder mt-1 mb-0">$48.5K</h3>
+              </div>
+              <p class="fs-8 mt-xs mb-0">vs last week</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Total Orders -->
+        <div class="col-6 mb-md">
+          <div class="card card-shadow card-alert h-full">
+            <div class="card-body flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-start mb-xs">
+                  <span class="material-symbols-outlined fs-2">shopping_cart</span>
+                  <span class="badge badge-sm badge-success">+8.3%</span>
+                </div>
+                <h6 class="fs-7 text-uppercase mb-0">Total Orders</h6>
+                <h3 class="display-6 fw-bolder mt-1 mb-0">379</h3>
+              </div>
+              <p class="fs-8 text-secondary mt-xs mb-0">vs last week</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Customer Growth -->
+        <div class="col-6 mb-md">
+          <div class="card card-shadow card-dark h-full">
+            <div class="card-body flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-start mb-xs">
+                  <span class="material-symbols-outlined fs-2">groups</span>
+                  <span class="badge badge-sm badge-success">+12.5%</span>
+                </div>
+                <h6 class="fs-7 text-uppercase mb-0 text-muted">Customers</h6>
+                <h3 class="display-6 fw-bolder mt-1 mb-0">820</h3>
+              </div>
+              <p class="fs-8 text-muted mt-xs mb-0">vs last month</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Average Order -->
+        <div class="col-6 mb-md">
+          <div class="card card-shadow card-danger h-full">
+            <div class="card-body flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-start mb-xs">
+                  <span class="material-symbols-outlined fs-2">receipt_long</span>
+                  <span class="badge badge-sm badge-light text-danger">-$4.20</span>
+                </div>
+                <h6 class="fs-7 text-uppercase mb-0">Avg Order</h6>
+                <h3 class="display-6 fw-bolder mt-1 mb-0">$128</h3>
+              </div>
+              <p class="fs-8 mt-xs mb-0">vs last week</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Sales Overview Line Chart -->
+    <div class="col-12 col-xl-8">
+      <div class="card card-shadow h-full">
+        <div class="card-header flex justify-between items-center">
+          <div>
+            <span class="h6 mb-0 text-uppercase tracking-wider">Volume Sales Overview</span>
+            <p class="fs-7 text-secondary mb-0">Daily sales performance for the current week</p>
+          </div>
+          <div class="flex gap-sm">
+            <button class="btn btn-sm btn-outline-dark">This Week</button>
+            <button class="btn btn-sm btn-dark">Last Week</button>
+          </div>
+        </div>
+        <div class="card-body pb-0">
+          <canvas id="salesOverviewChart" style="max-height: 350px; width: 100%;"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM SECTION: 3 Columns -->
+  <div class="row">
+    <!-- Top Products -->
+    <div class="col-12 col-lg-5 mb-md">
+      <div class="card card-shadow h-full">
+        <div class="card-header flex justify-between items-center">
+          <div class="flex items-center gap-xs">
+            <span class="material-symbols-outlined text-warning fs-4">star</span>
+            <span class="h6 mb-0 text-uppercase tracking-wider">Top Products</span>
+          </div>
+          <span class="badge badge-md badge-primary">73% of Sales</span>
+        </div>
+        <div class="card-body p-0">
+          <div class="table-container">
+            <table class="table table-striped table-hover mb-0">
+              <thead>
+                <tr>
+                  <th>Product Name</th>
+                  <th class="text-center">Units</th>
+                  <th class="text-right">Revenue</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="fw-bold flex items-center gap-sm">
+                    <span class="material-symbols-outlined fs-5 text-primary">coffee</span>
+                    Premium Espresso
+                  </td>
+                  <td class="text-center align-middle">420</td>
+                  <td class="text-right align-middle fw-bolder text-success">$4,200</td>
+                </tr>
+                <tr>
+                  <td class="fw-bold flex items-center gap-sm">
+                    <span class="material-symbols-outlined fs-5 text-success">emoji_food_beverage</span>
+                    Matcha Green Tea
+                  </td>
+                  <td class="text-center align-middle">315</td>
+                  <td class="text-right align-middle fw-bolder text-success">$2,360</td>
+                </tr>
+                <tr>
+                  <td class="fw-bold flex items-center gap-sm">
+                    <span class="material-symbols-outlined fs-5 text-warning">water_drop</span>
+                    Caramel Syrup
+                  </td>
+                  <td class="text-center align-middle">280</td>
+                  <td class="text-right align-middle fw-bolder text-success">$1,400</td>
+                </tr>
+                <tr>
+                  <td class="fw-bold flex items-center gap-sm">
+                    <span class="material-symbols-outlined fs-5 text-danger">local_cafe</span>
+                    Reusable Tumbler
+                  </td>
+                  <td class="text-center align-middle">150</td>
+                  <td class="text-right align-middle fw-bolder text-success">$1,120</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inventory -->
+    <div class="col-12 col-md-6 col-lg-3 mb-md">
+      <div class="card card-shadow h-full">
+        <div class="card-header flex items-center gap-xs">
+          <span class="material-symbols-outlined fs-4">inventory_2</span>
+          <span class="h6 mb-0 text-uppercase tracking-wider">Inventory</span>
+        </div>
+        <div class="card-body flex flex-col justify-between">
+          <div class="relative w-full flex justify-center py-sm">
+            <canvas id="inventoryDoughnut" style="max-height: 180px;"></canvas>
+            <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none pt-md">
+              <span class="display-6 fw-black">61%</span>
+              <span class="fs-8 fw-bold text-secondary text-uppercase mt-1">Available</span>
+            </div>
+          </div>
+          <div class="mt-md text-center">
+            <span class="badge badge-md badge-success mb-xs">In Stock (61%)</span>
+            <span class="badge badge-md badge-warning mb-xs">Low Stock (24%)</span>
+            <span class="badge badge-md badge-danger">Out of Stock (15%)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Active Cashiers -->
+    <div class="col-12 col-md-6 col-lg-4 mb-md">
+      <div class="card card-shadow h-full">
+        <div class="card-header flex items-center justify-between">
+          <div class="flex items-center gap-xs">
+            <span class="material-symbols-outlined fs-4 text-primary">point_of_sale</span>
+            <span class="h6 mb-0 text-uppercase tracking-wider">Cashiers</span>
+          </div>
+          <span class="badge badge-md badge-success">3 Active</span>
+        </div>
+        <div class="card-body p-0">
+          <div class="list-group list-group-flush border-0">
+            <div class="list-group-item flex items-center gap-sm">
+              <div class="avatar-wrapper">
+                <img src="https://i.pravatar.cc/150?img=12" alt="Cashier 1" class="avatar rounded-full avatar-lg">
+              </div>
+              <div class="flex-1">
+                <span class="h6 mb-0 block">Budi Santoso</span>
+                <span class="fs-7 text-secondary">Register 1 (Front)</span>
+              </div>
+              <span class="badge badge-md badge-success">Online</span>
+            </div>
+            <div class="list-group-item flex items-center gap-sm">
+              <div class="avatar-wrapper">
+                <img src="https://i.pravatar.cc/150?img=44" alt="Cashier 2" class="avatar rounded-full avatar-lg">
+              </div>
+              <div class="flex-1">
+                <span class="h6 mb-0 block">Siti Aminah</span>
+                <span class="fs-7 text-secondary">Register 2 (Drive-thru)</span>
+              </div>
+              <span class="badge badge-md badge-success">Online</span>
+            </div>
+            <div class="list-group-item flex items-center gap-sm">
+              <div class="avatar-wrapper">
+                <img src="https://i.pravatar.cc/150?img=33" alt="Cashier 3" class="avatar rounded-full avatar-lg">
+              </div>
+              <div class="flex-1">
+                <span class="h6 mb-0 block">Rina Melati</span>
+                <span class="fs-7 text-secondary">Register 3 (Break)</span>
+              </div>
+              <span class="badge badge-md badge-warning">Break</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Chart Initialization Script -->
+<script type="module">
+  import Chart from "chart.js/auto";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // Volume Sales Overview Line Chart (Neobrutalism Style)
+    const ctxSales = document.getElementById("salesOverviewChart");
+    if (ctxSales) {
+      new Chart(ctxSales, {
+        type: "line",
+        data: {
+          labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+          datasets: [
+            {
+              label: "This Week",
+              data: [1200, 1900, 1500, 2200, 1800, 2800, 2400],
+              borderColor: "#000000",
+              backgroundColor: "#a7f3d0", // green-200
+              borderWidth: 3,
+              tension: 0, // Sharp lines
+              fill: true,
+              pointBackgroundColor: "#fcd34d", // amber-300
+              pointBorderColor: "#000",
+              pointBorderWidth: 2,
+              pointRadius: 6,
+              pointHoverRadius: 8
+            },
+            {
+              label: "Last Week",
+              data: [1000, 1600, 1200, 1800, 1600, 2200, 2000],
+              borderColor: "#6b7280", // gray-500
+              borderWidth: 2,
+              borderDash: [5, 5], // Dashed line
+              tension: 0,
+              fill: false,
+              pointBackgroundColor: "#fff",
+              pointBorderColor: "#6b7280",
+              pointBorderWidth: 2,
+              pointRadius: 4
+            }
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: {
+            mode: 'index',
+            intersect: false,
+          },
+          plugins: {
+            legend: { 
+              position: 'top',
+              align: 'end',
+              labels: {
+                font: { family: "'Inter', sans-serif", weight: 'bold' },
+                color: '#000',
+                usePointStyle: true,
+                pointStyle: 'rectRounded'
+              }
+            },
+            tooltip: {
+              backgroundColor: '#000',
+              titleFont: { family: "'Inter', sans-serif", size: 14 },
+              bodyFont: { family: "'Inter', sans-serif", size: 13 },
+              padding: 10,
+              displayColors: true,
+              cornerRadius: 0
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              grid: { color: "#e5e7eb", borderDash: [2, 2] },
+              ticks: {
+                font: { family: "'Inter', sans-serif", weight: "bold" },
+                callback: function(value) {
+                  return '$' + value;
+                }
+              },
+            },
+            x: {
+              grid: { display: false },
+              ticks: {
+                font: { family: "'Inter', sans-serif", weight: "bold", size: 13 },
+                color: '#000'
+              },
+            },
+          },
+        },
+      });
+    }
+
+    // Inventory Doughnut Chart
+    const ctxInventory = document.getElementById("inventoryDoughnut");
+    if (ctxInventory) {
+      new Chart(ctxInventory, {
+        type: "doughnut",
+        data: {
+          labels: ["In Stock", "Low Stock", "Out of Stock"],
+          datasets: [
+            {
+              data: [61, 24, 15],
+              backgroundColor: [
+                "#198754", // success
+                "#ffc107", // alert
+                "#dc3545", // danger
+              ],
+              borderColor: "#000000",
+              borderWidth: 2,
+              hoverOffset: 4,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+          },
+          cutout: "75%",
+          layout: {
+            padding: 10
+          }
+        },
+      });
+    }
+  });
+</script>
+{% endblock %}

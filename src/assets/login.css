@@ -1,0 +1,10 @@
+/* Login Page Specific Styles */
+.login-bg {
+  /* Optional neo-brutalist dot pattern background */
+  background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.login-shadow {
+  box-shadow: 6px 6px 0px 0px #000000;
+}

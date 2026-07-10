@@ -12,11 +12,11 @@
   font-family: var(--font-body-md);
   
   & th {
-    @apply px-md py-sm font-bold text-xs uppercase text-black border-b border-black bg-gray-50;
+    @apply px-md py-sm font-bold text-sm uppercase text-black border-b border-black bg-gray-50;
   }
   
   & td {
-    @apply px-md py-sm text-xs text-gray-700 border-b border-gray-200;
+    @apply px-md py-sm text-sm text-gray-700 border-b border-gray-200;
   }
   
   & tr:last-child td {

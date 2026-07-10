@@ -114,6 +114,76 @@ $(document).ready(function() {
     });
   });
 
+  // ── Sidebar Toggle Engine ────────────────────────────────
+  $(document).on('click', '#sidebar-toggle', function() {
+    if (window.innerWidth >= 768) {
+      // Desktop: collapse/hide sidebar
+      $('.sidebar').toggleClass('collapsed');
+    } else {
+      // Mobile: open sidebar drawer
+      $('.sidebar').toggleClass('show');
+      const backdrop = $('#sidebar-backdrop');
+      if (backdrop.hasClass('hidden')) {
+        backdrop.removeClass('hidden');
+        setTimeout(() => backdrop.removeClass('opacity-0').addClass('opacity-100'), 10);
+      } else {
+        backdrop.removeClass('opacity-100').addClass('opacity-0');
+        setTimeout(() => backdrop.addClass('hidden'), 300);
+      }
+    }
+  });
+
+  $(document).on('click', '#sidebar-backdrop', function() {
+    $('.sidebar').removeClass('show');
+    const backdrop = $('#sidebar-backdrop');
+    backdrop.removeClass('opacity-100').addClass('opacity-0');
+    setTimeout(() => backdrop.addClass('hidden'), 300);
+  });
+
+  // ── Sidebar Submenu Engine ───────────────────────────────
+  // Initialize active submenus on load
+  $('.sidebar-item.active').each(function() {
+    $(this).find('.sidebar-submenu').show();
+    $(this).find('.expand-icon').css('transform', 'rotate(180deg)');
+  });
+
+  $(document).on('click', '.sidebar-menu-toggle', function(e) {
+    e.preventDefault();
+    const parent = $(this).closest('.sidebar-item');
+    const submenu = parent.find('.sidebar-submenu');
+    const icon = $(this).find('.expand-icon');
+    
+    // Toggle active state
+    parent.toggleClass('active');
+    
+    // Slide toggle
+    submenu.slideToggle(200);
+    
+    // Rotate icon
+    if (parent.hasClass('active')) {
+      icon.css('transform', 'rotate(180deg)');
+    } else {
+      icon.css('transform', 'rotate(0deg)');
+    }
+  });
+
+  // ── Responsive Badge Relocation ──────────────────────────
+  const checkMobileBadge = () => {
+    if (window.innerWidth < 768) {
+      if ($('#navbar-badge-container #academic-year-badge').length) {
+        $('#academic-year-badge').detach().appendTo('#sidebar-badge-container');
+      }
+    } else {
+      if ($('#sidebar-badge-container #academic-year-badge').length) {
+        $('#academic-year-badge').detach().appendTo('#navbar-badge-container');
+      }
+    }
+  };
+  
+  $(window).on('resize', checkMobileBadge);
+  // Initial check on load
+  checkMobileBadge();
+
   // ── Modal Engine ─────────────────────────────────────────
   window.openModal = function(id) {
     const $backdrop = $('#' + id);
@@ -169,5 +239,120 @@ $(document).ready(function() {
       }
     }
   });
+  // ── Sweet Alert Engine ───────────────────────────────────
+  let $currentSwal = null;
+  let swalCloseTimeout = null;
+
+  window.showSweetAlert = function(options) {
+    return new Promise((resolve) => {
+      const {
+        title = '',
+        text = '',
+        icon = 'info', // success, error, warning, info, question, loading
+        showCancelButton = false,
+        confirmText = 'OK',
+        cancelText = 'Cancel',
+        confirmColor = 'primary', // primary, success, danger, warning
+        allowOutsideClick = true
+      } = options;
+
+      // Map icons
+      let materialIcon = 'info';
+      let isSpinning = false;
+      if (icon === 'success') materialIcon = 'check_circle';
+      if (icon === 'error') materialIcon = 'error';
+      if (icon === 'warning') materialIcon = 'warning';
+      if (icon === 'question') materialIcon = 'help';
+      if (icon === 'loading') {
+        materialIcon = 'progress_activity';
+        isSpinning = true;
+      }
+
+      // Map confirm button class
+      let btnConfirmClass = 'swal-btn-confirm';
+      if (confirmColor === 'success') btnConfirmClass = 'swal-btn-success';
+      if (confirmColor === 'danger') btnConfirmClass = 'swal-btn-danger';
+      if (confirmColor === 'warning') btnConfirmClass = 'swal-btn-warning';
+
+      const contentHtml = `
+        <div class="swal-icon swal-icon-${icon}">
+          <span class="material-symbols-outlined ${isSpinning ? 'animate-spin' : ''}">${materialIcon}</span>
+        </div>
+        <h3 class="swal-title">${title}</h3>
+        ${text ? `<p class="swal-text">${text}</p>` : ''}
+        ${icon !== 'loading' ? `
+        <div class="swal-actions">
+          ${showCancelButton ? `<button class="swal-btn swal-btn-cancel">${cancelText}</button>` : ''}
+          <button class="swal-btn ${btnConfirmClass}">${confirmText}</button>
+        </div>` : ''}
+      `;
+
+      if ($currentSwal) {
+        // Reuse existing popup
+        clearTimeout(swalCloseTimeout);
+        $currentSwal.addClass('open'); // in case it started closing
+        $currentSwal.find('.swal-dialog').html(contentHtml);
+        
+        // Pop effect
+        $currentSwal.find('.swal-dialog').css('transform', 'scale(0.95)');
+        setTimeout(() => {
+          $currentSwal.find('.swal-dialog').css('transform', 'scale(1)');
+          if (icon === 'error') {
+            $currentSwal.find('.swal-dialog').css('animation', 'none');
+            $currentSwal.find('.swal-dialog')[0].offsetHeight;
+            $currentSwal.find('.swal-dialog').css('animation', 'swalShake 0.4s ease');
+          } else {
+            $currentSwal.find('.swal-dialog').css('animation', 'none');
+          }
+        }, 10);
+      } else {
+        // Create new popup
+        const swalHtml = `
+          <div class="swal-backdrop">
+            <div class="swal-dialog">
+              ${contentHtml}
+            </div>
+          </div>
+        `;
+        $currentSwal = $(swalHtml).appendTo('body');
+
+        // Trigger show animation
+        setTimeout(() => {
+          $currentSwal.addClass('open');
+          if (icon === 'error') {
+            $currentSwal.find('.swal-dialog').css('animation', 'swalShake 0.4s ease');
+          }
+        }, 10);
+      }
+
+      const closeSwal = (result) => {
+        $currentSwal.removeClass('open');
+        swalCloseTimeout = setTimeout(() => {
+          if ($currentSwal) {
+            $currentSwal.remove();
+            $currentSwal = null;
+          }
+        }, 200); // Wait for transition
+        resolve(result); // Resolving immediately allows chaining before timeout finishes
+      };
+
+      // Re-bind events
+      $currentSwal.off('click');
+      $currentSwal.find(`.${btnConfirmClass}`).on('click', () => closeSwal(true));
+      $currentSwal.find('.swal-btn-cancel').on('click', () => closeSwal(false));
+
+      // Outside click
+      $currentSwal.on('click', function(e) {
+        if ($(e.target).hasClass('swal-backdrop') && allowOutsideClick && icon !== 'loading') {
+          closeSwal(false);
+        } else if ($(e.target).hasClass('swal-backdrop') && (!allowOutsideClick || icon === 'loading')) {
+          // Shake to indicate it can't be closed outside
+          $currentSwal.find('.swal-dialog').css('animation', 'none');
+          $currentSwal.find('.swal-dialog')[0].offsetHeight; // trigger reflow
+          $currentSwal.find('.swal-dialog').css('animation', 'swalShake 0.4s ease');
+        }
+      });
+    });
+  };
 });
 

@@ -22,7 +22,7 @@
   @apply text-base font-bold text-black;
 }
 @utility card-subtitle {
-  @apply text-[11px] font-bold text-gray-500;
+  @apply text-sm font-bold text-gray-500;
 }
 
 /* Background Color Variations */

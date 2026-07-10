@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Masuk ke Presensio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800;900&amp;family=Space+Grotesk:wght@700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&amp;family=Space+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#f3f3f3",
+                    "inverse-on-surface": "#f1f1f1",
+                    "tertiary-fixed": "#6bff8f",
+                    "on-tertiary-fixed-variant": "#005321",
+                    "inverse-surface": "#303030",
+                    "secondary-fixed": "#ffe083",
+                    "on-secondary-container": "#6f5900",
+                    "surface-dim": "#dadada",
+                    "surface": "#f9f9f9",
+                    "secondary-fixed-dim": "#eec200",
+                    "on-secondary-fixed-variant": "#574500",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#231b00",
+                    "on-surface": "#1b1b1b",
+                    "on-surface-variant": "#434655",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#b4c5ff",
+                    "tertiary-fixed-dim": "#4ae176",
+                    "primary-fixed": "#dbe1ff",
+                    "surface-tint": "#0053db",
+                    "secondary": "#735c00",
+                    "surface-container": "#eeeeee",
+                    "on-tertiary-container": "#c1ffc5",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#00174b",
+                    "surface-bright": "#f9f9f9",
+                    "secondary-container": "#fed01b",
+                    "primary-container": "#2563eb",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e2e2e2",
+                    "on-primary": "#ffffff",
+                    "on-background": "#1b1b1b",
+                    "outline-variant": "#c3c6d7",
+                    "on-secondary": "#ffffff",
+                    "outline": "#737686",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "on-primary-container": "#eeefff",
+                    "tertiary-container": "#007e37",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "surface-container-highest": "#e2e2e2",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#004ac6",
+                    "on-tertiary-fixed": "#002109",
+                    "error-container": "#ffdad6",
+                    "tertiary": "#006229",
+                    "background": "#f9f9f9",
+                    "surface-container-high": "#e8e8e8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "shadow-offset": "6px",
+                    "lg": "40px",
+                    "xs": "4px",
+                    "md": "24px",
+                    "xl": "64px",
+                    "sm": "12px",
+                    "border-width": "3px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "display": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "headline-sm": ["Hanken Grotesk"],
+                    "label-caps": ["Space Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "display": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "700"}],
+                    "label-caps": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "800"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .neo-shadow {
+            box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
+        }
+        .neo-shadow-large {
+            box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);
+        }
+        .btn-interact:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px rgba(0,0,0,1);
+        }
+        .input-focus:focus {
+            outline: none;
+            border-width: 4px;
+            box-shadow: 4px 4px 0px 0px #004ac6;
+        }
+        .neo-border {
+            border: 3px solid #1b1b1b;
+        }
+        .flat-border {
+            border: 1px solid #1b1b1b;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen overflow-x-hidden">
+<main class="flex flex-col md:flex-row min-h-screen w-full">
+<!-- Left Section: Illustration & Branding -->
+<section class="w-full md:w-1/2 bg-primary-fixed flex items-center justify-center p-lg relative overflow-hidden">
+<div class="absolute top-10 left-10 z-10">
+<span class="font-headline-md text-headline-md font-black text-on-surface">Presensio</span>
+</div>
+<div class="relative z-10 w-full max-w-lg flex flex-col items-center">
+<div class="w-full aspect-square neo-border bg-white rotate-[-1deg] overflow-hidden">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBr4QaRb0Y-rYvFxQjR64hqDDTZA2mFwZmcbmy9ChK4VHtDl9LyqJMmMbYvPPEEDcNnjYaQnwyOWUn1BqDVB-8l_dNz_r7yyY0F1grB8g4Z70fvrqdBHtbNMcV6J2O0Bc63765EWYpcXNmLVT5xyN1ox8hXpy1eCpfa7ldder0QdZgUPCh80UJPimAomC0MM1n8JPt0EW0YxmNvrVqTPmTZ_WEYCJqqmkFKpfRJ9RY-zExRnjt_DPxU9axrIMwqGFdMrXWxarMxX-Q"/>
+</div>
+<div class="mt-xl text-center">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-sm">Sistem Kehadiran Masa Depan.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md mx-auto">Kelola data kehadiran sekolah dengan presisi Neo-Brutalist yang tegas dan handal.</p>
+</div>
+</div>
+<!-- Background Decorative Elements -->
+<div class="absolute -bottom-10 -right-10 w-64 h-64 bg-secondary-container neo-border rotate-12 opacity-50"></div>
+<div class="absolute top-20 -left-20 w-48 h-48 bg-tertiary-fixed neo-border -rotate-12 opacity-50"></div>
+</section>
+<!-- Right Section: Login Form -->
+<section class="w-full md:w-1/2 bg-surface flex items-center justify-center p-lg">
+<div class="w-full max-w-md">
+<div class="mb-xl">
+<h2 class="font-headline-md text-headline-md mb-xs">Selamat Datang</h2>
+<p class="text-on-surface-variant font-body-md">Silakan masuk ke akun Anda untuk melanjutkan.</p>
+</div>
+<form class="space-y-md" id="loginForm">
+<!-- Username/Email Field -->
+<div class="space-y-xs">
+<label class="font-label-caps text-label-caps text-on-surface uppercase block" for="identity">Email / Username</label>
+<div class="relative">
+<input class="w-full p-md bg-white flat-border input-focus font-body-md transition-all" id="identity" name="identity" placeholder="nama@sekolah.sch.id" type="text"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-xs">
+<div class="flex justify-between items-center">
+<label class="font-label-caps text-label-caps text-on-surface uppercase" for="password">Password</label>
+<a class="text-primary font-bold hover:underline transition-all" href="#">Lupa Password?</a>
+</div>
+<div class="relative">
+<input class="w-full p-md bg-white flat-border input-focus font-body-md transition-all" id="password" name="password" placeholder="••••••••" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-outline-variant hover:text-on-surface" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</div>
+<!-- Login Button -->
+<button class="w-full py-md px-lg bg-primary text-on-primary font-headline-sm text-headline-sm neo-border btn-interact transition-all mt-base" type="submit">
+                        Masuk
+                    </button>
+</form>
+<!-- Footer Links -->
+<div class="mt-xl pt-lg border-t-2 border-on-surface border-dashed flex flex-col sm:flex-row justify-between items-center gap-md">
+<p class="text-on-surface-variant">Belum memiliki akun? <a class="text-primary font-bold hover:underline" href="#">Hubungi Admin</a></p>
+<div class="flex gap-md">
+<a class="flex items-center gap-xs font-bold hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">help_outline</span>
+                            Bantuan
+                        </a>
+</div>
+</div>
+<!-- Simple Terms Info -->
+<p class="mt-xl text-center text-xs text-outline font-medium">
+                    © 2024 Presensio. All rights reserved. <br class="md:hidden"/>
+                    Kepatuhan Data &amp; Privasi Terjamin.
+                </p>
+</div>
+</section>
+</main>
+<script>
+        // Micro-interaction for form submission
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = 'Memproses...';
+            btn.classList.add('opacity-80');
+            
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.classList.remove('opacity-80');
+                alert('Fungsionalitas login akan segera hadir.');
+            }, 1000);
+        });
+
+        // Hover effect for the illustration card
+        const card = document.querySelector('.aspect-square');
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'rotate(1.5deg) translate(-2px, -2px)';
+            card.style.boxShadow = '12px 12px 0px 0px rgba(0,0,0,1)';
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'rotate(-1deg)';
+            card.style.boxShadow = '8px 8px 0px 0px rgba(0,0,0,1)';
+        });
+    </script>
+</body></html>

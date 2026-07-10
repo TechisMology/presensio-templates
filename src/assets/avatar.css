@@ -1,0 +1,98 @@
+/* Avatar Component */
+@utility avatar-wrapper {
+  @apply relative inline-flex;
+}
+
+@utility avatar {
+  @apply object-cover border-2 border-black bg-gray-200;
+}
+
+/* Base shape overrides */
+.avatar.rounded-full {
+  border-radius: 9999px;
+}
+.avatar.rounded-none {
+  border-radius: 0;
+}
+.avatar.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+/* Sizes */
+@utility avatar-sm {
+  width: 32px;
+  height: 32px;
+  @apply text-sm;
+}
+@utility avatar-md {
+  width: 48px;
+  height: 48px;
+  @apply text-sm;
+}
+@utility avatar-lg {
+  width: 64px;
+  height: 64px;
+  @apply text-base;
+}
+@utility avatar-xl {
+  width: 96px;
+  height: 96px;
+  @apply text-xl;
+}
+
+/* Initials */
+@utility avatar-initials {
+  @apply flex items-center justify-center font-bold border-2 border-black;
+}
+.avatar-initials.bg-primary { @apply bg-primary-container text-white; }
+.avatar-initials.bg-secondary { @apply bg-secondary-container text-white; }
+.avatar-initials.bg-yellow { @apply bg-yellow-400 text-black; }
+.avatar-initials.bg-green { @apply bg-green-400 text-black; }
+.avatar-initials.bg-blue { @apply bg-blue-400 text-black; }
+
+/* Status Indicators (Bottom Left) */
+@utility avatar-status {
+  @apply absolute block rounded-full border-2 border-black;
+  bottom: 0;
+  left: 0;
+}
+
+@utility avatar-status-online {
+  @apply bg-green-500;
+}
+@utility avatar-status-offline {
+  @apply bg-gray-500;
+}
+@utility avatar-status-busy {
+  @apply bg-red-500;
+}
+
+/* Status sizes based on parent avatar size */
+.avatar-sm ~ .avatar-status {
+  width: 10px;
+  height: 10px;
+  transform: translate(-10%, 10%);
+}
+.avatar-md ~ .avatar-status {
+  width: 14px;
+  height: 14px;
+  transform: translate(-10%, 10%);
+}
+.avatar-lg ~ .avatar-status {
+  width: 16px;
+  height: 16px;
+  transform: translate(-5%, 5%);
+}
+.avatar-xl ~ .avatar-status {
+  width: 20px;
+  height: 20px;
+  transform: translate(0, 0);
+}
+
+/* Adjustments for Circle Avatars so status is not floating too far */
+.avatar.rounded-full ~ .avatar-status {
+  /* Using 14.6% offset for 45 deg angle */
+  left: 14%;
+  bottom: 14%;
+  transform: translate(-50%, 50%);
+}

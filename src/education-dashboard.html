@@ -1,0 +1,381 @@
+{% set page = "education" %} {% extends "layouts/main.html" %} {% from
+"partials/page-header.html" import pageHeader %} {% block content %}
+<div class="content-canvas">
+  {{ pageHeader('Education Dashboard', [ { label: 'Home', href: '/index.html' },
+  { label: 'Education Dashboard', href: '/education-dashboard.html' } ]) }}
+
+  <!-- STAT CARDS -->
+  <div class="row mb-md">
+    <div class="col-12 col-sm-6 col-lg-3">
+      <div class="card h-full">
+        <div class="card-body">
+          <div class="flex justify-between items-center mb-xs">
+            <span class="text-xs font-bold text-secondary uppercase"
+              >Total Students</span
+            >
+            <span class="material-symbols-outlined text-primary">group</span>
+          </div>
+          <h3 class="fs-4 fw-black mb-xs">1,245</h3>
+          <p class="fs-8 text-success fw-bold mb-0">+5.2% from last month</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-3">
+      <div class="card h-full">
+        <div class="card-body">
+          <div class="flex justify-between items-center mb-xs">
+            <span class="text-xs font-bold text-secondary uppercase"
+              >Avg Attendance</span
+            >
+            <span class="material-symbols-outlined text-success"
+              >how_to_reg</span
+            >
+          </div>
+          <h3 class="fs-4 fw-black mb-xs">94.8%</h3>
+          <p class="fs-8 text-success fw-bold mb-0">+1.2% from last week</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-3">
+      <div class="card h-full">
+        <div class="card-body">
+          <div class="flex justify-between items-center mb-xs">
+            <span class="text-xs font-bold text-secondary uppercase"
+              >Active Assignments</span
+            >
+            <span class="material-symbols-outlined text-warning"
+              >assignment</span
+            >
+          </div>
+          <h3 class="fs-4 fw-black mb-xs">38</h3>
+          <p class="fs-8 text-secondary mb-0">12 due today</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-3">
+      <div class="card h-full">
+        <div class="card-body">
+          <div class="flex justify-between items-center mb-xs">
+            <span class="text-xs font-bold text-secondary uppercase"
+              >Upcoming Events</span
+            >
+            <span class="material-symbols-outlined text-danger">event</span>
+          </div>
+          <h3 class="fs-4 fw-black mb-xs">5</h3>
+          <p class="fs-8 text-secondary mb-0">Next event in 2 days</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHARTS AND ASSIGNMENTS -->
+  <div class="row mb-md">
+    <div class="col-12 col-lg-8 mb-md">
+      <div class="card h-full">
+        <div class="card-header">
+          <span class="h6 mb-0 text-uppercase tracking-wider"
+            >Attendance Trend (Weekly)</span
+          >
+        </div>
+        <div class="card-body">
+          <canvas id="attendanceChart" style="max-height: 300px"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 mb-md">
+      <div class="card h-full">
+        <div class="card-header">
+          <span class="h6 mb-0 text-uppercase tracking-wider"
+            >Assignment Status</span
+          >
+        </div>
+        <div class="card-body flex flex-col justify-center">
+          <canvas
+            id="assignmentChart"
+            style="max-height: 250px; margin: 0 auto"
+          ></canvas>
+          <div class="mt-4 text-center text-sm font-medium">
+            <span class="badge badge-md badge-success">Completed</span>
+            <span class="badge badge-md badge-warning">Pending</span>
+            <span class="badge badge-md badge-danger">Overdue</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCHEDULE, EVENTS, ATTENDEES -->
+  <div class="row">
+    <!-- CLASS SCHEDULE -->
+    <div class="col-12 col-lg-6 mb-md">
+      <div class="card h-full">
+        <div class="card-header flex items-center gap-xs">
+          <span class="material-symbols-outlined">schedule</span>
+          <span class="h6 mb-0 text-uppercase tracking-wider"
+            >Class Schedule</span
+          >
+        </div>
+        <div class="card-body">
+          <div class="table-container">
+            <table class="table table-striped table-hover mb-0">
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Subject</th>
+                  <th>Teacher</th>
+                  <th>Room</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>08:00 - 09:30</td>
+                  <td>Mathematics</td>
+                  <td>Mr. John Doe</td>
+                  <td><span class="badge badge-md badge-primary">Room A1</span></td>
+                </tr>
+                <tr>
+                  <td>09:45 - 11:15</td>
+                  <td>Physics</td>
+                  <td>Mrs. Jane Smith</td>
+                  <td><span class="badge badge-md badge-secondary">Lab 2</span></td>
+                </tr>
+                <tr>
+                  <td>11:30 - 13:00</td>
+                  <td>History</td>
+                  <td>Mr. Robert Brown</td>
+                  <td><span class="badge badge-md badge-primary">Room B3</span></td>
+                </tr>
+                <tr>
+                  <td>14:00 - 15:30</td>
+                  <td>Biology</td>
+                  <td>Ms. Emily White</td>
+                  <td><span class="badge badge-md badge-secondary">Lab 1</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- UPCOMING EVENTS & RECENT ATTENDEES -->
+    <div class="col-12 col-lg-6 mb-md">
+      <div class="row h-full">
+        <div class="col-12 mb-md">
+          <!-- UPCOMING EVENTS -->
+          <div class="card h-full">
+            <div class="card-header flex items-center gap-xs">
+              <span class="material-symbols-outlined">event_upcoming</span>
+              <span class="h6 mb-0 text-uppercase tracking-wider"
+                >Upcoming Events</span
+              >
+            </div>
+            <div class="card-body p-0">
+              <div class="list-group list-group-flush border-0">
+                <a href="#" class="list-group-item list-group-item-action">
+                  <div class="flex justify-between items-center w-full">
+                    <div>
+                      <h6 class="mb-0">Science Fair 2026</h6>
+                      <small class="text-secondary">Main Auditorium</small>
+                    </div>
+                    <div class="text-end">
+                      <span class="block fw-bold fs-7">15 Jul</span>
+                      <small class="text-secondary">09:00 AM</small>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                  <div class="flex justify-between items-center w-full">
+                    <div>
+                      <h6 class="mb-0">Parent-Teacher Meeting</h6>
+                      <small class="text-secondary">All Classrooms</small>
+                    </div>
+                    <div class="text-end">
+                      <span class="block fw-bold fs-7">22 Jul</span>
+                      <small class="text-secondary">13:00 PM</small>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                  <div class="flex justify-between items-center w-full">
+                    <div>
+                      <h6 class="mb-0">Sports Day</h6>
+                      <small class="text-secondary">School Field</small>
+                    </div>
+                    <div class="text-end">
+                      <span class="block fw-bold fs-7">05 Aug</span>
+                      <small class="text-secondary">07:00 AM</small>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <!-- RECENT ATTENDEES -->
+          <div class="card h-full">
+            <div class="card-header flex items-center gap-xs">
+              <span class="material-symbols-outlined">recent_actors</span>
+              <span class="h6 mb-0 text-uppercase tracking-wider"
+                >Recent Attendees</span
+              >
+            </div>
+            <div class="card-body p-0">
+              <div class="list-group list-group-flush border-0">
+                <div class="list-group-item flex items-center gap-sm">
+                  <div class="avatar-wrapper">
+                    <img
+                      src="https://i.pravatar.cc/150?img=32"
+                      alt="Student 1"
+                      class="avatar rounded-full w-10 h-10 object-cover"
+                    />
+                  </div>
+                  <div class="flex-1">
+                    <h6 class="mb-0">Sarah Jenkins</h6>
+                    <small class="text-secondary">Class 10A</small>
+                  </div>
+                  <span class="badge badge-md badge-success">Present</span>
+                </div>
+                <div class="list-group-item flex items-center gap-sm">
+                  <div class="avatar-wrapper">
+                    <img
+                      src="https://i.pravatar.cc/150?img=11"
+                      alt="Student 2"
+                      class="avatar rounded-full w-10 h-10 object-cover"
+                    />
+                  </div>
+                  <div class="flex-1">
+                    <h6 class="mb-0">Michael Chen</h6>
+                    <small class="text-secondary">Class 10B</small>
+                  </div>
+                  <span class="badge badge-md badge-warning">Late</span>
+                </div>
+                <div class="list-group-item flex items-center gap-sm">
+                  <div class="avatar-wrapper">
+                    <img
+                      src="https://i.pravatar.cc/150?img=5"
+                      alt="Student 3"
+                      class="avatar rounded-full w-10 h-10 object-cover"
+                    />
+                  </div>
+                  <div class="flex-1">
+                    <h6 class="mb-0">David Miller</h6>
+                    <small class="text-secondary">Class 11C</small>
+                  </div>
+                  <span class="badge badge-md badge-success">Present</span>
+                </div>
+                <div class="list-group-item flex items-center gap-sm">
+                  <div class="avatar-wrapper">
+                    <img
+                      src="https://i.pravatar.cc/150?img=47"
+                      alt="Student 4"
+                      class="avatar rounded-full w-10 h-10 object-cover"
+                    />
+                  </div>
+                  <div class="flex-1">
+                    <h6 class="mb-0">Emma Watson</h6>
+                    <small class="text-secondary">Class 12A</small>
+                  </div>
+                  <span class="badge badge-md badge-danger">Absent</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Chart Initialization Script -->
+<script type="module">
+  import Chart from "chart.js/auto";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // Attendance Trend Line Chart
+    const ctxAttendance = document.getElementById("attendanceChart");
+    if (ctxAttendance) {
+      new Chart(ctxAttendance, {
+        type: "line",
+        data: {
+          labels: ["Mon", "Tue", "Wed", "Thu", "Fri"],
+          datasets: [
+            {
+              label: "Attendance %",
+              data: [92, 95, 93, 98, 96],
+              borderColor: "#000000",
+              backgroundColor: "#a7f3d0", // green-200
+              borderWidth: 3,
+              tension: 0, // Neobrutalism straight lines
+              fill: true,
+              pointBackgroundColor: "#fcd34d", // yellow-300
+              pointBorderColor: "#000",
+              pointBorderWidth: 2,
+              pointRadius: 6,
+              pointHoverRadius: 8,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+          },
+          scales: {
+            y: {
+              beginAtZero: false,
+              min: 80,
+              max: 100,
+              grid: { color: "#e5e7eb" },
+              ticks: {
+                font: { family: "'Inter', sans-serif", weight: "bold" },
+              },
+            },
+            x: {
+              grid: { color: "#e5e7eb" },
+              ticks: {
+                font: { family: "'Inter', sans-serif", weight: "bold" },
+              },
+            },
+          },
+        },
+      });
+    }
+
+    // Assignment Status Doughnut Chart
+    const ctxAssignment = document.getElementById("assignmentChart");
+    if (ctxAssignment) {
+      new Chart(ctxAssignment, {
+        type: "doughnut",
+        data: {
+          labels: ["Completed", "Pending", "Overdue"],
+          datasets: [
+            {
+              data: [65, 25, 10],
+              backgroundColor: [
+                "#198754", // success
+                "#ffc107", // warning
+                "#dc3545", // danger
+              ],
+              borderColor: "#000000",
+              borderWidth: 2,
+              hoverOffset: 4,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+          },
+          cutout: "60%",
+        },
+      });
+    }
+  });
+</script>
+{% endblock %}

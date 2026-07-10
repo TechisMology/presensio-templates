@@ -10,43 +10,39 @@
     { label: 'Charts', href: '/charts.html' }
   ], showPeriodFilter=false) }}
 
-  <!-- SECTION: BAR CHART -->
-  <div class="mb-lg">
-    <h3 class="fs-6 fw-bold text-secondary text-uppercase tracking-wider mb-sm">1. Bar Chart</h3>
-    <div class="row">
-      <div class="col-12 col-lg-8">
-        <div class="card btn-shadow border border-black">
-          <div class="card-body">
-            <canvas id="brutalistBarChart"></canvas>
-          </div>
+  <div class="row">
+    <!-- SECTION: BAR CHART -->
+    <div class="col-12 col-lg-8 mb-md">
+      <div class="card card-shadow border border-black">
+        <div class="card-header border-b border-black">
+          <h3 class="fs-6 fw-bold text-secondary text-uppercase tracking-wider mb-0">1. Bar Chart</h3>
+        </div>
+        <div class="card-body">
+          <canvas id="brutalistBarChart"></canvas>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- SECTION: LINE CHART -->
-  <div class="mb-lg">
-    <h3 class="fs-6 fw-bold text-secondary text-uppercase tracking-wider mb-sm">2. Line Chart</h3>
-    <div class="row">
-      <div class="col-12 col-lg-8">
-        <div class="card btn-shadow border border-black">
-          <div class="card-body">
-            <canvas id="brutalistLineChart"></canvas>
-          </div>
+    <!-- SECTION: DOUGHNUT CHART -->
+    <div class="col-12 col-lg-4 mb-md">
+      <div class="card card-shadow border border-black h-full">
+        <div class="card-header border-b border-black">
+          <h3 class="fs-6 fw-bold text-secondary text-uppercase tracking-wider mb-0">2. Doughnut Chart</h3>
+        </div>
+        <div class="card-body flex items-center justify-center">
+          <canvas id="brutalistDoughnutChart"></canvas>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- SECTION: DOUGHNUT CHART -->
-  <div class="mb-lg">
-    <h3 class="fs-6 fw-bold text-secondary text-uppercase tracking-wider mb-sm">3. Doughnut Chart</h3>
-    <div class="row">
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card btn-shadow border border-black">
-          <div class="card-body">
-            <canvas id="brutalistDoughnutChart"></canvas>
-          </div>
+    <!-- SECTION: LINE CHART -->
+    <div class="col-12 mb-md">
+      <div class="card card-shadow border border-black">
+        <div class="card-header border-b border-black">
+          <h3 class="fs-6 fw-bold text-secondary text-uppercase tracking-wider mb-0">3. Line Chart</h3>
+        </div>
+        <div class="card-body">
+          <canvas id="brutalistLineChart"></canvas>
         </div>
       </div>
     </div>

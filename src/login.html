@@ -1,0 +1,95 @@
+<!doctype html>
+<html class="light" lang="en">
+  <head>
+    {% include "partials/head.html" %}
+  </head>
+  <body class="bg-gray-50 text-black min-h-screen overflow-x-hidden">
+    <main class="flex flex-col md:flex-row min-h-screen w-full">
+      <!-- Left Section: Illustration & Branding -->
+      <section class="w-full md:w-1/2 bg-[#dbe1ff] flex items-center justify-center p-lg relative overflow-hidden">
+        <div class="absolute top-10 left-10 z-10">
+          <span class="fs-3 fw-bolder text-black">Presensio</span>
+        </div>
+        <div class="relative z-10 w-full max-w-[500px] flex flex-col items-center">
+          <div class="w-full aspect-square border border-black bg-white rotate-[-1deg] overflow-hidden transition-all duration-300 hover:rotate-[1.5deg] hover:-translate-y-1 hover:-translate-x-1" style="box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);">
+            <img class="w-full h-full object-cover" src="/AVATAR/AVATAR1.png"/>
+          </div>
+          <div class="mt-xl text-center px-md">
+            <h1 class="fs-1 fw-bolder text-black mb-sm">Sistem Kehadiran Masa Depan.</h1>
+            <p class="fs-5 text-gray-700 max-w-[400px] mx-auto">Kelola data kehadiran sekolah dengan presisi Neo-Brutalist yang tegas dan handal.</p>
+          </div>
+        </div>
+        <!-- Background Decorative Elements -->
+        <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-secondary-container border border-black rotate-12 opacity-50"></div>
+        <div class="absolute top-20 -left-20 w-48 h-48 bg-green-300 border border-black -rotate-12 opacity-50"></div>
+      </section>
+
+      <!-- Right Section: Login Form -->
+      <section class="w-full md:w-1/2 bg-white flex items-center justify-center p-lg">
+        <div class="w-full max-w-[400px]">
+          <div class="mb-xl">
+            <h2 class="fs-3 fw-bolder mb-xs">Selamat Datang</h2>
+            <p class="text-gray-600 fs-6">Silakan masuk ke akun Anda untuk melanjutkan.</p>
+          </div>
+          
+          <form action="/index.html" method="GET">
+            <!-- Email / Username Field -->
+            <div class="form-group mb-md">
+              <label for="identity" class="form-label uppercase">Email / Username</label>
+              <input 
+                type="text" 
+                id="identity" 
+                class="form-control py-3" 
+                placeholder="nama@sekolah.sch.id"
+                required
+              >
+            </div>
+
+            <!-- Password Field -->
+            <div class="form-group mb-sm">
+              <div class="flex items-center justify-between w-full">
+                <label for="password" class="form-label uppercase mb-0">Password</label>
+                <a href="#" class="fs-7 fw-bold text-primary hover:underline">Lupa Password?</a>
+              </div>
+              <div class="relative mt-xs">
+                <input 
+                  type="password" 
+                  id="password" 
+                  class="form-control py-3 w-full" 
+                  placeholder="••••••••"
+                  required
+                >
+                <button class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-black transition-colors flex items-center" type="button">
+                  <span class="material-symbols-outlined fs-6">visibility</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Login Button -->
+            <button type="submit" class="btn btn-primary btn-shadow w-full fs-5 mt-lg py-3">
+              Masuk
+            </button>
+          </form>
+
+          <!-- Footer Links -->
+          <div class="mt-xl pt-md border-t-2 border-black border-dashed flex flex-col sm:flex-row justify-between items-center gap-md">
+            <p class="fs-7 text-gray-600">Belum memiliki akun? <a href="#" class="text-primary fw-bold hover:underline">Hubungi Admin</a></p>
+            <div class="flex gap-md">
+              <a class="flex items-center gap-xs fw-bold hover:text-primary transition-colors fs-7" href="#">
+                <span class="material-symbols-outlined fs-6">help_outline</span>
+                Bantuan
+              </a>
+            </div>
+          </div>
+          
+          <!-- Simple Terms Info -->
+          <p class="mt-xl text-center fs-7 text-gray-400 fw-normal">
+            © 2026 Presensio. All rights reserved. <br class="md:hidden"/>
+            Kepatuhan Data & Privasi Terjamin.
+          </p>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="/assets/main.js"></script>
+  </body>
+</html>

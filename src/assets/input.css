@@ -15,6 +15,9 @@
 @import "./wizard.css";
 @import "./datatable.css";
 @import "./modal.css";
+@import "./login.css";
+@import "./avatar.css";
+@import "./sweetalert.css";
 @plugin "@tailwindcss/forms";
 
 @theme {
@@ -138,7 +141,7 @@
   @apply flex-1 flex flex-col overflow-y-auto;
 }
 @utility content-canvas {
-  @apply p-lg space-y-md max-w-[1400px] w-full;
+  @apply p-lg space-y-md w-full;
 }
 @utility app-header {
   @apply flex justify-between items-center px-lg h-16 w-full shrink-0 bg-white border-b border-black;
@@ -166,7 +169,13 @@
   @apply w-9 h-9 border border-black rounded overflow-hidden ml-xs;
 }
 @utility sidebar {
-  @apply hidden md:flex flex-col h-full bg-white w-56 border-r border-black z-40;
+  @apply fixed md:relative -left-full md:left-0 top-0 bottom-0 flex flex-col h-full bg-white w-56 shrink-0 border-r border-black z-50 transition-all duration-300;
+  &.show {
+    @apply left-0;
+  }
+  &.collapsed {
+    margin-left: -14rem;
+  }
 }
 @utility sidebar-brand {
   @apply p-md mb-md flex items-center gap-xs;
@@ -181,11 +190,51 @@
   @apply flex flex-col px-md gap-1 flex-1 overflow-y-auto;
 }
 @utility sidebar-link {
-  @apply flex items-center gap-sm px-sm py-2 text-on-surface-variant hover:text-black transition-colors;
+  @apply flex items-center gap-sm px-sm py-2 text-on-surface-variant hover:text-black transition-all border border-transparent rounded;
+
+  &:hover {
+    @apply bg-gray-100 border-black shadow-[3px_3px_0px_0px_#000] -translate-x-[1px] -translate-y-[1px];
+  }
 
   &.active {
-    @apply bg-primary-container text-white rounded font-bold;
+    @apply bg-primary-container text-white font-bold border-transparent;
+    
+    &:hover {
+      @apply border-black;
+    }
   }
+}
+@utility sidebar-item {
+  @apply flex flex-col;
+
+  &.active > .sidebar-link {
+    @apply bg-primary-container text-white font-bold border-transparent;
+    
+    &:hover {
+      @apply border-black;
+    }
+  }
+}
+@utility sidebar-submenu {
+  @apply hidden flex-col pl-[32px] gap-1 mt-1;
+}
+@utility sidebar-submenu-link {
+  @apply flex items-center px-sm py-2 text-sm text-on-surface-variant hover:text-black transition-all border border-transparent rounded;
+  
+  &:hover {
+    @apply bg-gray-100 border-black shadow-[3px_3px_0px_0px_#000] -translate-x-[1px] -translate-y-[1px];
+  }
+
+  &.active {
+    @apply bg-gray-200 text-black font-bold border-transparent;
+
+    &:hover {
+      @apply border-black;
+    }
+  }
+}
+.expand-icon {
+  transition: transform 0.2s ease;
 }
 @utility sidebar-promo-card {
   @apply bg-gray-50 border border-black p-md rounded;

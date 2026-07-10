@@ -1,0 +1,174 @@
+{% set page = 'avatars' %} {% extends "layouts/main.html" %} {% from
+"partials/page-header.html" import pageHeader %} {% block content %}
+<div class="content-canvas">
+  {{ pageHeader('Avatar Components', [ { label: 'Home', href: '/index.html' }, {
+  label: 'Components', href: '#' }, { label: 'Avatar', href: '/avatars.html' }
+  ], showPeriodFilter=false) }}
+  <div class="row">
+    <!-- Avatar Shapes -->
+    <div class="col-12 col-lg-6">
+      <div class="card card-shadow">
+        <div class="card-header">
+          <span class="h6 mb-0">Shapes & Status</span>
+        </div>
+        <div class="card-body">
+          <div class="flex flex-wrap gap-md items-end">
+            <!-- Circle -->
+            <div class="flex flex-col items-center gap-2">
+              <div class="avatar-wrapper">
+                <img
+                  src="/AVATAR/AVATAR1.png"
+                  alt="User 1"
+                  class="avatar rounded-full avatar-lg"
+                />
+                <!-- <span class="avatar-status avatar-status-online"></span> -->
+              </div>
+              <span class="text-sm font-bold">Circle</span>
+            </div>
+
+            <!-- Rounded -->
+            <div class="flex flex-col items-center gap-2">
+              <div class="avatar-wrapper">
+                <img
+                  src="/AVATAR/AVATAR2.png"
+                  alt="User 2"
+                  class="avatar rounded-lg avatar-lg"
+                />
+                <span class="avatar-status avatar-status-offline"></span>
+              </div>
+              <span class="text-sm font-bold">Rounded</span>
+            </div>
+
+            <!-- Square -->
+            <div class="flex flex-col items-center gap-2">
+              <div class="avatar-wrapper">
+                <img
+                  src="/AVATAR/AVATAR3.png"
+                  alt="User 3"
+                  class="avatar rounded-none avatar-lg"
+                />
+                <span class="avatar-status avatar-status-busy"></span>
+              </div>
+              <span class="text-sm font-bold">Square</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Initials Avatar -->
+    <div class="col-12 col-lg-6">
+      <div class="card card-shadow">
+        <div class="card-header">
+          <span class="h6 mb-0">Initials Avatar</span>
+        </div>
+        <div class="card-body">
+          <div class="flex flex-wrap gap-md items-end">
+            <!-- AB -->
+            <div class="flex flex-col items-center gap-2">
+              <div class="avatar-wrapper">
+                <div
+                  class="avatar avatar-initials bg-primary rounded-full avatar-lg"
+                >
+                  AB
+                </div>
+                <span class="avatar-status avatar-status-online"></span>
+              </div>
+              <span class="text-sm font-bold">AB</span>
+            </div>
+
+            <!-- NS -->
+            <div class="flex flex-col items-center gap-2">
+              <div class="avatar-wrapper">
+                <div
+                  class="avatar avatar-initials bg-yellow rounded-lg avatar-lg"
+                >
+                  NS
+                </div>
+                <span class="avatar-status avatar-status-online"></span>
+              </div>
+              <span class="text-sm font-bold">NS</span>
+            </div>
+
+            <div class="flex flex-col items-center gap-2">
+              <div class="avatar-wrapper">
+                <div
+                  class="avatar avatar-initials bg-green rounded-none avatar-lg"
+                >
+                  XY
+                </div>
+                <span class="avatar-status avatar-status-offline"></span>
+              </div>
+              <span class="text-sm font-bold">XY</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Avatar Sizes -->
+    <div class="col-12 mt-md">
+      <div class="card card-shadow">
+        <div class="card-header">
+          <span class="h6 mb-0">Sizes</span>
+        </div>
+        <div class="card-body">
+          <div class="flex flex-wrap gap-md items-end">
+            <!-- Small -->
+            <div class="flex flex-col items-center gap-2">
+              <div class="avatar-wrapper">
+                <img
+                  src="/AVATAR/AVATAR1.png"
+                  alt="User"
+                  class="avatar rounded-full avatar-sm"
+                />
+                <span class="avatar-status avatar-status-online"></span>
+              </div>
+              <span class="text-sm font-bold">SM</span>
+            </div>
+
+            <!-- Medium -->
+            <div class="flex flex-col items-center gap-2">
+              <div class="avatar-wrapper">
+                <img
+                  src="/AVATAR/AVATAR2.png"
+                  alt="User"
+                  class="avatar rounded-full avatar-md"
+                />
+                <span class="avatar-status avatar-status-online"></span>
+              </div>
+              <span class="text-sm font-bold">MD</span>
+            </div>
+
+            <!-- Large -->
+            <div class="flex flex-col items-center gap-2">
+              <div class="avatar-wrapper">
+                <div
+                  class="avatar avatar-initials bg-primary rounded-full avatar-lg"
+                >
+                  AB
+                </div>
+                <span class="avatar-status avatar-status-online"></span>
+              </div>
+              <span class="text-sm font-bold">LG</span>
+            </div>
+
+            <!-- Extra Large -->
+            <div class="flex flex-col items-center gap-2">
+              <div class="avatar-wrapper">
+                <img
+                  src="/AVATAR/AVATAR3.png"
+                  alt="User"
+                  class="avatar rounded-full avatar-xl"
+                />
+                <span class="avatar-status avatar-status-online"></span>
+              </div>
+              <span class="text-sm font-bold">XL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

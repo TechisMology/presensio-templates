@@ -39,7 +39,9 @@ export default defineConfig({
         wizard: resolve(__dirname, 'src/wizard.html'),
         datatables: resolve(__dirname, 'src/datatables.html'),
         modals: resolve(__dirname, 'src/modals.html'),
-        charts: resolve(__dirname, 'src/charts.html')
+        charts: resolve(__dirname, 'src/charts.html'),
+        sweetalerts: resolve(__dirname, 'src/sweetalerts.html'),
+        login: resolve(__dirname, 'src/login.html')
       }
     }
   }
