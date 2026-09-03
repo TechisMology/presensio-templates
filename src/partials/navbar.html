@@ -1,34 +1,129 @@
 <!-- TOP APP BAR -->
 <header class="app-header">
-  <div class="flex items-center gap-md flex-1" id="navbar-badge-container">
+  <div class="flex items-center gap-sm flex-1" id="navbar-badge-container">
     <button class="header-btn" id="sidebar-toggle" aria-label="Toggle Sidebar">
       <span class="material-symbols-outlined">menu</span>
     </button>
-    <div class="badge badge-lg badge-light badge-shadow flex items-center gap-2" id="academic-year-badge">
-      <span class="w-2.5 h-2.5 bg-green-500 rounded-full border border-black block"></span>
-      Tahun Ajaran 2026/2027 Ganjil
+    <!-- Date display -->
+    <div class="hidden md:flex items-center gap-xs text-secondary text-xs">
+      <span class="material-symbols-outlined text-muted text-base"
+        >calendar_today</span
+      >
+      <span id="header-date">Jumat, 15 Agustus 2026</span>
     </div>
   </div>
+
   <div class="header-actions">
-    <button class="header-btn">
-      <span class="material-symbols-outlined">light_mode</span>
-    </button>
-    <button class="header-btn">
-      <span class="material-symbols-outlined">translate</span>
-    </button>
-    <button class="header-btn relative">
-      <span class="material-symbols-outlined">mail</span>
-      <span class="header-badge">4</span>
-    </button>
-    <button class="header-btn relative">
+    <!-- Notification -->
+    <button class="header-btn relative" aria-label="Notifikasi">
       <span class="material-symbols-outlined">notifications</span>
-      <span class="header-badge">1</span>
+      <span class="header-badge">3</span>
     </button>
-    <div class="header-avatar">
-      <img
-        class="w-full h-full object-cover"
-        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTxW-SCaflPUu4H3RECGfkedzcsDUB9rh1rL0GOvCHLfi1RhU9z10Big4Cr14T8cMhgc6PYv-8kDUZsZU-XxCanQHYCQFL4cUf0VhUe1Aq--yTqxPPZQ5xARa4O9PQBR0ZubUdRIvnoTRSWKk3KYzp-esBnkeUv4VsiJtet4TDju69z6opAfqWO55Yfw4uw-uW5d-FwUSusVWpdPyH8UaOwwnvzp0bcE-n7HZCgsUMy62ukNEmHlUGKzylXL4EO6N2v1ss22aVaz8"
-      />
+    <!-- User Profile Dropdown -->
+    <div class="dropdown">
+      <button
+        class="dropdown-profile-toggle dropdown-toggle"
+        type="button"
+        id="profileDropdown"
+        aria-expanded="false"
+      >
+        <div class="header-avatar m-0">
+          <img
+            class="w-full h-full object-cover"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTxW-SCaflPUu4H3RECGfkedzcsDUB9rh1rL0GOvCHLfi1RhU9z10Big4Cr14T8cMhgc6PYv-8kDUZsZU-XxCanQHYCQFL4cUf0VhUe1Aq--yTqxPPZQ5xARa4O9PQBR0ZubUdRIvnoTRSWKk3KYzp-esBnkeUv4VsiJtet4TDju69z6opAfqWO55Yfw4uw-uW5d-FwUSusVWpdPyH8UaOwwnvzp0bcE-n7HZCgsUMy62ukNEmHlUGKzylXL4EO6N2v1ss22aVaz8"
+            alt="Avatar"
+          />
+        </div>
+        <div class="dropdown-profile-info">
+          <span class="dropdown-profile-name">Ahmad Fauzi</span>
+          <span class="dropdown-profile-role">Admin Madrasah</span>
+        </div>
+      </button>
+
+      <!-- Profile Menu -->
+      <div
+        class="dropdown-menu dropdown-menu-end dropdown-profile-menu"
+        aria-labelledby="profileDropdown"
+      >
+        <!-- Profile Header Card -->
+        <div class="dropdown-profile-header">
+          <div class="avatar avatar-md rounded-lg overflow-hidden shrink-0">
+            <img
+              class="w-full h-full object-cover"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTxW-SCaflPUu4H3RECGfkedzcsDUB9rh1rL0GOvCHLfi1RhU9z10Big4Cr14T8cMhgc6PYv-8kDUZsZU-XxCanQHYCQFL4cUf0VhUe1Aq--yTqxPPZQ5xARa4O9PQBR0ZubUdRIvnoTRSWKk3KYzp-esBnkeUv4VsiJtet4TDju69z6opAfqWO55Yfw4uw-uW5d-FwUSusVWpdPyH8UaOwwnvzp0bcE-n7HZCgsUMy62ukNEmHlUGKzylXL4EO6N2v1ss22aVaz8"
+              alt="Avatar"
+            />
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-xs font-bold text-gray-900 truncate mb-0.5">
+              H. Ahmad Fauzi, M.Pd
+            </p>
+            <p class="text-[11px] text-gray-500 truncate mb-1">
+              ahmad.fauzi@kemenag.go.id
+            </p>
+            <span class="badge badge-sm badge-primary">Super Admin</span>
+          </div>
+        </div>
+
+        <!-- Menu Links -->
+        <a href="#" class="dropdown-item">
+          <i class="icon-user"></i>
+          <span>Profil Saya</span>
+        </a>
+        <a href="#" class="dropdown-item">
+          <i class="icon-settings"></i>
+          <span>Pengaturan Akun</span>
+        </a>
+        <a href="#" class="dropdown-item">
+          <i class="icon-shield-check"></i>
+          <span>Keamanan & Sandi</span>
+        </a>
+        <a href="#" class="dropdown-item">
+          <i class="icon-help-circle"></i>
+          <span>Bantuan & Dukungan</span>
+        </a>
+
+        <div class="dropdown-divider"></div>
+
+        <!-- Logout Action -->
+        <a href="/login.html" class="dropdown-item dropdown-item-danger">
+          <i class="icon-log-out"></i>
+          <span>Keluar (Logout)</span>
+        </a>
+      </div>
     </div>
   </div>
 </header>
+
+<script>
+  // Dynamic date display
+  (function () {
+    const el = document.getElementById("header-date");
+    if (!el) return;
+    const now = new Date();
+    const days = [
+      "Minggu",
+      "Senin",
+      "Selasa",
+      "Rabu",
+      "Kamis",
+      "Jumat",
+      "Sabtu",
+    ];
+    const months = [
+      "Januari",
+      "Februari",
+      "Maret",
+      "April",
+      "Mei",
+      "Juni",
+      "Juli",
+      "Agustus",
+      "September",
+      "Oktober",
+      "November",
+      "Desember",
+    ];
+    el.textContent = `${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
+  })();
+</script>

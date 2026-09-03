@@ -1,8 +1,9 @@
 /* Button Component Styles */
 
 @utility btn {
-  @apply inline-flex items-center justify-center font-bold border border-black cursor-pointer select-none transition-all duration-75 text-center gap-xs;
-  border-radius: var(--radius-default);
+  @apply inline-flex items-center justify-center font-semibold cursor-pointer select-none transition-all duration-200 text-center gap-xs;
+  border: none;
+  border-radius: 8px;
   font-family: var(--font-body-md);
   text-decoration: none;
   padding: 10px 20px;
@@ -11,8 +12,9 @@
 
 /* Button Sizing */
 @utility btn-sm {
-  padding: 6px 12px;
+  padding: 6px 14px;
   font-size: 0.75rem;
+  border-radius: 6px;
 }
 @utility btn-md {
   padding: 10px 20px;
@@ -21,68 +23,107 @@
 @utility btn-lg {
   padding: 14px 28px;
   font-size: 1rem;
+  border-radius: 10px;
 }
 
 /* Button Themes */
 @utility btn-primary {
-  @apply bg-primary text-white;
+  background-color: #08783a;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(8, 120, 58, 0.25);
   &:hover {
-    @apply bg-blue-700;
+    background-color: #059447;
+    box-shadow: 0 4px 12px rgba(8, 120, 58, 0.35);
+    transform: translateY(-1px);
+  }
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 4px rgba(8, 120, 58, 0.2);
   }
 }
 @utility btn-secondary {
-  @apply bg-gray-100 text-black;
+  background-color: #f3f4f6;
+  color: #374151;
   &:hover {
-    @apply bg-gray-200;
+    background-color: #e5e7eb;
   }
 }
 @utility btn-success {
-  @apply bg-[#006229] text-white;
+  background-color: #16a34a;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(22, 163, 74, 0.25);
   &:hover {
-    background-color: #004d20;
+    background-color: #15803d;
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.35);
+    transform: translateY(-1px);
   }
 }
 @utility btn-danger {
   @apply bg-error text-white;
+  box-shadow: 0 2px 8px rgba(186, 26, 26, 0.25);
   &:hover {
     background-color: #a51010;
+    transform: translateY(-1px);
   }
 }
 @utility btn-warning {
-  @apply bg-secondary-container text-black;
+  background-color: #f59e0b;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.25);
   &:hover {
-    background-color: #eec200;
+    background-color: #d97706;
+    transform: translateY(-1px);
   }
 }
 @utility btn-dark {
   @apply bg-inverse-surface text-white;
   &:hover {
     background-color: #1e1e1e;
+    transform: translateY(-1px);
   }
 }
 @utility btn-light {
-  @apply bg-white text-black;
+  background-color: #ffffff;
+  color: #374151;
+  border: 1px solid #e5e7eb;
   &:hover {
-    @apply bg-gray-50;
+    background-color: #f9fafb;
   }
 }
 
-/* Button Shadow (Neo-Brutalist Effect) */
-@utility btn-shadow {
-  box-shadow: 2px 2px 0px 0px #000000;
+/* Outline Buttons */
+@utility btn-outline-primary {
+  background-color: transparent;
+  color: #08783a;
+  border: 1.5px solid #08783a;
   &:hover {
-    box-shadow: 4px 4px 0px 0px #000000;
-    transform: translate(-2px, -2px);
+    background-color: #08783a;
+    color: #ffffff;
   }
-  &:active {
-    box-shadow: 0px 0px 0px 0px #000000;
-    transform: translate(2px, 2px);
+}
+@utility btn-outline-danger {
+  background-color: transparent;
+  color: var(--color-error);
+  border: 1.5px solid var(--color-error);
+  &:hover {
+    background-color: var(--color-error);
+    color: #ffffff;
   }
 }
 
 /* Icon Buttons (Centering & Sizing) */
 @utility btn-icon-only {
-  @apply p-0 rounded-full flex items-center justify-center shrink-0;
+  @apply p-0 flex items-center justify-center shrink-0;
+  border-radius: 8px;
+  background: transparent;
+  color: #6b7280;
+  transition:
+    background 0.15s,
+    color 0.15s;
+  &:hover {
+    background-color: #f3f4f6;
+    color: #111827;
+  }
 }
 @utility btn-icon-sm {
   width: 28px;
@@ -95,4 +136,180 @@
 @utility btn-icon-lg {
   width: 44px;
   height: 44px;
+}
+
+/* ============================================================
+   Action Icon Buttons (Tanpa Border, Tanpa Shadow)
+   Sangat cocok untuk Aksi Tabel, Toolbar, Card Header, dll.
+   ============================================================ */
+
+@utility btn-action {
+  @apply inline-flex items-center justify-center p-0 cursor-pointer select-none transition-all duration-150 shrink-0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 8px;
+  color: #6b7280;
+  width: 34px;
+  height: 34px;
+
+  & i,
+  & [class^="icon-"],
+  & [class*=" icon-"],
+  & .material-symbols-outlined {
+    font-size: 18px;
+    line-height: 1;
+    color: currentColor;
+    transition: transform 0.15s ease;
+  }
+
+  &:hover {
+    background-color: #f3f4f6;
+    color: #111827;
+    box-shadow: none;
+  }
+
+  &:active {
+    transform: scale(0.94);
+  }
+}
+
+/* Action Button Sizing */
+@utility btn-action-xs {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  & i,
+  & [class^="icon-"],
+  & [class*=" icon-"],
+  & .material-symbols-outlined {
+    font-size: 14px;
+  }
+}
+@utility btn-action-sm {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  & i,
+  & [class^="icon-"],
+  & [class*=" icon-"],
+  & .material-symbols-outlined {
+    font-size: 16px;
+  }
+}
+@utility btn-action-md {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  & i,
+  & [class^="icon-"],
+  & [class*=" icon-"],
+  & .material-symbols-outlined {
+    font-size: 18px;
+  }
+}
+@utility btn-action-lg {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  & i,
+  & [class^="icon-"],
+  & [class*=" icon-"],
+  & .material-symbols-outlined {
+    font-size: 20px;
+  }
+}
+
+/* Rounded Full Variant */
+@utility btn-action-rounded {
+  border-radius: 9999px;
+}
+
+/* Hover Contextual Colors (Transparan -> Berwarna saat Hover) */
+@utility btn-action-primary {
+  color: #6b7280;
+  &:hover {
+    background-color: #f0fdf4;
+    color: #08783a;
+  }
+}
+@utility btn-action-danger {
+  color: #6b7280;
+  &:hover {
+    background-color: #fef2f2;
+    color: #dc2626;
+  }
+}
+@utility btn-action-warning {
+  color: #6b7280;
+  &:hover {
+    background-color: #fffbeb;
+    color: #d97706;
+  }
+}
+@utility btn-action-info {
+  color: #6b7280;
+  &:hover {
+    background-color: #eff6ff;
+    color: #2563eb;
+  }
+}
+@utility btn-action-success {
+  color: #6b7280;
+  &:hover {
+    background-color: #f0fdf4;
+    color: #16a34a;
+  }
+}
+
+/* Soft Tinted Action Buttons (Background pastel lembut, zero border, zero shadow) */
+@utility btn-action-soft-primary {
+  background-color: #f0fdf4;
+  color: #08783a;
+  box-shadow: none;
+  border: none;
+  &:hover {
+    background-color: #dcfce7;
+    color: #065f46;
+  }
+}
+@utility btn-action-soft-danger {
+  background-color: #fef2f2;
+  color: #dc2626;
+  box-shadow: none;
+  border: none;
+  &:hover {
+    background-color: #fee2e2;
+    color: #b91c1c;
+  }
+}
+@utility btn-action-soft-warning {
+  background-color: #fffbeb;
+  color: #d97706;
+  box-shadow: none;
+  border: none;
+  &:hover {
+    background-color: #fef3c7;
+    color: #b45309;
+  }
+}
+@utility btn-action-soft-info {
+  background-color: #eff6ff;
+  color: #2563eb;
+  box-shadow: none;
+  border: none;
+  &:hover {
+    background-color: #dbeafe;
+    color: #1d4ed8;
+  }
+}
+@utility btn-action-soft-secondary {
+  background-color: #f3f4f6;
+  color: #4b5563;
+  box-shadow: none;
+  border: none;
+  &:hover {
+    background-color: #e5e7eb;
+    color: #111827;
+  }
 }

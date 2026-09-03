@@ -1,53 +1,49 @@
-{% set page = "charts" %}
-{% extends "layouts/main.html" %}
-{% from "partials/page-header.html" import pageHeader %}
-
-{% block content %}
+{% set page = "charts" %} {% extends "layouts/main.html" %} {% from
+"partials/page-header.html" import pageHeader %} {% block content %}
 <div class="content-canvas">
-  {{ pageHeader('Charts (Chart.js)', [
-    { label: 'Home', href: '/index.html' },
-    { label: 'Components', href: '#' },
-    { label: 'Charts', href: '/charts.html' }
-  ], showPeriodFilter=false) }}
+  {{ pageHeader('Charts (Chart.js)', [ { label: 'Home', href: '/index.html' }, {
+  label: 'Components', href: '#' }, { label: 'Charts', href: '/charts.html' } ],
+  showPeriodFilter=false) }}
 
   <div class="row">
     <!-- SECTION: BAR CHART -->
     <div class="col-12 col-lg-8 mb-md">
-      <div class="card card-shadow border border-black">
-        <div class="card-header border-b border-black">
-          <h3 class="fs-6 fw-bold text-secondary text-uppercase tracking-wider mb-0">1. Bar Chart</h3>
+      <div class="card card-shadow">
+        <div class="card-header">
+          <span class="h6 mb-0">Monthly Revenue & Expenses (Bar Chart)</span>
         </div>
         <div class="card-body">
-          <canvas id="brutalistBarChart"></canvas>
+          <canvas id="modernBarChart"></canvas>
         </div>
       </div>
     </div>
 
     <!-- SECTION: DOUGHNUT CHART -->
     <div class="col-12 col-lg-4 mb-md">
-      <div class="card card-shadow border border-black h-full">
-        <div class="card-header border-b border-black">
-          <h3 class="fs-6 fw-bold text-secondary text-uppercase tracking-wider mb-0">2. Doughnut Chart</h3>
+      <div class="card card-shadow h-full">
+        <div class="card-header">
+          <span class="h6 mb-0">Traffic Sources (Doughnut)</span>
         </div>
-        <div class="card-body flex items-center justify-center">
-          <canvas id="brutalistDoughnutChart"></canvas>
+        <div class="card-body flex items-center justify-center p-md">
+          <div class="w-full max-w-[280px]">
+            <canvas id="modernDoughnutChart"></canvas>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- SECTION: LINE CHART -->
     <div class="col-12 mb-md">
-      <div class="card card-shadow border border-black">
-        <div class="card-header border-b border-black">
-          <h3 class="fs-6 fw-bold text-secondary text-uppercase tracking-wider mb-0">3. Line Chart</h3>
+      <div class="card card-shadow">
+        <div class="card-header">
+          <span class="h6 mb-0">User Activity Trend (Smooth Line Chart)</span>
         </div>
         <div class="card-body">
-          <canvas id="brutalistLineChart"></canvas>
+          <canvas id="modernLineChart"></canvas>
         </div>
       </div>
     </div>
   </div>
-
 </div>
 
 <!-- Initialize Charts -->

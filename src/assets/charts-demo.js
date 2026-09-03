@@ -1,158 +1,234 @@
-import Chart from 'chart.js/auto';
+import Chart from "chart.js/auto";
 
-// Brutalist Design Tokens (can be matched with CSS variables if needed)
-const brutalistColors = {
-  primary: '#0d6efd',
-  warning: '#ffc107',
-  success: '#198754',
-  danger: '#dc3545',
-  info: '#0dcaf0',
-  black: '#000000',
-  white: '#ffffff',
-  background: '#f8f9fa'
+// Modern Design Tokens & Palette
+const themeColors = {
+  primary: "#08783a",
+  primaryHover: "#059447",
+  primaryLight: "#dcfce7",
+  secondary: "#6b7280",
+  warning: "#f59e0b",
+  success: "#16a34a",
+  danger: "#ef4444",
+  info: "#2563eb",
+  dark: "#111827",
+  grid: "#f3f4f6",
+  border: "#e5e7eb",
 };
 
-// Global Chart.js Defaults for Brutalist Theme
-Chart.defaults.font.family = "'Inter', sans-serif";
-Chart.defaults.font.weight = 'bold';
-Chart.defaults.color = brutalistColors.black;
-Chart.defaults.plugins.tooltip.backgroundColor = brutalistColors.black;
-Chart.defaults.plugins.tooltip.titleFont = { family: "'Inter', sans-serif", weight: 'bold', size: 14 };
-Chart.defaults.plugins.tooltip.bodyFont = { family: "'Inter', sans-serif", weight: 'normal', size: 13 };
-Chart.defaults.plugins.tooltip.cornerRadius = 0; // Sharp corners
-Chart.defaults.plugins.tooltip.padding = 10;
-Chart.defaults.plugins.legend.labels.font = { family: "'Inter', sans-serif", weight: 'bold' };
-Chart.defaults.plugins.legend.labels.color = brutalistColors.black;
+// Global Chart.js Defaults for Modern Theme
+Chart.defaults.font.family = "'Poppins', sans-serif";
+Chart.defaults.font.weight = "500";
+Chart.defaults.color = "#6b7280";
 
-document.addEventListener('DOMContentLoaded', () => {
-  // 1. Bar Chart
-  const barCtx = document.getElementById('brutalistBarChart');
+// Modern Clean Tooltip Defaults
+Chart.defaults.plugins.tooltip.backgroundColor = "#ffffff";
+Chart.defaults.plugins.tooltip.titleColor = "#111827";
+Chart.defaults.plugins.tooltip.bodyColor = "#374151";
+Chart.defaults.plugins.tooltip.borderColor = "#e5e7eb";
+Chart.defaults.plugins.tooltip.borderWidth = 1;
+Chart.defaults.plugins.tooltip.padding = 12;
+Chart.defaults.plugins.tooltip.cornerRadius = 8;
+Chart.defaults.plugins.tooltip.boxPadding = 4;
+Chart.defaults.plugins.tooltip.titleFont = {
+  family: "'Poppins', sans-serif",
+  weight: "600",
+  size: 13,
+};
+Chart.defaults.plugins.tooltip.bodyFont = {
+  family: "'Poppins', sans-serif",
+  weight: "500",
+  size: 12,
+};
+
+// Legend Defaults
+Chart.defaults.plugins.legend.labels.font = {
+  family: "'Poppins', sans-serif",
+  weight: "600",
+  size: 12,
+};
+Chart.defaults.plugins.legend.labels.color = "#374151";
+Chart.defaults.plugins.legend.labels.usePointStyle = true;
+Chart.defaults.plugins.legend.labels.pointStyle = "circle";
+Chart.defaults.plugins.legend.labels.padding = 16;
+
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Bar Chart — Revenue & Expenses
+  const barCtx =
+    document.getElementById("modernBarChart") ||
+    document.getElementById("brutalistBarChart");
   if (barCtx) {
     new Chart(barCtx, {
-      type: 'bar',
+      type: "bar",
       data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-        datasets: [{
-          label: 'Revenue',
-          data: [1200, 1900, 3000, 5000, 2400, 3200],
-          backgroundColor: brutalistColors.primary,
-          borderColor: brutalistColors.black,
-          borderWidth: 2,
-          hoverBackgroundColor: '#0b5ed7',
-          borderRadius: 0, // Sharp corners
-        },
-        {
-          label: 'Expenses',
-          data: [800, 1500, 2000, 2500, 1800, 2100],
-          backgroundColor: brutalistColors.warning,
-          borderColor: brutalistColors.black,
-          borderWidth: 2,
-          borderRadius: 0,
-        }]
-      },
-      options: {
-        responsive: true,
-        scales: {
-          x: {
-            grid: {
-              color: brutalistColors.black,
-              lineWidth: 1,
-              drawBorder: true,
-              drawTicks: true,
-            },
-            ticks: {
-              font: { weight: 'bold' }
-            }
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+        datasets: [
+          {
+            label: "Pendapatan (Revenue)",
+            data: [1200, 1900, 3000, 5000, 2400, 3200],
+            backgroundColor: themeColors.primary,
+            hoverBackgroundColor: themeColors.primaryHover,
+            borderRadius: 6,
+            barPercentage: 0.6,
+            categoryPercentage: 0.6,
           },
-          y: {
-            grid: {
-              color: brutalistColors.black,
-              lineWidth: 1,
-              drawBorder: true,
-            },
-            ticks: {
-              font: { weight: 'bold' }
-            },
-            beginAtZero: true
-          }
-        }
-      }
-    });
-  }
-
-  // 2. Line Chart
-  const lineCtx = document.getElementById('brutalistLineChart');
-  if (lineCtx) {
-    new Chart(lineCtx, {
-      type: 'line',
-      data: {
-        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-        datasets: [{
-          label: 'Active Users',
-          data: [65, 59, 80, 81, 56, 55, 40],
-          fill: false,
-          borderColor: brutalistColors.black,
-          borderWidth: 4, // Thicker line for brutalist look
-          tension: 0, // Sharp angles, no bezier curves
-          pointBackgroundColor: brutalistColors.success,
-          pointBorderColor: brutalistColors.black,
-          pointBorderWidth: 2,
-          pointRadius: 6,
-          pointHoverRadius: 8,
-        }]
-      },
-      options: {
-        responsive: true,
-        scales: {
-          x: {
-            grid: {
-              color: '#dee2e6', // Lighter grid for contrast
-              lineWidth: 1,
-            }
+          {
+            label: "Pengeluaran (Expenses)",
+            data: [800, 1500, 2000, 2500, 1800, 2100],
+            backgroundColor: "#dbeafe",
+            hoverBackgroundColor: "#bfdbfe",
+            borderRadius: 6,
+            barPercentage: 0.6,
+            categoryPercentage: 0.6,
           },
-          y: {
-            grid: {
-              color: '#dee2e6',
-              lineWidth: 1,
-            },
-            beginAtZero: true
-          }
-        }
-      }
-    });
-  }
-
-  // 3. Doughnut Chart
-  const doughnutCtx = document.getElementById('brutalistDoughnutChart');
-  if (doughnutCtx) {
-    new Chart(doughnutCtx, {
-      type: 'doughnut',
-      data: {
-        labels: ['Direct', 'Social', 'Referral'],
-        datasets: [{
-          data: [300, 50, 100],
-          backgroundColor: [
-            brutalistColors.danger,
-            brutalistColors.primary,
-            brutalistColors.warning
-          ],
-          borderColor: brutalistColors.black,
-          borderWidth: 2,
-          hoverOffset: 4
-        }]
+        ],
       },
       options: {
         responsive: true,
         plugins: {
           legend: {
-            position: 'bottom',
-          }
+            position: "top",
+            align: "end",
+          },
         },
-        cutout: '60%',
+        scales: {
+          x: {
+            grid: {
+              display: false,
+            },
+            ticks: {
+              color: "#9ca3af",
+            },
+          },
+          y: {
+            grid: {
+              color: themeColors.grid,
+            },
+            ticks: {
+              color: "#9ca3af",
+            },
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+  }
+
+  // 2. Line Chart — User Activity Trend
+  const lineCtx =
+    document.getElementById("modernLineChart") ||
+    document.getElementById("brutalistLineChart");
+  if (lineCtx) {
+    new Chart(lineCtx, {
+      type: "line",
+      data: {
+        labels: [
+          "Senin",
+          "Selasa",
+          "Rabu",
+          "Kamis",
+          "Jumat",
+          "Sabtu",
+          "Minggu",
+        ],
+        datasets: [
+          {
+            label: "Pengguna Aktif",
+            data: [65, 59, 80, 81, 56, 75, 90],
+            fill: true,
+            backgroundColor: "rgba(8, 120, 58, 0.08)",
+            borderColor: themeColors.primary,
+            borderWidth: 2.5,
+            tension: 0.35,
+            pointBackgroundColor: "#ffffff",
+            pointBorderColor: themeColors.primary,
+            pointBorderWidth: 2.5,
+            pointRadius: 4,
+            pointHoverRadius: 6,
+            pointHoverBackgroundColor: themeColors.primary,
+            pointHoverBorderColor: "#ffffff",
+          },
+          {
+            label: "Target",
+            data: [50, 55, 60, 65, 70, 75, 80],
+            fill: false,
+            borderColor: "#d1d5db",
+            borderWidth: 2,
+            borderDash: [5, 5],
+            tension: 0.35,
+            pointRadius: 0,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: "top",
+            align: "end",
+          },
+        },
+        scales: {
+          x: {
+            grid: {
+              display: false,
+            },
+            ticks: {
+              color: "#9ca3af",
+            },
+          },
+          y: {
+            grid: {
+              color: themeColors.grid,
+            },
+            ticks: {
+              color: "#9ca3af",
+            },
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+  }
+
+  // 3. Doughnut Chart — Traffic Sources
+  const doughnutCtx =
+    document.getElementById("modernDoughnutChart") ||
+    document.getElementById("brutalistDoughnutChart");
+  if (doughnutCtx) {
+    new Chart(doughnutCtx, {
+      type: "doughnut",
+      data: {
+        labels: ["Organik", "Langsung", "Rujukan", "Sosial"],
+        datasets: [
+          {
+            data: [350, 180, 120, 60],
+            backgroundColor: [
+              themeColors.primary,
+              themeColors.info,
+              themeColors.warning,
+              themeColors.danger,
+            ],
+            borderColor: "#ffffff",
+            borderWidth: 3,
+            hoverOffset: 6,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: "bottom",
+            labels: {
+              padding: 12,
+            },
+          },
+        },
+        cutout: "70%",
         layout: {
-          padding: 10
-        }
-      }
+          padding: 8,
+        },
+      },
     });
   }
 });

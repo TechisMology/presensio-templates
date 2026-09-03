@@ -2,67 +2,93 @@
 "partials/page-header.html" import pageHeader %} {% block content %}
 <div class="content-canvas">
   {{ pageHeader('Education Dashboard', [ { label: 'Home', href: '/index.html' },
-  { label: 'Education Dashboard', href: '/education-dashboard.html' } ]) }}
+  { label: 'Dashboard', href: '#' }, { label: 'Education', href:
+  '/education-dashboard.html' } ], showPeriodFilter=true) }}
 
   <!-- STAT CARDS -->
   <div class="row mb-md">
+    <!-- Total Students -->
     <div class="col-12 col-sm-6 col-lg-3">
       <div class="card h-full">
         <div class="card-body">
-          <div class="flex justify-between items-center mb-xs">
-            <span class="text-xs font-bold text-secondary uppercase"
-              >Total Students</span
-            >
-            <span class="material-symbols-outlined text-primary">group</span>
+          <div class="flex justify-between items-start mb-sm">
+            <div>
+              <span class="stat-card-label">Total Siswa</span>
+              <h3 class="my-1">1.245</h3>
+            </div>
+            <div class="stat-card-icon stat-card-icon-green">
+              <span class="material-symbols-outlined text-success">group</span>
+            </div>
           </div>
-          <h3 class="fs-4 fw-black mb-xs">1,245</h3>
-          <p class="fs-8 text-success fw-bold mb-0">+5.2% from last month</p>
+          <p class="stat-card-sub text-success mb-0">
+            <span class="material-symbols-outlined align-middle fs-7"
+              >trending_up</span
+            >
+            +5.2% dari bulan lalu
+          </p>
         </div>
       </div>
     </div>
+
+    <!-- Avg Attendance -->
     <div class="col-12 col-sm-6 col-lg-3">
       <div class="card h-full">
         <div class="card-body">
-          <div class="flex justify-between items-center mb-xs">
-            <span class="text-xs font-bold text-secondary uppercase"
-              >Avg Attendance</span
-            >
-            <span class="material-symbols-outlined text-success"
-              >how_to_reg</span
-            >
+          <div class="flex justify-between items-start mb-sm">
+            <div>
+              <span class="stat-card-label">Rata-rata Hadir</span>
+              <h3 class="my-1">94.8%</h3>
+            </div>
+            <div class="stat-card-icon stat-card-icon-blue">
+              <span class="material-symbols-outlined text-info"
+                >how_to_reg</span
+              >
+            </div>
           </div>
-          <h3 class="fs-4 fw-black mb-xs">94.8%</h3>
-          <p class="fs-8 text-success fw-bold mb-0">+1.2% from last week</p>
+          <p class="stat-card-sub text-success mb-0">
+            <span class="material-symbols-outlined align-middle fs-7"
+              >trending_up</span
+            >
+            +1.2% dari minggu lalu
+          </p>
         </div>
       </div>
     </div>
+
+    <!-- Active Assignments -->
     <div class="col-12 col-sm-6 col-lg-3">
       <div class="card h-full">
         <div class="card-body">
-          <div class="flex justify-between items-center mb-xs">
-            <span class="text-xs font-bold text-secondary uppercase"
-              >Active Assignments</span
-            >
-            <span class="material-symbols-outlined text-warning"
-              >assignment</span
-            >
+          <div class="flex justify-between items-start mb-sm">
+            <div>
+              <span class="stat-card-label">Tugas Aktif</span>
+              <h3 class="my-1">38</h3>
+            </div>
+            <div class="stat-card-icon stat-card-icon-amber">
+              <span class="material-symbols-outlined text-warning"
+                >assignment</span
+              >
+            </div>
           </div>
-          <h3 class="fs-4 fw-black mb-xs">38</h3>
-          <p class="fs-8 text-secondary mb-0">12 due today</p>
+          <p class="stat-card-sub mb-0">12 tenggat hari ini</p>
         </div>
       </div>
     </div>
+
+    <!-- Upcoming Events -->
     <div class="col-12 col-sm-6 col-lg-3">
       <div class="card h-full">
         <div class="card-body">
-          <div class="flex justify-between items-center mb-xs">
-            <span class="text-xs font-bold text-secondary uppercase"
-              >Upcoming Events</span
-            >
-            <span class="material-symbols-outlined text-danger">event</span>
+          <div class="flex justify-between items-start mb-sm">
+            <div>
+              <span class="stat-card-label">Acara Mendatang</span>
+              <h3 class="my-1">5</h3>
+            </div>
+            <div class="stat-card-icon stat-card-icon-red">
+              <span class="material-symbols-outlined text-danger">event</span>
+            </div>
           </div>
-          <h3 class="fs-4 fw-black mb-xs">5</h3>
-          <p class="fs-8 text-secondary mb-0">Next event in 2 days</p>
+          <p class="stat-card-sub mb-0">Acara berikutnya dalam 2 hari</p>
         </div>
       </div>
     </div>
@@ -70,34 +96,73 @@
 
   <!-- CHARTS AND ASSIGNMENTS -->
   <div class="row mb-md">
+    <!-- Attendance Chart -->
     <div class="col-12 col-lg-8 mb-md">
       <div class="card h-full">
         <div class="card-header">
-          <span class="h6 mb-0 text-uppercase tracking-wider"
-            >Attendance Trend (Weekly)</span
-          >
+          <div class="flex items-center gap-sm">
+            <div class="stat-card-icon stat-card-icon-green w-7 h-7 rounded-lg">
+              <span class="material-symbols-outlined text-success fs-6"
+                >show_chart</span
+              >
+            </div>
+            <span class="card-title">Tren Kehadiran (Mingguan)</span>
+          </div>
         </div>
         <div class="card-body">
-          <canvas id="attendanceChart" style="max-height: 300px"></canvas>
+          <div class="h-72">
+            <canvas id="attendanceChart"></canvas>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- Assignment Status Doughnut -->
     <div class="col-12 col-lg-4 mb-md">
       <div class="card h-full">
         <div class="card-header">
-          <span class="h6 mb-0 text-uppercase tracking-wider"
-            >Assignment Status</span
-          >
+          <div class="flex items-center gap-sm">
+            <div class="stat-card-icon stat-card-icon-green w-7 h-7 rounded-lg">
+              <span class="material-symbols-outlined text-success fs-6"
+                >donut_large</span
+              >
+            </div>
+            <span class="card-title">Status Tugas</span>
+          </div>
         </div>
         <div class="card-body flex flex-col justify-center">
-          <canvas
-            id="assignmentChart"
-            style="max-height: 250px; margin: 0 auto"
-          ></canvas>
-          <div class="mt-4 text-center text-sm font-medium">
-            <span class="badge badge-md badge-success">Completed</span>
-            <span class="badge badge-md badge-warning">Pending</span>
-            <span class="badge badge-md badge-danger">Overdue</span>
+          <div class="h-52 flex items-center justify-center">
+            <canvas id="assignmentChart"></canvas>
+          </div>
+          <!-- Legend -->
+          <div class="mt-md flex flex-col gap-xs">
+            <div class="flex items-center justify-between fs-7">
+              <div class="flex items-center gap-xs">
+                <span
+                  class="w-3 h-3 rounded-full inline-block bg-green-600"
+                ></span>
+                <span class="text-secondary">Selesai</span>
+              </div>
+              <span class="fw-bold">65%</span>
+            </div>
+            <div class="flex items-center justify-between fs-7">
+              <div class="flex items-center gap-xs">
+                <span
+                  class="w-3 h-3 rounded-full inline-block bg-amber-500"
+                ></span>
+                <span class="text-secondary">Pending</span>
+              </div>
+              <span class="fw-bold">25%</span>
+            </div>
+            <div class="flex items-center justify-between fs-7">
+              <div class="flex items-center gap-xs">
+                <span
+                  class="w-3 h-3 rounded-full inline-block bg-red-500"
+                ></span>
+                <span class="text-secondary">Terlambat</span>
+              </div>
+              <span class="fw-bold">10%</span>
+            </div>
           </div>
         </div>
       </div>
@@ -109,47 +174,56 @@
     <!-- CLASS SCHEDULE -->
     <div class="col-12 col-lg-6 mb-md">
       <div class="card h-full">
-        <div class="card-header flex items-center gap-xs">
-          <span class="material-symbols-outlined">schedule</span>
-          <span class="h6 mb-0 text-uppercase tracking-wider"
-            >Class Schedule</span
-          >
+        <div class="card-header">
+          <div class="flex items-center gap-sm">
+            <div class="stat-card-icon stat-card-icon-green w-7 h-7 rounded-lg">
+              <span class="material-symbols-outlined text-success fs-6"
+                >schedule</span
+              >
+            </div>
+            <span class="card-title">Jadwal Kelas</span>
+          </div>
+          <span class="badge badge-sm badge-success">Hari Ini</span>
         </div>
-        <div class="card-body">
-          <div class="table-container">
-            <table class="table table-striped table-hover mb-0">
+        <div class="card-body p-0">
+          <div class="table-container shadow-none border-0 rounded-none">
+            <table class="table table-hover mb-0">
               <thead>
                 <tr>
-                  <th>Time</th>
-                  <th>Subject</th>
-                  <th>Teacher</th>
-                  <th>Room</th>
+                  <th>Waktu</th>
+                  <th>Mata Pelajaran</th>
+                  <th>Guru</th>
+                  <th>Ruang</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>08:00 - 09:30</td>
-                  <td>Mathematics</td>
-                  <td>Mr. John Doe</td>
-                  <td><span class="badge badge-md badge-primary">Room A1</span></td>
+                  <td class="fw-bold text-primary">08:00 - 09:30</td>
+                  <td>Matematika</td>
+                  <td class="text-secondary">Bpk. Ahmad</td>
+                  <td>
+                    <span class="badge badge-sm badge-primary">Ruang A1</span>
+                  </td>
                 </tr>
                 <tr>
-                  <td>09:45 - 11:15</td>
-                  <td>Physics</td>
-                  <td>Mrs. Jane Smith</td>
-                  <td><span class="badge badge-md badge-secondary">Lab 2</span></td>
+                  <td class="fw-bold">09:45 - 11:15</td>
+                  <td>Fisika</td>
+                  <td class="text-secondary">Ibu Sari</td>
+                  <td><span class="badge badge-sm badge-light">Lab 2</span></td>
                 </tr>
                 <tr>
-                  <td>11:30 - 13:00</td>
-                  <td>History</td>
-                  <td>Mr. Robert Brown</td>
-                  <td><span class="badge badge-md badge-primary">Room B3</span></td>
+                  <td class="fw-bold">11:30 - 13:00</td>
+                  <td>Sejarah</td>
+                  <td class="text-secondary">Bpk. Budi</td>
+                  <td>
+                    <span class="badge badge-sm badge-primary">Ruang B3</span>
+                  </td>
                 </tr>
                 <tr>
-                  <td>14:00 - 15:30</td>
-                  <td>Biology</td>
-                  <td>Ms. Emily White</td>
-                  <td><span class="badge badge-md badge-secondary">Lab 1</span></td>
+                  <td class="fw-bold">14:00 - 15:30</td>
+                  <td>Biologi</td>
+                  <td class="text-secondary">Ibu Dewi</td>
+                  <td><span class="badge badge-sm badge-light">Lab 1</span></td>
                 </tr>
               </tbody>
             </table>
@@ -161,125 +235,142 @@
     <!-- UPCOMING EVENTS & RECENT ATTENDEES -->
     <div class="col-12 col-lg-6 mb-md">
       <div class="row h-full">
+        <!-- UPCOMING EVENTS -->
         <div class="col-12 mb-md">
-          <!-- UPCOMING EVENTS -->
           <div class="card h-full">
-            <div class="card-header flex items-center gap-xs">
-              <span class="material-symbols-outlined">event_upcoming</span>
-              <span class="h6 mb-0 text-uppercase tracking-wider"
-                >Upcoming Events</span
-              >
+            <div class="card-header">
+              <div class="flex items-center gap-sm">
+                <div
+                  class="stat-card-icon stat-card-icon-amber w-7 h-7 rounded-lg"
+                >
+                  <span class="material-symbols-outlined text-warning fs-6"
+                    >event_upcoming</span
+                  >
+                </div>
+                <span class="card-title">Acara Mendatang</span>
+              </div>
             </div>
             <div class="card-body p-0">
-              <div class="list-group list-group-flush border-0">
-                <a href="#" class="list-group-item list-group-item-action">
-                  <div class="flex justify-between items-center w-full">
-                    <div>
-                      <h6 class="mb-0">Science Fair 2026</h6>
-                      <small class="text-secondary">Main Auditorium</small>
-                    </div>
-                    <div class="text-end">
-                      <span class="block fw-bold fs-7">15 Jul</span>
-                      <small class="text-secondary">09:00 AM</small>
-                    </div>
-                  </div>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">
-                  <div class="flex justify-between items-center w-full">
-                    <div>
-                      <h6 class="mb-0">Parent-Teacher Meeting</h6>
-                      <small class="text-secondary">All Classrooms</small>
-                    </div>
-                    <div class="text-end">
-                      <span class="block fw-bold fs-7">22 Jul</span>
-                      <small class="text-secondary">13:00 PM</small>
-                    </div>
-                  </div>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">
-                  <div class="flex justify-between items-center w-full">
-                    <div>
-                      <h6 class="mb-0">Sports Day</h6>
-                      <small class="text-secondary">School Field</small>
-                    </div>
-                    <div class="text-end">
-                      <span class="block fw-bold fs-7">05 Aug</span>
-                      <small class="text-secondary">07:00 AM</small>
-                    </div>
-                  </div>
-                </a>
-              </div>
+              <!-- Event Item 1 -->
+              <a href="#" class="recent-item">
+                <div class="badge-date stat-card-icon-green">
+                  <span class="fw-bold text-success fs-7">15</span>
+                  <span class="fw-bold text-success fs-8">JUL</span>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="card-title truncate mb-0">Science Fair 2026</p>
+                  <p class="text-muted fs-8 mb-0">Aula Utama · 09:00 AM</p>
+                </div>
+                <span class="material-symbols-outlined text-muted fs-6"
+                  >chevron_right</span
+                >
+              </a>
+
+              <!-- Event Item 2 -->
+              <a href="#" class="recent-item">
+                <div class="badge-date stat-card-icon-blue">
+                  <span class="fw-bold text-info fs-7">22</span>
+                  <span class="fw-bold text-info fs-8">JUL</span>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="card-title truncate mb-0">Pertemuan Orang Tua</p>
+                  <p class="text-muted fs-8 mb-0">Semua Kelas · 13:00 PM</p>
+                </div>
+                <span class="material-symbols-outlined text-muted fs-6"
+                  >chevron_right</span
+                >
+              </a>
+
+              <!-- Event Item 3 -->
+              <a href="#" class="recent-item">
+                <div class="badge-date stat-card-icon-red">
+                  <span class="fw-bold text-danger fs-7">05</span>
+                  <span class="fw-bold text-danger fs-8">AGU</span>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="card-title truncate mb-0">Hari Olahraga</p>
+                  <p class="text-muted fs-8 mb-0">
+                    Lapangan Sekolah · 07:00 AM
+                  </p>
+                </div>
+                <span class="material-symbols-outlined text-muted fs-6"
+                  >chevron_right</span
+                >
+              </a>
             </div>
           </div>
         </div>
 
+        <!-- RECENT ATTENDEES -->
         <div class="col-12">
-          <!-- RECENT ATTENDEES -->
           <div class="card h-full">
-            <div class="card-header flex items-center gap-xs">
-              <span class="material-symbols-outlined">recent_actors</span>
-              <span class="h6 mb-0 text-uppercase tracking-wider"
-                >Recent Attendees</span
-              >
+            <div class="card-header">
+              <div class="flex items-center gap-sm">
+                <div
+                  class="stat-card-icon stat-card-icon-green w-7 h-7 rounded-lg"
+                >
+                  <span class="material-symbols-outlined text-success fs-6"
+                    >recent_actors</span
+                  >
+                </div>
+                <span class="card-title">Kehadiran Terkini</span>
+              </div>
             </div>
             <div class="card-body p-0">
-              <div class="list-group list-group-flush border-0">
-                <div class="list-group-item flex items-center gap-sm">
-                  <div class="avatar-wrapper">
-                    <img
-                      src="https://i.pravatar.cc/150?img=32"
-                      alt="Student 1"
-                      class="avatar rounded-full w-10 h-10 object-cover"
-                    />
-                  </div>
-                  <div class="flex-1">
-                    <h6 class="mb-0">Sarah Jenkins</h6>
-                    <small class="text-secondary">Class 10A</small>
-                  </div>
-                  <span class="badge badge-md badge-success">Present</span>
+              <!-- Attendee 1 -->
+              <div class="recent-item">
+                <img
+                  src="https://i.pravatar.cc/150?img=32"
+                  alt="Sarah"
+                  class="avatar avatar-sm rounded-full"
+                />
+                <div class="flex-1 min-w-0">
+                  <p class="card-title truncate mb-0">Sarah Jenkins</p>
+                  <p class="text-muted fs-8 mb-0">Kelas 10A</p>
                 </div>
-                <div class="list-group-item flex items-center gap-sm">
-                  <div class="avatar-wrapper">
-                    <img
-                      src="https://i.pravatar.cc/150?img=11"
-                      alt="Student 2"
-                      class="avatar rounded-full w-10 h-10 object-cover"
-                    />
-                  </div>
-                  <div class="flex-1">
-                    <h6 class="mb-0">Michael Chen</h6>
-                    <small class="text-secondary">Class 10B</small>
-                  </div>
-                  <span class="badge badge-md badge-warning">Late</span>
+                <span class="badge badge-sm badge-success">Hadir</span>
+              </div>
+
+              <!-- Attendee 2 -->
+              <div class="recent-item">
+                <img
+                  src="https://i.pravatar.cc/150?img=11"
+                  alt="Michael"
+                  class="avatar avatar-sm rounded-full"
+                />
+                <div class="flex-1 min-w-0">
+                  <p class="card-title truncate mb-0">Michael Chen</p>
+                  <p class="text-muted fs-8 mb-0">Kelas 10B</p>
                 </div>
-                <div class="list-group-item flex items-center gap-sm">
-                  <div class="avatar-wrapper">
-                    <img
-                      src="https://i.pravatar.cc/150?img=5"
-                      alt="Student 3"
-                      class="avatar rounded-full w-10 h-10 object-cover"
-                    />
-                  </div>
-                  <div class="flex-1">
-                    <h6 class="mb-0">David Miller</h6>
-                    <small class="text-secondary">Class 11C</small>
-                  </div>
-                  <span class="badge badge-md badge-success">Present</span>
+                <span class="badge badge-sm badge-warning">Terlambat</span>
+              </div>
+
+              <!-- Attendee 3 -->
+              <div class="recent-item">
+                <img
+                  src="https://i.pravatar.cc/150?img=5"
+                  alt="David"
+                  class="avatar avatar-sm rounded-full"
+                />
+                <div class="flex-1 min-w-0">
+                  <p class="card-title truncate mb-0">David Miller</p>
+                  <p class="text-muted fs-8 mb-0">Kelas 11C</p>
                 </div>
-                <div class="list-group-item flex items-center gap-sm">
-                  <div class="avatar-wrapper">
-                    <img
-                      src="https://i.pravatar.cc/150?img=47"
-                      alt="Student 4"
-                      class="avatar rounded-full w-10 h-10 object-cover"
-                    />
-                  </div>
-                  <div class="flex-1">
-                    <h6 class="mb-0">Emma Watson</h6>
-                    <small class="text-secondary">Class 12A</small>
-                  </div>
-                  <span class="badge badge-md badge-danger">Absent</span>
+                <span class="badge badge-sm badge-success">Hadir</span>
+              </div>
+
+              <!-- Attendee 4 -->
+              <div class="recent-item">
+                <img
+                  src="https://i.pravatar.cc/150?img=47"
+                  alt="Emma"
+                  class="avatar avatar-sm rounded-full"
+                />
+                <div class="flex-1 min-w-0">
+                  <p class="card-title truncate mb-0">Emma Watson</p>
+                  <p class="text-muted fs-8 mb-0">Kelas 12A</p>
                 </div>
+                <span class="badge badge-sm badge-danger">Absen</span>
               </div>
             </div>
           </div>
@@ -294,27 +385,29 @@
   import Chart from "chart.js/auto";
 
   document.addEventListener("DOMContentLoaded", () => {
-    // Attendance Trend Line Chart
+    // Attendance Trend Line Chart — Hijau Modern
     const ctxAttendance = document.getElementById("attendanceChart");
     if (ctxAttendance) {
       new Chart(ctxAttendance, {
         type: "line",
         data: {
-          labels: ["Mon", "Tue", "Wed", "Thu", "Fri"],
+          labels: ["Sen", "Sel", "Rab", "Kam", "Jum"],
           datasets: [
             {
-              label: "Attendance %",
+              label: "Kehadiran %",
               data: [92, 95, 93, 98, 96],
-              borderColor: "#000000",
-              backgroundColor: "#a7f3d0", // green-200
-              borderWidth: 3,
-              tension: 0, // Neobrutalism straight lines
+              borderColor: "#08783a",
+              backgroundColor: "rgba(8, 120, 58, 0.08)",
+              borderWidth: 2.5,
+              tension: 0.35,
               fill: true,
-              pointBackgroundColor: "#fcd34d", // yellow-300
-              pointBorderColor: "#000",
+              pointBackgroundColor: "#ffffff",
+              pointBorderColor: "#08783a",
               pointBorderWidth: 2,
-              pointRadius: 6,
-              pointHoverRadius: 8,
+              pointRadius: 4,
+              pointHoverRadius: 6,
+              pointHoverBackgroundColor: "#08783a",
+              pointHoverBorderColor: "#ffffff",
             },
           ],
         },
@@ -323,21 +416,38 @@
           maintainAspectRatio: false,
           plugins: {
             legend: { display: false },
+            tooltip: {
+              backgroundColor: "#ffffff",
+              titleColor: "#111827",
+              bodyColor: "#374151",
+              borderColor: "#E5E7EB",
+              borderWidth: 1,
+              padding: 10,
+              cornerRadius: 8,
+              callbacks: {
+                label: (ctx) => ` ${ctx.parsed.y}% kehadiran`,
+              },
+            },
           },
           scales: {
             y: {
               beginAtZero: false,
               min: 80,
               max: 100,
-              grid: { color: "#e5e7eb" },
+              grid: { color: "#F3F4F6", drawBorder: false },
+              border: { display: false },
               ticks: {
-                font: { family: "'Inter', sans-serif", weight: "bold" },
+                font: { family: "'Poppins', sans-serif", size: 11 },
+                color: "#9CA3AF",
+                callback: (v) => v + "%",
               },
             },
             x: {
-              grid: { color: "#e5e7eb" },
+              grid: { display: false },
+              border: { display: false },
               ticks: {
-                font: { family: "'Inter', sans-serif", weight: "bold" },
+                font: { family: "'Poppins', sans-serif", size: 11 },
+                color: "#9CA3AF",
               },
             },
           },
@@ -351,18 +461,14 @@
       new Chart(ctxAssignment, {
         type: "doughnut",
         data: {
-          labels: ["Completed", "Pending", "Overdue"],
+          labels: ["Selesai", "Pending", "Terlambat"],
           datasets: [
             {
               data: [65, 25, 10],
-              backgroundColor: [
-                "#198754", // success
-                "#ffc107", // warning
-                "#dc3545", // danger
-              ],
-              borderColor: "#000000",
-              borderWidth: 2,
-              hoverOffset: 4,
+              backgroundColor: ["#08783a", "#f59e0b", "#ef4444"],
+              borderColor: "#ffffff",
+              borderWidth: 3,
+              hoverOffset: 6,
             },
           ],
         },
@@ -371,8 +477,17 @@
           maintainAspectRatio: false,
           plugins: {
             legend: { display: false },
+            tooltip: {
+              backgroundColor: "#ffffff",
+              titleColor: "#111827",
+              bodyColor: "#374151",
+              borderColor: "#E5E7EB",
+              borderWidth: 1,
+              padding: 10,
+              cornerRadius: 8,
+            },
           },
-          cutout: "60%",
+          cutout: "68%",
         },
       });
     }

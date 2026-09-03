@@ -1,83 +1,90 @@
-{% set page = "sales" %}
-{% extends "layouts/main.html" %}
-{% from "partials/page-header.html" import pageHeader %}
-
-{% block content %}
+{% set page = "sales" %} {% extends "layouts/main.html" %} {% from
+"partials/page-header.html" import pageHeader %} {% block content %}
 <div class="content-canvas">
-  {{ pageHeader('Sales Dashboard', [
-    { label: 'Home', href: '/index.html' },
-    { label: 'Sales Dashboard', href: '/sales-dashboard.html' }
-  ]) }}
+  {{ pageHeader('Sales Dashboard', [ { label: 'Home', href: '/index.html' }, {
+  label: 'Sales Dashboard', href: '/sales-dashboard.html' } ]) }}
 
   <!-- TOP SECTION: Metrics & Charts -->
   <div class="row mb-md">
-    <!-- LEFT: 4 Stat Cards in a Grid -->
-    <div class="col-12 col-xl-4 mb-md mb-xl-0 flex flex-col gap-md">
-      <div class="row flex-1">
+    <!-- LEFT: 4 Stat Cards -->
+    <div class="col-12 col-xl-4 mb-md mb-xl-0">
+      <div class="row">
         <!-- Total Sales -->
         <div class="col-6 mb-md">
-          <div class="card card-shadow card-primary h-full">
-            <div class="card-body flex flex-col justify-between">
-              <div>
-                <div class="flex justify-between items-start mb-xs">
-                  <span class="material-symbols-outlined fs-2">payments</span>
-                  <span class="badge badge-sm badge-light text-success">+15.8%</span>
-                </div>
-                <h6 class="fs-7 text-uppercase mb-0">Total Sales</h6>
-                <h3 class="display-6 fw-bolder mt-1 mb-0">$48.5K</h3>
-              </div>
-              <p class="fs-8 mt-xs mb-0">vs last week</p>
+          <div class="card card-horizontal card-body h-full gap-sm">
+            <div class="stat-card-icon stat-card-icon-green">
+              <span
+                class="material-symbols-outlined"
+                style="color: #16a34a; font-size: 22px"
+                >payments</span
+              >
+            </div>
+            <div class="stat-card-body">
+              <span class="stat-card-label">Total Sales</span>
+              <span class="stat-card-value" style="font-size: 1.25rem"
+                >$48.5K</span
+              >
+              <span class="stat-card-sub" style="color: #16a34a">↑ 15.8%</span>
             </div>
           </div>
         </div>
-        
+
         <!-- Total Orders -->
         <div class="col-6 mb-md">
-          <div class="card card-shadow card-alert h-full">
-            <div class="card-body flex flex-col justify-between">
-              <div>
-                <div class="flex justify-between items-start mb-xs">
-                  <span class="material-symbols-outlined fs-2">shopping_cart</span>
-                  <span class="badge badge-sm badge-success">+8.3%</span>
-                </div>
-                <h6 class="fs-7 text-uppercase mb-0">Total Orders</h6>
-                <h3 class="display-6 fw-bolder mt-1 mb-0">379</h3>
-              </div>
-              <p class="fs-8 text-secondary mt-xs mb-0">vs last week</p>
+          <div class="card card-horizontal card-body h-full gap-sm">
+            <div class="stat-card-icon stat-card-icon-amber">
+              <span
+                class="material-symbols-outlined"
+                style="color: #d97706; font-size: 22px"
+                >shopping_cart</span
+              >
+            </div>
+            <div class="stat-card-body">
+              <span class="stat-card-label">Total Orders</span>
+              <span class="stat-card-value" style="font-size: 1.25rem"
+                >379</span
+              >
+              <span class="stat-card-sub" style="color: #16a34a">↑ 8.3%</span>
             </div>
           </div>
         </div>
 
         <!-- Customer Growth -->
         <div class="col-6 mb-md">
-          <div class="card card-shadow card-dark h-full">
-            <div class="card-body flex flex-col justify-between">
-              <div>
-                <div class="flex justify-between items-start mb-xs">
-                  <span class="material-symbols-outlined fs-2">groups</span>
-                  <span class="badge badge-sm badge-success">+12.5%</span>
-                </div>
-                <h6 class="fs-7 text-uppercase mb-0 text-muted">Customers</h6>
-                <h3 class="display-6 fw-bolder mt-1 mb-0">820</h3>
-              </div>
-              <p class="fs-8 text-muted mt-xs mb-0">vs last month</p>
+          <div class="card card-horizontal card-body h-full gap-sm">
+            <div class="stat-card-icon stat-card-icon-blue">
+              <span
+                class="material-symbols-outlined"
+                style="color: #2563eb; font-size: 22px"
+                >groups</span
+              >
+            </div>
+            <div class="stat-card-body">
+              <span class="stat-card-label">Customers</span>
+              <span class="stat-card-value" style="font-size: 1.25rem"
+                >820</span
+              >
+              <span class="stat-card-sub" style="color: #16a34a">↑ 12.5%</span>
             </div>
           </div>
         </div>
 
         <!-- Average Order -->
         <div class="col-6 mb-md">
-          <div class="card card-shadow card-danger h-full">
-            <div class="card-body flex flex-col justify-between">
-              <div>
-                <div class="flex justify-between items-start mb-xs">
-                  <span class="material-symbols-outlined fs-2">receipt_long</span>
-                  <span class="badge badge-sm badge-light text-danger">-$4.20</span>
-                </div>
-                <h6 class="fs-7 text-uppercase mb-0">Avg Order</h6>
-                <h3 class="display-6 fw-bolder mt-1 mb-0">$128</h3>
-              </div>
-              <p class="fs-8 mt-xs mb-0">vs last week</p>
+          <div class="card card-horizontal card-body h-full gap-sm">
+            <div class="stat-card-icon stat-card-icon-purple">
+              <span
+                class="material-symbols-outlined"
+                style="color: #7c3aed; font-size: 22px"
+                >receipt_long</span
+              >
+            </div>
+            <div class="stat-card-body">
+              <span class="stat-card-label">Avg Order</span>
+              <span class="stat-card-value" style="font-size: 1.25rem"
+                >$128</span
+              >
+              <span class="stat-card-sub" style="color: #dc2626">↓ $4.20</span>
             </div>
           </div>
         </div>
@@ -89,8 +96,12 @@
       <div class="card card-shadow h-full">
         <div class="card-header flex justify-between items-center">
           <div>
-            <span class="h6 mb-0 text-uppercase tracking-wider">Volume Sales Overview</span>
-            <p class="fs-7 text-secondary mb-0">Daily sales performance for the current week</p>
+            <span class="h6 mb-0 text-uppercase tracking-wider"
+              >Volume Sales Overview</span
+            >
+            <p class="fs-7 text-secondary mb-0">
+              Daily sales performance for the current week
+            </p>
           </div>
           <div class="flex gap-sm">
             <button class="btn btn-sm btn-outline-dark">This Week</button>
@@ -98,7 +109,10 @@
           </div>
         </div>
         <div class="card-body pb-0">
-          <canvas id="salesOverviewChart" style="max-height: 350px; width: 100%;"></canvas>
+          <canvas
+            id="salesOverviewChart"
+            style="max-height: 350px; width: 100%"
+          ></canvas>
         </div>
       </div>
     </div>
@@ -111,8 +125,12 @@
       <div class="card card-shadow h-full">
         <div class="card-header flex justify-between items-center">
           <div class="flex items-center gap-xs">
-            <span class="material-symbols-outlined text-warning fs-4">star</span>
-            <span class="h6 mb-0 text-uppercase tracking-wider">Top Products</span>
+            <span class="material-symbols-outlined text-warning fs-4"
+              >star</span
+            >
+            <span class="h6 mb-0 text-uppercase tracking-wider"
+              >Top Products</span
+            >
           </div>
           <span class="badge badge-md badge-primary">73% of Sales</span>
         </div>
@@ -129,35 +147,51 @@
               <tbody>
                 <tr>
                   <td class="fw-bold flex items-center gap-sm">
-                    <span class="material-symbols-outlined fs-5 text-primary">coffee</span>
+                    <span class="material-symbols-outlined fs-5 text-primary"
+                      >coffee</span
+                    >
                     Premium Espresso
                   </td>
                   <td class="text-center align-middle">420</td>
-                  <td class="text-right align-middle fw-bolder text-success">$4,200</td>
+                  <td class="text-right align-middle fw-bolder text-success">
+                    $4,200
+                  </td>
                 </tr>
                 <tr>
                   <td class="fw-bold flex items-center gap-sm">
-                    <span class="material-symbols-outlined fs-5 text-success">emoji_food_beverage</span>
+                    <span class="material-symbols-outlined fs-5 text-success"
+                      >emoji_food_beverage</span
+                    >
                     Matcha Green Tea
                   </td>
                   <td class="text-center align-middle">315</td>
-                  <td class="text-right align-middle fw-bolder text-success">$2,360</td>
+                  <td class="text-right align-middle fw-bolder text-success">
+                    $2,360
+                  </td>
                 </tr>
                 <tr>
                   <td class="fw-bold flex items-center gap-sm">
-                    <span class="material-symbols-outlined fs-5 text-warning">water_drop</span>
+                    <span class="material-symbols-outlined fs-5 text-warning"
+                      >water_drop</span
+                    >
                     Caramel Syrup
                   </td>
                   <td class="text-center align-middle">280</td>
-                  <td class="text-right align-middle fw-bolder text-success">$1,400</td>
+                  <td class="text-right align-middle fw-bolder text-success">
+                    $1,400
+                  </td>
                 </tr>
                 <tr>
                   <td class="fw-bold flex items-center gap-sm">
-                    <span class="material-symbols-outlined fs-5 text-danger">local_cafe</span>
+                    <span class="material-symbols-outlined fs-5 text-danger"
+                      >local_cafe</span
+                    >
                     Reusable Tumbler
                   </td>
                   <td class="text-center align-middle">150</td>
-                  <td class="text-right align-middle fw-bolder text-success">$1,120</td>
+                  <td class="text-right align-middle fw-bolder text-success">
+                    $1,120
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -175,15 +209,23 @@
         </div>
         <div class="card-body flex flex-col justify-between">
           <div class="relative w-full flex justify-center py-sm">
-            <canvas id="inventoryDoughnut" style="max-height: 180px;"></canvas>
-            <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none pt-md">
+            <canvas id="inventoryDoughnut" style="max-height: 180px"></canvas>
+            <div
+              class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none pt-md"
+            >
               <span class="display-6 fw-black">61%</span>
-              <span class="fs-8 fw-bold text-secondary text-uppercase mt-1">Available</span>
+              <span class="fs-8 fw-bold text-secondary text-uppercase mt-1"
+                >Available</span
+              >
             </div>
           </div>
           <div class="mt-md text-center">
-            <span class="badge badge-md badge-success mb-xs">In Stock (61%)</span>
-            <span class="badge badge-md badge-warning mb-xs">Low Stock (24%)</span>
+            <span class="badge badge-md badge-success mb-xs"
+              >In Stock (61%)</span
+            >
+            <span class="badge badge-md badge-warning mb-xs"
+              >Low Stock (24%)</span
+            >
             <span class="badge badge-md badge-danger">Out of Stock (15%)</span>
           </div>
         </div>
@@ -195,7 +237,9 @@
       <div class="card card-shadow h-full">
         <div class="card-header flex items-center justify-between">
           <div class="flex items-center gap-xs">
-            <span class="material-symbols-outlined fs-4 text-primary">point_of_sale</span>
+            <span class="material-symbols-outlined fs-4 text-primary"
+              >point_of_sale</span
+            >
             <span class="h6 mb-0 text-uppercase tracking-wider">Cashiers</span>
           </div>
           <span class="badge badge-md badge-success">3 Active</span>
@@ -204,7 +248,11 @@
           <div class="list-group list-group-flush border-0">
             <div class="list-group-item flex items-center gap-sm">
               <div class="avatar-wrapper">
-                <img src="https://i.pravatar.cc/150?img=12" alt="Cashier 1" class="avatar rounded-full avatar-lg">
+                <img
+                  src="https://i.pravatar.cc/150?img=12"
+                  alt="Cashier 1"
+                  class="avatar rounded-full avatar-lg"
+                />
               </div>
               <div class="flex-1">
                 <span class="h6 mb-0 block">Budi Santoso</span>
@@ -214,7 +262,11 @@
             </div>
             <div class="list-group-item flex items-center gap-sm">
               <div class="avatar-wrapper">
-                <img src="https://i.pravatar.cc/150?img=44" alt="Cashier 2" class="avatar rounded-full avatar-lg">
+                <img
+                  src="https://i.pravatar.cc/150?img=44"
+                  alt="Cashier 2"
+                  class="avatar rounded-full avatar-lg"
+                />
               </div>
               <div class="flex-1">
                 <span class="h6 mb-0 block">Siti Aminah</span>
@@ -224,7 +276,11 @@
             </div>
             <div class="list-group-item flex items-center gap-sm">
               <div class="avatar-wrapper">
-                <img src="https://i.pravatar.cc/150?img=33" alt="Cashier 3" class="avatar rounded-full avatar-lg">
+                <img
+                  src="https://i.pravatar.cc/150?img=33"
+                  alt="Cashier 3"
+                  class="avatar rounded-full avatar-lg"
+                />
               </div>
               <div class="flex-1">
                 <span class="h6 mb-0 block">Rina Melati</span>
@@ -264,7 +320,7 @@
               pointBorderColor: "#000",
               pointBorderWidth: 2,
               pointRadius: 6,
-              pointHoverRadius: 8
+              pointHoverRadius: 8,
             },
             {
               label: "Last Week",
@@ -277,53 +333,57 @@
               pointBackgroundColor: "#fff",
               pointBorderColor: "#6b7280",
               pointBorderWidth: 2,
-              pointRadius: 4
-            }
+              pointRadius: 4,
+            },
           ],
         },
         options: {
           responsive: true,
           maintainAspectRatio: false,
           interaction: {
-            mode: 'index',
+            mode: "index",
             intersect: false,
           },
           plugins: {
-            legend: { 
-              position: 'top',
-              align: 'end',
+            legend: {
+              position: "top",
+              align: "end",
               labels: {
-                font: { family: "'Inter', sans-serif", weight: 'bold' },
-                color: '#000',
+                font: { family: "'Poppins', sans-serif", weight: "bold" },
+                color: "#000",
                 usePointStyle: true,
-                pointStyle: 'rectRounded'
-              }
+                pointStyle: "rectRounded",
+              },
             },
             tooltip: {
-              backgroundColor: '#000',
-              titleFont: { family: "'Inter', sans-serif", size: 14 },
-              bodyFont: { family: "'Inter', sans-serif", size: 13 },
+              backgroundColor: "#000",
+              titleFont: { family: "'Poppins', sans-serif", size: 14 },
+              bodyFont: { family: "'Poppins', sans-serif", size: 13 },
               padding: 10,
               displayColors: true,
-              cornerRadius: 0
-            }
+              cornerRadius: 0,
+            },
           },
           scales: {
             y: {
               beginAtZero: true,
               grid: { color: "#e5e7eb", borderDash: [2, 2] },
               ticks: {
-                font: { family: "'Inter', sans-serif", weight: "bold" },
-                callback: function(value) {
-                  return '$' + value;
-                }
+                font: { family: "'Poppins', sans-serif", weight: "bold" },
+                callback: function (value) {
+                  return "$" + value;
+                },
               },
             },
             x: {
               grid: { display: false },
               ticks: {
-                font: { family: "'Inter', sans-serif", weight: "bold", size: 13 },
-                color: '#000'
+                font: {
+                  family: "'Poppins', sans-serif",
+                  weight: "bold",
+                  size: 13,
+                },
+                color: "#000",
               },
             },
           },
@@ -360,8 +420,8 @@
           },
           cutout: "75%",
           layout: {
-            padding: 10
-          }
+            padding: 10,
+          },
         },
       });
     }

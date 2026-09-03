@@ -1,40 +1,99 @@
-{% macro pageHeader(title, breadcrumbs, showPeriodFilter=true) %}
+{% macro pageHeader(title, breadcrumbs, showPeriodFilter=false) %}
 <div class="page-header">
-  <div>
-    <!-- BREADCRUMB -->
-    <nav class="flex items-center gap-xs text-[10px] font-bold text-gray-400 uppercase mb-1">
-      {% for item in breadcrumbs %}
-        {% if not loop.last %}
-          <a href="{{ item.href }}" class="hover:text-black transition-colors">{{ item.label }}</a>
-          <span class="text-gray-300">/</span>
+  <div class="page-header-title">
+    <h4 class="mb-0">{{ title }}</h4>
+  </div>
+
+  <div class="page-header-actions">
+    {% if showPeriodFilter %}
+    <div
+      class="flex gap-xs"
+      style="background: #f3f4f6; border-radius: 8px; padding: 3px"
+    >
+      <button
+        class="filter-period-btn"
+        onclick="setPeriod(this)"
+        style="
+          background: transparent;
+          border: none;
+          border-radius: 6px;
+          padding: 5px 14px;
+          font-size: 0.8rem;
+          font-weight: 500;
+          color: #6b7280;
+          cursor: pointer;
+          transition: all 0.15s;
+        "
+      >
+        14 D
+      </button>
+      <button
+        class="filter-period-btn"
+        onclick="setPeriod(this)"
+        style="
+          background: transparent;
+          border: none;
+          border-radius: 6px;
+          padding: 5px 14px;
+          font-size: 0.8rem;
+          font-weight: 500;
+          color: #6b7280;
+          cursor: pointer;
+          transition: all 0.15s;
+        "
+      >
+        28 D
+      </button>
+      <button
+        class="filter-period-btn active"
+        onclick="setPeriod(this)"
+        style="
+          background: #ffffff;
+          border: none;
+          border-radius: 6px;
+          padding: 5px 14px;
+          font-size: 0.8rem;
+          font-weight: 600;
+          color: #08783a;
+          cursor: pointer;
+          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+        "
+      >
+        3 M
+      </button>
+    </div>
+    {% endif %} {% if breadcrumbs and breadcrumbs | length > 0 %}
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        {% for item in breadcrumbs %} {% if not loop.last %}
+        <li class="breadcrumb-item">
+          <a href="{{ item.href }}">{{ item.label }}</a>
+        </li>
         {% else %}
-          <span class="text-black">{{ item.label }}</span>
-        {% endif %}
-      {% endfor %}
+        <li class="breadcrumb-item active" aria-current="page">
+          {{ item.label }}
+        </li>
+        {% endif %} {% endfor %}
+      </ol>
     </nav>
-    <h2 class="text-xl font-bold text-black">{{ title }}</h2>
+    {% endif %}
   </div>
 
   {% if showPeriodFilter %}
-  <div
-    class="flex border border-black rounded overflow-hidden text-[11px] font-bold"
-  >
-    <button
-      class="px-4 py-1.5 bg-white border-r border-black hover:bg-gray-50"
-    >
-      14 D
-    </button>
-    <button
-      class="px-4 py-1.5 bg-white border-r border-black hover:bg-gray-50"
-    >
-      28 D
-    </button>
-    <button
-      class="px-4 py-1.5 bg-primary-container text-white hover:bg-primary"
-    >
-      3 M
-    </button>
-  </div>
+  <script>
+    function setPeriod(el) {
+      document.querySelectorAll(".filter-period-btn").forEach((btn) => {
+        btn.style.background = "transparent";
+        btn.style.color = "#6B7280";
+        btn.style.fontWeight = "500";
+        btn.style.boxShadow = "none";
+      });
+      el.style.background = "#ffffff";
+      el.style.color = "#08783A";
+      el.style.fontWeight = "600";
+      el.style.boxShadow = "0 1px 4px rgba(0,0,0,0.08)";
+    }
+  </script>
   {% endif %}
 </div>
 {% endmacro %}

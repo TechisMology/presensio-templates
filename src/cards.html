@@ -1,18 +1,15 @@
-{% set page = "cards" %}
-{% extends "layouts/main.html" %}
-{% from "partials/page-header.html" import pageHeader %}
-
-{% block content %}
+{% set page = "cards" %} {% extends "layouts/main.html" %} {% from
+"partials/page-header.html" import pageHeader %} {% block content %}
 <div class="content-canvas">
-  {{ pageHeader('Card Components', [
-    { label: 'Home', href: '/index.html' },
-    { label: 'Components', href: '#' },
-    { label: 'Card', href: '/cards.html' }
-  ], showPeriodFilter=false) }}
+  {{ pageHeader('Card Components', [ { label: 'Home', href: '/index.html' }, {
+  label: 'Components', href: '#' }, { label: 'Card', href: '/cards.html' } ],
+  showPeriodFilter=false) }}
 
   <!-- SECTION 1: STANDARD STRUCTURES -->
   <div>
-    <h3 class="fs-6 fw-bold text-secondary text-uppercase tracking-wider mb-sm">1. Card Structures</h3>
+    <h3 class="fs-6 fw-bold text-secondary text-uppercase tracking-wider mb-sm">
+      1. Card Structures
+    </h3>
     <div class="row">
       <!-- Basic Card (No Shadow) -->
       <div class="col-12 col-md-4 mb-md">
@@ -21,7 +18,8 @@
             <h4 class="card-title">Basic Card</h4>
             <h5 class="card-subtitle mb-xs">No Shadow</h5>
             <p class="fs-7 text-secondary">
-              This is a standard card component with a simple body wrapper, borders, and default border-radius, without any shadow.
+              This is a standard card component with a simple body wrapper,
+              borders, and default border-radius, without any shadow.
             </p>
           </div>
         </div>
@@ -38,11 +36,14 @@
             <h4 class="card-title">Header & Footer Card</h4>
             <h5 class="card-subtitle mb-xs">With Shadow</h5>
             <p class="fs-7 text-secondary">
-              A structured card component utilizing header and footer sections, styled with the `card-shadow` class.
+              A structured card component utilizing header and footer sections,
+              styled with the `card-shadow` class.
             </p>
           </div>
           <div class="card-footer">
-            <button class="fs-7 fw-bold text-uppercase tracking-wider text-secondary hover:text-dark">
+            <button
+              class="fs-7 fw-bold text-uppercase tracking-wider text-secondary hover:text-dark"
+            >
               Action Button →
             </button>
           </div>
@@ -56,15 +57,12 @@
             <h4 class="card-title">Interactive Card</h4>
             <h5 class="card-subtitle mb-xs">With Shadow</h5>
             <p class="fs-7 text-secondary mb-sm">
-              Cards can contain actionable buttons, custom icons, or image previews inside the main body.
+              Cards can contain actionable buttons, custom icons, or image
+              previews inside the main body.
             </p>
             <div class="flex gap-xs">
-              <button class="btn btn-sm btn-warning">
-                Confirm
-              </button>
-              <button class="btn btn-sm btn-light">
-                Cancel
-              </button>
+              <button class="btn btn-sm btn-warning">Confirm</button>
+              <button class="btn btn-sm btn-light">Cancel</button>
             </div>
           </div>
         </div>
@@ -74,7 +72,9 @@
 
   <!-- SECTION 2: COLOR VARIATIONS -->
   <div class="pt-sm">
-    <h3 class="fs-6 fw-bold text-secondary text-uppercase tracking-wider mb-sm">2. Color Variations</h3>
+    <h3 class="fs-6 fw-bold text-secondary text-uppercase tracking-wider mb-sm">
+      2. Color Variations
+    </h3>
     <div class="row">
       <!-- Primary Card (No Shadow) -->
       <div class="col-12 col-md-4 mb-md">
@@ -83,7 +83,8 @@
             <h4 class="card-title">Primary Theme</h4>
             <h5 class="card-subtitle mb-xs">No Shadow</h5>
             <p class="fs-7 opacity-90">
-              Card wrapper styled using the primary branding background color, without shadow.
+              Card wrapper styled using the primary branding background color,
+              without shadow.
             </p>
           </div>
         </div>
@@ -96,20 +97,22 @@
             <h4 class="card-title">Danger Theme</h4>
             <h5 class="card-subtitle mb-xs">With Shadow</h5>
             <p class="fs-7 opacity-90">
-              Card wrapper styled using the danger color, with the `card-shadow` class applied.
+              Card wrapper styled using the danger color, with the `card-shadow`
+              class applied.
             </p>
           </div>
         </div>
       </div>
 
-      <!-- Alert Card (No Shadow) -->
+      <!-- Warning Card (No Shadow) -->
       <div class="col-12 col-md-4 mb-md">
-        <div class="card card-alert">
+        <div class="card card-warning">
           <div class="card-body">
-            <h4 class="card-title">Alert Theme</h4>
-            <h5 class="card-subtitle mb-xs">No Shadow</h5>
+            <h4 class="card-title">Warning Theme</h4>
+            <h5 class="card-subtitle mb-xs">Solid Color</h5>
             <p class="fs-7 opacity-90">
-              Card wrapper styled using the yellow alert container, without shadow.
+              Card wrapper styled using the solid amber warning color with white
+              text.
             </p>
           </div>
         </div>
@@ -122,7 +125,8 @@
             <h4 class="card-title">Dark Theme</h4>
             <h5 class="card-subtitle mb-xs">With Shadow</h5>
             <p class="fs-7 opacity-90">
-              Card wrapper using dark text and inverse background, with the `card-shadow` class.
+              Card wrapper using dark text and inverse background, with the
+              `card-shadow` class.
             </p>
           </div>
         </div>
@@ -133,9 +137,101 @@
         <div class="card card-success">
           <div class="card-body">
             <h4 class="card-title">Success Theme</h4>
-            <h5 class="card-subtitle mb-xs">No Shadow</h5>
+            <h5 class="card-subtitle mb-xs">Solid Color</h5>
             <p class="fs-7 opacity-90">
-              Card wrapper using success green/blue container backgrounds, without shadow.
+              Card wrapper using solid success green background with white text.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: LIGHT / SOFT BACKGROUNDS (TANPA SHADOW) -->
+  <div class="pt-sm">
+    <h3 class="fs-6 fw-bold text-secondary text-uppercase tracking-wider mb-sm">
+      3. Light Background Cards (Tanpa Shadow)
+    </h3>
+    <div class="row">
+      <!-- Light Primary Card -->
+      <div class="col-12 col-md-4 mb-md">
+        <div class="card card-light-primary">
+          <div class="card-body">
+            <h4 class="card-title">Primary Soft</h4>
+            <h5 class="card-subtitle mb-xs">.card-light-primary</h5>
+            <p class="fs-7">
+              Background hijau lembut Kemenag dengan border pastel dan teks
+              kontras, tanpa bayangan (flat).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Light Danger Card -->
+      <div class="col-12 col-md-4 mb-md">
+        <div class="card card-light-danger">
+          <div class="card-body">
+            <h4 class="card-title">Danger Soft</h4>
+            <h5 class="card-subtitle mb-xs">.card-light-danger</h5>
+            <p class="fs-7">
+              Background merah lembut untuk peringatan pembatalan, error, atau
+              penolakan status.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Light Warning Card -->
+      <div class="col-12 col-md-4 mb-md">
+        <div class="card card-light-warning">
+          <div class="card-body">
+            <h4 class="card-title">Warning Soft</h4>
+            <h5 class="card-subtitle mb-xs">.card-light-warning</h5>
+            <p class="fs-7">
+              Background kuning/amber pastel untuk notifikasi pending,
+              perhatian, atau instruksi penting.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Light Info Card -->
+      <div class="col-12 col-md-4 mb-md">
+        <div class="card card-light-info">
+          <div class="card-body">
+            <h4 class="card-title">Info Soft</h4>
+            <h5 class="card-subtitle mb-xs">.card-light-info</h5>
+            <p class="fs-7">
+              Background biru lembut untuk petunjuk sistem, info pengumuman,
+              atau panduan pengguna.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Light Neutral Card -->
+      <div class="col-12 col-md-4 mb-md">
+        <div class="card card-light">
+          <div class="card-body">
+            <h4 class="card-title">Neutral Light</h4>
+            <h5 class="card-subtitle mb-xs">.card-light</h5>
+            <p class="fs-7">
+              Background abu-abu terang bersih (#F9FAFB) untuk pemisah konten
+              netral.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Light Dark Card -->
+      <div class="col-12 col-md-4 mb-md">
+        <div class="card card-light-dark">
+          <div class="card-body">
+            <h4 class="card-title">Dark Soft</h4>
+            <h5 class="card-subtitle mb-xs">.card-light-dark</h5>
+            <p class="fs-7">
+              Background slate sejuk (#F3F4F6) dengan border abu kontras tanpa
+              efek shadow.
             </p>
           </div>
         </div>

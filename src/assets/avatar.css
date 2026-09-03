@@ -1,98 +1,203 @@
-/* Avatar Component */
+/* Avatar Component Styles — Modern Clean Theme */
+
 @utility avatar-wrapper {
-  @apply relative inline-flex;
+  @apply relative inline-flex shrink-0;
 }
 
 @utility avatar {
-  @apply object-cover border-2 border-black bg-gray-200;
+  @apply object-cover bg-gray-100 shrink-0 transition-all duration-200;
+  border: 2px solid #e5e7eb;
+}
+
+/* Hover effect */
+.avatar:hover {
+  border-color: #08783a;
 }
 
 /* Base shape overrides */
 .avatar.rounded-full {
   border-radius: 9999px;
 }
+.avatar.rounded-xl {
+  border-radius: 12px;
+}
+.avatar.rounded-lg {
+  border-radius: 8px;
+}
+.avatar.rounded-md {
+  border-radius: 6px;
+}
 .avatar.rounded-none {
   border-radius: 0;
 }
-.avatar.rounded-lg {
-  border-radius: 0.5rem;
-}
 
 /* Sizes */
+@utility avatar-xs {
+  width: 24px;
+  height: 24px;
+  font-size: 10px;
+}
 @utility avatar-sm {
   width: 32px;
   height: 32px;
-  @apply text-sm;
+  font-size: 12px;
 }
 @utility avatar-md {
-  width: 48px;
-  height: 48px;
-  @apply text-sm;
+  width: 42px;
+  height: 42px;
+  font-size: 14px;
 }
 @utility avatar-lg {
-  width: 64px;
-  height: 64px;
-  @apply text-base;
+  width: 56px;
+  height: 56px;
+  font-size: 16px;
 }
 @utility avatar-xl {
+  width: 72px;
+  height: 72px;
+  font-size: 20px;
+}
+@utility avatar-2xl {
   width: 96px;
   height: 96px;
-  @apply text-xl;
+  font-size: 28px;
 }
 
 /* Initials */
 @utility avatar-initials {
-  @apply flex items-center justify-center font-bold border-2 border-black;
+  @apply flex items-center justify-center font-bold tracking-tight select-none;
+  border: 2px solid #e5e7eb;
 }
-.avatar-initials.bg-primary { @apply bg-primary-container text-white; }
-.avatar-initials.bg-secondary { @apply bg-secondary-container text-white; }
-.avatar-initials.bg-yellow { @apply bg-yellow-400 text-black; }
-.avatar-initials.bg-green { @apply bg-green-400 text-black; }
-.avatar-initials.bg-blue { @apply bg-blue-400 text-black; }
 
-/* Status Indicators (Bottom Left) */
+.avatar-initials.bg-primary,
+.avatar-initials.avatar-primary {
+  background: linear-gradient(135deg, #08783a 0%, #059447 100%);
+  color: #ffffff;
+  border-color: transparent;
+}
+.avatar-initials.bg-primary-soft,
+.avatar-initials.avatar-primary-soft {
+  background-color: #f0fdf4;
+  color: #08783a;
+  border-color: #bbf7d0;
+}
+.avatar-initials.bg-secondary,
+.avatar-initials.avatar-secondary {
+  background-color: #f3f4f6;
+  color: #374151;
+  border-color: #e5e7eb;
+}
+.avatar-initials.bg-blue,
+.avatar-initials.avatar-blue {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+  border-color: #bfdbfe;
+}
+.avatar-initials.bg-amber,
+.avatar-initials.bg-yellow,
+.avatar-initials.avatar-amber {
+  background-color: #fef3c7;
+  color: #b45309;
+  border-color: #fde68a;
+}
+.avatar-initials.bg-green,
+.avatar-initials.avatar-green {
+  background-color: #dcfce7;
+  color: #15803d;
+  border-color: #bbf7d0;
+}
+.avatar-initials.bg-purple,
+.avatar-initials.avatar-purple {
+  background-color: #ede9fe;
+  color: #6d28d9;
+  border-color: #ddd6fe;
+}
+.avatar-initials.bg-rose,
+.avatar-initials.bg-red,
+.avatar-initials.avatar-rose {
+  background-color: #fee2e2;
+  color: #dc2626;
+  border-color: #fecaca;
+}
+
+/* Status Indicators */
 @utility avatar-status {
-  @apply absolute block rounded-full border-2 border-black;
+  @apply absolute block rounded-full;
+  border: 2px solid #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   bottom: 0;
-  left: 0;
+  right: 0;
 }
 
 @utility avatar-status-online {
-  @apply bg-green-500;
+  background-color: #16a34a;
 }
 @utility avatar-status-offline {
-  @apply bg-gray-500;
+  background-color: #9ca3af;
 }
 @utility avatar-status-busy {
-  @apply bg-red-500;
+  background-color: #dc2626;
+}
+@utility avatar-status-away {
+  background-color: #d97706;
 }
 
-/* Status sizes based on parent avatar size */
+/* Status sizing */
+.avatar-xs ~ .avatar-status {
+  width: 8px;
+  height: 8px;
+  border-width: 1.5px;
+}
 .avatar-sm ~ .avatar-status {
   width: 10px;
   height: 10px;
-  transform: translate(-10%, 10%);
+  border-width: 2px;
 }
 .avatar-md ~ .avatar-status {
-  width: 14px;
-  height: 14px;
-  transform: translate(-10%, 10%);
+  width: 12px;
+  height: 12px;
+  border-width: 2px;
 }
 .avatar-lg ~ .avatar-status {
-  width: 16px;
-  height: 16px;
-  transform: translate(-5%, 5%);
+  width: 14px;
+  height: 14px;
+  border-width: 2px;
 }
 .avatar-xl ~ .avatar-status {
-  width: 20px;
-  height: 20px;
-  transform: translate(0, 0);
+  width: 18px;
+  height: 18px;
+  border-width: 3px;
+}
+.avatar-2xl ~ .avatar-status {
+  width: 22px;
+  height: 22px;
+  border-width: 3px;
 }
 
-/* Adjustments for Circle Avatars so status is not floating too far */
+/* Position adjustments for circle avatars */
 .avatar.rounded-full ~ .avatar-status {
-  /* Using 14.6% offset for 45 deg angle */
-  left: 14%;
-  bottom: 14%;
-  transform: translate(-50%, 50%);
+  right: 2%;
+  bottom: 2%;
+}
+
+/* Avatar Group */
+@utility avatar-group {
+  @apply flex items-center;
+}
+.avatar-group .avatar-wrapper {
+  margin-left: -10px;
+  transition:
+    transform 0.2s ease,
+    z-index 0.2s ease;
+}
+.avatar-group .avatar-wrapper:first-child {
+  margin-left: 0;
+}
+.avatar-group .avatar-wrapper:hover {
+  transform: translateY(-3px) scale(1.05);
+  z-index: 10;
+}
+.avatar-group .avatar {
+  border: 2px solid #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }

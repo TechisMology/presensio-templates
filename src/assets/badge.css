@@ -1,57 +1,65 @@
 /* Badge Component Styles */
 
 @utility badge {
-  @apply inline-flex items-center justify-center font-bold border border-black select-none text-center;
-  border-radius: var(--radius-default);
+  @apply inline-flex items-center justify-center font-semibold select-none text-center;
+  border-radius: 9999px;
+  border: none;
   line-height: 1;
 }
 
 /* Badge Sizing */
 @utility badge-sm {
-  padding: 2px 6px;
+  padding: 2px 8px;
   font-size: 10px;
 }
 @utility badge-md {
-  padding: 3px 8px;
+  padding: 3px 10px;
   font-size: 11px;
 }
 @utility badge-lg {
-  padding: 4px 10px;
+  padding: 4px 12px;
   font-size: 13px;
 }
 
-/* Pill Badges (Fully Rounded) */
+/* Pill Badges (Already pill by default, kept for compat) */
 @utility badge-pill {
   border-radius: 9999px;
 }
 
-/* Badge Themes */
+/* Badge Themes — Solid */
 @utility badge-primary {
-  @apply bg-primary text-white;
+  background-color: #08783a;
+  color: #ffffff;
 }
 @utility badge-secondary {
-  @apply bg-gray-500 text-white;
+  background-color: #6b7280;
+  color: #ffffff;
 }
 @utility badge-success {
-  @apply bg-[#006229] text-white;
+  background-color: #dcfce7;
+  color: #15803d;
 }
 @utility badge-success-bright {
-  @apply bg-green-500 text-white;
+  background-color: #16a34a;
+  color: #ffffff;
 }
 @utility badge-danger {
-  @apply bg-error text-white;
+  background-color: #fee2e2;
+  color: #dc2626;
 }
 @utility badge-warning {
-  @apply bg-secondary-container text-black;
+  background-color: #fef9c3;
+  color: #a16207;
 }
 @utility badge-dark {
-  @apply bg-inverse-surface text-white;
+  background-color: #1f2937;
+  color: #ffffff;
 }
 @utility badge-light {
-  @apply bg-white text-black;
+  background-color: #f3f4f6;
+  color: #6b7280;
 }
-
-/* Badge Shadow (Mini Neo-Brutalist Effect) */
-@utility badge-shadow {
-  box-shadow: 1px 1px 0px 0px #000000;
+@utility badge-info {
+  background-color: #dbeafe;
+  color: #1d4ed8;
 }

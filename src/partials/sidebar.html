@@ -1,120 +1,334 @@
 <!-- SIDEBAR -->
 <aside class="sidebar">
-  <div class="sidebar-brand">
-    <img src="/presensio.png" alt="Presensio Logo" class="h-8 w-auto object-contain">
-    <h1 class="sidebar-title">PRESENSIO</h1>
+  <!-- Sidebar Header -->
+  <div class="sidebar-header">
+    <a href="/index.html" class="sidebar-logo">
+      <div class="sidebar-logo-mark">
+        <img src="/presensio.png" alt="Logo" />
+      </div>
+      <div class="sidebar-logo-text">
+        <div class="sidebar-logo-name">PRESENSIO</div>
+        <div class="sidebar-logo-label">Admin Panel</div>
+      </div>
+    </a>
+    <button class="sidebar-close" type="button" aria-label="Close Sidebar">
+      <i class="icon-x" style="font-size: 16px"></i>
+    </button>
   </div>
+
+  <!-- Profile -->
+  <div class="sidebar-profile">
+    <div
+      class="w-9 h-9 rounded-lg overflow-hidden shrink-0"
+      style="border: 2px solid #e5e7eb"
+    >
+      <img
+        class="w-full h-full object-cover"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTxW-SCaflPUu4H3RECGfkedzcsDUB9rh1rL0GOvCHLfi1RhU9z10Big4Cr14T8cMhgc6PYv-8kDUZsZU-XxCanQHYCQFL4cUf0VhUe1Aq--yTqxPPZQ5xARa4O9PQBR0ZubUdRIvnoTRSWKk3KYzp-esBnkeUv4VsiJtet4TDju69z6opAfqWO55Yfw4uw-uW5d-FwUSusVWpdPyH8UaOwwnvzp0bcE-n7HZCgsUMy62ukNEmHlUGKzylXL4EO6N2v1ss22aVaz8"
+        alt="Profile"
+      />
+    </div>
+    <div class="flex-1 min-w-0">
+      <div class="sidebar-profile-name truncate">Admin Presensio</div>
+      <div class="sidebar-profile-role">Super Admin</div>
+    </div>
+    <i
+      class="icon-chevron-down shrink-0"
+      style="color: #9ca3af; font-size: 16px"
+    ></i>
+  </div>
+
   <!-- Mobile badge container -->
-  <div id="sidebar-badge-container" class="px-md mb-md md:hidden"></div>
+  <div id="sidebar-badge-container" class="px-md mb-sm md:hidden"></div>
+
+  <!-- Sidebar Navigation -->
   <nav class="sidebar-nav">
-    <!-- MENU TITLE -->
-    <div class="px-md py-2 mt-2 text-xs font-bold text-secondary uppercase tracking-wider">Menu</div>
-    <div class="sidebar-item {% if page in ['index', 'education', 'sales'] %}active{% endif %}">
-      <a class="sidebar-link sidebar-menu-toggle" href="#">
-        <span class="material-symbols-outlined">dashboard</span>
-        <span class="text-sm font-medium flex-1">Dashboard</span>
-        <span class="material-symbols-outlined expand-icon text-sm">expand_more</span>
-      </a>
-      <div class="sidebar-submenu">
-        <a class="sidebar-submenu-link {% if page == 'index' %}active{% endif %}" href="/index.html">Main Dashboard</a>
-        <a class="sidebar-submenu-link {% if page == 'education' %}active{% endif %}" href="/education-dashboard.html">Education</a>
-        <a class="sidebar-submenu-link {% if page == 'sales' %}active{% endif %}" href="/sales-dashboard.html">Sales</a>
-      </div>
-    </div>
+    <ul class="nav-menu">
+      <!-- MENU -->
+      <li class="nav-heading"><span>Menu</span></li>
 
-    <!-- PAGES TITLE -->
-    <div class="px-md py-2 mt-4 text-xs font-bold text-secondary uppercase tracking-wider">Pages</div>
-    <div class="sidebar-item">
-      <a class="sidebar-link sidebar-menu-toggle" href="#">
-        <span class="material-symbols-outlined">lock</span>
-        <span class="text-sm font-medium flex-1">Authentication</span>
-        <span class="material-symbols-outlined expand-icon text-sm">expand_more</span>
-      </a>
-      <div class="sidebar-submenu">
-        <a class="sidebar-submenu-link" href="#">Login</a>
-        <a class="sidebar-submenu-link" href="#">Register</a>
-      </div>
-    </div>
-    <div class="sidebar-item {% if page in ['pos-cafe', 'pos-retail'] %}active{% endif %}">
-      <a class="sidebar-link sidebar-menu-toggle" href="#">
-        <span class="material-symbols-outlined">build</span>
-        <span class="text-sm font-medium flex-1">Utility</span>
-        <span class="material-symbols-outlined expand-icon text-sm">expand_more</span>
-      </a>
-      <div class="sidebar-submenu">
-        <a class="sidebar-submenu-link {% if page == 'pos-cafe' %}active{% endif %}" href="/pos-cafe.html">POS Cafe</a>
-        <a class="sidebar-submenu-link {% if page == 'pos-retail' %}active{% endif %}" href="/pos-retail.html">POS Retail</a>
-      </div>
-    </div>
+      <li
+        class="nav-item has-submenu {% if page in ['index', 'education', 'sales'] %}open active{% endif %}"
+      >
+        <a class="nav-link sidebar-menu-toggle" href="#">
+          <i class="icon-layout-dashboard"></i>
+          <span>Dashboard</span>
+          <i class="icon-chevron-down nav-arrow"></i>
+        </a>
+        <ul class="nav-submenu">
+          <li>
+            <a
+              class="nav-link {% if page == 'index' %}active{% endif %}"
+              href="/index.html"
+              >Main Dashboard</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link {% if page == 'education' %}active{% endif %}"
+              href="/education-dashboard.html"
+              >Education</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link {% if page == 'sales' %}active{% endif %}"
+              href="/sales-dashboard.html"
+              >Sales</a
+            >
+          </li>
+        </ul>
+      </li>
 
-    <!-- COMPONENTS TITLE -->
-    <div class="px-md py-2 mt-4 text-xs font-bold text-secondary uppercase tracking-wider">Components</div>
-    <div class="sidebar-item {% if page in ['avatars', 'badges', 'buttons', 'cards', 'dropdowns', 'list-groups', 'progress', 'tabs', 'texts'] %}active{% endif %}">
-      <a class="sidebar-link sidebar-menu-toggle" href="#">
-        <span class="material-symbols-outlined">widgets</span>
-        <span class="text-sm font-medium flex-1">Basic Element</span>
-        <span class="material-symbols-outlined expand-icon text-sm">expand_more</span>
-      </a>
-      <div class="sidebar-submenu">
-        <a class="sidebar-submenu-link {% if page == 'avatars' %}active{% endif %}" href="/avatars.html">Avatar</a>
-        <a class="sidebar-submenu-link {% if page == 'badges' %}active{% endif %}" href="/badges.html">Badge</a>
-        <a class="sidebar-submenu-link {% if page == 'buttons' %}active{% endif %}" href="/buttons.html">Button</a>
-        <a class="sidebar-submenu-link {% if page == 'cards' %}active{% endif %}" href="/cards.html">Card</a>
-        <a class="sidebar-submenu-link {% if page == 'dropdowns' %}active{% endif %}" href="/dropdowns.html">Dropdown</a>
-        <a class="sidebar-submenu-link {% if page == 'list-groups' %}active{% endif %}" href="/list-groups.html">List Group</a>
-        <a class="sidebar-submenu-link {% if page == 'progress' %}active{% endif %}" href="/progress.html">Progress</a>
-        <a class="sidebar-submenu-link {% if page == 'tabs' %}active{% endif %}" href="/tabs.html">Tab</a>
-        <a class="sidebar-submenu-link {% if page == 'texts' %}active{% endif %}" href="/texts.html">Typography</a>
-      </div>
-    </div>
-    
-    <div class="sidebar-item {% if page in ['forms', 'wizard'] %}active{% endif %}">
-      <a class="sidebar-link sidebar-menu-toggle" href="#">
-        <span class="material-symbols-outlined">dynamic_form</span>
-        <span class="text-sm font-medium flex-1">Forms</span>
-        <span class="material-symbols-outlined expand-icon text-sm">expand_more</span>
-      </a>
-      <div class="sidebar-submenu">
-        <a class="sidebar-submenu-link {% if page == 'forms' %}active{% endif %}" href="/forms.html">Form</a>
-        <a class="sidebar-submenu-link {% if page == 'wizard' %}active{% endif %}" href="/wizard.html">Form Wizard</a>
-      </div>
-    </div>
+      <!-- PAGES -->
+      <li class="nav-heading"><span>Pages</span></li>
 
-    <div class="sidebar-item {% if page in ['tables', 'datatables'] %}active{% endif %}">
-      <a class="sidebar-link sidebar-menu-toggle" href="#">
-        <span class="material-symbols-outlined">table_chart</span>
-        <span class="text-sm font-medium flex-1">Tables</span>
-        <span class="material-symbols-outlined expand-icon text-sm">expand_more</span>
-      </a>
-      <div class="sidebar-submenu">
-        <a class="sidebar-submenu-link {% if page == 'tables' %}active{% endif %}" href="/tables.html">Table</a>
-        <a class="sidebar-submenu-link {% if page == 'datatables' %}active{% endif %}" href="/datatables.html">DataTables</a>
-      </div>
-    </div>
+      <li class="nav-item has-submenu">
+        <a class="nav-link sidebar-menu-toggle" href="#">
+          <i class="icon-lock"></i>
+          <span>Authentication</span>
+          <i class="icon-chevron-down nav-arrow"></i>
+        </a>
+        <ul class="nav-submenu">
+          <li><a class="nav-link" href="/login.html">Login</a></li>
+          <li><a class="nav-link" href="#">Register</a></li>
+        </ul>
+      </li>
 
-    <div class="sidebar-item {% if page in ['alerts', 'modals', 'sweetalerts', 'toasts'] %}active{% endif %}">
-      <a class="sidebar-link sidebar-menu-toggle" href="#">
-        <span class="material-symbols-outlined">notifications</span>
-        <span class="text-sm font-medium flex-1">Notifications</span>
-        <span class="material-symbols-outlined expand-icon text-sm">expand_more</span>
-      </a>
-      <div class="sidebar-submenu">
-        <a class="sidebar-submenu-link {% if page == 'alerts' %}active{% endif %}" href="/alerts.html">Alert</a>
-        <a class="sidebar-submenu-link {% if page == 'modals' %}active{% endif %}" href="/modals.html">Modals</a>
-        <a class="sidebar-submenu-link {% if page == 'sweetalerts' %}active{% endif %}" href="/sweetalerts.html">Sweet Alerts</a>
-        <a class="sidebar-submenu-link {% if page == 'toasts' %}active{% endif %}" href="/toasts.html">Toast</a>
-      </div>
-    </div>
+      <li
+        class="nav-item has-submenu {% if page in ['pos-cafe', 'pos-retail'] %}open active{% endif %}"
+      >
+        <a class="nav-link sidebar-menu-toggle" href="#">
+          <i class="icon-wrench"></i>
+          <span>Utility</span>
+          <i class="icon-chevron-down nav-arrow"></i>
+        </a>
+        <ul class="nav-submenu">
+          <li>
+            <a
+              class="nav-link {% if page == 'pos-cafe' %}active{% endif %}"
+              href="/pos-cafe.html"
+              >POS Cafe</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link {% if page == 'pos-retail' %}active{% endif %}"
+              href="/pos-retail.html"
+              >POS Retail</a
+            >
+          </li>
+        </ul>
+      </li>
 
-    <div class="sidebar-item {% if page == 'charts' %}active{% endif %}">
-      <a class="sidebar-link sidebar-menu-toggle" href="#">
-        <span class="material-symbols-outlined">bar_chart</span>
-        <span class="text-sm font-medium flex-1">Charts</span>
-        <span class="material-symbols-outlined expand-icon text-sm">expand_more</span>
-      </a>
-      <div class="sidebar-submenu">
-        <a class="sidebar-submenu-link {% if page == 'charts' %}active{% endif %}" href="/charts.html">Charts</a>
-      </div>
-    </div>
+      <!-- COMPONENTS -->
+      <li class="nav-heading"><span>Components</span></li>
+
+      <li
+        class="nav-item has-submenu {% if page in ['avatars', 'badges', 'buttons', 'cards', 'dropdowns', 'list-groups', 'progress', 'tabs', 'texts'] %}open active{% endif %}"
+      >
+        <a class="nav-link sidebar-menu-toggle" href="#">
+          <i class="icon-shapes"></i>
+          <span>Basic Element</span>
+          <i class="icon-chevron-down nav-arrow"></i>
+        </a>
+        <ul class="nav-submenu">
+          <li>
+            <a
+              class="nav-link {% if page == 'avatars' %}active{% endif %}"
+              href="/avatars.html"
+              >Avatar</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link {% if page == 'badges' %}active{% endif %}"
+              href="/badges.html"
+              >Badge</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link {% if page == 'buttons' %}active{% endif %}"
+              href="/buttons.html"
+              >Button</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link {% if page == 'cards' %}active{% endif %}"
+              href="/cards.html"
+              >Card</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link {% if page == 'dropdowns' %}active{% endif %}"
+              href="/dropdowns.html"
+              >Dropdown</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link {% if page == 'list-groups' %}active{% endif %}"
+              href="/list-groups.html"
+              >List Group</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link {% if page == 'progress' %}active{% endif %}"
+              href="/progress.html"
+              >Progress</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link {% if page == 'tabs' %}active{% endif %}"
+              href="/tabs.html"
+              >Tab</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link {% if page == 'texts' %}active{% endif %}"
+              href="/texts.html"
+              >Typography</a
+            >
+          </li>
+        </ul>
+      </li>
+
+      <li
+        class="nav-item has-submenu {% if page in ['forms', 'wizard'] %}open active{% endif %}"
+      >
+        <a class="nav-link sidebar-menu-toggle" href="#">
+          <i class="icon-file-text"></i>
+          <span>Forms</span>
+          <i class="icon-chevron-down nav-arrow"></i>
+        </a>
+        <ul class="nav-submenu">
+          <li>
+            <a
+              class="nav-link {% if page == 'forms' %}active{% endif %}"
+              href="/forms.html"
+              >Form</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link {% if page == 'wizard' %}active{% endif %}"
+              href="/wizard.html"
+              >Form Wizard</a
+            >
+          </li>
+        </ul>
+      </li>
+
+      <li
+        class="nav-item has-submenu {% if page in ['tables', 'datatables'] %}open active{% endif %}"
+      >
+        <a class="nav-link sidebar-menu-toggle" href="#">
+          <i class="icon-table"></i>
+          <span>Tables</span>
+          <i class="icon-chevron-down nav-arrow"></i>
+        </a>
+        <ul class="nav-submenu">
+          <li>
+            <a
+              class="nav-link {% if page == 'tables' %}active{% endif %}"
+              href="/tables.html"
+              >Table</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link {% if page == 'datatables' %}active{% endif %}"
+              href="/datatables.html"
+              >DataTables</a
+            >
+          </li>
+        </ul>
+      </li>
+
+      <li
+        class="nav-item has-submenu {% if page in ['alerts', 'modals', 'sweetalerts', 'toasts'] %}open active{% endif %}"
+      >
+        <a class="nav-link sidebar-menu-toggle" href="#">
+          <i class="icon-bell"></i>
+          <span>Notifications</span>
+          <i class="icon-chevron-down nav-arrow"></i>
+        </a>
+        <ul class="nav-submenu">
+          <li>
+            <a
+              class="nav-link {% if page == 'alerts' %}active{% endif %}"
+              href="/alerts.html"
+              >Alert</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link {% if page == 'modals' %}active{% endif %}"
+              href="/modals.html"
+              >Modals</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link {% if page == 'sweetalerts' %}active{% endif %}"
+              href="/sweetalerts.html"
+              >Sweet Alerts</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link {% if page == 'toasts' %}active{% endif %}"
+              href="/toasts.html"
+              >Toast</a
+            >
+          </li>
+        </ul>
+      </li>
+
+      <li
+        class="nav-item has-submenu {% if page == 'charts' %}open active{% endif %}"
+      >
+        <a class="nav-link sidebar-menu-toggle" href="#">
+          <i class="icon-bar-chart-3"></i>
+          <span>Charts</span>
+          <i class="icon-chevron-down nav-arrow"></i>
+        </a>
+        <ul class="nav-submenu">
+          <li>
+            <a
+              class="nav-link {% if page == 'charts' %}active{% endif %}"
+              href="/charts.html"
+              >Charts</a
+            >
+          </li>
+        </ul>
+      </li>
+    </ul>
   </nav>
+
+  <!-- Footer info -->
+  <div class="sidebar-footer">
+    <div class="flex items-center gap-sm">
+      <div
+        class="w-8 h-8 rounded-lg overflow-hidden shrink-0 border border-gray-200"
+        style="background: #f3f4f6"
+      >
+        <img
+          src="/presensio.png"
+          alt="Logo"
+          class="w-full h-full object-contain p-1"
+        />
+      </div>
+      <div>
+        <div class="sidebar-footer-title">Presensio</div>
+        <div class="sidebar-footer-sub">Versi 1.0.0 · © 2026</div>
+      </div>
+    </div>
+  </div>
 </aside>

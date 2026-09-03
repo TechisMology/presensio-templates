@@ -1,11 +1,11 @@
-/* ============================================================
+i/* ============================================================
    DataTables — Neo-Brutalist Theme Override
    Overrides DataTables default CSS to match presensio design
    ============================================================ */
 
 /* ── Wrapper / Container ─────────────────────────────────── */
 .dt-container {
-  font-family: var(--font-body-md, 'Inter', sans-serif);
+  font-family: var(--font-body-md, "Poppins", sans-serif);
   font-size: 14px;
   color: #000;
 }
@@ -68,13 +68,15 @@
   color: #000;
   cursor: pointer;
   appearance: auto;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
 }
 
 .dt-length select:focus {
   outline: none;
   border-color: #000;
-  box-shadow: 0 0 0 2px rgba(0,0,0,0.08);
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
 }
 
 /* ── Search box ──────────────────────────────────────────── */
@@ -96,14 +98,16 @@
   font-weight: 400;
   background: #fff;
   color: #000;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
   min-width: 200px;
 }
 
 .dt-search input:focus {
   outline: none;
   border-color: #000;
-  box-shadow: 0 0 0 2px rgba(0,0,0,0.08);
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
 }
 
 /* ── Info text ───────────────────────────────────────────── */
@@ -119,7 +123,7 @@ table.dataTable {
   border-collapse: collapse !important;
   background: #fff;
   font-size: 14px;
-  font-family: var(--font-body-md, 'Inter', sans-serif);
+  font-family: var(--font-body-md, "Poppins", sans-serif);
 }
 
 table.dataTable thead th,
@@ -184,8 +188,14 @@ table.dataTable thead th .dt-column-order {
   opacity: 0.3;
 }
 
-table.dataTable thead th.dt-ordering-asc .dt-column-order::before { content: '↑'; opacity: 1; }
-table.dataTable thead th.dt-ordering-desc .dt-column-order::after { content: '↓'; opacity: 1; }
+table.dataTable thead th.dt-ordering-asc .dt-column-order::before {
+  content: "↑";
+  opacity: 1;
+}
+table.dataTable thead th.dt-ordering-desc .dt-column-order::after {
+  content: "↓";
+  opacity: 1;
+}
 
 /* ── Pagination ──────────────────────────────────────────── */
 .dt-paging {
@@ -240,14 +250,14 @@ table.dataTable thead th.dt-ordering-desc .dt-column-order::after { content: '�
   justify-content: center;
 }
 .dt-paging .dt-paging-button.previous::after {
-  content: 'chevron_left';
-  font-family: 'Material Symbols Outlined';
+  content: "chevron_left";
+  font-family: "Material Symbols Outlined";
   font-size: 18px;
   font-weight: normal;
 }
 .dt-paging .dt-paging-button.next::after {
-  content: 'chevron_right';
-  font-family: 'Material Symbols Outlined';
+  content: "chevron_right";
+  font-family: "Material Symbols Outlined";
   font-size: 18px;
   font-weight: normal;
 }
@@ -446,7 +456,7 @@ table.dataTable tr.child ul.dtr-details li .dtr-title {
 
 .dt-card .dt-table-wrap {
   overflow-x: auto;
-  padding: 0 0 0 0;   /* table runs full-width inside the container */
+  padding: 0 0 0 0; /* table runs full-width inside the container */
 }
 
 /* Give the actual table a horizontal padding by overriding the wrapper */
