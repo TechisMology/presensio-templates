@@ -240,3 +240,28 @@
 @utility card-shadow-none {
   box-shadow: none;
 }
+
+/* ============================================================
+   Left Border Accent Cards
+   ============================================================ */
+@utility card-border-left-primary {
+  border-left: 4px solid #08783a;
+}
+@utility card-border-left-secondary {
+  border-left: 4px solid #6b7280;
+}
+@utility card-border-left-success {
+  border-left: 4px solid #16a34a;
+}
+@utility card-border-left-danger {
+  border-left: 4px solid #dc2626;
+}
+@utility card-border-left-warning {
+  border-left: 4px solid #f59e0b;
+}
+@utility card-border-left-info {
+  border-left: 4px solid #2563eb;
+}
+@utility card-border-left-dark {
+  border-left: 4px solid #111827;
+}

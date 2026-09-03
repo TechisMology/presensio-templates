@@ -8,319 +8,448 @@
   <div class="row">
     <!-- 1. Default DataTable — with shadow -->
     <div class="col-12 mb-md">
-      <div class="dt-card">
-        <div class="dt-toolbar">
-          <span class="dt-toolbar-title">
+      <div class="card card-shadow">
+        <div class="card-header flex items-center justify-between">
+          <div class="flex items-center gap-xs">
             <span class="material-symbols-outlined fs-6 align-middle"
               >table_chart</span
             >
-            Default DataTable — Student List
-          </span>
+            <span class="h6 mb-0">Default DataTable — Student List</span>
+          </div>
           <div class="flex items-center gap-xs">
-            <code
-              class="fs-7 bg-gray-100 border border-gray-300 rounded px-xs py-[2px]"
-              >dt-card dt-card-shadow</code
-            >
             <span class="badge badge-sm badge-primary">Client-side</span>
           </div>
         </div>
-        <div class="dt-table-wrap">
-          <table
-            id="dt-default"
-            class="dataTable table-striped table-hover w-full"
-          >
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Class</th>
-                <th>NISN</th>
-                <th>Status</th>
-                <th>Score</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Ahmad Fauzi</td>
-                <td>X-IPA-1</td>
-                <td>0012345678</td>
-                <td>
-                  <span class="badge badge-sm badge-success">Active</span>
-                </td>
-                <td>88.5</td>
-                <td>
-                  <button class="btn btn-xs btn-primary btn-shadow">
-                    Edit
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Siti Rahmawaati</td>
-                <td>X-IPA-1</td>
-                <td>0012345679</td>
-                <td>
-                  <span class="badge badge-sm badge-success">Active</span>
-                </td>
-                <td>92.0</td>
-                <td>
-                  <button class="btn btn-xs btn-primary btn-shadow">
-                    Edit
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Budi Santoso</td>
-                <td>XI-IPS-2</td>
-                <td>0012345680</td>
-                <td>
-                  <span class="badge badge-sm badge-warning">Inactive</span>
-                </td>
-                <td>74.3</td>
-                <td>
-                  <button class="btn btn-xs btn-primary btn-shadow">
-                    Edit
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>Dewi Lestari</td>
-                <td>XI-IPS-2</td>
-                <td>0012345681</td>
-                <td>
-                  <span class="badge badge-sm badge-success">Active</span>
-                </td>
-                <td>85.0</td>
-                <td>
-                  <button class="btn btn-xs btn-primary btn-shadow">
-                    Edit
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>Eko Prasetyo</td>
-                <td>XII-IPA-3</td>
-                <td>0012345682</td>
-                <td>
-                  <span class="badge badge-sm badge-danger">Dropped</span>
-                </td>
-                <td>63.1</td>
-                <td>
-                  <button class="btn btn-xs btn-primary btn-shadow">
-                    Edit
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td>Fitri Handayani</td>
-                <td>XII-IPA-3</td>
-                <td>0012345683</td>
-                <td>
-                  <span class="badge badge-sm badge-success">Active</span>
-                </td>
-                <td>95.5</td>
-                <td>
-                  <button class="btn btn-xs btn-primary btn-shadow">
-                    Edit
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>7</td>
-                <td>Galih Permana</td>
-                <td>X-IPA-2</td>
-                <td>0012345684</td>
-                <td>
-                  <span class="badge badge-sm badge-success">Active</span>
-                </td>
-                <td>77.8</td>
-                <td>
-                  <button class="btn btn-xs btn-primary btn-shadow">
-                    Edit
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>8</td>
-                <td>Hana Pertiwi</td>
-                <td>X-IPA-2</td>
-                <td>0012345685</td>
-                <td>
-                  <span class="badge badge-sm badge-warning">Inactive</span>
-                </td>
-                <td>60.0</td>
-                <td>
-                  <button class="btn btn-xs btn-primary btn-shadow">
-                    Edit
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>9</td>
-                <td>Irfan Hakim</td>
-                <td>XI-IPA-1</td>
-                <td>0012345686</td>
-                <td>
-                  <span class="badge badge-sm badge-success">Active</span>
-                </td>
-                <td>89.2</td>
-                <td>
-                  <button class="btn btn-xs btn-primary btn-shadow">
-                    Edit
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>10</td>
-                <td>Jasmine Putri</td>
-                <td>XI-IPA-1</td>
-                <td>0012345687</td>
-                <td>
-                  <span class="badge badge-sm badge-success">Active</span>
-                </td>
-                <td>91.0</td>
-                <td>
-                  <button class="btn btn-xs btn-primary btn-shadow">
-                    Edit
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>11</td>
-                <td>Kevin Ananta</td>
-                <td>XII-IPS-1</td>
-                <td>0012345688</td>
-                <td>
-                  <span class="badge badge-sm badge-success">Active</span>
-                </td>
-                <td>80.4</td>
-                <td>
-                  <button class="btn btn-xs btn-primary btn-shadow">
-                    Edit
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>12</td>
-                <td>Laila Sari</td>
-                <td>XII-IPS-1</td>
-                <td>0012345689</td>
-                <td>
-                  <span class="badge badge-sm badge-danger">Dropped</span>
-                </td>
-                <td>55.0</td>
-                <td>
-                  <button class="btn btn-xs btn-primary btn-shadow">
-                    Edit
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="dt-footer" id="dt-default-footer">
-          <!-- DataTables injects info + paging here via dom option -->
+        <div class="card-body">
+          <div class="table-container">
+            <table
+              id="dt-default"
+              class="dataTable table-striped table-hover w-full"
+            >
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Class</th>
+                  <th>NISN</th>
+                  <th>Status</th>
+                  <th>Score</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Ahmad Fauzi</td>
+                  <td>X-IPA-1</td>
+                  <td>0012345678</td>
+                  <td>
+                    <span class="badge badge-sm badge-success">Active</span>
+                  </td>
+                  <td>88.5</td>
+                  <td>
+                    <div class="flex items-center gap-xs">
+                      <button
+                        class="btn-action btn-action-primary"
+                        title="Edit"
+                      >
+                        <i class="icon-pencil"></i>
+                      </button>
+                      <button
+                        class="btn-action btn-action-danger"
+                        title="Hapus"
+                      >
+                        <i class="icon-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Siti Rahmawaati</td>
+                  <td>X-IPA-1</td>
+                  <td>0012345679</td>
+                  <td>
+                    <span class="badge badge-sm badge-success">Active</span>
+                  </td>
+                  <td>92.0</td>
+                  <td>
+                    <div class="flex items-center gap-xs">
+                      <button
+                        class="btn-action btn-action-primary"
+                        title="Edit"
+                      >
+                        <i class="icon-pencil"></i>
+                      </button>
+                      <button
+                        class="btn-action btn-action-danger"
+                        title="Hapus"
+                      >
+                        <i class="icon-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Budi Santoso</td>
+                  <td>XI-IPS-2</td>
+                  <td>0012345680</td>
+                  <td>
+                    <span class="badge badge-sm badge-warning">Inactive</span>
+                  </td>
+                  <td>74.3</td>
+                  <td>
+                    <div class="flex items-center gap-xs">
+                      <button
+                        class="btn-action btn-action-primary"
+                        title="Edit"
+                      >
+                        <i class="icon-pencil"></i>
+                      </button>
+                      <button
+                        class="btn-action btn-action-danger"
+                        title="Hapus"
+                      >
+                        <i class="icon-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Dewi Lestari</td>
+                  <td>XI-IPS-2</td>
+                  <td>0012345681</td>
+                  <td>
+                    <span class="badge badge-sm badge-success">Active</span>
+                  </td>
+                  <td>85.0</td>
+                  <td>
+                    <div class="flex items-center gap-xs">
+                      <button
+                        class="btn-action btn-action-primary"
+                        title="Edit"
+                      >
+                        <i class="icon-pencil"></i>
+                      </button>
+                      <button
+                        class="btn-action btn-action-danger"
+                        title="Hapus"
+                      >
+                        <i class="icon-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>Eko Prasetyo</td>
+                  <td>XII-IPA-3</td>
+                  <td>0012345682</td>
+                  <td>
+                    <span class="badge badge-sm badge-danger">Dropped</span>
+                  </td>
+                  <td>63.1</td>
+                  <td>
+                    <div class="flex items-center gap-xs">
+                      <button
+                        class="btn-action btn-action-primary"
+                        title="Edit"
+                      >
+                        <i class="icon-pencil"></i>
+                      </button>
+                      <button
+                        class="btn-action btn-action-danger"
+                        title="Hapus"
+                      >
+                        <i class="icon-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>Fitri Handayani</td>
+                  <td>XII-IPA-3</td>
+                  <td>0012345683</td>
+                  <td>
+                    <span class="badge badge-sm badge-success">Active</span>
+                  </td>
+                  <td>95.5</td>
+                  <td>
+                    <div class="flex items-center gap-xs">
+                      <button
+                        class="btn-action btn-action-primary"
+                        title="Edit"
+                      >
+                        <i class="icon-pencil"></i>
+                      </button>
+                      <button
+                        class="btn-action btn-action-danger"
+                        title="Hapus"
+                      >
+                        <i class="icon-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>Galih Permana</td>
+                  <td>X-IPA-2</td>
+                  <td>0012345684</td>
+                  <td>
+                    <span class="badge badge-sm badge-success">Active</span>
+                  </td>
+                  <td>77.8</td>
+                  <td>
+                    <div class="flex items-center gap-xs">
+                      <button
+                        class="btn-action btn-action-primary"
+                        title="Edit"
+                      >
+                        <i class="icon-pencil"></i>
+                      </button>
+                      <button
+                        class="btn-action btn-action-danger"
+                        title="Hapus"
+                      >
+                        <i class="icon-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>Hana Pertiwi</td>
+                  <td>X-IPA-2</td>
+                  <td>0012345685</td>
+                  <td>
+                    <span class="badge badge-sm badge-warning">Inactive</span>
+                  </td>
+                  <td>60.0</td>
+                  <td>
+                    <div class="flex items-center gap-xs">
+                      <button
+                        class="btn-action btn-action-primary"
+                        title="Edit"
+                      >
+                        <i class="icon-pencil"></i>
+                      </button>
+                      <button
+                        class="btn-action btn-action-danger"
+                        title="Hapus"
+                      >
+                        <i class="icon-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>9</td>
+                  <td>Irfan Hakim</td>
+                  <td>XI-IPA-1</td>
+                  <td>0012345686</td>
+                  <td>
+                    <span class="badge badge-sm badge-success">Active</span>
+                  </td>
+                  <td>89.2</td>
+                  <td>
+                    <div class="flex items-center gap-xs">
+                      <button
+                        class="btn-action btn-action-primary"
+                        title="Edit"
+                      >
+                        <i class="icon-pencil"></i>
+                      </button>
+                      <button
+                        class="btn-action btn-action-danger"
+                        title="Hapus"
+                      >
+                        <i class="icon-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>10</td>
+                  <td>Jasmine Putri</td>
+                  <td>XI-IPA-1</td>
+                  <td>0012345687</td>
+                  <td>
+                    <span class="badge badge-sm badge-success">Active</span>
+                  </td>
+                  <td>91.0</td>
+                  <td>
+                    <div class="flex items-center gap-xs">
+                      <button
+                        class="btn-action btn-action-primary"
+                        title="Edit"
+                      >
+                        <i class="icon-pencil"></i>
+                      </button>
+                      <button
+                        class="btn-action btn-action-danger"
+                        title="Hapus"
+                      >
+                        <i class="icon-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>11</td>
+                  <td>Kevin Ananta</td>
+                  <td>XII-IPS-1</td>
+                  <td>0012345688</td>
+                  <td>
+                    <span class="badge badge-sm badge-success">Active</span>
+                  </td>
+                  <td>80.4</td>
+                  <td>
+                    <div class="flex items-center gap-xs">
+                      <button
+                        class="btn-action btn-action-primary"
+                        title="Edit"
+                      >
+                        <i class="icon-pencil"></i>
+                      </button>
+                      <button
+                        class="btn-action btn-action-danger"
+                        title="Hapus"
+                      >
+                        <i class="icon-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>12</td>
+                  <td>Laila Sari</td>
+                  <td>XII-IPS-1</td>
+                  <td>0012345689</td>
+                  <td>
+                    <span class="badge badge-sm badge-danger">Dropped</span>
+                  </td>
+                  <td>55.0</td>
+                  <td>
+                    <div class="flex items-center gap-xs">
+                      <button
+                        class="btn-action btn-action-primary"
+                        title="Edit"
+                      >
+                        <i class="icon-pencil"></i>
+                      </button>
+                      <button
+                        class="btn-action btn-action-danger"
+                        title="Hapus"
+                      >
+                        <i class="icon-trash"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="dt-footer" id="dt-default-footer">
+            <!-- DataTables injects info + paging here via dom option -->
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- 2. Export Buttons Table -->
-    <div class="col-12 mb-md">
-      <div class="dt-card">
-        <div class="dt-toolbar">
-          <span class="dt-toolbar-title">
-            <span class="material-symbols-outlined fs-6 align-middle"
-              >download</span
+      <!-- 2. Export Buttons Table -->
+      <div class="col-12 mb-md">
+        <div class="dt-card">
+          <div class="dt-toolbar">
+            <span class="dt-toolbar-title">
+              <span class="material-symbols-outlined fs-6 align-middle"
+                >download</span
+              >
+              Export Table — Teacher Data
+            </span>
+            <span class="badge badge-sm badge-warning"
+              >CSV · Excel · PDF · Print</span
             >
-            Export Table — Teacher Data
-          </span>
-          <span class="badge badge-sm badge-warning border border-black"
-            >CSV · Excel · PDF · Print</span
-          >
+          </div>
+          <div class="dt-table-wrap">
+            <table id="dt-export" class="dataTable table-hover w-full">
+              <thead>
+                <tr>
+                  <th>NIP</th>
+                  <th>Name</th>
+                  <th>Subject</th>
+                  <th>Class Count</th>
+                  <th>Status</th>
+                  <th>Joined</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>198001012003121001</td>
+                  <td>Drs. Bambang H.</td>
+                  <td>Mathematics</td>
+                  <td>6</td>
+                  <td>
+                    <span class="badge badge-sm badge-success">Active</span>
+                  </td>
+                  <td>2003-12-01</td>
+                </tr>
+                <tr>
+                  <td>198205152005022002</td>
+                  <td>Siti Aminah, S.Pd</td>
+                  <td>Biology</td>
+                  <td>4</td>
+                  <td>
+                    <span class="badge badge-sm badge-success">Active</span>
+                  </td>
+                  <td>2005-02-15</td>
+                </tr>
+                <tr>
+                  <td>197809102001011003</td>
+                  <td>Eko Prasetyo</td>
+                  <td>Physics</td>
+                  <td>5</td>
+                  <td>
+                    <span class="badge badge-sm badge-warning">On Leave</span>
+                  </td>
+                  <td>2001-01-10</td>
+                </tr>
+                <tr>
+                  <td>198512252007032004</td>
+                  <td>Hj. Ratna Sari</td>
+                  <td>Chemistry</td>
+                  <td>3</td>
+                  <td>
+                    <span class="badge badge-sm badge-success">Active</span>
+                  </td>
+                  <td>2007-03-25</td>
+                </tr>
+                <tr>
+                  <td>198901012010011005</td>
+                  <td>Agus Setiawan, M.Pd</td>
+                  <td>History</td>
+                  <td>7</td>
+                  <td>
+                    <span class="badge badge-sm badge-danger">Resigned</span>
+                  </td>
+                  <td>2010-01-01</td>
+                </tr>
+                <tr>
+                  <td>199003152012012006</td>
+                  <td>Rina Wulandari</td>
+                  <td>English</td>
+                  <td>5</td>
+                  <td>
+                    <span class="badge badge-sm badge-success">Active</span>
+                  </td>
+                  <td>2012-01-15</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        <div class="dt-table-wrap">
-          <table id="dt-export" class="dataTable table-hover w-full">
-            <thead>
-              <tr>
-                <th>NIP</th>
-                <th>Name</th>
-                <th>Subject</th>
-                <th>Class Count</th>
-                <th>Status</th>
-                <th>Joined</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>198001012003121001</td>
-                <td>Drs. Bambang H.</td>
-                <td>Mathematics</td>
-                <td>6</td>
-                <td>
-                  <span class="badge badge-sm badge-success">Active</span>
-                </td>
-                <td>2003-12-01</td>
-              </tr>
-              <tr>
-                <td>198205152005022002</td>
-                <td>Siti Aminah, S.Pd</td>
-                <td>Biology</td>
-                <td>4</td>
-                <td>
-                  <span class="badge badge-sm badge-success">Active</span>
-                </td>
-                <td>2005-02-15</td>
-              </tr>
-              <tr>
-                <td>197809102001011003</td>
-                <td>Eko Prasetyo</td>
-                <td>Physics</td>
-                <td>5</td>
-                <td>
-                  <span class="badge badge-sm badge-warning">On Leave</span>
-                </td>
-                <td>2001-01-10</td>
-              </tr>
-              <tr>
-                <td>198512252007032004</td>
-                <td>Hj. Ratna Sari</td>
-                <td>Chemistry</td>
-                <td>3</td>
-                <td>
-                  <span class="badge badge-sm badge-success">Active</span>
-                </td>
-                <td>2007-03-25</td>
-              </tr>
-              <tr>
-                <td>198901012010011005</td>
-                <td>Agus Setiawan, M.Pd</td>
-                <td>History</td>
-                <td>7</td>
-                <td>
-                  <span class="badge badge-sm badge-danger">Resigned</span>
-                </td>
-                <td>2010-01-01</td>
-              </tr>
-              <tr>
-                <td>199003152012012006</td>
-                <td>Rina Wulandari</td>
-                <td>English</td>
-                <td>5</td>
-                <td>
-                  <span class="badge badge-sm badge-success">Active</span>
-                </td>
-                <td>2012-01-15</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="dt-footer" id="dt-export-footer"></div>
       </div>
     </div>
 
@@ -339,9 +468,7 @@
               class="fs-7 bg-gray-100 border border-gray-300 rounded px-xs py-[2px]"
               >dt-card-noborder</code
             >
-            <span class="badge badge-sm badge-light border border-black"
-              >ColVis</span
-            >
+            <span class="badge badge-sm badge-light">ColVis</span>
           </div>
         </div>
         <div class="dt-table-wrap">
@@ -499,9 +626,7 @@
             >
             Responsive DataTable
           </span>
-          <span class="badge badge-sm badge-light border border-black"
-            >Collapse on mobile</span
-          >
+          <span class="badge badge-sm badge-light">Collapse on mobile</span>
         </div>
         <div class="dt-table-wrap">
           <table id="dt-responsive" class="dataTable table-hover w-full">
@@ -583,9 +708,7 @@
             >
             Server-side Processing
           </span>
-          <span class="badge badge-sm badge-warning border border-black"
-            >AJAX Simulated</span
-          >
+          <span class="badge badge-sm badge-warning">AJAX Simulated</span>
         </div>
         <div class="dt-table-wrap">
           <table
@@ -620,7 +743,7 @@
             >
             Scrollable Table (X + Y Scroll)
           </span>
-          <span class="badge badge-sm badge-light border border-black"
+          <span class="badge badge-sm badge-light"
             >Fixed height + horizontal</span
           >
         </div>
@@ -778,24 +901,6 @@
     </div>
   </div>
 </div>
-
-<!-- DataTables CSS -->
-<link
-  rel="stylesheet"
-  href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css"
-/>
-<link
-  rel="stylesheet"
-  href="https://cdn.datatables.net/buttons/3.1.2/css/buttons.dataTables.min.css"
-/>
-<link
-  rel="stylesheet"
-  href="https://cdn.datatables.net/responsive/3.0.3/css/responsive.dataTables.min.css"
-/>
-<link
-  rel="stylesheet"
-  href="https://cdn.datatables.net/select/2.1.0/css/select.dataTables.min.css"
-/>
 
 <!-- DataTables JS loaded AFTER main.js module sets window.jQuery -->
 <script>

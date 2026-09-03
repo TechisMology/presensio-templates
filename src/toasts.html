@@ -15,12 +15,12 @@
     <div class="col-12 col-md-6 mb-md">
       <div class="card card-shadow">
         <div class="card-header"><span class="h6 mb-0">Interactive Toast Sandbox</span></div>
-        <div class="card-body space-y-md">
-          <p class="fs-7 text-secondary">Configure settings and click "Show Toast" to trigger stacking, time-progressed notifications.</p>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-md">Configure settings and click "Show Toast" to trigger stacking, time-progressed notifications.</p>
           
-          <div class="space-y-xs">
-            <label class="fs-7 fw-bold text-black block">Notification Theme</label>
-            <select id="toast-type" class="w-full text-xs border border-black rounded p-xs bg-white focus:ring-0 focus:border-black">
+          <div class="form-group">
+            <label class="form-label">Notification Theme</label>
+            <select id="toast-type" class="form-control">
               <option value="success">Success (Green)</option>
               <option value="danger">Danger (Red)</option>
               <option value="warning">Warning (Yellow)</option>
@@ -29,27 +29,27 @@
             </select>
           </div>
 
-          <div class="space-y-xs">
-            <label class="fs-7 fw-bold text-black block">Alert Title</label>
-            <input type="text" id="toast-title-input" value="System Notification" class="w-full text-xs border border-black rounded p-xs focus:ring-0 focus:border-black" />
+          <div class="form-group">
+            <label class="form-label">Alert Title</label>
+            <input type="text" id="toast-title-input" value="System Notification" class="form-control" />
           </div>
 
-          <div class="space-y-xs">
-            <label class="fs-7 fw-bold text-black block">Alert Message</label>
-            <textarea id="toast-msg-input" rows="2" class="w-full text-xs border border-black rounded p-xs focus:ring-0 focus:border-black">Database backup completed successfully. System integrity is verified.</textarea>
+          <div class="form-group">
+            <label class="form-label">Alert Message</label>
+            <textarea id="toast-msg-input" rows="2" class="form-control">Database backup completed successfully. System integrity is verified.</textarea>
           </div>
 
-          <div class="space-y-xs">
-            <label class="fs-7 fw-bold text-black block">Display Duration (milliseconds)</label>
-            <input type="number" id="toast-duration" value="4000" class="w-full text-xs border border-black rounded p-xs focus:ring-0 focus:border-black" />
+          <div class="form-group">
+            <label class="form-label">Display Duration (milliseconds)</label>
+            <input type="number" id="toast-duration" value="4000" class="form-control" />
           </div>
 
           <div class="flex items-center gap-xs pb-xs">
-            <input type="checkbox" id="toast-full-bg" class="rounded border-black text-primary focus:ring-0 cursor-pointer" />
-            <label for="toast-full-bg" class="fs-7 fw-bold text-black cursor-pointer select-none">Full Background Theme</label>
+            <input type="checkbox" id="toast-full-bg" class="rounded border-gray-300 text-primary focus:ring-primary cursor-pointer" />
+            <label for="toast-full-bg" class="text-sm font-semibold text-gray-700 cursor-pointer select-none">Full Background Theme</label>
           </div>
 
-          <button onclick="triggerSandboxToast()" class="btn btn-md btn-primary btn-shadow w-full">
+          <button onclick="triggerSandboxToast()" class="btn btn-md btn-primary  w-full">
             <span class="material-symbols-outlined fs-6">notifications_active</span>
             Show Toast Alert
           </button>
@@ -62,7 +62,7 @@
       <div class="card card-shadow">
         <div class="card-header"><span class="h6 mb-0">Static Style Previews</span></div>
         <div class="card-body space-y-sm">
-          <p class="fs-7 text-secondary">Visual styles and left-accent colors for each stateful configuration.</p>
+          <p class="fs-7 text-secondary mb-md">Visual styles and left-accent colors for each stateful configuration.</p>
           
           <!-- Success Preview -->
           <div class="toast toast-success show" style="position: static; transform: none; opacity: 1; width: 100%;">
@@ -98,7 +98,7 @@
           </div>
 
           <hr class="border-gray-200" />
-          <p class="fs-7 text-secondary">Full background color variants.</p>
+          <p class="fs-7 text-secondary mb-md">Full background color variants.</p>
 
           <!-- Success Full BG Preview -->
           <div class="toast toast-bg-success show" style="position: static; transform: none; opacity: 1; width: 100%;">

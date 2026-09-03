@@ -4,42 +4,42 @@ h1,
   font-size: 2.25rem;
   font-weight: 700;
   color: #111827;
-  line-height: 1.25;
+  line-height: 1.1;
 }
 h2,
 .h2 {
   font-size: 1.875rem;
   font-weight: 700;
   color: #111827;
-  line-height: 1.3;
+  line-height: 1.15;
 }
 h3,
 .h3 {
   font-size: 1.5rem;
   font-weight: 600;
   color: #111827;
-  line-height: 1.35;
+  line-height: 1.15;
 }
 h4,
 .h4 {
   font-size: 1.25rem;
   font-weight: 600;
   color: #111827;
-  line-height: 1.4;
+  line-height: 1.2;
 }
 h5,
 .h5 {
   font-size: 1.125rem;
   font-weight: 600;
   color: #111827;
-  line-height: 1.4;
+  line-height: 1.2;
 }
 h6,
 .h6 {
   font-size: 0.875rem;
   font-weight: 600;
   color: #111827;
-  line-height: 1.4;
+  line-height: 1.2;
 }
 
 @utility display-1 {
@@ -87,12 +87,19 @@ h6,
   font-size: 0.625rem;
 }
 
+
 /* Font Weights */
 @utility fw-light {
-  font-weight: 300;
+  font-weight: 400; /* Adjusted from 300 per typography audit (no thin UI text) */
 }
 @utility fw-normal {
   font-weight: 400;
+}
+@utility fw-medium {
+  font-weight: 500;
+}
+@utility fw-semibold {
+  font-weight: 600;
 }
 @utility fw-bold {
   font-weight: 700;
@@ -218,7 +225,7 @@ h6,
   line-height: 1;
 }
 @utility lh-sm {
-  line-height: 1.25;
+  line-height: 1.1;
 }
 @utility lh-base {
   line-height: 1.5;

@@ -1,73 +1,76 @@
-i/* ============================================================
-   DataTables — Neo-Brutalist Theme Override
-   Overrides DataTables default CSS to match presensio design
-   ============================================================ */
+/* =========================================================================
+   DATATABLE THEME EXTENSION (Kemenag Clean Modern)
+   ========================================================================= */
 
 /* ── Wrapper / Container ─────────────────────────────────── */
 .dt-container {
   font-family: var(--font-body-md, "Poppins", sans-serif);
   font-size: 14px;
-  color: #000;
+  color: var(--color-on-surface);
 }
 
-/* ── Layout: top toolbar (search + length) ─────────────── */
-.dt-layout-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-/* spacing between top controls and table */
-.dt-layout-row + .dt-layout-row {
-  margin-top: 12px;
-}
-
-/* ── Layout: Table Wrapper ─────────────────────────────── */
-.dt-layout-table {
-  border: 1px solid #000;
-  border-radius: var(--radius-default, 4px);
+/* Main datatable wrapper acting as a card */
+.dt-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: 8px;
   overflow: hidden;
   box-shadow: none;
   margin-bottom: 12px;
   padding: 0 !important;
 }
-.dt-layout-table table.dataTable {
-  border: none !important;
-  margin: 0 !important;
+
+/* ── Top Toolbar (Search & Length) ───────────────────────── */
+.dt-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: var(--color-surface);
+  gap: 12px;
+  border-bottom: 1px solid var(--color-outline-variant);
 }
 
-/* When INSIDE a dt-card, the controls rows get contained padding */
-.dt-card .dt-container > .dt-layout-row:not(:last-child) {
-  padding: 10px 16px 0;
+div.dt-container div.dt-layout-row {
+  display: flex !important;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 12px;
 }
-
-/* Bottom controls (info + paging) — inside card footer area */
-.dt-card .dt-container > .dt-layout-row:last-child {
+div.dt-container div.dt-layout-row:has(.dataTable) {
   padding: 0;
 }
-
-/* ── Length selector (show N entries) ───────────────────── */
-.dt-length label {
+div.dt-container div.dt-layout-cell {
+  flex: 0 1 auto;
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #555;
+}
+div.dt-container div.dt-layout-cell.dt-layout-full {
+  width: 100%;
+  flex: 1 1 100%;
 }
 
-.dt-length select {
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
-  padding: 5px 8px;
-  font-size: 14px;
+.dt-toolbar-title {
   font-weight: 600;
-  background: #fff;
-  color: #000;
-  cursor: pointer;
-  appearance: auto;
+  font-size: 16px;
+  color: var(--color-on-surface);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── Length menu (select) ────────────────────────────────── */
+.dt-length select {
+  padding: 6px 32px 6px 12px;
+  font-size: 13px;
+  border: 1px solid var(--color-surface-container-high);
+  border-radius: 6px;
+  background-color: var(--color-surface);
+  color: var(--color-on-surface-variant);
   transition:
     border-color 0.15s,
     box-shadow 0.15s;
@@ -75,29 +78,25 @@ i/* ============================================================
 
 .dt-length select:focus {
   outline: none;
-  border-color: #000;
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(8, 120, 58, 0.15);
 }
 
 /* ── Search box ──────────────────────────────────────────── */
-.dt-search {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
 .dt-search label {
-  font-size: 0; /* Hide 'Search:' text */
+  font-weight: 500;
+  margin-right: 8px;
+  font-size: 13px;
+  color: var(--color-on-surface-variant);
 }
 
 .dt-search input {
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
-  padding: 6px 10px;
-  font-size: 14px;
-  font-weight: 400;
-  background: #fff;
-  color: #000;
+  padding: 6px 12px;
+  font-size: 13px;
+  border: 1px solid var(--color-surface-container-high);
+  border-radius: 6px;
+  background: var(--color-surface);
+  color: var(--color-on-surface);
   transition:
     border-color 0.15s,
     box-shadow 0.15s;
@@ -106,374 +105,183 @@ i/* ============================================================
 
 .dt-search input:focus {
   outline: none;
-  border-color: #000;
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(8, 120, 58, 0.15);
 }
 
 /* ── Info text ───────────────────────────────────────────── */
 .dt-info {
-  font-size: 14px;
-  font-weight: 600;
-  color: #555;
-}
-
-/* ── Table ────────────────────────────────────────────────── */
-table.dataTable {
-  width: 100% !important;
-  border-collapse: collapse !important;
-  background: #fff;
-  font-size: 14px;
-  font-family: var(--font-body-md, "Poppins", sans-serif);
-}
-
-table.dataTable thead th,
-table.dataTable thead td {
-  padding: 11px 16px;
-  font-size: 11px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #000;
-  background: #e5e7eb;
-  border-bottom: 1px solid #000;
-  border-right: none;
-  user-select: none;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-table.dataTable thead th:last-child,
-table.dataTable thead td:last-child {
-  border-right: none;
-}
-
-table.dataTable tbody tr td {
-  padding: 11px 16px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #111827;
-  border-bottom: 1px solid #000;
-  border-right: none;
-  vertical-align: middle;
-  line-height: 1.5;
-}
-
-table.dataTable tbody tr td:last-child {
-  border-right: none;
-}
-
-table.dataTable tbody tr:last-child td {
-  border-bottom: none;
-}
-
-/* Hover row */
-table.dataTable tbody tr:hover {
-  background-color: #fffdf0 !important;
-}
-
-/* Striped odd rows */
-table.dataTable.table-striped tbody tr:nth-of-type(even) {
-  background-color: #fafafa;
-}
-
-/* ── Sort arrows ─────────────────────────────────────────── */
-table.dataTable thead th.dt-orderable-asc,
-table.dataTable thead th.dt-orderable-desc {
-  cursor: pointer;
-}
-
-table.dataTable thead th .dt-column-order {
-  float: right;
-  margin-left: 6px;
-  opacity: 0.3;
-}
-
-table.dataTable thead th.dt-ordering-asc .dt-column-order::before {
-  content: "↑";
-  opacity: 1;
-}
-table.dataTable thead th.dt-ordering-desc .dt-column-order::after {
-  content: "↓";
-  opacity: 1;
+  font-size: 13px;
+  color: var(--color-on-surface-variant);
 }
 
 /* ── Pagination ──────────────────────────────────────────── */
 .dt-paging {
   display: flex;
-  align-items: center;
   gap: 4px;
 }
 
 .dt-paging .dt-paging-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 32px;
-  height: 32px;
-  padding: 0 8px;
-  font-size: 14px;
-  font-weight: 700;
-  border: 2px solid #000;
-  border-radius: 4px;
-  background: #fff;
-  color: #000;
+  padding: 6px 12px;
+  border: 1px solid var(--color-outline-variant);
+  border-radius: 6px;
+  background: var(--color-surface);
+  color: var(--color-on-surface-variant);
   cursor: pointer;
-  box-shadow: 2px 2px 0 #000;
   transition: all 0.15s;
   user-select: none;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .dt-paging .dt-paging-button:hover:not(.disabled) {
-  background: #fed01b;
-  box-shadow: 3px 3px 0 #000;
-  transform: translate(-1px, -1px);
+  background: var(--color-surface-container-low);
+  border-color: var(--color-surface-container-high);
 }
 
 .dt-paging .dt-paging-button.current {
-  background: #fed01b;
-  font-weight: 900;
-  box-shadow: 3px 3px 0 #000;
+  background: var(--color-primary);
+  color: var(--color-surface);
+  border-color: var(--color-primary);
+  font-weight: 600;
 }
 
 .dt-paging .dt-paging-button.disabled {
-  opacity: 0.4;
+  opacity: 0.5;
   cursor: not-allowed;
-  pointer-events: none;
+  background: var(--color-inverse-on-surface);
 }
 
-/* Icon-only for Previous/Next */
-.dt-paging .dt-paging-button.previous,
-.dt-paging .dt-paging-button.next {
-  font-size: 0 !important;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-.dt-paging .dt-paging-button.previous::after {
-  content: "chevron_left";
-  font-family: "Material Symbols Outlined";
-  font-size: 18px;
-  font-weight: normal;
-}
-.dt-paging .dt-paging-button.next::after {
-  content: "chevron_right";
-  font-family: "Material Symbols Outlined";
-  font-size: 18px;
-  font-weight: normal;
-}
-
-/* ── Row selection (checkbox) ────────────────────────────── */
-table.dataTable tbody tr.selected {
-  background-color: #fff8d6 !important;
-}
-
-table.dataTable tbody tr.selected td {
-  color: #000 !important;
-}
-
-/* ── Processing overlay ──────────────────────────────────── */
+/* ── Processing indicator ────────────────────────────────── */
 .dt-processing {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  background: #fff;
-  border: 2px solid #000;
-  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: 8px;
   padding: 10px 20px;
   font-size: 14px;
-  font-weight: 700;
-  box-shadow: 4px 4px 0 #000;
+  font-weight: 600;
+  color: var(--color-primary);
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 /* ── Empty table message ─────────────────────────────────── */
-table.dataTable tbody td.dataTables_empty {
+.dt-empty {
+  padding: 24px !important;
   text-align: center;
-  padding: 32px;
-  font-size: 14px;
-  font-weight: 700;
-  color: #999;
+  color: var(--color-on-surface-variant);
+  font-style: italic;
 }
 
-/* ── Scrollable table wrapper (scrollX/scrollY) ─────────── */
-.dataTables_scrollHead table thead th {
-  border-bottom: 1px solid #000 !important;
-}
-
-.dataTables_scrollBody {
-  border-bottom: 1px solid #d1d5db;
-}
-
-/* ── Buttons extension (ColVis / Export) ─────────────────── */
-.dt-buttons {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin-bottom: 8px;
+/* ── Buttons (Copy, Excel, etc) ──────────────────────────── */
+div.dt-buttons {
+  margin-bottom: 0;
 }
 
 .dt-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 6px 12px;
-  font-size: 14px;
-  font-weight: 700;
-  border: 2px solid #000 !important;
-  border-radius: 4px;
-  background: #fff !important;
-  color: #000 !important;
+  border: 1px solid var(--color-surface-container-high) !important;
+  border-radius: 6px !important;
+  padding: 6px 12px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  background: var(--color-surface) !important;
+  color: var(--color-on-surface-variant) !important;
   cursor: pointer;
-  box-shadow: 2px 2px 0 #000;
   transition: all 0.15s;
 }
 
 .dt-button:hover {
-  background: #fed01b !important;
-  box-shadow: 3px 3px 0 #000 !important;
-  transform: translate(-1px, -1px);
+  background: var(--color-inverse-on-surface) !important;
+  border-color: var(--color-outline) !important;
 }
 
 .dt-button.active {
-  background: #fed01b !important;
-  box-shadow: 3px 3px 0 #000 !important;
+  background: var(--color-on-primary-container) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-primary) !important;
 }
 
 /* ── Responsive detail rows ──────────────────────────────── */
 table.dataTable.dtr-inline.collapsed tbody tr td.dtr-control::before {
-  background-color: var(--color-primary, #fed01b);
-  border: 2px solid #000;
-  box-shadow: 1px 1px 0 #000;
+  background-color: var(--color-primary);
+  border: none;
+  box-shadow: none;
   line-height: 14px;
+  color: var(--color-surface);
+  border-radius: 50%;
 }
 
 table.dataTable.dtr-inline.collapsed tbody tr.parent td.dtr-control::before {
-  background-color: #000;
+  background-color: var(--color-error);
 }
 
-/* detail row child */
-table.dataTable tr.child {
-  background: #fffef0 !important;
+table.dataTable > tbody > tr.child ul.dtr-details {
+  width: 100%;
 }
-
-table.dataTable tr.child td.child {
-  padding: 10px 14px;
-}
-
-table.dataTable tr.child ul.dtr-details {
+table.dataTable > tbody > tr.child ul.dtr-details > li {
+  border-bottom: 1px solid var(--color-outline-variant);
+  padding: 8px 0;
   display: flex;
-  flex-direction: column;
-  gap: 6px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  align-items: center;
 }
-
-table.dataTable tr.child ul.dtr-details li {
-  display: flex;
-  gap: 8px;
-  font-size: 14px;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 4px;
-}
-
-table.dataTable tr.child ul.dtr-details li:last-child {
-  border-bottom: none;
-}
-
-table.dataTable tr.child ul.dtr-details li .dtr-title {
-  font-weight: 700;
-  min-width: 110px;
-  color: #555;
+table.dataTable > tbody > tr.child span.dtr-title {
+  min-width: 120px;
+  font-weight: 600;
+  color: var(--color-on-surface-variant);
 }
 
 /* ── FixedColumns box shadow ─────────────────────────────── */
 .dtfc-left-top-blocker,
 .dtfc-right-top-blocker {
-  background: #f5f5f5;
+  background: var(--color-inverse-on-surface);
 }
 
-/* ── Full outer card wrapper — matches .card exactly ────── */
-.dt-card {
-  background: #fff;
-  border: 1px solid #000;
-  border-radius: var(--radius-default, 6px);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+/* Table Wrapper for horizontal scroll */
+.dt-table-wrap,
+.dt-layout-table {
+  width: 100%;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--color-outline-variant);
 }
 
 /* Shadow modifier — matches .card-shadow */
 .dt-card-shadow {
-  box-shadow: 4px 4px 0px 0px #000000;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
-/* No-border table variant: strip all cell borders */
-.dt-card-noborder table.dataTable thead th,
-.dt-card-noborder table.dataTable thead td {
-  border-right: none;
-  border-bottom: 1px solid #e5e7eb;
-  background: #f9fafb;
+/* Table layout adjustments */
+table.dataTable {
+  margin: 0 !important;
+  width: 100% !important;
+  border-collapse: collapse !important;
 }
 
-.dt-card-noborder table.dataTable tbody tr td {
-  border-bottom: 1px solid #f3f4f6;
-  border-right: none;
+/* DataTables overwrites */
+table.dataTable thead th,
+table.dataTable tbody td {
+  border-bottom: 1px solid var(--color-outline-variant);
 }
-
-.dt-card-noborder table.dataTable tbody tr:last-child td {
-  border-bottom: none;
-}
-
-/* Toolbar — matches .card-header exactly */
-.dt-card .dt-toolbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  padding: 10px 16px;
-  border-bottom: 1px solid #000;
-  background: #f9fafb;
-  flex-wrap: wrap;
-  border-top-left-radius: calc(var(--radius-default, 6px) - 1px);
-  border-top-right-radius: calc(var(--radius-default, 6px) - 1px);
-}
-
-.dt-card .dt-toolbar-title {
+table.dataTable thead th {
+  background-color: var(--color-inverse-on-surface);
+  color: var(--color-on-surface-variant);
+  font-weight: 600;
   font-size: 13px;
-  font-weight: 800;
-  color: #000;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  text-transform: uppercase;
+  padding: 12px 16px;
+  border-top: 1px solid var(--color-outline-variant);
+}
+table.dataTable tbody td {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: var(--color-on-surface);
+  vertical-align: middle;
+}
+table.dataTable tbody tr:hover td {
+  background-color: var(--color-on-primary-container) !important;
 }
 
-/* Controls zone — padded area between toolbar and table */
-.dt-card .dt-container {
-  padding: 12px 16px 0;
-}
-
-.dt-card .dt-table-wrap {
-  overflow-x: auto;
-  padding: 0 0 0 0; /* table runs full-width inside the container */
-}
-
-/* Give the actual table a horizontal padding by overriding the wrapper */
-.dt-card table.dataTable {
-  margin: 0;
-}
-
-/* Footer — matches .card-footer exactly */
-.dt-card .dt-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 16px;
-  border-top: 1px solid #e5e7eb;
-  background: #f9fafb;
-  flex-wrap: wrap;
-  gap: 8px;
-  border-bottom-left-radius: calc(var(--radius-default, 6px) - 1px);
-  border-bottom-right-radius: calc(var(--radius-default, 6px) - 1px);
+table.dataTable tr.child td.child {
+  padding: 16px;
+  background: var(--color-inverse-on-surface) !important;
 }

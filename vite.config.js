@@ -41,6 +41,9 @@ export default defineConfig({
         modals: resolve(__dirname, 'src/modals.html'),
         charts: resolve(__dirname, 'src/charts.html'),
         sweetalerts: resolve(__dirname, 'src/sweetalerts.html'),
+                accordion: resolve(__dirname, 'src/accordion.html'),
+        carousel: resolve(__dirname, 'src/carousel.html'),
+        collapse: resolve(__dirname, 'src/collapse.html'),
         login: resolve(__dirname, 'src/login.html')
       }
     }

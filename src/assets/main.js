@@ -18,6 +18,37 @@ if (!$.isWindow) {
     return obj != null && obj === obj.window;
   };
 }
+if (!$.trim) {
+  $.trim = function(str) {
+    return str == null ? "" : (str + "").trim();
+  };
+}
+if (!$.isPlainObject) {
+  $.isPlainObject = function(obj) {
+    if (typeof obj !== "object" || obj === null) return false;
+    const proto = Object.getPrototypeOf(obj);
+    return proto === null || proto === Object.prototype;
+  };
+}
+if (!$.isEmptyObject) {
+  $.isEmptyObject = function(obj) {
+    for (var name in obj) return false;
+    return true;
+  };
+}
+if (!$.camelCase) {
+  $.camelCase = function(string) {
+    return string.replace(/-([a-z])/g, function(all, letter) {
+      return letter.toUpperCase();
+    });
+  };
+}
+if (!$.contains) {
+  $.contains = function(a, b) {
+    if (!a || !b) return false;
+    return a.contains ? a !== b && a.contains(b) : !!(a.compareDocumentPosition(b) & 16);
+  };
+}
 
 // Initialize Select2 by passing window and jQuery to the factory function
 select2Factory(window, $);
@@ -93,7 +124,7 @@ $(document).ready(function () {
     if (tabPane.length) {
       const tabContentContainer = tabPane.parent();
       const navContainer = btn.closest(
-        ".nav-tabs, .nav-pills, .nav-pills-brutalist, .nav-underline, .nav-underline-bold",
+        ".nav-tabs, .nav-pills, .nav-pills-brutalist, .nav-underline, .nav-underline-bold, .list-group",
       );
 
       navContainer.find("[data-tab-target]").removeClass("active");
@@ -449,3 +480,63 @@ $(document).ready(function () {
     });
   };
 });
+
+  // === Accordion & Collapse Logic ===
+  $(document).on("click", "[data-collapse-toggle]", function (e) {
+    e.preventDefault();
+    const btn = $(this);
+    const targetSelector = btn.attr("data-collapse-toggle");
+    const target = $(targetSelector);
+    
+    // Accordion handling
+    const parentSelector = btn.attr("data-parent");
+    if (parentSelector) {
+      const parent = $(parentSelector);
+      parent.find(".accordion-collapse").not(target).slideUp(300).removeClass("show");
+      parent.find(".accordion-button").not(btn).addClass("collapsed");
+    }
+
+    // Toggle current target
+    if (target.hasClass("show") || target.is(":visible")) {
+      target.slideUp(300, function() { $(this).removeClass("show"); });
+      btn.addClass("collapsed");
+    } else {
+      target.hide().removeClass("hidden").slideDown(300, function() { $(this).addClass("show"); });
+      btn.removeClass("collapsed");
+    }
+  });
+
+  // === Carousel Logic ===
+  $(document).on("click", "[data-carousel-slide]", function (e) {
+    e.preventDefault();
+    const btn = $(this);
+    const carousel = btn.closest(".carousel");
+    const items = carousel.find(".carousel-item");
+    const indicators = carousel.find(".carousel-indicators button");
+    const activeIndex = items.index(items.filter(".active"));
+    const dir = btn.attr("data-carousel-slide");
+    
+    let nextIndex = activeIndex;
+    if (dir === "next") {
+      nextIndex = (activeIndex + 1) % items.length;
+    } else if (dir === "prev") {
+      nextIndex = (activeIndex - 1 + items.length) % items.length;
+    }
+
+    items.removeClass("active").eq(nextIndex).addClass("active");
+    if (indicators.length) {
+      indicators.removeClass("active").eq(nextIndex).addClass("active");
+    }
+  });
+
+  $(document).on("click", "[data-carousel-target]", function (e) {
+    e.preventDefault();
+    const btn = $(this);
+    const carousel = btn.closest(".carousel");
+    const index = parseInt(btn.attr("data-carousel-target"), 10);
+    const items = carousel.find(".carousel-item");
+    const indicators = carousel.find(".carousel-indicators button");
+
+    items.removeClass("active").eq(index).addClass("active");
+    indicators.removeClass("active").eq(index).addClass("active");
+  });

@@ -16,7 +16,7 @@
 }
 
 @utility form-control {
-  @apply w-full text-sm bg-white px-md py-sm transition-all;
+  @apply w-full text-base sm:text-sm bg-white px-md py-sm transition-all;
   color: #111827;
   border: 1px solid #d1d5db;
   border-radius: 8px;

@@ -9,6 +9,10 @@
 @import "./card.css";
 @import "./text.css";
 @import "./button.css";
+@import "./accordion.css";
+@import "./carousel.css";
+@import "./collapse.css";
+
 @import "./table.css";
 @import "./badge.css";
 @import "./dropdown.css";

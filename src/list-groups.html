@@ -164,6 +164,39 @@
         </div>
       </div>
     </div>
+
+  <div class="row">
+    <!-- Horizontal Tabbed List Group -->
+    <div class="col-12 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header"><span class="h6 mb-0">Horizontal Tabbed List Group</span></div>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-md">A horizontal list group that acts as tab navigation to toggle content below it.</p>
+          
+          <div class="list-group list-group-horizontal mb-md" role="tablist">
+            <button class="list-group-item list-group-item-action active" data-tab-target="#lg-tab-1">General Info</button>
+            <button class="list-group-item list-group-item-action" data-tab-target="#lg-tab-2">Contact Details</button>
+            <button class="list-group-item list-group-item-action" data-tab-target="#lg-tab-3">Security Settings</button>
+          </div>
+
+          <div class="tab-content border border-gray-200 rounded-lg p-sm">
+            <div class="tab-pane active" id="lg-tab-1">
+              <h4 class="h5 mb-xs">General Info</h4>
+              <p class="fs-7 text-secondary">This is the general information panel controlled by the horizontal list group.</p>
+            </div>
+            <div class="tab-pane" id="lg-tab-2">
+              <h4 class="h5 mb-xs">Contact Details</h4>
+              <p class="fs-7 text-secondary">Manage phone numbers, emails, and physical addresses here.</p>
+            </div>
+            <div class="tab-pane" id="lg-tab-3">
+              <h4 class="h5 mb-xs">Security Settings</h4>
+              <p class="fs-7 text-secondary">Update passwords, 2FA settings, and review login activity.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   </div>
 </div>
 {% endblock %}
