@@ -7,7 +7,7 @@
 
 @utility nav-link {
   @apply inline-flex items-center justify-center px-md py-sm text-sm font-medium cursor-pointer select-none transition-all duration-150;
-  color: #6b7280;
+  color: var(--color-on-surface-variant);
   text-decoration: none;
   border: none;
   background: transparent;

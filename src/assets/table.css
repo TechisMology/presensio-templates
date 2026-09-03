@@ -18,7 +18,7 @@
 
   & th {
     @apply px-md py-sm font-semibold text-xs uppercase;
-    color: #6b7280;
+    color: var(--color-on-surface-variant);
     letter-spacing: 0.05em;
     background-color: #fafafa;
     border-bottom: 1px solid #f3f4f6;

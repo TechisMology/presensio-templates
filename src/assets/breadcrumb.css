@@ -10,10 +10,10 @@
 /* Breadcrumb Item */
 @utility breadcrumb-item {
   @apply inline-flex items-center text-xs font-medium;
-  color: #6b7280;
+  color: var(--color-on-surface-variant);
 
   & a {
-    color: #6b7280;
+    color: var(--color-on-surface-variant);
     text-decoration: none;
     transition: color 0.15s ease;
     display: inline-flex;

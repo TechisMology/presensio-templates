@@ -32,7 +32,7 @@
   color: #ffffff;
 }
 @utility badge-secondary {
-  background-color: #6b7280;
+  background-color: var(--color-on-surface-variant);
   color: #ffffff;
 }
 @utility badge-success {
@@ -57,7 +57,7 @@
 }
 @utility badge-light {
   background-color: #f3f4f6;
-  color: #6b7280;
+  color: var(--color-on-surface-variant);
 }
 @utility badge-info {
   background-color: #dbeafe;

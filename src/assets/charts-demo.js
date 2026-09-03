@@ -5,7 +5,7 @@ const themeColors = {
   primary: "#08783a",
   primaryHover: "#059447",
   primaryLight: "#dcfce7",
-  secondary: "#6b7280",
+  secondary: "#4b5563",
   warning: "#f59e0b",
   success: "#16a34a",
   danger: "#ef4444",
@@ -18,7 +18,7 @@ const themeColors = {
 // Global Chart.js Defaults for Modern Theme
 Chart.defaults.font.family = "'Poppins', sans-serif";
 Chart.defaults.font.weight = "500";
-Chart.defaults.color = "#6b7280";
+Chart.defaults.color = "#4b5563";
 
 // Modern Clean Tooltip Defaults
 Chart.defaults.plugins.tooltip.backgroundColor = "#ffffff";

@@ -50,7 +50,7 @@
   & [class*=" icon-"],
   & .material-symbols-outlined {
     font-size: 16px;
-    color: #6b7280;
+    color: var(--color-on-surface-variant);
     transition: color 0.15s;
     shrink: 0;
   }
@@ -172,7 +172,7 @@
 @utility dropdown-profile-role {
   font-size: 0.6875rem;
   font-weight: 500;
-  color: #6b7280;
+  color: var(--color-on-surface-variant);
   line-height: 1.2;
 }
 

@@ -98,3 +98,136 @@
     background-color: #f0fdf4;
   }
 }
+
+/* Input Group */
+@utility input-group {
+  @apply relative flex w-full items-stretch;
+}
+
+@utility input-group-text {
+  @apply flex items-center px-md py-sm text-sm font-medium whitespace-nowrap bg-gray-50 text-gray-500 border border-gray-300;
+  border-radius: 8px;
+}
+
+/* Overrides for items inside an input-group to make them flush */
+.input-group > :not(:first-child) {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.input-group > :not(:last-child) {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+/* Overrides to prevent double borders between input and text/button */
+.input-group > .form-control:not(:first-child) {
+  border-left: 0;
+}
+
+.input-group > .input-group-text:not(:first-child) {
+  border-left: 0;
+}
+
+/* Ensure focus states highlight the ENTIRE input group */
+.input-group {
+  border-radius: 8px;
+  transition:
+    box-shadow 0.2s,
+    border-color 0.2s;
+}
+
+.input-group:focus-within {
+  box-shadow: 0 0 0 3px rgba(8, 120, 58, 0.15);
+}
+
+.input-group:focus-within > .form-control,
+.input-group:focus-within > .input-group-text {
+  border-color: #08783a;
+}
+
+.input-group > .form-control:focus {
+  box-shadow: none; /* Remove individual input shadow so the group shadow shows */
+  z-index: 3;
+}
+
+/* === Select2 Custom Theme (Kemenag Style) === */
+
+/* Ensure native select is always hidden properly */
+.select2-hidden-accessible {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+
+.select2-container--default .select2-selection--single,
+.select2-container--default .select2-selection--multiple {
+  @apply bg-white border border-gray-300 rounded-lg min-h-[42px] px-sm flex items-center transition-all;
+}
+.select2-container--default
+  .select2-selection--single
+  .select2-selection__rendered {
+  @apply text-sm text-gray-900 leading-[40px] pl-0;
+}
+.select2-container--default
+  .select2-selection--single
+  .select2-selection__arrow {
+  @apply h-[40px] top-[1px] right-sm;
+}
+/* Multiple select choices */
+.select2-container--default
+  .select2-selection--multiple
+  .select2-selection__choice {
+  @apply rounded px-xs py-[2px] mt-[6px] text-xs font-medium border border-gray-200;
+  background-color: #f0fdf4;
+  border-color: #bbf7d0;
+  color: #166534;
+}
+.select2-container--default
+  .select2-selection--multiple
+  .select2-selection__choice__remove {
+  @apply hover:bg-transparent border-r mr-xs pr-xs transition-colors;
+  color: #166534;
+  border-color: #bbf7d0;
+}
+.select2-container--default
+  .select2-selection--multiple
+  .select2-selection__choice__remove:hover {
+  color: #14532d;
+}
+/* Focus & Active state */
+.select2-container--default.select2-container--focus
+  .select2-selection--multiple,
+.select2-container--default.select2-container--focus
+  .select2-selection--single {
+  border-color: #08783a;
+  box-shadow: 0 0 0 3px rgba(8, 120, 58, 0.15);
+  outline: none;
+}
+/* Dropdown menu */
+.select2-dropdown {
+  @apply border border-gray-200 shadow-lg rounded-lg overflow-hidden mt-xs z-50;
+}
+.select2-search--dropdown .select2-search__field {
+  @apply border border-gray-300 rounded px-sm py-xs text-sm focus:border-primary focus:ring-primary;
+}
+.select2-results__option {
+  @apply px-md py-sm text-sm text-gray-700 transition-colors;
+}
+.select2-container--default
+  .select2-results__option--highlighted.select2-results__option--selectable {
+  background-color: #f0fdf4;
+  color: #166534;
+}
+.select2-container--default .select2-results__option[aria-selected="true"] {
+  background-color: #dcfce7;
+  color: #166534;
+  font-weight: 600;
+}

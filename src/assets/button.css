@@ -116,7 +116,7 @@
   @apply p-0 flex items-center justify-center shrink-0;
   border-radius: 8px;
   background: transparent;
-  color: #6b7280;
+  color: var(--color-on-surface-variant);
   transition:
     background 0.15s,
     color 0.15s;
@@ -149,7 +149,7 @@
   border: none;
   box-shadow: none;
   border-radius: 8px;
-  color: #6b7280;
+  color: var(--color-on-surface-variant);
   width: 34px;
   height: 34px;
 
@@ -227,35 +227,35 @@
 
 /* Hover Contextual Colors (Transparan -> Berwarna saat Hover) */
 @utility btn-action-primary {
-  color: #6b7280;
+  color: var(--color-on-surface-variant);
   &:hover {
     background-color: #f0fdf4;
     color: #08783a;
   }
 }
 @utility btn-action-danger {
-  color: #6b7280;
+  color: var(--color-on-surface-variant);
   &:hover {
     background-color: #fef2f2;
     color: #dc2626;
   }
 }
 @utility btn-action-warning {
-  color: #6b7280;
+  color: var(--color-on-surface-variant);
   &:hover {
     background-color: #fffbeb;
     color: #d97706;
   }
 }
 @utility btn-action-info {
-  color: #6b7280;
+  color: var(--color-on-surface-variant);
   &:hover {
     background-color: #eff6ff;
     color: #2563eb;
   }
 }
 @utility btn-action-success {
-  color: #6b7280;
+  color: var(--color-on-surface-variant);
   &:hover {
     background-color: #f0fdf4;
     color: #16a34a;

@@ -1,5 +1,37 @@
 import $ from "jquery";
+import select2Factory from "select2";
+
 window.$ = window.jQuery = $;
+
+// === jQuery 4.0 Polyfills for Select2 ===
+// Select2 relies on older jQuery methods that were removed in jQuery 4.0
+if (!$.isArray) {
+  $.isArray = Array.isArray;
+}
+if (!$.isFunction) {
+  $.isFunction = function(obj) {
+    return typeof obj === "function" && typeof obj.nodeType !== "number";
+  };
+}
+if (!$.isWindow) {
+  $.isWindow = function(obj) {
+    return obj != null && obj === obj.window;
+  };
+}
+
+// Initialize Select2 by passing window and jQuery to the factory function
+select2Factory(window, $);
+
+$(document).ready(function () {
+  if ($.fn.select2) {
+    $(".select2-init").select2({
+      placeholder: function () {
+        return $(this).data("placeholder");
+      },
+      allowClear: true,
+    });
+  }
+});
 
 $(document).ready(function () {
   // Expose switchTab globally so inline onclick events can find it

@@ -34,7 +34,7 @@
 }
 @utility card-subtitle {
   @apply text-sm;
-  color: #6b7280;
+  color: var(--color-on-surface-variant);
 }
 
 /* Background Color Variations (Solid) */
@@ -107,7 +107,7 @@
     color: #111827;
   }
   & .card-subtitle {
-    color: #6b7280;
+    color: var(--color-on-surface-variant);
   }
   & .card-header,
   & .card-footer {
