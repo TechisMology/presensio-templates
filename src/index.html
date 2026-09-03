@@ -1,251 +1,401 @@
 {% set page = "index" %} {% extends "layouts/main.html" %} {% block content %}
 <div class="content-canvas">
-  <!-- WELCOME SECTION -->
-  <div class="welcome-section">
-    <h1 class="welcome-title">Selamat datang, Admin Madrasah 👋</h1>
-    <p class="welcome-subtitle">Kelola ujian dengan mudah dan efisien</p>
-  </div>
-
-  <!-- STAT CARDS -->
-  <div class="row">
-    <div class="col-12 col-sm-6 col-xl-3">
-      <div class="card card-horizontal card-body h-full gap-md">
-        <div class="stat-card-icon stat-card-icon-green">
-          <span
-            class="material-symbols-outlined"
-            style="color: #16a34a; font-size: 24px"
-            >menu_book</span
-          >
-        </div>
-        <div class="stat-card-body">
-          <span class="stat-card-label">Total Ujian</span>
-          <span class="stat-card-value">12</span>
-          <span class="stat-card-sub">8 aktif &bull; 4 selesai</span>
-        </div>
-      </div>
+  <div class="flex justify-between items-center mb-md">
+    <div class="welcome-section mb-0">
+      <h1 class="welcome-title">Dashboard Overview</h1>
+      <p class="welcome-subtitle">
+        Here's what's happening with your system today.
+      </p>
     </div>
-    <div class="col-12 col-sm-6 col-xl-3">
-      <div class="card card-horizontal card-body h-full gap-md">
-        <div class="stat-card-icon stat-card-icon-blue">
-          <span
-            class="material-symbols-outlined"
-            style="color: #2563eb; font-size: 24px"
-            >group</span
-          >
-        </div>
-        <div class="stat-card-body">
-          <span class="stat-card-label">Total Peserta</span>
-          <span class="stat-card-value">324</span>
-          <span class="stat-card-sub">Total terdaftar</span>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-sm-6 col-xl-3">
-      <div class="card card-horizontal card-body h-full gap-md">
-        <div class="stat-card-icon stat-card-icon-amber">
-          <span
-            class="material-symbols-outlined"
-            style="color: #d97706; font-size: 24px"
-            >assignment</span
-          >
-        </div>
-        <div class="stat-card-body">
-          <span class="stat-card-label">Sedang Berlangsung</span>
-          <span class="stat-card-value">3</span>
-          <span class="stat-card-sub">Ujian aktif hari ini</span>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-sm-6 col-xl-3">
-      <div class="card card-horizontal card-body h-full gap-md">
-        <div class="stat-card-icon stat-card-icon-purple">
-          <span
-            class="material-symbols-outlined"
-            style="color: #7c3aed; font-size: 24px"
-            >emoji_events</span
-          >
-        </div>
-        <div class="stat-card-body">
-          <span class="stat-card-label">Rata-rata Nilai</span>
-          <span class="stat-card-value">78.45</span>
-          <span class="stat-card-sub">Semua ujian</span>
-        </div>
-      </div>
+    <div class="flex gap-sm">
+      <button class="btn btn-md btn-light">
+        <span class="material-symbols-outlined fs-6">calendar_today</span>
+        Today
+      </button>
+      <button class="btn btn-md btn-primary">
+        <span class="material-symbols-outlined fs-6">download</span>
+        Export Report
+      </button>
     </div>
   </div>
 
-  <!-- UJIAN AKTIF + STATISTIK PESERTA -->
+  <!-- ROW 1: STAT CARDS -->
   <div class="row">
-    <!-- Ujian Aktif Table -->
-    <div class="col-12 col-lg-7">
-      <div class="card h-full">
-        <div class="card-header">
-          <div class="section-header" style="width: 100%">
-            <span class="section-title">Ujian Aktif</span>
-            <button class="section-action">Lihat Semua</button>
+    <!-- Card 1 -->
+    <div class="col-12 col-md-6 col-xl-3 mb-md">
+      <div class="card card-shadow card-border-left-success h-full">
+        <div class="card-body flex justify-between items-start">
+          <div>
+            <h5 class="fs-7 text-secondary font-semibold mb-xs">Total Users</h5>
+            <div class="h3 font-bold text-dark mb-0">2,847</div>
+            <div class="fs-8 mt-sm font-medium flex items-center gap-1">
+              <span class="text-success flex items-center"
+                ><span class="material-symbols-outlined fs-7"
+                  >arrow_drop_up</span
+                >
+                12.5%</span
+              >
+              <span class="text-muted">from last month</span>
+            </div>
           </div>
+          <div class="stat-card-icon stat-card-icon-green shrink-0">
+            <span class="material-symbols-outlined text-success fs-4"
+              >group</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-12 col-md-6 col-xl-3 mb-md">
+      <div class="card card-shadow card-border-left-info h-full">
+        <div class="card-body flex justify-between items-start">
+          <div>
+            <h5 class="fs-7 text-secondary font-semibold mb-xs">
+              Total Revenue
+            </h5>
+            <div class="h3 font-bold text-dark mb-0">$24,780</div>
+            <div class="fs-8 mt-sm font-medium flex items-center gap-1">
+              <span class="text-success flex items-center"
+                ><span class="material-symbols-outlined fs-7"
+                  >arrow_drop_up</span
+                >
+                8.6%</span
+              >
+              <span class="text-muted">from last month</span>
+            </div>
+          </div>
+          <div class="stat-card-icon stat-card-icon-blue shrink-0">
+            <span class="material-symbols-outlined text-info fs-4"
+              >account_balance_wallet</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-12 col-md-6 col-xl-3 mb-md">
+      <div class="card card-shadow card-border-left-warning h-full">
+        <div class="card-body flex justify-between items-start">
+          <div>
+            <h5 class="fs-7 text-secondary font-semibold mb-xs">
+              Total Orders
+            </h5>
+            <div class="h3 font-bold text-dark mb-0">1,642</div>
+            <div class="fs-8 mt-sm font-medium flex items-center gap-1">
+              <span class="text-success flex items-center"
+                ><span class="material-symbols-outlined fs-7"
+                  >arrow_drop_up</span
+                >
+                15.3%</span
+              >
+              <span class="text-muted">from last month</span>
+            </div>
+          </div>
+          <div class="stat-card-icon stat-card-icon-amber shrink-0">
+            <span class="material-symbols-outlined text-warning fs-4"
+              >shopping_cart</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="col-12 col-md-6 col-xl-3 mb-md">
+      <div class="card card-shadow card-border-left-purple h-full">
+        <div class="card-body flex justify-between items-start">
+          <div>
+            <h5 class="fs-7 text-secondary font-semibold mb-xs">
+              Active Sessions
+            </h5>
+            <div class="h3 font-bold text-dark mb-0">573</div>
+            <div class="fs-8 mt-sm font-medium flex items-center gap-1">
+              <span class="text-success flex items-center"
+                ><span class="material-symbols-outlined fs-7"
+                  >arrow_drop_up</span
+                >
+                5.2%</span
+              >
+              <span class="text-muted">from last hour</span>
+            </div>
+          </div>
+          <div class="stat-card-icon stat-card-icon-purple shrink-0">
+            <span class="material-symbols-outlined text-purple-600 fs-4"
+              >stacked_line_chart</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 2: CHARTS -->
+  <div class="row">
+    <!-- Line Chart -->
+    <div class="col-12 col-xl-8 mb-md">
+      <div class="card card-shadow h-full">
+        <div
+          class="card-header border-b-0 pb-0 flex justify-between items-center"
+        >
+          <span class="h6 mb-0">Analytics Overview</span>
+          <select class="form-control form-control-sm w-auto">
+            <option>This Year</option>
+            <option>Last Year</option>
+          </select>
+        </div>
+        <div class="card-body flex flex-col justify-end min-h-[300px]">
+          <canvas id="chart-analytics-overview"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Doughnut Chart -->
+    <div class="col-12 col-xl-4 mb-md">
+      <div class="card card-shadow h-full">
+        <div
+          class="card-header border-b-0 pb-0 flex justify-between items-center"
+        >
+          <span class="h6 mb-0">Traffic Sources</span>
+          <button class="btn btn-sm btn-light">View Report</button>
+        </div>
+        <div
+          class="card-body flex flex-col items-center justify-center min-h-[300px]"
+        >
+          <canvas id="chart-traffic-sources"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 3: LISTS & BARS -->
+  <div class="row">
+    <!-- Recent Activities -->
+    <div class="col-12 col-md-6 col-xl-4 mb-md">
+      <div class="card card-shadow h-full">
+        <div class="card-header border-b-0">
+          <span class="h6 mb-0">Recent Activities</span>
         </div>
         <div class="card-body p-0">
-          <div
-            class="table-container"
-            style="border: none; border-radius: 0; box-shadow: none"
-          >
-            <table class="table table-hover mb-0">
-              <thead>
-                <tr>
-                  <th>Nama Ujian</th>
-                  <th>Mata Pelajaran</th>
-                  <th>Waktu</th>
-                  <th>Peserta</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <div class="dash-table-label">
-                      Ujian Akhir Semester Genap
-                    </div>
-                    <div class="dash-table-sub">Kelas X IPA</div>
-                  </td>
-                  <td>Matematika</td>
-                  <td>
-                    <div class="dash-table-label">08:00 - 10:00</div>
-                    <div class="dash-table-sub">14 Agu 2026</div>
-                  </td>
-                  <td>32/35</td>
-                  <td>
-                    <span class="badge badge-md badge-success"
-                      >Berlangsung</span
-                    >
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="dash-table-label">Ujian Harian Bab 3</div>
-                    <div class="dash-table-sub">Kelas XI IPS</div>
-                  </td>
-                  <td>Sejarah Indonesia</td>
-                  <td>
-                    <div class="dash-table-label">10:30 - 11:30</div>
-                    <div class="dash-table-sub">14 Agu 2026</div>
-                  </td>
-                  <td>28/30</td>
-                  <td>
-                    <span class="badge badge-md badge-success"
-                      >Berlangsung</span
-                    >
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="dash-table-label">Tryout Asesmen Madrasah</div>
-                    <div class="dash-table-sub">Kelas XII IPA</div>
-                  </td>
-                  <td>Bahasa Arab</td>
-                  <td>
-                    <div class="dash-table-label">13:00 - 15:00</div>
-                    <div class="dash-table-sub">14 Agu 2026</div>
-                  </td>
-                  <td>45/45</td>
-                  <td>
-                    <span class="badge badge-md badge-warning"
-                      >Akan Datang</span
-                    >
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="list-group list-group-flush">
+            <div
+              class="list-group-item border-0 px-md py-sm flex justify-between items-start gap-sm"
+            >
+              <div class="avatar-wrapper shrink-0">
+                <img
+                  src="/public/avatar.jpg"
+                  alt="User"
+                  class="avatar rounded-full h-10 w-10 object-cover"
+                />
+              </div>
+              <div class="flex-1">
+                <div class="fw-semibold text-dark fs-7">John Doe</div>
+                <div class="fs-8 text-secondary">Added new user account</div>
+              </div>
+              <div class="text-end">
+                <div class="fs-8 text-muted mb-1">2 min ago</div>
+                <span
+                  class="badge badge-sm badge-success rounded-full w-2 h-2 p-0 inline-block"
+                ></span>
+              </div>
+            </div>
+
+            <div
+              class="list-group-item border-0 px-md py-sm flex justify-between items-start gap-sm"
+            >
+              <div class="avatar-wrapper shrink-0">
+                <img
+                  src="/public/avatar.jpg"
+                  alt="User"
+                  class="avatar rounded-full h-10 w-10 object-cover"
+                />
+              </div>
+              <div class="flex-1">
+                <div class="fw-semibold text-dark fs-7">Sarah Wilson</div>
+                <div class="fs-8 text-secondary">Updated system settings</div>
+              </div>
+              <div class="text-end">
+                <div class="fs-8 text-muted mb-1">15 min ago</div>
+                <span
+                  class="badge badge-sm badge-success rounded-full w-2 h-2 p-0 inline-block"
+                ></span>
+              </div>
+            </div>
+
+            <div
+              class="list-group-item border-0 px-md py-sm flex justify-between items-start gap-sm"
+            >
+              <div class="avatar-wrapper shrink-0">
+                <img
+                  src="/public/avatar.jpg"
+                  alt="User"
+                  class="avatar rounded-full h-10 w-10 object-cover"
+                />
+              </div>
+              <div class="flex-1">
+                <div class="fw-semibold text-dark fs-7">Michael Brown</div>
+                <div class="fs-8 text-secondary">Created new report</div>
+              </div>
+              <div class="text-end">
+                <div class="fs-8 text-muted mb-1">1 hour ago</div>
+                <span
+                  class="badge badge-sm badge-success rounded-full w-2 h-2 p-0 inline-block"
+                ></span>
+              </div>
+            </div>
+
+            <div
+              class="list-group-item border-0 px-md py-sm flex justify-between items-start gap-sm"
+            >
+              <div class="avatar-wrapper shrink-0">
+                <img
+                  src="/public/avatar.jpg"
+                  alt="User"
+                  class="avatar rounded-full h-10 w-10 object-cover"
+                />
+              </div>
+              <div class="flex-1">
+                <div class="fw-semibold text-dark fs-7">Emily Johnson</div>
+                <div class="fs-8 text-secondary">Exported user data</div>
+              </div>
+              <div class="text-end">
+                <div class="fs-8 text-muted mb-1">2 hour ago</div>
+                <span
+                  class="badge badge-sm badge-success rounded-full w-2 h-2 p-0 inline-block"
+                ></span>
+              </div>
+            </div>
           </div>
+        </div>
+        <div class="card-footer bg-white border-t-0 pt-0">
+          <button
+            class="btn btn-light w-full text-success bg-green-50 hover:bg-green-100 border-0"
+          >
+            View All Activities &rarr;
+          </button>
         </div>
       </div>
     </div>
 
-    <!-- Statistik Peserta Donut -->
-    <div class="col-12 col-lg-5">
-      <div class="card h-full">
-        <div class="card-header">
-          <div class="section-header" style="width: 100%">
-            <span class="section-title">Statistik Peserta Ujian</span>
-            <select class="filter-select">
-              <option>Semua Ujian</option>
-              <option>Hari Ini</option>
-              <option>Minggu Ini</option>
-            </select>
-          </div>
+    <!-- User Growth (Bar Chart) -->
+    <div class="col-12 col-md-6 col-xl-4 mb-md">
+      <div class="card card-shadow h-full">
+        <div class="card-header border-b-0 flex justify-between items-center">
+          <span class="h6 mb-0">User Growth</span>
+          <select class="form-control form-control-sm w-auto">
+            <option>This Month</option>
+          </select>
         </div>
-        <div class="card-body flex flex-col justify-center gap-md">
-          <!-- Donut Chart -->
-          <div class="flex items-center gap-md">
+        <div class="card-body flex flex-col justify-end min-h-[300px]">
+          <canvas id="chart-user-growth"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Users (Progress Bars) -->
+    <div class="col-12 col-md-12 col-xl-4 mb-md">
+      <div class="card card-shadow h-full">
+        <div class="card-header border-b-0 flex justify-between items-center">
+          <span class="h6 mb-0">Top Users</span>
+          <a href="#" class="fs-7 text-success text-decoration-none fw-semibold"
+            >View All</a
+          >
+        </div>
+        <div class="card-body flex flex-col justify-center space-y-md">
+          <div class="flex items-center gap-sm">
             <div
-              style="
-                position: relative;
-                width: 140px;
-                height: 140px;
-                flex-shrink: 0;
-              "
+              class="badge badge-light text-muted w-6 h-6 flex items-center justify-center rounded-sm"
             >
-              <canvas id="pesertaDonut"></canvas>
-              <div
-                style="
-                  position: absolute;
-                  inset: 0;
-                  display: flex;
-                  flex-direction: column;
-                  align-items: center;
-                  justify-content: center;
-                  pointer-events: none;
-                "
-              >
-                <span class="stat-card-value" style="font-size: 1.5rem"
-                  >324</span
-                >
-                <span class="stat-card-sub" style="text-align: center"
-                  >Total<br />Peserta</span
-                >
+              1
+            </div>
+            <div class="avatar-wrapper shrink-0">
+              <img
+                src="/public/avatar.jpg"
+                class="avatar rounded-full h-8 w-8 object-cover"
+              />
+            </div>
+            <div class="flex-1">
+              <div class="fw-semibold text-dark fs-7">John Doe</div>
+              <div class="fs-8 text-secondary">Super Admin</div>
+            </div>
+            <div class="w-1/3 flex flex-col items-end gap-1">
+              <span class="fs-8 fw-semibold text-dark">98%</span>
+              <div class="progress progress-sm w-full">
+                <div class="progress-bar progress-bar-success w-[98%]"></div>
               </div>
             </div>
-            <!-- Legend -->
-            <div class="flex flex-col gap-xs flex-1">
-              <div class="chart-legend-row">
-                <div class="flex items-center gap-xs">
-                  <span
-                    class="chart-legend-dot"
-                    style="background: #16a34a"
-                  ></span>
-                  <span class="chart-legend-label">Selesai</span>
-                </div>
-                <span class="chart-legend-value">156 (48%)</span>
+          </div>
+
+          <div class="flex items-center gap-sm">
+            <div
+              class="badge badge-light text-muted w-6 h-6 flex items-center justify-center rounded-sm"
+            >
+              2
+            </div>
+            <div class="avatar-wrapper shrink-0">
+              <img
+                src="/public/avatar.jpg"
+                class="avatar rounded-full h-8 w-8 object-cover"
+              />
+            </div>
+            <div class="flex-1">
+              <div class="fw-semibold text-dark fs-7">Sarah Wilson</div>
+              <div class="fs-8 text-secondary">Manager</div>
+            </div>
+            <div class="w-1/3 flex flex-col items-end gap-1">
+              <span class="fs-8 fw-semibold text-dark">85%</span>
+              <div class="progress progress-sm w-full">
+                <div class="progress-bar progress-bar-success w-[85%]"></div>
               </div>
-              <div class="chart-legend-row">
-                <div class="flex items-center gap-xs">
-                  <span
-                    class="chart-legend-dot"
-                    style="background: #2563eb"
-                  ></span>
-                  <span class="chart-legend-label">Sedang Ujian</span>
-                </div>
-                <span class="chart-legend-value">84 (26%)</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-sm">
+            <div
+              class="badge badge-light text-muted w-6 h-6 flex items-center justify-center rounded-sm"
+            >
+              3
+            </div>
+            <div class="avatar-wrapper shrink-0">
+              <img
+                src="/public/avatar.jpg"
+                class="avatar rounded-full h-8 w-8 object-cover"
+              />
+            </div>
+            <div class="flex-1">
+              <div class="fw-semibold text-dark fs-7">Michael Brown</div>
+              <div class="fs-8 text-secondary">Editor</div>
+            </div>
+            <div class="w-1/3 flex flex-col items-end gap-1">
+              <span class="fs-8 fw-semibold text-dark">72%</span>
+              <div class="progress progress-sm w-full">
+                <div class="progress-bar progress-bar-success w-[72%]"></div>
               </div>
-              <div class="chart-legend-row">
-                <div class="flex items-center gap-xs">
-                  <span
-                    class="chart-legend-dot"
-                    style="background: #f59e0b"
-                  ></span>
-                  <span class="chart-legend-label">Belum Mulai</span>
-                </div>
-                <span class="chart-legend-value">78 (24%)</span>
-              </div>
-              <div class="chart-legend-row">
-                <div class="flex items-center gap-xs">
-                  <span
-                    class="chart-legend-dot"
-                    style="background: #ef4444"
-                  ></span>
-                  <span class="chart-legend-label">Tidak Hadir</span>
-                </div>
-                <span class="chart-legend-value">6 (2%)</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-sm">
+            <div
+              class="badge badge-light text-muted w-6 h-6 flex items-center justify-center rounded-sm"
+            >
+              4
+            </div>
+            <div class="avatar-wrapper shrink-0">
+              <img
+                src="/public/avatar.jpg"
+                class="avatar rounded-full h-8 w-8 object-cover"
+              />
+            </div>
+            <div class="flex-1">
+              <div class="fw-semibold text-dark fs-7">Emily Johnson</div>
+              <div class="fs-8 text-secondary">Viewer</div>
+            </div>
+            <div class="w-1/3 flex flex-col items-end gap-1">
+              <span class="fs-8 fw-semibold text-dark">60%</span>
+              <div class="progress progress-sm w-full">
+                <div class="progress-bar progress-bar-success w-[60%]"></div>
               </div>
             </div>
           </div>
@@ -254,249 +404,236 @@
     </div>
   </div>
 
-  <!-- GRAFIK NILAI + UJIAN TERBARU -->
+  <!-- ROW 4: BOTTOM WIDGETS -->
   <div class="row">
-    <!-- Grafik Nilai Line Chart -->
-    <div class="col-12 col-lg-7">
-      <div class="card h-full">
-        <div class="card-header">
-          <div class="section-header" style="width: 100%">
-            <span class="section-title">Grafik Nilai</span>
-            <select class="filter-select">
-              <option>30 Hari Terakhir</option>
-              <option>7 Hari Terakhir</option>
-              <option>3 Bulan</option>
-            </select>
+    <!-- Secure Banner -->
+    <div class="col-12 col-md-6 col-xl-3 mb-md">
+      <div
+        class="card card-shadow card-primary h-full relative overflow-hidden"
+      >
+        <div class="card-body flex flex-col justify-center z-10">
+          <h4 class="h5 text-white mb-xs">System Secure</h4>
+          <p class="fs-7 text-white opacity-90 mb-md">
+            All systems are running smoothly and securely.
+          </p>
+          <div>
+            <button
+              class="btn btn-sm border border-white text-white hover:bg-white hover:text-primary rounded-full px-4"
+            >
+              View Status &rarr;
+            </button>
           </div>
         </div>
-        <div class="card-body">
-          <canvas id="nilaiChart" style="max-height: 280px"></canvas>
+        <!-- Decorative bg icon -->
+        <div class="absolute -right-4 -bottom-4 opacity-20 pointer-events-none">
+          <span
+            class="material-symbols-outlined text-white"
+            style="font-size: 140px; line-height: 1"
+            >security</span
+          >
         </div>
       </div>
     </div>
 
-    <!-- Ujian Terbaru -->
-    <div class="col-12 col-lg-5">
-      <div class="card h-full">
-        <div class="card-header">
-          <div class="section-header" style="width: 100%">
-            <span class="section-title">Ujian Terbaru</span>
-            <button class="section-action">Lihat Semua</button>
+    <!-- Quick Actions -->
+    <div class="col-12 col-md-6 col-xl-3 mb-md">
+      <div class="card card-shadow h-full">
+        <div class="card-header border-b-0 pb-0">
+          <span class="h6 mb-0">Quick Actions</span>
+        </div>
+        <div class="card-body flex items-center justify-center">
+          <div class="grid grid-cols-4 gap-sm text-center w-full">
+            <a
+              href="#"
+              class="flex flex-col items-center gap-xs text-decoration-none group"
+            >
+              <div
+                class="w-12 h-12 rounded-lg bg-blue-50 text-info flex items-center justify-center group-hover:bg-blue-100 transition-colors"
+              >
+                <span class="material-symbols-outlined">person_add</span>
+              </div>
+              <span class="fs-8 fw-semibold text-dark">Add User</span>
+            </a>
+
+            <a
+              href="#"
+              class="flex flex-col items-center gap-xs text-decoration-none group"
+            >
+              <div
+                class="w-12 h-12 rounded-lg bg-amber-50 text-warning flex items-center justify-center group-hover:bg-amber-100 transition-colors"
+              >
+                <span class="material-symbols-outlined">description</span>
+              </div>
+              <span class="fs-8 fw-semibold text-dark">Report</span>
+            </a>
+
+            <a
+              href="#"
+              class="flex flex-col items-center gap-xs text-decoration-none group"
+            >
+              <div
+                class="w-12 h-12 rounded-lg bg-orange-50 text-orange-500 flex items-center justify-center group-hover:bg-orange-100 transition-colors"
+              >
+                <span class="material-symbols-outlined">settings</span>
+              </div>
+              <span class="fs-8 fw-semibold text-dark">Settings</span>
+            </a>
+
+            <a
+              href="#"
+              class="flex flex-col items-center gap-xs text-decoration-none group"
+            >
+              <div
+                class="w-12 h-12 rounded-lg bg-green-50 text-success flex items-center justify-center group-hover:bg-green-100 transition-colors"
+              >
+                <span class="material-symbols-outlined">download</span>
+              </div>
+              <span class="fs-8 fw-semibold text-dark">Export</span>
+            </a>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Calendar Widget Placeholder -->
+    <div class="col-12 col-md-6 col-xl-3 mb-md">
+      <div class="card card-shadow h-full">
+        <div
+          class="card-header border-b-0 pb-0 flex justify-between items-center"
+        >
+          <span class="h6 mb-0">Calendar</span>
+        </div>
         <div class="card-body">
-          <div class="recent-item">
-            <div class="recent-item-icon">
-              <span
-                class="material-symbols-outlined"
-                style="font-size: 18px; color: #6b7280"
-                >quiz</span
-              >
-            </div>
-            <div class="flex-1 min-w-0">
-              <div class="recent-item-title truncate">
-                Ujian Akhir Semester Genap
-              </div>
-              <div class="recent-item-sub">Kelas X IPA</div>
-            </div>
-            <div class="flex flex-col items-end gap-xs">
-              <span class="badge badge-sm badge-success">Selesai</span>
-              <span class="recent-item-date">12 Agu 2026</span>
-            </div>
-          </div>
-          <div class="recent-item">
-            <div class="recent-item-icon">
-              <span
-                class="material-symbols-outlined"
-                style="font-size: 18px; color: #6b7280"
-                >quiz</span
-              >
-            </div>
-            <div class="flex-1 min-w-0">
-              <div class="recent-item-title truncate">
-                Tryout Asesmen Madrasah
-              </div>
-              <div class="recent-item-sub">Kelas XII IPA</div>
-            </div>
-            <div class="flex flex-col items-end gap-xs">
-              <span class="badge badge-sm badge-success">Selesai</span>
-              <span class="recent-item-date">10 Agu 2026</span>
-            </div>
-          </div>
-          <div class="recent-item">
-            <div class="recent-item-icon">
-              <span
-                class="material-symbols-outlined"
-                style="font-size: 18px; color: #6b7280"
-                >quiz</span
-              >
-            </div>
-            <div class="flex-1 min-w-0">
-              <div class="recent-item-title truncate">Ulangan Harian Bab 2</div>
-              <div class="recent-item-sub">Kelas XI IPS</div>
-            </div>
-            <div class="flex flex-col items-end gap-xs">
-              <span class="badge badge-sm badge-success">Selesai</span>
-              <span class="recent-item-date">8 Agu 2026</span>
-            </div>
-          </div>
-          <!-- See all link -->
-          <div
-            class="flex items-center justify-center gap-xs mt-md"
-            style="padding-top: 8px; border-top: 1px solid #f9fafb"
-          >
-            <button class="section-action flex items-center gap-xs">
-              Lihat semua riwayat ujian
-              <span class="material-symbols-outlined" style="font-size: 16px"
-                >arrow_forward</span
-              >
+          <div class="flex justify-between items-center mb-sm">
+            <button class="btn btn-sm btn-light p-1">
+              <span class="material-symbols-outlined fs-7">chevron_left</span>
             </button>
+            <span class="fs-7 fw-bold text-dark">May 2026</span>
+            <button class="btn btn-sm btn-light p-1">
+              <span class="material-symbols-outlined fs-7">chevron_right</span>
+            </button>
+          </div>
+          <!-- Basic static calendar grid -->
+          <div
+            class="grid grid-cols-7 gap-1 text-center fs-8 text-secondary mb-2"
+          >
+            <div>M</div>
+            <div>T</div>
+            <div>W</div>
+            <div>T</div>
+            <div>F</div>
+            <div>S</div>
+            <div>S</div>
+          </div>
+          <div
+            class="grid grid-cols-7 gap-1 text-center fs-7 text-dark fw-medium"
+          >
+            <div class="text-muted">27</div>
+            <div class="text-muted">28</div>
+            <div class="text-muted">29</div>
+            <div class="text-muted">30</div>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div>10</div>
+            <div>11</div>
+            <div>12</div>
+            <div>13</div>
+            <div class="bg-success text-white rounded-md">14</div>
+            <div>15</div>
+            <div>16</div>
+            <div>17</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notifications -->
+    <div class="col-12 col-md-6 col-xl-3 mb-md">
+      <div class="card card-shadow h-full">
+        <div
+          class="card-header border-b-0 pb-0 flex justify-between items-center"
+        >
+          <span class="h6 mb-0">Notifications</span>
+          <a href="#" class="fs-7 text-success text-decoration-none fw-semibold"
+            >View All</a
+          >
+        </div>
+        <div class="card-body p-0">
+          <div class="list-group list-group-flush">
+            <div class="list-group-item border-0 px-md py-xs flex gap-sm">
+              <div
+                class="w-8 h-8 rounded-lg bg-green-50 text-success flex items-center justify-center shrink-0"
+              >
+                <span class="material-symbols-outlined fs-7">sync</span>
+              </div>
+              <div class="flex-1">
+                <div class="flex justify-between">
+                  <div class="fw-semibold text-dark fs-7">System Update</div>
+                  <div class="fs-8 text-muted flex items-center">
+                    10m
+                    <span
+                      class="badge badge-sm badge-success rounded-full w-2 h-2 p-0 inline-block ml-1"
+                    ></span>
+                  </div>
+                </div>
+                <div class="fs-8 text-secondary">
+                  The system will be updated
+                </div>
+              </div>
+            </div>
+
+            <div class="list-group-item border-0 px-md py-xs flex gap-sm">
+              <div
+                class="w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center shrink-0"
+              >
+                <span class="material-symbols-outlined fs-7">person_add</span>
+              </div>
+              <div class="flex-1">
+                <div class="flex justify-between">
+                  <div class="fw-semibold text-dark fs-7">New User</div>
+                  <div class="fs-8 text-muted flex items-center">
+                    25m
+                    <span
+                      class="badge badge-sm badge-success rounded-full w-2 h-2 p-0 inline-block ml-1"
+                    ></span>
+                  </div>
+                </div>
+                <div class="fs-8 text-secondary">A new user has registered</div>
+              </div>
+            </div>
+
+            <div class="list-group-item border-0 px-md py-xs flex gap-sm">
+              <div
+                class="w-8 h-8 rounded-lg bg-amber-50 text-warning flex items-center justify-center shrink-0"
+              >
+                <span class="material-symbols-outlined fs-7">description</span>
+              </div>
+              <div class="flex-1">
+                <div class="flex justify-between">
+                  <div class="fw-semibold text-dark fs-7">Report Ready</div>
+                  <div class="fs-8 text-muted flex items-center">
+                    1h
+                    <span
+                      class="badge badge-sm badge-success rounded-full w-2 h-2 p-0 inline-block ml-1"
+                    ></span>
+                  </div>
+                </div>
+                <div class="fs-8 text-secondary">Monthly report is ready</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<!-- Charts -->
-<script type="module">
-  import Chart from "chart.js/auto";
-
-  document.addEventListener("DOMContentLoaded", () => {
-    // Donut — Statistik Peserta
-    const ctxPeserta = document.getElementById("pesertaDonut");
-    if (ctxPeserta) {
-      new Chart(ctxPeserta, {
-        type: "doughnut",
-        data: {
-          labels: ["Selesai", "Sedang Ujian", "Belum Mulai", "Tidak Hadir"],
-          datasets: [
-            {
-              data: [156, 84, 78, 6],
-              backgroundColor: ["#16a34a", "#2563EB", "#f59e0b", "#ef4444"],
-              borderColor: "#ffffff",
-              borderWidth: 3,
-              hoverOffset: 5,
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: true,
-          plugins: {
-            legend: { display: false },
-            tooltip: {
-              backgroundColor: "#ffffff",
-              titleColor: "#111827",
-              bodyColor: "#374151",
-              borderColor: "#E5E7EB",
-              borderWidth: 1,
-              padding: 10,
-              cornerRadius: 8,
-            },
-          },
-          cutout: "68%",
-        },
-      });
-    }
-
-    // Line Chart — Grafik Nilai
-    const ctxNilai = document.getElementById("nilaiChart");
-    if (ctxNilai) {
-      const labels = [
-        "16 Jul",
-        "21 Jul",
-        "26 Jul",
-        "31 Jul",
-        "5 Agu",
-        "10 Agu",
-        "14 Agu",
-      ];
-      const data = [42, 58, 70, 65, 72, 68, 78, 74, 80, 76, 82, 79, 85, 82];
-      const fullLabels = [
-        "16 Jul",
-        "18 Jul",
-        "20 Jul",
-        "22 Jul",
-        "24 Jul",
-        "26 Jul",
-        "28 Jul",
-        "30 Jul",
-        "1 Agu",
-        "3 Agu",
-        "5 Agu",
-        "7 Agu",
-        "10 Agu",
-        "14 Agu",
-      ];
-      new Chart(ctxNilai, {
-        type: "line",
-        data: {
-          labels: fullLabels,
-          datasets: [
-            {
-              label: "Rata-rata Nilai",
-              data: data,
-              borderColor: "#16a34a",
-              backgroundColor: "rgba(22, 163, 74, 0.07)",
-              borderWidth: 2,
-              tension: 0.4,
-              fill: true,
-              pointBackgroundColor: "#ffffff",
-              pointBorderColor: "#16a34a",
-              pointBorderWidth: 2,
-              pointRadius: 4,
-              pointHoverRadius: 6,
-              pointHoverBackgroundColor: "#16a34a",
-              pointHoverBorderColor: "#ffffff",
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          interaction: { mode: "index", intersect: false },
-          plugins: {
-            legend: { display: false },
-            tooltip: {
-              backgroundColor: "#ffffff",
-              titleColor: "#111827",
-              bodyColor: "#374151",
-              borderColor: "#E5E7EB",
-              borderWidth: 1,
-              padding: 10,
-              cornerRadius: 8,
-              callbacks: {
-                title: (items) => items[0].label,
-                label: (ctx) => ` Rata-rata: ${ctx.parsed.y}`,
-              },
-            },
-          },
-          scales: {
-            y: {
-              beginAtZero: true,
-              max: 100,
-              grid: { color: "#F3F4F6", drawBorder: false },
-              border: { display: false },
-              ticks: {
-                font: { family: "'Poppins', sans-serif", size: 11 },
-                color: "#9CA3AF",
-                stepSize: 25,
-              },
-            },
-            x: {
-              grid: { display: false },
-              border: { display: false },
-              ticks: {
-                font: { family: "'Poppins', sans-serif", size: 11 },
-                color: "#9CA3AF",
-                maxTicksLimit: 7,
-              },
-            },
-          },
-        },
-      });
-    }
-  });
-</script>
+{% endblock %} {% block scripts %}
+<script type="module" src="/assets/dashboard.js"></script>
 {% endblock %}

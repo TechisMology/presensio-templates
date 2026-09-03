@@ -3,7 +3,7 @@
   <head>
     {% include "partials/head.html" %}
   </head>
-  <body class="main-wrapper">
+  <body class="main-wrapper antialiased">
     <div class="flex h-screen overflow-hidden">
       {% include "partials/sidebar.html" %}
       <!-- Sidebar Backdrop -->
@@ -34,5 +34,6 @@
 
     <!-- JS Entry Point -->
     <script type="module" src="/assets/main.js"></script>
+    {% block scripts %}{% endblock %}
   </body>
 </html>
