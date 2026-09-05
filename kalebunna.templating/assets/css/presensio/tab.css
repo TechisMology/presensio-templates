@@ -1,0 +1,163 @@
+/* Tab Component Styles */
+
+@utility nav-tabs {
+  @apply flex flex-wrap pl-0 mb-0 list-none gap-xs;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+@utility nav-link {
+  @apply inline-flex items-center justify-center px-md py-sm text-sm font-medium cursor-pointer select-none transition-all duration-150;
+  color: var(--color-on-surface-variant);
+  text-decoration: none;
+  border: none;
+  background: transparent;
+
+  &:hover {
+    color: #111827;
+  }
+}
+
+/* 1. Underline Tabs (Default — clean modern) */
+@utility nav-tabs-default {
+  & .nav-link {
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    padding-bottom: calc(var(--spacing-sm) + 1px);
+
+    &.active {
+      color: #08783a;
+      border-bottom-color: #08783a;
+      font-weight: 600;
+    }
+
+    &:hover:not(.active) {
+      color: #374151;
+      border-bottom-color: #d1d5db;
+    }
+  }
+}
+
+/* 2. Pill Tabs */
+@utility nav-pills {
+  @apply flex flex-wrap pl-0 mb-0 list-none gap-xs;
+  border-bottom: none;
+
+  & .nav-link {
+    border-radius: 8px;
+    padding: 6px 16px;
+    font-weight: 500;
+
+    &.active {
+      background-color: #08783a;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    &:hover:not(.active) {
+      background-color: #f3f4f6;
+      color: #111827;
+    }
+  }
+}
+
+/* 3. Soft Pill Tabs */
+@utility nav-pills-soft {
+  @apply flex flex-wrap pl-0 mb-0 list-none gap-xs;
+  border-bottom: none;
+  background-color: #f3f4f6;
+  border-radius: 10px;
+  padding: 4px;
+
+  & .nav-link {
+    border-radius: 7px;
+    padding: 6px 16px;
+    font-weight: 500;
+
+    &.active {
+      background-color: #ffffff;
+      color: #111827;
+      font-weight: 600;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    &:hover:not(.active) {
+      color: #374151;
+    }
+  }
+}
+
+/* 4. Underline Modern Tabs */
+@utility nav-underline {
+  @apply flex flex-wrap pl-0 mb-0 list-none gap-md;
+  border-bottom: 1px solid #e5e7eb;
+
+  & .nav-link {
+    @apply px-0 py-sm;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+
+    &.active {
+      color: #08783a;
+      border-bottom-color: #08783a;
+      font-weight: 600;
+    }
+
+    &:hover:not(.active) {
+      color: #374151;
+      border-bottom-color: #d1d5db;
+    }
+  }
+}
+
+/* 5. Bold Underline Tabs */
+@utility nav-underline-bold {
+  @apply flex flex-wrap pl-0 mb-0 list-none gap-lg;
+  border-bottom: 2px solid #e5e7eb;
+
+  & .nav-link {
+    @apply px-0 py-sm;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    font-weight: 600;
+
+    &.active {
+      color: #08783a;
+      border-bottom-color: #08783a;
+      font-weight: 700;
+    }
+
+    &:hover:not(.active) {
+      color: #374151;
+    }
+  }
+}
+
+/* Legacy — alias untuk compat */
+@utility nav-tabs-brutalist {
+  & .nav-link {
+    border-radius: 8px 8px 0 0;
+    margin-bottom: -1px;
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-bottom: none;
+
+    &.active {
+      background-color: #ffffff;
+      color: #08783a;
+      font-weight: 600;
+    }
+  }
+}
+
+/* Tab Pane Contents */
+@utility tab-content {
+  @apply mt-md;
+}
+
+@utility tab-pane {
+  @apply hidden;
+
+  &.active {
+    @apply block;
+  }
+}

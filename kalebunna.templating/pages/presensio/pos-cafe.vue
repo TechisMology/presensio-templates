@@ -1,0 +1,244 @@
+<template>
+<div class="content-canvas h-full flex flex-col">
+  <div class="flex justify-between items-center mb-md">
+    <div class="flex items-center gap-sm">
+      <span class="material-symbols-outlined fs-2">coffee_maker</span>
+      <h2 class="h3 mb-0">POS - Cafe Mode</h2>
+    </div>
+    <!-- Pending Orders Button -->
+    <button class="btn btn-warning btn-shadow flex items-center gap-xs border-black text-black fw-bold" onclick="openModal('modalPending')">
+      <span class="material-symbols-outlined">pending_actions</span>
+      Pending Orders <span class="badge badge-sm badge-danger rounded-full px-2 ml-1">2</span>
+    </button>
+  </div>
+
+  <div class="row flex-1">
+    <!-- LEFT: Product Grid -->
+    <div class="col-12 col-lg-8 mb-md">
+      <!-- Category Tabs (Card with no shadow) -->
+      <div class="card border border-black mb-md bg-white">
+        <div class="card-body p-sm flex gap-sm overflow-x-auto">
+          <button class="btn btn-primary btn-shadow border-black">All</button>
+          <button class="btn btn-outline-dark">Coffee</button>
+          <button class="btn btn-outline-dark">Tea</button>
+          <button class="btn btn-outline-dark">Pastry</button>
+          <button class="btn btn-outline-dark">Meals</button>
+        </div>
+      </div>
+      
+      <!-- Products (Cards without shadow for cleaner look inside grid) -->
+      <div class="row g-sm">
+        <div class="col-6 col-md-4 col-xl-3">
+          <div class="card border border-black h-full hover:bg-gray-50 cursor-pointer transition-colors">
+            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=300&h=200&fit=crop" class="w-full h-32 object-cover border-b border-black" alt="Espresso">
+            <div class="card-body p-sm flex flex-col justify-between">
+              <h6 class="fs-7 fw-bold mb-1">Espresso Shot</h6>
+              <span class="text-success fw-bolder">Rp 15.000</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-xl-3">
+          <div class="card border border-black h-full hover:bg-gray-50 cursor-pointer transition-colors">
+            <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=300&h=200&fit=crop" class="w-full h-32 object-cover border-b border-black" alt="Cappuccino">
+            <div class="card-body p-sm flex flex-col justify-between">
+              <h6 class="fs-7 fw-bold mb-1">Cappuccino</h6>
+              <span class="text-success fw-bolder">Rp 25.000</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-xl-3">
+          <div class="card border border-black h-full hover:bg-gray-50 cursor-pointer transition-colors">
+            <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=300&h=200&fit=crop" class="w-full h-32 object-cover border-b border-black" alt="Latte">
+            <div class="card-body p-sm flex flex-col justify-between">
+              <h6 class="fs-7 fw-bold mb-1">Caffe Latte</h6>
+              <span class="text-success fw-bolder">Rp 28.000</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-xl-3">
+          <div class="card border border-black h-full hover:bg-gray-50 cursor-pointer transition-colors">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=300&h=200&fit=crop" class="w-full h-32 object-cover border-b border-black" alt="Americano">
+            <div class="card-body p-sm flex flex-col justify-between">
+              <h6 class="fs-7 fw-bold mb-1">Americano</h6>
+              <span class="text-success fw-bolder">Rp 20.000</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-xl-3">
+          <div class="card border border-black h-full hover:bg-gray-50 cursor-pointer transition-colors">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=200&fit=crop" class="w-full h-32 object-cover border-b border-black" alt="Croissant">
+            <div class="card-body p-sm flex flex-col justify-between">
+              <h6 class="fs-7 fw-bold mb-1">Butter Croissant</h6>
+              <span class="text-success fw-bolder">Rp 18.000</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-xl-3">
+          <div class="card border border-black h-full hover:bg-gray-50 cursor-pointer transition-colors">
+            <img src="https://images.unsplash.com/photo-1550411294-8f0a061c572a?w=300&h=200&fit=crop" class="w-full h-32 object-cover border-b border-black" alt="Brownie">
+            <div class="card-body p-sm flex flex-col justify-between">
+              <h6 class="fs-7 fw-bold mb-1">Choco Brownie</h6>
+              <span class="text-success fw-bolder">Rp 22.000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Cart Panel (Card with shadow) -->
+    <div class="col-12 col-lg-4 flex flex-col h-[calc(100vh-140px)] sticky top-4">
+      <div class="card card-shadow h-full flex flex-col bg-white">
+        <!-- Header -->
+        <div class="card-header bg-[#bfdbfe]">
+          <span class="h6 mb-0 text-uppercase tracking-wider text-black fw-bolder">Current Order #1042</span>
+          <button class="btn btn-sm btn-danger border-black">Clear</button>
+        </div>
+        
+        <!-- Cart Items (Scrollable) -->
+        <div class="card-body flex-1 overflow-y-auto p-sm">
+          <div class="list-group list-group-flush border-0">
+            <!-- Item 1 -->
+            <div class="list-group-item flex justify-between items-start border-b border-dashed border-gray-300 pb-sm mb-sm p-0 bg-transparent">
+              <div class="flex-1">
+                <span class="fw-bold block fs-7 text-black">Cappuccino</span>
+                <span class="fs-8 text-secondary">Rp 25.000</span>
+              </div>
+              <div class="flex items-center gap-xs">
+                <button class="btn btn-sm btn-outline-dark px-2 py-0 border-black">-</button>
+                <span class="fw-bold fs-7 mx-1 w-4 text-center">2</span>
+                <button class="btn btn-sm btn-outline-dark px-2 py-0 border-black">+</button>
+              </div>
+              <div class="w-20 text-right">
+                <span class="fw-bolder fs-7 text-success">Rp 50.000</span>
+              </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="list-group-item flex justify-between items-start border-b border-dashed border-gray-300 pb-sm mb-sm p-0 bg-transparent">
+              <div class="flex-1">
+                <span class="fw-bold block fs-7 text-black">Butter Croissant</span>
+                <span class="fs-8 text-secondary">Rp 18.000</span>
+              </div>
+              <div class="flex items-center gap-xs">
+                <button class="btn btn-sm btn-outline-dark px-2 py-0 border-black">-</button>
+                <span class="fw-bold fs-7 mx-1 w-4 text-center">1</span>
+                <button class="btn btn-sm btn-outline-dark px-2 py-0 border-black">+</button>
+              </div>
+              <div class="w-20 text-right">
+                <span class="fw-bolder fs-7 text-success">Rp 18.000</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="card-footer bg-gray-50 border-t border-black p-md text-left flex flex-col gap-sm">
+          <!-- Discount Input -->
+          <div class="flex gap-sm mb-xs">
+            <input type="text" class="form-control border-black" placeholder="Discount Code">
+            <button class="btn btn-dark btn-shadow">Apply</button>
+          </div>
+          
+          <div class="flex justify-between items-center">
+            <span class="fs-7 text-secondary">Subtotal</span>
+            <span class="fs-7 fw-bold text-black">Rp 68.000</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="fs-7 text-secondary">Tax (10%)</span>
+            <span class="fs-7 fw-bold text-black">Rp 6.800</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="fs-7 fw-bold text-black">Discount</span>
+            <span class="fs-7 fw-bold text-danger">- Rp 0</span>
+          </div>
+          <hr class="border-black border-dashed my-xs opacity-30">
+          <div class="flex justify-between items-center mb-xs">
+            <span class="fs-6 fw-bold text-uppercase text-black">Total Belanja</span>
+            <span class="display-6 fw-bolder text-primary">Rp 74.8K</span>
+          </div>
+          
+          <!-- Actions -->
+          <div class="row mt-xs g-sm">
+            <div class="col-6">
+              <button class="btn btn-warning w-full btn-shadow text-black fw-bold border-black" onclick="alert('Order Saved to Pending!')">
+                <span class="material-symbols-outlined align-middle fs-6 mr-1">pause_circle</span>
+                Hold
+              </button>
+            </div>
+            <div class="col-6">
+              <button class="btn btn-info w-full btn-shadow text-black fw-bold border-black">
+                <span class="material-symbols-outlined align-middle fs-6 mr-1">print</span>
+                Nota
+              </button>
+            </div>
+            <div class="col-12 mt-sm">
+              <button class="btn btn-success w-full btn-shadow fs-5 py-sm fw-bolder text-white border-black">
+                <span class="material-symbols-outlined align-middle fs-4 mr-1">payments</span>
+                PAY (Rp 74.800)
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Pending Orders -->
+<div class="modal-backdrop modal-centered" id="modalPending">
+  <div class="modal-dialog w-full max-w-2xl">
+    <div class="modal-header bg-warning border-b border-black">
+      <div class="flex items-center gap-xs">
+        <span class="material-symbols-outlined text-black fs-4">pending_actions</span>
+        <span class="modal-title text-black">Pending Orders</span>
+      </div>
+      <button class="modal-close text-black hover:bg-black/10" data-modal-close="modalPending">
+        &times;
+      </button>
+    </div>
+    <div class="modal-body p-0">
+      <table class="table table-striped table-hover mb-0">
+        <thead class="bg-gray-100">
+          <tr>
+            <th class="border-b border-black">Order ID</th>
+            <th class="border-b border-black">Time</th>
+            <th class="border-b border-black text-center">Items</th>
+            <th class="border-b border-black text-right">Total</th>
+            <th class="border-b border-black text-center">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-black">
+            <td class="fw-bold align-middle">#1039</td>
+            <td class="align-middle">10:45 AM</td>
+            <td class="text-center align-middle">3 items</td>
+            <td class="text-right fw-bolder text-success align-middle">Rp 120.000</td>
+            <td class="text-center align-middle">
+              <button class="btn btn-sm btn-primary border-black fw-bold" data-modal-close="modalPending">Load</button>
+              <button class="btn btn-sm btn-danger border-black fw-bold ml-xs">Close</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="fw-bold align-middle">#1041</td>
+            <td class="align-middle">11:15 AM</td>
+            <td class="text-center align-middle">1 item</td>
+            <td class="text-right fw-bolder text-success align-middle">Rp 25.000</td>
+            <td class="text-center align-middle">
+              <button class="btn btn-sm btn-primary border-black fw-bold" data-modal-close="modalPending">Load</button>
+              <button class="btn btn-sm btn-danger border-black fw-bold ml-xs">Close</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="modal-footer border-t border-black bg-gray-50">
+      <button class="btn btn-dark btn-shadow border-black" data-modal-close="modalPending">Close Window</button>
+    </div>
+  </div>
+</div>
+</template>
+
+<script setup>
+definePageMeta({
+  layout: 'presensio'
+})
+</script>

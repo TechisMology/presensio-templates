@@ -1,0 +1,88 @@
+/* ============================================================
+   Breadcrumb Component Styles — Modern Clean Theme
+   ============================================================ */
+
+/* Base Breadcrumb List */
+@utility breadcrumb {
+  @apply flex flex-wrap items-center gap-2 list-none p-0 m-0 text-xs select-none;
+}
+
+/* Breadcrumb Item */
+@utility breadcrumb-item {
+  @apply inline-flex items-center text-xs font-medium;
+  color: var(--color-on-surface-variant);
+
+  & a {
+    color: var(--color-on-surface-variant);
+    text-decoration: none;
+    transition: color 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+
+    &:hover {
+      color: #08783a;
+    }
+  }
+
+  &.active,
+  &:last-child {
+    color: #111827;
+    font-weight: 600;
+    pointer-events: none;
+  }
+}
+
+/* Default Slash Separator */
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "/";
+  color: #d1d5db;
+  font-weight: 400;
+  margin-right: 8px;
+  display: inline-block;
+}
+
+/* Chevron Variant (›) */
+@utility breadcrumb-chevron {
+  & .breadcrumb-item + .breadcrumb-item::before {
+    content: "›";
+    font-size: 14px;
+    line-height: 1;
+    color: #9ca3af;
+    margin-right: 8px;
+  }
+}
+
+/* Dot Variant (•) */
+@utility breadcrumb-dot {
+  & .breadcrumb-item + .breadcrumb-item::before {
+    content: "•";
+    font-size: 10px;
+    color: #d1d5db;
+    margin-right: 8px;
+  }
+}
+
+/* Pill / Soft Badge Breadcrumb */
+@utility breadcrumb-pill {
+  @apply inline-flex items-center px-3 py-1.5 rounded-lg bg-gray-50;
+  border: 1px solid #e5e7eb;
+}
+
+/* Right-aligned utility */
+@utility breadcrumb-right {
+  @apply flex justify-end ml-auto;
+}
+
+/* Page Header Structure (Left: Title, Right: Actions/Breadcrumbs) */
+.page-header {
+  @apply flex flex-col md:flex-row justify-between items-start md:items-center mb-base gap-sm w-full;
+}
+
+.page-header-title {
+  @apply flex-1 min-w-0;
+}
+
+.page-header-actions {
+  @apply flex items-center gap-sm shrink-0 flex-wrap;
+}

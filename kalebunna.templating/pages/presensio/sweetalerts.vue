@@ -1,0 +1,192 @@
+<template>
+<div class="content-canvas">
+  <div class="mb-md"><h3 class="font-bold text-xl">{{ 'Sweet Alert Components' }}</h3></div>
+
+  <div class="row">
+    <!-- Basic Alerts -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header">
+          <span class="h6 mb-0">Basic Sweet Alerts</span>
+        </div>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-md">
+            Dialog popup modern, bersih, dan elegan dengan animasi halus sebagai
+            pengganti alert bawaan browser.
+          </p>
+          <div class="flex flex-wrap gap-sm">
+            <button class="btn btn-primary" onclick="demoSwalBasic()">
+              Basic Info
+            </button>
+            <button class="btn btn-success" onclick="demoSwalSuccess()">
+              Success
+            </button>
+            <button class="btn btn-danger" onclick="demoSwalError()">
+              Error (Shake)
+            </button>
+            <button class="btn btn-warning" onclick="demoSwalWarning()">
+              Warning
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confirmations & Promises -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header">
+          <span class="h6 mb-0">Confirmation Dialogs & Chaining</span>
+        </div>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-md">
+            Dialog konfirmasi berbasis JavaScript Promise interaktif untuk
+            konfirmasi aksi hapus, logout, dan asynchronous loading.
+          </p>
+          <div class="flex flex-wrap gap-sm">
+            <button class="btn btn-danger" onclick="demoSwalConfirm()">
+              Delete Data
+            </button>
+            <button class="btn btn-primary" onclick="demoSwalChain()">
+              Save with Loading
+            </button>
+            <button class="btn btn-outline-primary" onclick="demoSwalLogout()">
+              Logout Prompt
+            </button>
+          </div>
+          <div
+            id="confirm-result"
+            class="mt-md text-sm font-semibold text-gray-600"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</template>
+
+<script setup>import { onMounted } from 'vue'
+import { useHead } from '#imports'
+
+definePageMeta({
+  layout: 'presensio'
+})
+onMounted(() => {
+
+  function demoSwalBasic() {
+    window.showSweetAlert({
+      title: "Hello World",
+      text: "This is a standard information alert.",
+      icon: "info",
+      confirmText: "Got it!",
+    });
+  }
+
+  function demoSwalSuccess() {
+    window.showSweetAlert({
+      title: "Success!",
+      text: "Your changes have been saved successfully.",
+      icon: "success",
+      confirmColor: "success",
+      confirmText: "Great",
+    });
+  }
+
+  function demoSwalError() {
+    window.showSweetAlert({
+      title: "Action Failed",
+      text: "There was a critical error processing your request. Please try again.",
+      icon: "error",
+      confirmColor: "danger",
+      confirmText: "Close",
+      allowOutsideClick: false, // Forces user to click button
+    });
+  }
+
+  function demoSwalWarning() {
+    window.showSweetAlert({
+      title: "Storage Full",
+      text: "You have almost reached your storage limit.",
+      icon: "warning",
+      confirmColor: "warning",
+      confirmText: "Upgrade Now",
+    });
+  }
+
+  async function demoSwalConfirm() {
+    const isConfirmed = await window.showSweetAlert({
+      title: "Are you sure?",
+      text: "You are about to delete this record permanently. This cannot be undone.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmText: "Yes, delete it!",
+      cancelText: "Cancel",
+      confirmColor: "danger",
+    });
+
+    const resultDiv = document.getElementById("confirm-result");
+    if (isConfirmed) {
+      resultDiv.innerHTML =
+        '<span class="text-danger">Action: Record Deleted!</span>';
+    } else {
+      resultDiv.innerHTML =
+        '<span class="text-secondary">Action: Cancelled.</span>';
+    }
+  }
+
+  async function demoSwalLogout() {
+    const isConfirmed = await window.showSweetAlert({
+      title: "Logout",
+      text: "Are you sure you want to end your session?",
+      icon: "question",
+      showCancelButton: true,
+      confirmText: "Logout",
+      cancelText: "Stay",
+      confirmColor: "primary",
+    });
+
+    const resultDiv = document.getElementById("confirm-result");
+    if (isConfirmed) {
+      resultDiv.innerHTML =
+        '<span class="text-primary">Action: Logging out...</span>';
+    } else {
+      resultDiv.innerHTML =
+        '<span class="text-secondary">Action: Stayed in session.</span>';
+    }
+  }
+  async function demoSwalChain() {
+    const isConfirmed = await window.showSweetAlert({
+      title: "Update Profile?",
+      text: "Do you want to save these changes?",
+      icon: "question",
+      showCancelButton: true,
+      confirmText: "Save",
+      confirmColor: "primary",
+    });
+
+    if (isConfirmed) {
+      // Switch to loading state without closing backdrop
+      window.showSweetAlert({
+        title: "Saving...",
+        text: "Please wait a moment.",
+        icon: "loading",
+        allowOutsideClick: false,
+      });
+
+      // Simulate network request
+      setTimeout(() => {
+        window.showSweetAlert({
+          title: "Saved!",
+          text: "Your profile has been updated.",
+          icon: "success",
+          confirmColor: "success",
+          confirmText: "Awesome",
+        });
+      }, 1500);
+    }
+  }
+
+})
+</script>

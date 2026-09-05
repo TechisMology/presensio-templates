@@ -1,0 +1,233 @@
+/* Form and Input Component Styles */
+
+@utility form-group {
+  @apply flex flex-col mb-md;
+}
+
+@utility form-label {
+  @apply text-sm font-semibold mb-xs select-none flex items-center gap-xs;
+  color: #374151;
+
+  &.required::after {
+    content: "*";
+    @apply text-error ml-[2px];
+    font-weight: 600;
+  }
+}
+
+@utility form-control {
+  @apply w-full text-base sm:text-sm bg-white px-md py-sm transition-all;
+  color: #111827;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+
+  &:focus {
+    outline: none;
+    border-color: #08783a;
+    box-shadow: 0 0 0 3px rgba(8, 120, 58, 0.15);
+  }
+
+  &:disabled,
+  &[readonly] {
+    background-color: #f9fafb;
+    color: #9ca3af;
+    cursor: not-allowed;
+    border-color: #e5e7eb;
+  }
+
+  /* Sizing */
+  &.form-control-sm {
+    @apply py-xs px-sm text-[11px];
+    border-radius: 6px;
+  }
+  &.form-control-lg {
+    @apply py-md px-lg text-sm;
+    border-radius: 10px;
+  }
+
+  /* Validation Error state */
+  &.is-invalid {
+    border-color: var(--color-error);
+    background-color: #fff5f5;
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(186, 26, 26, 0.15);
+    }
+  }
+}
+
+@utility invalid-feedback {
+  @apply text-[10px] font-semibold text-error mt-xs select-none block;
+}
+
+/* Custom Checkboxes and Radios */
+@utility form-check {
+  @apply flex items-center gap-xs cursor-pointer select-none mb-sm;
+}
+
+@utility form-check-input {
+  @apply rounded w-4 h-4 cursor-pointer focus:ring-0 focus:ring-offset-0 focus:outline-none transition-all;
+  border: 2px solid #d1d5db;
+  color: #08783a;
+
+  &[type="radio"] {
+    @apply rounded-full;
+  }
+
+  &:checked {
+    background-color: #08783a;
+    border-color: #08783a;
+  }
+
+  &.is-invalid {
+    @apply border-error bg-[#fff5f5];
+  }
+}
+
+@utility form-check-label {
+  @apply text-sm font-medium cursor-pointer;
+  color: #374151;
+}
+
+/* File Upload Drag Area */
+@utility form-file-drop {
+  @apply rounded p-lg text-center cursor-pointer transition-colors flex flex-col items-center justify-center gap-xs;
+  border: 2px dashed #d1d5db;
+  background-color: #f9fafb;
+  &:hover {
+    border-color: #08783a;
+    background-color: #f0fdf4;
+  }
+}
+
+/* Input Group */
+@utility input-group {
+  @apply relative flex w-full items-stretch;
+}
+
+@utility input-group-text {
+  @apply flex items-center px-md py-sm text-sm font-medium whitespace-nowrap bg-gray-50 text-gray-500 border border-gray-300;
+  border-radius: 8px;
+}
+
+/* Overrides for items inside an input-group to make them flush */
+.input-group > :not(:first-child) {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.input-group > :not(:last-child) {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+/* Overrides to prevent double borders between input and text/button */
+.input-group > .form-control:not(:first-child) {
+  border-left: 0;
+}
+
+.input-group > .input-group-text:not(:first-child) {
+  border-left: 0;
+}
+
+/* Ensure focus states highlight the ENTIRE input group */
+.input-group {
+  border-radius: 8px;
+  transition:
+    box-shadow 0.2s,
+    border-color 0.2s;
+}
+
+.input-group:focus-within {
+  box-shadow: 0 0 0 3px rgba(8, 120, 58, 0.15);
+}
+
+.input-group:focus-within > .form-control,
+.input-group:focus-within > .input-group-text {
+  border-color: #08783a;
+}
+
+.input-group > .form-control:focus {
+  box-shadow: none; /* Remove individual input shadow so the group shadow shows */
+  z-index: 3;
+}
+
+/* === Select2 Custom Theme (Kemenag Style) === */
+
+/* Ensure native select is always hidden properly */
+.select2-hidden-accessible {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+
+.select2-container--default .select2-selection--single,
+.select2-container--default .select2-selection--multiple {
+  @apply bg-white border border-gray-300 rounded-lg min-h-[42px] px-sm flex items-center transition-all;
+}
+.select2-container--default
+  .select2-selection--single
+  .select2-selection__rendered {
+  @apply text-sm text-gray-900 leading-[40px] pl-0;
+}
+.select2-container--default
+  .select2-selection--single
+  .select2-selection__arrow {
+  @apply h-[40px] top-[1px] right-sm;
+}
+/* Multiple select choices */
+.select2-container--default
+  .select2-selection--multiple
+  .select2-selection__choice {
+  @apply rounded px-xs py-[2px] mt-[6px] text-xs font-medium border border-gray-200;
+  background-color: #f0fdf4;
+  border-color: #bbf7d0;
+  color: #166534;
+}
+.select2-container--default
+  .select2-selection--multiple
+  .select2-selection__choice__remove {
+  @apply hover:bg-transparent border-r mr-xs pr-xs transition-colors;
+  color: #166534;
+  border-color: #bbf7d0;
+}
+.select2-container--default
+  .select2-selection--multiple
+  .select2-selection__choice__remove:hover {
+  color: #14532d;
+}
+/* Focus & Active state */
+.select2-container--default.select2-container--focus
+  .select2-selection--multiple,
+.select2-container--default.select2-container--focus
+  .select2-selection--single {
+  border-color: #08783a;
+  box-shadow: 0 0 0 3px rgba(8, 120, 58, 0.15);
+  outline: none;
+}
+/* Dropdown menu */
+.select2-dropdown {
+  @apply border border-gray-200 shadow-lg rounded-lg overflow-hidden mt-xs z-50;
+}
+.select2-search--dropdown .select2-search__field {
+  @apply border border-gray-300 rounded px-sm py-xs text-sm focus:border-primary focus:ring-primary;
+}
+.select2-results__option {
+  @apply px-md py-sm text-sm text-gray-700 transition-colors;
+}
+.select2-container--default
+  .select2-results__option--highlighted.select2-results__option--selectable {
+  background-color: #f0fdf4;
+  color: #166534;
+}
+.select2-container--default .select2-results__option[aria-selected="true"] {
+  background-color: #dcfce7;
+  color: #166534;
+  font-weight: 600;
+}

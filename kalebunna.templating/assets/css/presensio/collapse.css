@@ -1,0 +1,8 @@
+/* Collapse Component Styles */
+.collapse:not(.show) {
+  display: none;
+}
+.collapse {
+  transition: height 0.3s ease;
+  overflow: hidden;
+}

@@ -1,0 +1,187 @@
+/* Dropdown Component Styles */
+
+@utility dropdown {
+  @apply relative inline-block;
+}
+
+@utility dropdown-toggle {
+  &::after {
+    display: inline-block;
+    margin-left: 0.35em;
+    vertical-align: 0.25em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+    opacity: 0.6;
+  }
+}
+
+@utility dropdown-menu {
+  @apply absolute left-0 mt-1.5 hidden min-w-[180px] bg-white z-50 flex flex-col py-1;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.08),
+    0 8px 10px -6px rgba(0, 0, 0, 0.04);
+
+  &.show {
+    @apply flex;
+  }
+
+  &.dropdown-menu-end {
+    @apply right-0 left-auto;
+  }
+}
+
+@utility dropdown-item {
+  @apply px-3 py-2 text-xs text-left flex items-center gap-2.5 w-full transition-all cursor-pointer select-none no-underline;
+  color: #374151;
+  font-weight: 500;
+  border-radius: 8px;
+  margin: 1px 4px;
+  width: calc(100% - 8px);
+  border: none;
+  background: transparent;
+
+  & i,
+  & [class^="icon-"],
+  & [class*=" icon-"],
+  & .material-symbols-outlined {
+    font-size: 16px;
+    color: var(--color-on-surface-variant);
+    transition: color 0.15s;
+    shrink: 0;
+  }
+
+  &:hover {
+    background-color: #f3f4f6;
+    color: #111827;
+
+    & i,
+    & [class^="icon-"],
+    & [class*=" icon-"],
+    & .material-symbols-outlined {
+      color: #08783a;
+    }
+  }
+
+  &.active {
+    background-color: #f0fdf4;
+    color: #08783a;
+    font-weight: 600;
+
+    & i,
+    & [class^="icon-"],
+    & [class*=" icon-"],
+    & .material-symbols-outlined {
+      color: #08783a;
+    }
+  }
+
+  &.disabled {
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
+  }
+}
+
+/* Red Danger Item (Logout / Delete) */
+@utility dropdown-item-danger {
+  color: #dc2626;
+
+  & i,
+  & [class^="icon-"],
+  & [class*=" icon-"],
+  & .material-symbols-outlined {
+    color: #dc2626 !important;
+  }
+
+  &:hover {
+    background-color: #fee2e2 !important;
+    color: #b91c1c !important;
+
+    & i,
+    & [class^="icon-"],
+    & [class*=" icon-"],
+    & .material-symbols-outlined {
+      color: #b91c1c !important;
+    }
+  }
+}
+
+@utility dropdown-divider {
+  border-top: 1px solid #f3f4f6;
+  margin: 4px 0;
+}
+
+@utility dropdown-header {
+  @apply px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider;
+  color: #9ca3af;
+}
+
+/* ============================================================
+   Profile Dropdown Specific Styles
+   ============================================================ */
+
+/* Profile Dropdown Container */
+@utility dropdown-profile {
+  @apply relative inline-flex items-center;
+}
+
+/* Profile Trigger Button */
+@utility dropdown-profile-toggle {
+  @apply flex items-center gap-2 p-1 pr-2 rounded-xl cursor-pointer select-none transition-all;
+  border: 1px solid transparent;
+  background: transparent;
+
+  &::after {
+    display: inline-block;
+    margin-left: 2px;
+    vertical-align: middle;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+    color: #9ca3af;
+  }
+
+  &:hover {
+    background-color: #f3f4f6;
+  }
+
+  &.active,
+  &:focus-visible {
+    background-color: #f0fdf4;
+    border-color: #dcfce7;
+  }
+}
+
+/* Profile Info inside Toggle */
+@utility dropdown-profile-info {
+  @apply hidden md:flex flex-col text-left;
+}
+
+@utility dropdown-profile-name {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #111827;
+  line-height: 1.2;
+}
+
+@utility dropdown-profile-role {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--color-on-surface-variant);
+  line-height: 1.2;
+}
+
+/* Extended Profile Dropdown Menu */
+@utility dropdown-profile-menu {
+  @apply min-w-[250px] p-1.5;
+}
+
+/* User Card inside Profile Dropdown Menu */
+@utility dropdown-profile-header {
+  @apply flex items-center gap-3 p-2.5 mb-1 rounded-lg bg-gray-50 border border-gray-100;
+}

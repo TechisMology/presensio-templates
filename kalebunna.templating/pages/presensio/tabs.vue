@@ -1,0 +1,133 @@
+<template>
+<div class="content-canvas">
+  <div class="mb-md"><h3 class="font-bold text-xl">{{ 'Tab Components' }}</h3></div>
+
+  <div class="row">
+    <!-- 1. Default Underline Tabs -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header"><span class="h6 mb-0">Default Tabs</span></div>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-sm">Standard modern tabs with a clean underline.</p>
+          
+          <ul class="nav-tabs nav-tabs-default">
+            <li><button class="nav-link active" data-tab-target="#def-1">Profile</button></li>
+            <li><button class="nav-link" data-tab-target="#def-2">Settings</button></li>
+            <li><button class="nav-link" data-tab-target="#def-3">Messages</button></li>
+          </ul>
+
+          <div class="tab-content border border-gray-200 rounded-lg p-sm mt-3">
+            <div class="tab-pane active" id="def-1">
+              <h4 class="h5 mb-xs">Profile</h4>
+              <p class="fs-7 text-secondary">Manage your user profile details.</p>
+            </div>
+            <div class="tab-pane" id="def-2">
+              <h4 class="h5 mb-xs">Settings</h4>
+              <p class="fs-7 text-secondary">Adjust language and layouts.</p>
+            </div>
+            <div class="tab-pane" id="def-3">
+              <h4 class="h5 mb-xs">Messages</h4>
+              <p class="fs-7 text-secondary">View your recent conversations.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Pill Tabs -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header"><span class="h6 mb-0">Pill Tabs</span></div>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-sm">Classic pill-shaped tab buttons.</p>
+          
+          <ul class="nav-pills">
+            <li><button class="nav-link active" data-tab-target="#pill-1">Overview</button></li>
+            <li><button class="nav-link" data-tab-target="#pill-2">Activity</button></li>
+            <li><button class="nav-link" data-tab-target="#pill-3">Security</button></li>
+          </ul>
+
+          <div class="tab-content border border-gray-200 rounded-lg p-sm mt-3">
+            <div class="tab-pane active" id="pill-1">
+              <h4 class="h5 mb-xs">Overview</h4>
+              <p class="fs-7 text-secondary">Main dashboard summary.</p>
+            </div>
+            <div class="tab-pane" id="pill-2">
+              <h4 class="h5 mb-xs">Activity</h4>
+              <p class="fs-7 text-secondary">Recent account logins.</p>
+            </div>
+            <div class="tab-pane" id="pill-3">
+              <h4 class="h5 mb-xs">Security</h4>
+              <p class="fs-7 text-secondary">Change passwords and 2FA.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Soft Pill Tabs -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header"><span class="h6 mb-0">Soft Pill Tabs</span></div>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-sm">Modern iOS-style segmented controls.</p>
+          
+          <ul class="nav-pills-soft inline-flex">
+            <li><button class="nav-link active" data-tab-target="#sp-1">Daily</button></li>
+            <li><button class="nav-link" data-tab-target="#sp-2">Weekly</button></li>
+            <li><button class="nav-link" data-tab-target="#sp-3">Monthly</button></li>
+          </ul>
+
+          <div class="tab-content border border-gray-200 rounded-lg p-sm mt-3">
+            <div class="tab-pane active" id="sp-1">
+              <h4 class="h5 mb-xs">Daily Report</h4>
+              <p class="fs-7 text-secondary">Your metrics for today.</p>
+            </div>
+            <div class="tab-pane" id="sp-2">
+              <h4 class="h5 mb-xs">Weekly Report</h4>
+              <p class="fs-7 text-secondary">Your metrics for this week.</p>
+            </div>
+            <div class="tab-pane" id="sp-3">
+              <h4 class="h5 mb-xs">Monthly Report</h4>
+              <p class="fs-7 text-secondary">Your metrics for this month.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Underline Bold Tabs -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header"><span class="h6 mb-0">Underline Bold Tabs</span></div>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-sm">Bold typography with heavy underlines.</p>
+          
+          <ul class="nav-underline-bold">
+            <li><button class="nav-link active" data-tab-target="#ub-1">General</button></li>
+            <li><button class="nav-link" data-tab-target="#ub-2">Advanced</button></li>
+            <li><button class="nav-link disabled opacity-50 cursor-not-allowed">Disabled</button></li>
+          </ul>
+
+          <div class="tab-content border border-gray-200 rounded-lg p-sm mt-3">
+            <div class="tab-pane active" id="ub-1">
+              <h4 class="h5 mb-xs">General Options</h4>
+              <p class="fs-7 text-secondary">Basic configuration.</p>
+            </div>
+            <div class="tab-pane" id="ub-2">
+              <h4 class="h5 mb-xs">Advanced Options</h4>
+              <p class="fs-7 text-secondary">Danger zone settings.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</template>
+
+<script setup>
+definePageMeta({
+  layout: 'presensio'
+})
+</script>

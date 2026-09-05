@@ -1,0 +1,200 @@
+<template>
+<div class="content-canvas">
+  <div class="mb-md"><h3 class="font-bold text-xl">{{ 'List Group Components' }}</h3></div>
+
+  <div class="row">
+    <!-- 1. Basic Example (Active & Disabled) -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header"><span class="h6 mb-0">Basic List Group</span></div>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-sm">A basic list group showing default borders, active states, and disabled items.</p>
+          <ul class="list-group">
+            <li class="list-group-item active">An active item</li>
+            <li class="list-group-item">A second item</li>
+            <li class="list-group-item">A third item</li>
+            <li class="list-group-item disabled">A disabled item</li>
+            <li class="list-group-item">A fifth item</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Links and Buttons (Actionable) -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header"><span class="h6 mb-0">Actionable Links & Buttons</span></div>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-sm">Actionable items using hover effects and click transitions.</p>
+          <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action active">The current link item</a>
+            <a href="#" class="list-group-item list-group-item-action">A second link item</a>
+            <a href="#" class="list-group-item list-group-item-action">A third link item</a>
+            <button class="list-group-item list-group-item-action text-left">A button item</button>
+            <a class="list-group-item list-group-item-action disabled">A disabled link item</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Flush List Group (Edge-to-Edge in Card) -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header"><span class="h6 mb-0">Flush List Group (In Card)</span></div>
+        <p class="fs-7 text-secondary px-md pt-sm pb-0">Remove outer card paddings and use `.list-group-flush` to render edge-to-edge.</p>
+        <ul class="list-group list-group-flush mt-sm">
+          <li class="list-group-item">First edge-to-edge item</li>
+          <li class="list-group-item">Second edge-to-edge item</li>
+          <li class="list-group-item">Third edge-to-edge item</li>
+          <li class="list-group-item">Fourth edge-to-edge item</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 4. Numbered List Group -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header"><span class="h6 mb-0">Numbered List Group</span></div>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-sm">Borders and items generated with CSS counters for clean ordered lists.</p>
+          <ol class="list-group list-group-numbered">
+            <li class="list-group-item">First ordered item</li>
+            <li class="list-group-item">Second ordered item</li>
+            <li class="list-group-item">Third ordered item</li>
+            <li class="list-group-item">Fourth ordered item</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Contextual Classes -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header"><span class="h6 mb-0">Contextual Classes</span></div>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-sm">Stateful color helpers to highlight positive, warning, or danger listings.</p>
+          <div class="list-group">
+            <a class="list-group-item list-group-item-action">A simple default list item</a>
+            <a class="list-group-item list-group-item-action list-group-item-success">A simple success list item</a>
+            <a class="list-group-item list-group-item-action list-group-item-warning">A simple warning list item</a>
+            <a class="list-group-item list-group-item-action list-group-item-danger">A simple danger list item</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Horizontal List Group -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header"><span class="h6 mb-0">Horizontal Layout</span></div>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-sm">Changes the layout of list items from vertical to horizontal across all viewports.</p>
+          <ul class="list-group list-group-horizontal">
+            <li class="list-group-item">Slack</li>
+            <li class="list-group-item">Zoom</li>
+            <li class="list-group-item">Teams</li>
+          </ul>
+          
+          <ul class="list-group list-group-horizontal list-group-shadow mt-md">
+            <li class="list-group-item active">Active Slack</li>
+            <li class="list-group-item">Zoom</li>
+            <li class="list-group-item">Teams</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. With Badges -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header"><span class="h6 mb-0">With Badges</span></div>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-sm">Adding badges on the right side of list items for alerts or counts.</p>
+          <ul class="list-group">
+            <li class="list-group-item flex justify-between items-center">
+              <span>Inbox messages</span>
+              <span class="badge badge-sm badge-pill badge-danger">14</span>
+            </li>
+            <li class="list-group-item flex justify-between items-center">
+              <span>System updates</span>
+              <span class="badge badge-sm badge-warning">2</span>
+            </li>
+            <li class="list-group-item flex justify-between items-center">
+              <span>Completed uploads</span>
+              <span class="badge badge-sm badge-success-bright">Done</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. Custom Content (Rich Layouts) -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header"><span class="h6 mb-0">Custom Content</span></div>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-sm">Rich HTML layouts inside list groups using flexbox alignment.</p>
+          <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action active p-md">
+              <div class="flex justify-between items-center w-full mb-xs">
+                <h5 class="h6 mb-0 text-white">List group item heading</h5>
+                <small class="fs-7">3 days ago</small>
+              </div>
+              <p class="fs-7 opacity-90 mb-xs">Some placeholder content in a paragraph that relates to the main heading details.</p>
+              <small class="fs-7 opacity-85">And some small muted text description.</small>
+            </a>
+            
+            <a href="#" class="list-group-item list-group-item-action p-md">
+              <div class="flex justify-between items-center w-full mb-xs">
+                <h5 class="h6 mb-0">Second item heading</h5>
+                <small class="fs-7 text-secondary">Yesterday</small>
+              </div>
+              <p class="fs-7 text-secondary mb-xs">Some placeholder content in a paragraph that relates to the main heading details.</p>
+              <small class="text-muted fs-7">And some small muted text description.</small>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="row">
+    <!-- Horizontal Tabbed List Group -->
+    <div class="col-12 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header"><span class="h6 mb-0">Horizontal Tabbed List Group</span></div>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-md">A horizontal list group that acts as tab navigation to toggle content below it.</p>
+          
+          <div class="list-group list-group-horizontal mb-md" role="tablist">
+            <button class="list-group-item list-group-item-action active" data-tab-target="#lg-tab-1">General Info</button>
+            <button class="list-group-item list-group-item-action" data-tab-target="#lg-tab-2">Contact Details</button>
+            <button class="list-group-item list-group-item-action" data-tab-target="#lg-tab-3">Security Settings</button>
+          </div>
+
+          <div class="tab-content border border-gray-200 rounded-lg p-sm">
+            <div class="tab-pane active" id="lg-tab-1">
+              <h4 class="h5 mb-xs">General Info</h4>
+              <p class="fs-7 text-secondary">This is the general information panel controlled by the horizontal list group.</p>
+            </div>
+            <div class="tab-pane" id="lg-tab-2">
+              <h4 class="h5 mb-xs">Contact Details</h4>
+              <p class="fs-7 text-secondary">Manage phone numbers, emails, and physical addresses here.</p>
+            </div>
+            <div class="tab-pane" id="lg-tab-3">
+              <h4 class="h5 mb-xs">Security Settings</h4>
+              <p class="fs-7 text-secondary">Update passwords, 2FA settings, and review login activity.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+</template>
+
+<script setup>
+definePageMeta({
+  layout: 'presensio'
+})
+</script>

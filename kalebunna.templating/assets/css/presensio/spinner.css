@@ -1,0 +1,92 @@
+/* Spinner and Loading Component Styles */
+
+@keyframes spinner-border {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@utility spinner-border {
+  @apply inline-block w-8 h-8 align-text-bottom rounded-full;
+  border: 2.5px solid #e5e7eb;
+  border-right-color: #08783a;
+  animation: spinner-border 0.65s linear infinite;
+}
+
+/* Spinner Sizes */
+@utility spinner-sm {
+  width: 14px;
+  height: 14px;
+  border-width: 2px;
+}
+@utility spinner-md {
+  width: 28px;
+  height: 28px;
+  border-width: 2.5px;
+}
+@utility spinner-lg {
+  width: 44px;
+  height: 44px;
+  border-width: 3px;
+}
+
+/* Growing Spinner */
+@keyframes spinner-grow {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@utility spinner-grow {
+  @apply inline-block w-8 h-8 align-text-bottom rounded-full opacity-0;
+  background-color: #08783a;
+  animation: spinner-grow 0.85s ease-in-out infinite;
+}
+
+/* Growing Sizes */
+@utility spinner-grow-sm {
+  width: 14px;
+  height: 14px;
+}
+@utility spinner-grow-md {
+  width: 28px;
+  height: 28px;
+}
+@utility spinner-grow-lg {
+  width: 44px;
+  height: 44px;
+}
+
+/* Modern Rotating Logo Spinner */
+@keyframes spinner-logo-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@utility spinner-logo {
+  @apply inline-flex items-center justify-center w-10 h-10 rounded-xl font-bold select-none;
+  background-color: #dcfce7;
+  color: #08783a;
+  border: none;
+  box-shadow: 0 2px 8px rgba(8, 120, 58, 0.2);
+  animation: spinner-logo-rotate 1.4s cubic-bezier(0.68, -0.4, 0.32, 1.4)
+    infinite;
+}
+@utility spinner-logo-sm {
+  @apply w-7 h-7 text-xs rounded-lg;
+}
+@utility spinner-logo-lg {
+  @apply w-16 h-16 text-2xl rounded-2xl;
+}

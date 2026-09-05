@@ -1,0 +1,291 @@
+<template>
+<div class="content-canvas">
+  <div class="mb-md"><h3 class="font-bold text-xl">{{ 'Dropdown Components' }}</h3></div>
+
+  <div class="row">
+    <!-- Dropdown Themes -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header">
+          <span class="h6 mb-0">Dropdown Themes</span>
+        </div>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-sm">
+            Dropdowns triggered by buttons of different themes, with
+            neobrutalist offset menu shadows.
+          </p>
+
+          <div class="flex flex-wrap gap-xs">
+            <!-- Primary Dropdown -->
+            <div class="dropdown">
+              <button class="btn btn-md btn-primary dropdown-toggle">
+                Primary Dropdown
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item">Action Link</a>
+                <a class="dropdown-item">Another Action</a>
+                <a class="dropdown-item">Something Else Here</a>
+              </div>
+            </div>
+
+            <!-- Success Dropdown -->
+            <div class="dropdown">
+              <button class="btn btn-md btn-success dropdown-toggle">
+                Success Menu
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item">Approve Request</a>
+                <a class="dropdown-item">Publish Post</a>
+                <a class="dropdown-item">Run Process</a>
+              </div>
+            </div>
+
+            <!-- Danger Dropdown -->
+            <div class="dropdown">
+              <button class="btn btn-md btn-danger dropdown-toggle">
+                Danger Actions
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item text-danger">Delete Project</a>
+                <a class="dropdown-item">Deactivate Account</a>
+                <a class="dropdown-item">Force Stop Service</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dropdown Sizes -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header">
+          <span class="h6 mb-0">Dropdown Sizing</span>
+        </div>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-sm">
+            Dropdown toggles matching Small, Medium, and Large button sizes.
+          </p>
+
+          <div class="flex items-center flex-wrap gap-xs">
+            <!-- Small -->
+            <div class="dropdown">
+              <button class="btn btn-sm btn-light btn-shadow dropdown-toggle">
+                Small Menu
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item">Edit Settings</a>
+                <a class="dropdown-item">Save Draft</a>
+              </div>
+            </div>
+
+            <!-- Medium -->
+            <div class="dropdown">
+              <button class="btn btn-md btn-light btn-shadow dropdown-toggle">
+                Medium Menu
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item">Edit Settings</a>
+                <a class="dropdown-item">Save Draft</a>
+              </div>
+            </div>
+
+            <!-- Large -->
+            <div class="dropdown">
+              <button class="btn btn-lg btn-light btn-shadow dropdown-toggle">
+                Large Menu
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item">Edit Settings</a>
+                <a class="dropdown-item">Save Draft</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Structured Content (Headers, Dividers, Active/Disabled States) -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header">
+          <span class="h6 mb-0">Structured Menu Content</span>
+        </div>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-sm">
+            Example showing header sections, item dividers, and active or
+            disabled item status labels.
+          </p>
+
+          <div class="dropdown">
+            <button class="btn btn-md btn-warning btn-shadow dropdown-toggle">
+              Options Menu
+            </button>
+            <div
+              class="dropdown-menu show"
+              style="
+                position: static;
+                display: inline-block;
+                transform: none;
+                margin-top: 10px;
+              "
+            >
+              <span class="dropdown-header">Developer Tools</span>
+              <a class="dropdown-item">Inspect Elements</a>
+              <a class="dropdown-item active">Console Log</a>
+              <a class="dropdown-item">Network Monitor</a>
+              <div class="dropdown-divider"></div>
+              <span class="dropdown-header">System Operations</span>
+              <a class="dropdown-item">Restart Server</a>
+              <a class="dropdown-item disabled">Clear Cache (Unavailable)</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Menu Alignment -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header">
+          <span class="h6 mb-0">Dropdown Alignments</span>
+        </div>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-sm">
+            Showing left-aligned menus (default) and right/end-aligned menus
+            (`dropdown-menu-end`).
+          </p>
+
+          <div
+            class="flex justify-between items-center p-sm bg-gray-50 border border-gray-200 rounded-lg"
+          >
+            <!-- Default Left Aligned -->
+            <div class="dropdown">
+              <button class="btn btn-md btn-light dropdown-toggle">
+                Default Left
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item">Action One</a>
+                <a class="dropdown-item">Action Two</a>
+              </div>
+            </div>
+
+            <!-- Right Aligned -->
+            <div class="dropdown">
+              <button class="btn btn-md btn-light dropdown-toggle">
+                Right Aligned
+              </button>
+              <div class="dropdown-menu dropdown-menu-end">
+                <a class="dropdown-item">Action One</a>
+                <a class="dropdown-item">Action Two</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile Dropdown Component Showcase -->
+    <div class="col-12 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header">
+          <span class="h6 mb-0">User Profile Dropdown (Navbar Style)</span>
+        </div>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-md">
+            Dropdown profil fleksibel dengan header kartu pengguna, ikon aksi
+            Lucide, dan tombol logout berwarna bahaya (merah).
+          </p>
+
+          <div
+            class="p-md bg-gray-50 rounded-xl border border-gray-200 flex justify-end"
+          >
+            <!-- Profile Dropdown Live Demo -->
+            <div class="dropdown">
+              <button
+                class="dropdown-profile-toggle dropdown-toggle"
+                type="button"
+              >
+                <div class="header-avatar m-0">
+                  <img
+                    class="w-full h-full object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTxW-SCaflPUu4H3RECGfkedzcsDUB9rh1rL0GOvCHLfi1RhU9z10Big4Cr14T8cMhgc6PYv-8kDUZsZU-XxCanQHYCQFL4cUf0VhUe1Aq--yTqxPPZQ5xARa4O9PQBR0ZubUdRIvnoTRSWKk3KYzp-esBnkeUv4VsiJtet4TDju69z6opAfqWO55Yfw4uw-uW5d-FwUSusVWpdPyH8UaOwwnvzp0bcE-n7HZCgsUMy62ukNEmHlUGKzylXL4EO6N2v1ss22aVaz8"
+                    alt="Avatar"
+                  />
+                </div>
+                <div class="dropdown-profile-info">
+                  <span class="dropdown-profile-name">Ahmad Fauzi</span>
+                  <span class="dropdown-profile-role">Admin Madrasah</span>
+                </div>
+              </button>
+
+              <div
+                class="dropdown-menu dropdown-menu-end dropdown-profile-menu"
+              >
+                <!-- User Header Card -->
+                <div class="dropdown-profile-header">
+                  <div
+                    class="avatar avatar-md rounded-lg overflow-hidden shrink-0"
+                  >
+                    <img
+                      class="w-full h-full object-cover"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTxW-SCaflPUu4H3RECGfkedzcsDUB9rh1rL0GOvCHLfi1RhU9z10Big4Cr14T8cMhgc6PYv-8kDUZsZU-XxCanQHYCQFL4cUf0VhUe1Aq--yTqxPPZQ5xARa4O9PQBR0ZubUdRIvnoTRSWKk3KYzp-esBnkeUv4VsiJtet4TDju69z6opAfqWO55Yfw4uw-uW5d-FwUSusVWpdPyH8UaOwwnvzp0bcE-n7HZCgsUMy62ukNEmHlUGKzylXL4EO6N2v1ss22aVaz8"
+                      alt="Avatar"
+                    />
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-xs font-bold text-gray-900 truncate mb-0.5">
+                      H. Ahmad Fauzi, M.Pd
+                    </p>
+                    <p class="text-[11px] text-gray-500 truncate mb-1">
+                      ahmad.fauzi@kemenag.go.id
+                    </p>
+                    <span class="badge badge-sm badge-primary"
+                      >Super Admin</span
+                    >
+                  </div>
+                </div>
+
+                <!-- Menu Items -->
+                <a href="#" class="dropdown-item">
+                  <i class="icon-user"></i>
+                  <span>Profil Saya</span>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <i class="icon-settings"></i>
+                  <span>Pengaturan Akun</span>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <i class="icon-shield-check"></i>
+                  <span>Keamanan & Sandi</span>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <i class="icon-help-circle"></i>
+                  <span>Bantuan & Panduan</span>
+                </a>
+
+                <div class="dropdown-divider"></div>
+
+                <!-- Logout -->
+                <a
+                  href="/login.html"
+                  class="dropdown-item dropdown-item-danger"
+                >
+                  <i class="icon-log-out"></i>
+                  <span>Keluar (Logout)</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</template>
+
+<script setup>
+definePageMeta({
+  layout: 'presensio'
+})
+</script>

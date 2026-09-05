@@ -1,0 +1,328 @@
+<template>
+<div class="content-canvas">
+  <div class="mb-md"><h3 class="font-bold text-xl">{{ 'Avatar Components' }}</h3></div>
+
+  <div class="row">
+    <!-- Avatar Shapes & Status -->
+    <div class="col-12 col-lg-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header">
+          <span class="h6 mb-0">Shapes & Status Indicators</span>
+        </div>
+        <div class="card-body">
+          <p class="text-xs text-muted mb-md">
+            Pilihan bentuk avatar (Circle, Rounded XL, Rounded LG, Square)
+            dengan status indikator (*Online, Away, Busy, Offline*).
+          </p>
+          <div class="flex flex-wrap gap-lg items-end">
+            <!-- Circle -->
+            <div class="flex flex-col items-center gap-2">
+              <div class="avatar-wrapper">
+                <img
+                  src="/AVATAR/AVATAR1.png"
+                  alt="User 1"
+                  class="avatar rounded-full avatar-lg"
+                />
+                <span class="avatar-status avatar-status-online"></span>
+              </div>
+              <span class="text-xs font-semibold text-gray-700">Circle</span>
+            </div>
+
+            <!-- Rounded XL -->
+            <div class="flex flex-col items-center gap-2">
+              <div class="avatar-wrapper">
+                <img
+                  src="/AVATAR/AVATAR2.png"
+                  alt="User 2"
+                  class="avatar rounded-xl avatar-lg"
+                />
+                <span class="avatar-status avatar-status-away"></span>
+              </div>
+              <span class="text-xs font-semibold text-gray-700"
+                >Rounded XL</span
+              >
+            </div>
+
+            <!-- Rounded LG -->
+            <div class="flex flex-col items-center gap-2">
+              <div class="avatar-wrapper">
+                <img
+                  src="/AVATAR/AVATAR3.png"
+                  alt="User 3"
+                  class="avatar rounded-lg avatar-lg"
+                />
+                <span class="avatar-status avatar-status-busy"></span>
+              </div>
+              <span class="text-xs font-semibold text-gray-700"
+                >Rounded LG</span
+              >
+            </div>
+
+            <!-- Square -->
+            <div class="flex flex-col items-center gap-2">
+              <div class="avatar-wrapper">
+                <img
+                  src="/AVATAR/AVATAR1.png"
+                  alt="User 4"
+                  class="avatar rounded-none avatar-lg"
+                />
+                <span class="avatar-status avatar-status-offline"></span>
+              </div>
+              <span class="text-xs font-semibold text-gray-700">Square</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Initials Avatar -->
+    <div class="col-12 col-lg-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header">
+          <span class="h6 mb-0">Initials & Color Variants</span>
+        </div>
+        <div class="card-body">
+          <p class="text-xs text-muted mb-md">
+            Avatar inisial teks dengan varian palet warna tema Kemenag dan aksen
+            modern.
+          </p>
+          <div class="flex flex-wrap gap-md items-center">
+            <!-- Primary Gradient -->
+            <div class="avatar-wrapper" title="Primary Gradient">
+              <div
+                class="avatar avatar-initials avatar-primary rounded-full avatar-lg"
+              >
+                KM
+              </div>
+              <span class="avatar-status avatar-status-online"></span>
+            </div>
+
+            <!-- Primary Soft -->
+            <div class="avatar-wrapper" title="Primary Soft">
+              <div
+                class="avatar avatar-initials avatar-primary-soft rounded-xl avatar-lg"
+              >
+                PR
+              </div>
+              <span class="avatar-status avatar-status-online"></span>
+            </div>
+
+            <!-- Blue Soft -->
+            <div class="avatar-wrapper" title="Blue">
+              <div
+                class="avatar avatar-initials avatar-blue rounded-full avatar-lg"
+              >
+                AD
+              </div>
+              <span class="avatar-status avatar-status-away"></span>
+            </div>
+
+            <!-- Green Soft -->
+            <div class="avatar-wrapper" title="Green">
+              <div
+                class="avatar avatar-initials avatar-green rounded-xl avatar-lg"
+              >
+                GS
+              </div>
+              <span class="avatar-status avatar-status-online"></span>
+            </div>
+
+            <!-- Amber Soft -->
+            <div class="avatar-wrapper" title="Amber">
+              <div
+                class="avatar avatar-initials avatar-amber rounded-full avatar-lg"
+              >
+                TS
+              </div>
+              <span class="avatar-status avatar-status-busy"></span>
+            </div>
+
+            <!-- Purple Soft -->
+            <div class="avatar-wrapper" title="Purple">
+              <div
+                class="avatar avatar-initials avatar-purple rounded-xl avatar-lg"
+              >
+                RK
+              </div>
+              <span class="avatar-status avatar-status-offline"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Avatar Sizes -->
+    <div class="col-12 col-lg-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header">
+          <span class="h6 mb-0">Avatar Sizes</span>
+        </div>
+        <div class="card-body">
+          <p class="text-xs text-muted mb-md">
+            Skala ukuran standar dari XS (24px), SM (32px), MD (42px), LG
+            (56px), XL (72px), hingga 2XL (96px).
+          </p>
+          <div class="flex flex-wrap gap-md items-end">
+            <!-- XS -->
+            <div class="flex flex-col items-center gap-2">
+              <div class="avatar-wrapper">
+                <img
+                  src="/AVATAR/AVATAR1.png"
+                  alt="XS"
+                  class="avatar rounded-full avatar-xs"
+                />
+                <span class="avatar-status avatar-status-online"></span>
+              </div>
+              <span class="text-[11px] font-bold text-gray-500">XS (24)</span>
+            </div>
+
+            <!-- SM -->
+            <div class="flex flex-col items-center gap-2">
+              <div class="avatar-wrapper">
+                <img
+                  src="/AVATAR/AVATAR2.png"
+                  alt="SM"
+                  class="avatar rounded-full avatar-sm"
+                />
+                <span class="avatar-status avatar-status-online"></span>
+              </div>
+              <span class="text-[11px] font-bold text-gray-500">SM (32)</span>
+            </div>
+
+            <!-- MD -->
+            <div class="flex flex-col items-center gap-2">
+              <div class="avatar-wrapper">
+                <img
+                  src="/AVATAR/AVATAR3.png"
+                  alt="MD"
+                  class="avatar rounded-xl avatar-md"
+                />
+                <span class="avatar-status avatar-status-online"></span>
+              </div>
+              <span class="text-[11px] font-bold text-gray-500">MD (42)</span>
+            </div>
+
+            <!-- LG -->
+            <div class="flex flex-col items-center gap-2">
+              <div class="avatar-wrapper">
+                <div
+                  class="avatar avatar-initials avatar-primary rounded-xl avatar-lg"
+                >
+                  KM
+                </div>
+                <span class="avatar-status avatar-status-online"></span>
+              </div>
+              <span class="text-[11px] font-bold text-gray-500">LG (56)</span>
+            </div>
+
+            <!-- XL -->
+            <div class="flex flex-col items-center gap-2">
+              <div class="avatar-wrapper">
+                <img
+                  src="/AVATAR/AVATAR1.png"
+                  alt="XL"
+                  class="avatar rounded-full avatar-xl"
+                />
+                <span class="avatar-status avatar-status-online"></span>
+              </div>
+              <span class="text-[11px] font-bold text-gray-500">XL (72)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stacked Avatar Groups -->
+    <div class="col-12 col-lg-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header">
+          <span class="h6 mb-0">Avatar Groups (Stacked)</span>
+        </div>
+        <div class="card-body">
+          <p class="text-xs text-muted mb-md">
+            Grup avatar bertumpuk dengan border separator putih dan efek hover
+            zoom yang elegan.
+          </p>
+          <div class="space-y-md">
+            <!-- Group Medium -->
+            <div class="flex items-center gap-sm">
+              <div class="avatar-group">
+                <div class="avatar-wrapper">
+                  <img
+                    src="/AVATAR/AVATAR1.png"
+                    class="avatar rounded-full avatar-md"
+                    alt="Member 1"
+                  />
+                </div>
+                <div class="avatar-wrapper">
+                  <img
+                    src="/AVATAR/AVATAR2.png"
+                    class="avatar rounded-full avatar-md"
+                    alt="Member 2"
+                  />
+                </div>
+                <div class="avatar-wrapper">
+                  <img
+                    src="/AVATAR/AVATAR3.png"
+                    class="avatar rounded-full avatar-md"
+                    alt="Member 3"
+                  />
+                </div>
+                <div class="avatar-wrapper">
+                  <div
+                    class="avatar avatar-initials avatar-primary rounded-full avatar-md"
+                  >
+                    +8
+                  </div>
+                </div>
+              </div>
+              <span class="text-xs text-muted">Tim Pengajar</span>
+            </div>
+
+            <!-- Group Small -->
+            <div class="flex items-center gap-sm">
+              <div class="avatar-group">
+                <div class="avatar-wrapper">
+                  <img
+                    src="/AVATAR/AVATAR2.png"
+                    class="avatar rounded-xl avatar-sm"
+                    alt="Student 1"
+                  />
+                </div>
+                <div class="avatar-wrapper">
+                  <img
+                    src="/AVATAR/AVATAR1.png"
+                    class="avatar rounded-xl avatar-sm"
+                    alt="Student 2"
+                  />
+                </div>
+                <div class="avatar-wrapper">
+                  <div
+                    class="avatar avatar-initials avatar-amber rounded-xl avatar-sm"
+                  >
+                    RS
+                  </div>
+                </div>
+                <div class="avatar-wrapper">
+                  <div
+                    class="avatar avatar-initials avatar-secondary rounded-xl avatar-sm"
+                  >
+                    +24
+                  </div>
+                </div>
+              </div>
+              <span class="text-xs text-muted">Peserta Ujian</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</template>
+
+<script setup>
+definePageMeta({
+  layout: 'presensio'
+})
+</script>

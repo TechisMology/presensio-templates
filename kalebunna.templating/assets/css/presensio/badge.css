@@ -1,0 +1,65 @@
+/* Badge Component Styles */
+
+@utility badge {
+  @apply inline-flex items-center justify-center font-semibold select-none text-center;
+  border-radius: 9999px;
+  border: none;
+  line-height: 1;
+}
+
+/* Badge Sizing */
+@utility badge-sm {
+  padding: 2px 8px;
+  font-size: 10px;
+}
+@utility badge-md {
+  padding: 3px 10px;
+  font-size: 11px;
+}
+@utility badge-lg {
+  padding: 4px 12px;
+  font-size: 13px;
+}
+
+/* Pill Badges (Already pill by default, kept for compat) */
+@utility badge-pill {
+  border-radius: 9999px;
+}
+
+/* Badge Themes — Solid */
+@utility badge-primary {
+  background-color: #08783a;
+  color: #ffffff;
+}
+@utility badge-secondary {
+  background-color: var(--color-on-surface-variant);
+  color: #ffffff;
+}
+@utility badge-success {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+@utility badge-success-bright {
+  background-color: #16a34a;
+  color: #ffffff;
+}
+@utility badge-danger {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+@utility badge-warning {
+  background-color: #fef9c3;
+  color: #a16207;
+}
+@utility badge-dark {
+  background-color: #1f2937;
+  color: #ffffff;
+}
+@utility badge-light {
+  background-color: #f3f4f6;
+  color: var(--color-on-surface-variant);
+}
+@utility badge-info {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}

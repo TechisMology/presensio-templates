@@ -1,0 +1,139 @@
+/* Table and Pagination Component Styles */
+
+@utility table-container {
+  @apply w-full overflow-x-auto;
+  border: 1px solid #f3f4f6;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+@utility table-container-shadow {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+@utility table {
+  @apply w-full border-collapse text-left bg-white;
+  font-family: var(--font-body-md);
+  border-radius: 12px;
+  overflow: hidden;
+
+  & th {
+    @apply px-md py-sm font-semibold text-xs uppercase;
+    color: var(--color-on-surface-variant);
+    letter-spacing: 0.05em;
+    background-color: #fafafa;
+    border-bottom: 1px solid #f3f4f6;
+  }
+
+  & td {
+    @apply px-md py-sm text-sm;
+    color: #374151;
+    border-bottom: 1px solid #f9fafb;
+  }
+
+  & tr:last-child td {
+    border-bottom: none;
+  }
+}
+
+/* Border Variations */
+@utility table-bordered {
+  & th,
+  & td {
+    border: 1px solid #e5e7eb;
+  }
+  & tr:last-child td {
+    border-bottom: 1px solid #e5e7eb;
+  }
+}
+
+@utility table-border-y {
+  & th {
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  & td {
+    border-bottom: 1px solid #e5e7eb;
+  }
+  & tr:last-child td {
+    @apply border-b-0;
+  }
+}
+
+/* Row Styling Modifiers */
+@utility table-striped {
+  & tbody tr:nth-of-type(odd) {
+    background-color: #fafafa;
+  }
+}
+
+@utility table-hover {
+  & tbody tr {
+    transition: background-color 0.15s;
+  }
+  & tbody tr:hover {
+    background-color: #f0fdf4;
+  }
+}
+
+/* Header Background Variations */
+@utility table-thead-primary {
+  & th {
+    background-color: #08783a;
+    color: #ffffff;
+    border-bottom: none;
+  }
+}
+
+@utility table-thead-dark {
+  & th {
+    @apply bg-inverse-surface text-white;
+    border-bottom: none;
+  }
+}
+
+@utility table-thead-alert {
+  & th {
+    background-color: #fef9c3;
+    color: #713f12;
+    border-bottom: 1px solid #fde68a;
+  }
+}
+
+/* Contextual Row Highlights */
+@utility table-row-success {
+  background-color: #f0fdf4 !important;
+  color: #166534 !important;
+  & td {
+    color: #166534 !important;
+  }
+}
+
+@utility table-row-danger {
+  background-color: #fef2f2 !important;
+  color: #991b1b !important;
+  & td {
+    color: #991b1b !important;
+  }
+}
+
+/* Pagination Component */
+@utility pagination {
+  @apply flex items-center justify-center gap-xs mt-md;
+}
+@utility page-link {
+  @apply btn btn-sm btn-light;
+  min-width: 32px;
+  height: 32px;
+  @apply p-0 flex items-center justify-center;
+  border-radius: 8px;
+
+  &.active {
+    background-color: #08783a;
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 2px 8px rgba(8, 120, 58, 0.25);
+  }
+  &.disabled {
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
+  }
+}

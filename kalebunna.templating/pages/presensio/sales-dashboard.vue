@@ -1,0 +1,898 @@
+<template>
+<div class="content-canvas">
+  <!-- Header -->
+  <div class="flex justify-between items-center mb-md">
+    <div class="welcome-section mb-0">
+      <h3 class="welcome-title font-bold text-balance">Sales Dashboard</h3>
+      <p class="welcome-subtitle">
+        Overview of your sales performance and analytics.
+      </p>
+    </div>
+    <div class="flex items-center gap-sm">
+      <button class="btn btn-outline-dark bg-white flex items-center gap-xs">
+        <span class="material-symbols-outlined fs-6">calendar_month</span>
+        01 May 2026 - 31 May 2026
+        <span class="material-symbols-outlined fs-6 ml-xs"
+          >keyboard_arrow_down</span
+        >
+      </button>
+      <button class="btn btn-success flex items-center gap-xs">
+        <span class="material-symbols-outlined fs-6">download</span>
+        Export Report
+      </button>
+    </div>
+  </div>
+
+  <!-- Row 1: 5 Stat Cards -->
+  <div class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 gap-md mb-md">
+    <!-- Revenue -->
+    <div class="card h-full">
+      <div class="card-body p-sm flex flex-col gap-sm">
+        <div class="flex items-center gap-sm">
+          <div
+            class="w-10 h-10 rounded-lg bg-green-50 text-success flex items-center justify-center shrink-0"
+          >
+            <span class="material-symbols-outlined fs-5">payments</span>
+          </div>
+          <div>
+            <span class="fs-7 font-semibold text-secondary block mb-xs"
+              >Total Revenue</span
+            >
+            <div
+              class="fs-3 font-bold text-dark tabular-nums mb-0 text-balance"
+            >
+              $24,780
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between mt-auto">
+          <span class="fs-8 font-semibold text-success flex items-center gap-1">
+            <span class="material-symbols-outlined" style="font-size: 14px"
+              >trending_up</span
+            >
+            18.6%
+          </span>
+          <span class="fs-8 text-secondary">from last month</span>
+        </div>
+        <svg
+          class="w-full h-8 mt-xs"
+          viewBox="0 0 100 20"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,15 Q10,5 20,10 T40,15 T60,5 T80,10 T100,2"
+            fill="none"
+            stroke="#16a34a"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+          <path
+            d="M0,15 Q10,5 20,10 T40,15 T60,5 T80,10 T100,2 L100,20 L0,20 Z"
+            fill="#16a34a"
+            opacity="0.1"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Orders -->
+    <div class="card h-full">
+      <div class="card-body p-sm flex flex-col gap-sm">
+        <div class="flex items-center gap-sm">
+          <div
+            class="w-10 h-10 rounded-lg bg-blue-50 text-info flex items-center justify-center shrink-0"
+          >
+            <span class="material-symbols-outlined fs-5">shopping_cart</span>
+          </div>
+          <div>
+            <span class="fs-7 font-semibold text-secondary block mb-xs"
+              >Total Orders</span
+            >
+            <div
+              class="fs-3 font-bold text-dark tabular-nums mb-0 text-balance"
+            >
+              1,642
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between mt-auto">
+          <span class="fs-8 font-semibold text-info flex items-center gap-1">
+            <span class="material-symbols-outlined" style="font-size: 14px"
+              >trending_up</span
+            >
+            15.3%
+          </span>
+          <span class="fs-8 text-secondary">from last month</span>
+        </div>
+        <svg
+          class="w-full h-8 mt-xs"
+          viewBox="0 0 100 20"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,10 Q10,15 20,8 T40,12 T60,5 T80,15 T100,8"
+            fill="none"
+            stroke="#2563eb"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+          <path
+            d="M0,10 Q10,15 20,8 T40,12 T60,5 T80,15 T100,8 L100,20 L0,20 Z"
+            fill="#2563eb"
+            opacity="0.1"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Average Order -->
+    <div class="card h-full">
+      <div class="card-body p-sm flex flex-col gap-sm">
+        <div class="flex items-center gap-sm">
+          <div
+            class="w-10 h-10 rounded-lg bg-amber-50 text-warning flex items-center justify-center shrink-0"
+          >
+            <span class="material-symbols-outlined fs-5">show_chart</span>
+          </div>
+          <div>
+            <span class="fs-7 font-semibold text-secondary block mb-xs"
+              >Average Order Value</span
+            >
+            <div
+              class="fs-3 font-bold text-dark tabular-nums mb-0 text-balance"
+            >
+              $150.89
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between mt-auto">
+          <span class="fs-8 font-semibold text-warning flex items-center gap-1">
+            <span class="material-symbols-outlined" style="font-size: 14px"
+              >trending_up</span
+            >
+            8.7%
+          </span>
+          <span class="fs-8 text-secondary">from last month</span>
+        </div>
+        <svg
+          class="w-full h-8 mt-xs"
+          viewBox="0 0 100 20"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,18 Q15,5 30,12 T60,8 T80,12 T100,2"
+            fill="none"
+            stroke="#d97706"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+          <path
+            d="M0,18 Q15,5 30,12 T60,8 T80,12 T100,2 L100,20 L0,20 Z"
+            fill="#d97706"
+            opacity="0.1"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <!-- New Customers -->
+    <div class="card h-full">
+      <div class="card-body p-sm flex flex-col gap-sm">
+        <div class="flex items-center gap-sm">
+          <div
+            class="w-10 h-10 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center shrink-0"
+          >
+            <span class="material-symbols-outlined fs-5">person</span>
+          </div>
+          <div>
+            <span class="fs-7 font-semibold text-secondary block mb-xs"
+              >New Customers</span
+            >
+            <div
+              class="fs-3 font-bold text-dark tabular-nums mb-0 text-balance"
+            >
+              573
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between mt-auto">
+          <span class="fs-8 font-semibold text-success flex items-center gap-1">
+            <span class="material-symbols-outlined" style="font-size: 14px"
+              >trending_up</span
+            >
+            12.2%
+          </span>
+          <span class="fs-8 text-secondary">from last month</span>
+        </div>
+        <svg
+          class="w-full h-8 mt-xs"
+          viewBox="0 0 100 20"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,8 Q15,18 30,5 T60,15 T80,5 T100,10"
+            fill="none"
+            stroke="#9333ea"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+          <path
+            d="M0,8 Q15,18 30,5 T60,15 T80,5 T100,10 L100,20 L0,20 Z"
+            fill="#9333ea"
+            opacity="0.1"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Conversion Rate -->
+    <div class="card h-full">
+      <div class="card-body p-sm flex flex-col gap-sm">
+        <div class="flex items-center gap-sm">
+          <div
+            class="w-10 h-10 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center shrink-0"
+          >
+            <span class="material-symbols-outlined fs-5">pie_chart</span>
+          </div>
+          <div>
+            <span class="fs-7 font-semibold text-secondary block mb-xs"
+              >Conversion Rate</span
+            >
+            <div
+              class="fs-3 font-bold text-dark tabular-nums mb-0 text-balance"
+            >
+              3.24%
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between mt-auto">
+          <span class="fs-8 font-semibold text-success flex items-center gap-1">
+            <span class="material-symbols-outlined" style="font-size: 14px"
+              >trending_up</span
+            >
+            6.1%
+          </span>
+          <span class="fs-8 text-secondary">from last month</span>
+        </div>
+        <svg
+          class="w-full h-8 mt-xs"
+          viewBox="0 0 100 20"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,15 Q15,5 30,8 T50,2 T80,12 T100,5"
+            fill="none"
+            stroke="#0d9488"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+          <path
+            d="M0,15 Q15,5 30,8 T50,2 T80,12 T100,5 L100,20 L0,20 Z"
+            fill="#0d9488"
+            opacity="0.1"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 2: Charts -->
+  <div class="row">
+    <!-- Revenue Overview -->
+    <div class="col-12 col-xl-8 mb-md">
+      <div class="card h-full">
+        <div
+          class="card-header border-b-0 pb-0 flex justify-between items-center"
+        >
+          <span class="h6 mb-0 text-balance">Revenue Overview</span>
+          <div class="flex items-center gap-sm">
+            <div class="flex items-center gap-1 fs-8 text-secondary mr-sm">
+              <span class="w-2 h-2 rounded-full bg-success"></span> Revenue
+            </div>
+            <div class="flex items-center gap-1 fs-8 text-secondary mr-md">
+              <span class="w-2 h-2 rounded-full bg-gray-300"></span> Previous
+              Period
+            </div>
+            <select class="form-control form-control-sm w-auto">
+              <option>This Month</option>
+            </select>
+          </div>
+        </div>
+        <div class="card-body pt-sm">
+          <canvas
+            id="revenueChart"
+            style="max-height: 280px; width: 100%"
+          ></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sales by Channel -->
+    <div class="col-12 col-xl-4 mb-md">
+      <div class="card h-full">
+        <div
+          class="card-header border-b-0 pb-0 flex justify-between items-center"
+        >
+          <span class="h6 mb-0 text-balance">Sales by Channel</span>
+          <select class="form-control form-control-sm w-auto">
+            <option>This Month</option>
+          </select>
+        </div>
+        <div class="card-body flex flex-col justify-center gap-md">
+          <div class="flex items-center justify-between w-full">
+            <div class="relative w-[180px] h-[180px]">
+              <canvas id="channelChart"></canvas>
+              <div
+                class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none"
+              >
+                <span class="fs-8 text-secondary">Total</span>
+                <span class="fs-4 font-bold text-dark lh-1 tabular-nums mt-xs"
+                  >$24,780</span
+                >
+              </div>
+            </div>
+            <div class="flex-1 pl-md">
+              <div class="flex items-center justify-between mb-sm">
+                <div
+                  class="flex items-center gap-xs fs-8 font-medium text-dark"
+                >
+                  <span class="w-2 h-2 rounded-full bg-success"></span> Website
+                </div>
+                <div class="flex gap-sm">
+                  <span class="fs-8 font-bold text-dark tabular-nums">40%</span>
+                  <span class="fs-8 text-secondary tabular-nums">$9,912</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between mb-sm">
+                <div
+                  class="flex items-center gap-xs fs-8 font-medium text-dark"
+                >
+                  <span class="w-2 h-2 rounded-full bg-info"></span> Marketplace
+                </div>
+                <div class="flex gap-sm">
+                  <span class="fs-8 font-bold text-dark tabular-nums">30%</span>
+                  <span class="fs-8 text-secondary tabular-nums">$7,434</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between mb-sm">
+                <div
+                  class="flex items-center gap-xs fs-8 font-medium text-dark"
+                >
+                  <span class="w-2 h-2 rounded-full bg-warning"></span> Retail
+                  Store
+                </div>
+                <div class="flex gap-sm">
+                  <span class="fs-8 font-bold text-dark tabular-nums">20%</span>
+                  <span class="fs-8 text-secondary tabular-nums">$4,956</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <div
+                  class="flex items-center gap-xs fs-8 font-medium text-dark"
+                >
+                  <span class="w-2 h-2 rounded-full bg-purple-500"></span>
+                  Social Media
+                </div>
+                <div class="flex gap-sm">
+                  <span class="fs-8 font-bold text-dark tabular-nums">10%</span>
+                  <span class="fs-8 text-secondary tabular-nums">$2,478</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 3: Insights -->
+  <div class="row">
+    <!-- Top Products -->
+    <div class="col-12 col-xl-4 mb-md">
+      <div class="card h-full">
+        <div class="card-header border-b-0 flex justify-between items-center">
+          <span class="h6 mb-0 text-balance">Top Products</span>
+          <div class="text-right">
+            <span class="fs-8 text-secondary block">View All</span>
+          </div>
+        </div>
+        <div class="card-body p-0">
+          <div class="flex justify-end px-md mb-xs">
+            <div
+              class="flex gap-md fs-8 text-secondary w-[100px] justify-between"
+            >
+              <span>Sales</span>
+              <span>Revenue</span>
+            </div>
+          </div>
+          <div class="list-group list-group-flush border-0">
+            <!-- P1 -->
+            <div
+              class="list-group-item flex items-center justify-between py-sm border-0"
+            >
+              <div class="flex items-center gap-sm">
+                <div
+                  class="w-6 h-6 rounded-md bg-green-50 text-success flex items-center justify-center fs-8 font-bold"
+                >
+                  1
+                </div>
+                <div
+                  class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center shrink-0"
+                >
+                  <span class="material-symbols-outlined text-dark"
+                    >headphones</span
+                  >
+                </div>
+                <div>
+                  <div class="fs-7 font-bold text-dark">Wireless Headphone</div>
+                  <div class="fs-8 text-secondary">Electronics</div>
+                </div>
+              </div>
+              <div
+                class="flex gap-md w-[100px] justify-between items-center tabular-nums"
+              >
+                <span class="fs-7 font-medium text-dark">320</span>
+                <span class="fs-7 font-bold text-success">$9,600</span>
+              </div>
+            </div>
+            <!-- P2 -->
+            <div
+              class="list-group-item flex items-center justify-between py-sm border-0"
+            >
+              <div class="flex items-center gap-sm">
+                <div
+                  class="w-6 h-6 rounded-md bg-gray-50 text-secondary flex items-center justify-center fs-8 font-bold"
+                >
+                  2
+                </div>
+                <div
+                  class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center shrink-0"
+                >
+                  <span class="material-symbols-outlined text-dark">watch</span>
+                </div>
+                <div>
+                  <div class="fs-7 font-bold text-dark">
+                    Smart Watch Series 5
+                  </div>
+                  <div class="fs-8 text-secondary">Electronics</div>
+                </div>
+              </div>
+              <div
+                class="flex gap-md w-[100px] justify-between items-center tabular-nums"
+              >
+                <span class="fs-7 font-medium text-dark">210</span>
+                <span class="fs-7 font-bold text-success">$6,300</span>
+              </div>
+            </div>
+            <!-- P3 -->
+            <div
+              class="list-group-item flex items-center justify-between py-sm border-0"
+            >
+              <div class="flex items-center gap-sm">
+                <div
+                  class="w-6 h-6 rounded-md bg-gray-50 text-secondary flex items-center justify-center fs-8 font-bold"
+                >
+                  3
+                </div>
+                <div
+                  class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center shrink-0"
+                >
+                  <span class="material-symbols-outlined text-dark"
+                    >laptop_mac</span
+                  >
+                </div>
+                <div>
+                  <div class="fs-7 font-bold text-dark">Laptop Pro 14"</div>
+                  <div class="fs-8 text-secondary">Electronics</div>
+                </div>
+              </div>
+              <div
+                class="flex gap-md w-[100px] justify-between items-center tabular-nums"
+              >
+                <span class="fs-7 font-medium text-dark">156</span>
+                <span class="fs-7 font-bold text-success">$5,460</span>
+              </div>
+            </div>
+            <!-- P4 -->
+            <div
+              class="list-group-item flex items-center justify-between py-sm border-0"
+            >
+              <div class="flex items-center gap-sm">
+                <div
+                  class="w-6 h-6 rounded-md bg-gray-50 text-secondary flex items-center justify-center fs-8 font-bold"
+                >
+                  4
+                </div>
+                <div
+                  class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center shrink-0"
+                >
+                  <span class="material-symbols-outlined text-dark"
+                    >speaker</span
+                  >
+                </div>
+                <div>
+                  <div class="fs-7 font-bold text-dark">Bluetooth Speaker</div>
+                  <div class="fs-8 text-secondary">Electronics</div>
+                </div>
+              </div>
+              <div
+                class="flex gap-md w-[100px] justify-between items-center tabular-nums"
+              >
+                <span class="fs-7 font-medium text-dark">98</span>
+                <span class="fs-7 font-bold text-success">$3,920</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sales by Region -->
+    <div class="col-12 col-xl-4 mb-md">
+      <div class="card h-full">
+        <div class="card-header border-b-0 flex justify-between items-center">
+          <span class="h6 mb-0 text-balance">Sales by Region</span>
+          <select class="form-control form-control-sm w-auto">
+            <option>This Month</option>
+          </select>
+        </div>
+        <div class="card-body pt-0 flex gap-sm items-center justify-center">
+          <!-- Abstract Map using SVG or CSS shapes -->
+          <div
+            class="w-[140px] shrink-0 opacity-80 flex justify-center text-gray-300"
+          >
+            <span class="material-symbols-outlined" style="font-size: 120px"
+              >public</span
+            >
+          </div>
+          <div class="flex-1 w-full pl-sm">
+            <div class="flex justify-between items-center mb-xs">
+              <span class="fs-8 font-medium text-dark flex items-center gap-xs"
+                >🇺🇸 United States</span
+              >
+              <div class="flex items-center gap-xs tabular-nums">
+                <span class="fs-8 font-bold text-dark">$8,920</span>
+                <span class="fs-8 text-danger">↓ 2.4%</span>
+              </div>
+            </div>
+            <div class="flex justify-between items-center mb-xs">
+              <span class="fs-8 font-medium text-dark flex items-center gap-xs"
+                >🇮🇩 Indonesia</span
+              >
+              <div class="flex items-center gap-xs tabular-nums">
+                <span class="fs-8 font-bold text-dark">$6,480</span>
+                <span class="fs-8 text-success">↑ 12.6%</span>
+              </div>
+            </div>
+            <div class="flex justify-between items-center mb-xs">
+              <span class="fs-8 font-medium text-dark flex items-center gap-xs"
+                >🇮🇳 India</span
+              >
+              <div class="flex items-center gap-xs tabular-nums">
+                <span class="fs-8 font-bold text-dark">$4,320</span>
+                <span class="fs-8 text-success">↑ 8.3%</span>
+              </div>
+            </div>
+            <div class="flex justify-between items-center mb-xs">
+              <span class="fs-8 font-medium text-dark flex items-center gap-xs"
+                >🇲🇾 Malaysia</span
+              >
+              <div class="flex items-center gap-xs tabular-nums">
+                <span class="fs-8 font-bold text-dark">$2,450</span>
+                <span class="fs-8 text-success">↑ 5.7%</span>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="fs-8 font-medium text-dark flex items-center gap-xs"
+                >🌐 Others</span
+              >
+              <div class="flex items-center gap-xs tabular-nums">
+                <span class="fs-8 font-bold text-dark">$2,610</span>
+                <span class="fs-8 text-success">↑ 3.1%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sales Funnel -->
+    <div class="col-12 col-xl-4 mb-md">
+      <div class="card h-full">
+        <div class="card-header border-b-0 flex justify-between items-center">
+          <span class="h6 mb-0 text-balance">Sales Funnel</span>
+        </div>
+        <div class="card-body pt-0 pb-sm flex items-center justify-center">
+          <div class="flex gap-md w-full items-center">
+            <!-- SVG Funnel representation -->
+            <div
+              class="w-[120px] shrink-0 h-[160px] flex flex-col justify-between"
+            >
+              <div
+                class="w-full h-[35px] bg-success"
+                style="clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%)"
+              ></div>
+              <div
+                class="w-[80%] mx-auto h-[35px] bg-success opacity-80"
+                style="clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%)"
+              ></div>
+              <div
+                class="w-[60%] mx-auto h-[35px] bg-success opacity-60"
+                style="clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%)"
+              ></div>
+              <div
+                class="w-[40%] mx-auto h-[35px] bg-success opacity-40"
+                style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)"
+              ></div>
+            </div>
+            <div class="flex-1 flex flex-col justify-between h-[160px]">
+              <div class="flex justify-between items-center h-[35px]">
+                <span class="fs-8 text-secondary">Visitors</span>
+                <div class="flex gap-xs items-center tabular-nums">
+                  <span class="fs-8 font-bold text-dark">12,845</span>
+                  <span class="fs-[10px] text-success">↑ 18.6%</span>
+                </div>
+              </div>
+              <div class="flex justify-between items-center h-[35px]">
+                <span class="fs-8 text-secondary">Add to Cart</span>
+                <div class="flex gap-xs items-center tabular-nums">
+                  <span class="fs-8 font-bold text-dark">3,245</span>
+                  <span class="fs-[10px] text-success">↑ 14.2%</span>
+                </div>
+              </div>
+              <div class="flex justify-between items-center h-[35px]">
+                <span class="fs-8 text-secondary">Checkout</span>
+                <div class="flex gap-xs items-center tabular-nums">
+                  <span class="fs-8 font-bold text-dark">1,842</span>
+                  <span class="fs-[10px] text-success">↑ 10.3%</span>
+                </div>
+              </div>
+              <div class="flex justify-between items-center h-[35px]">
+                <span class="fs-8 text-secondary">Purchase</span>
+                <div class="flex gap-xs items-center tabular-nums">
+                  <span class="fs-8 font-bold text-dark">573</span>
+                  <span class="fs-[10px] text-success">↑ 12.2%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center pb-md">
+          <div class="fs-8 text-secondary">Conversion Rate</div>
+          <div class="fs-3 font-bold text-success tabular-nums lh-1">3.24%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 4: Details -->
+  <div class="row">
+    <!-- Recent Orders -->
+    <div class="col-12 col-xl-4 mb-md">
+      <div class="card h-full">
+        <div class="card-header border-b-0 flex justify-between items-center">
+          <span class="h6 mb-0 text-balance">Recent Orders</span>
+          <span class="fs-8 text-secondary cursor-pointer">View All</span>
+        </div>
+        <div class="card-body p-0">
+          <div class="list-group list-group-flush border-0">
+            <div
+              class="list-group-item flex items-center justify-between py-sm border-0"
+            >
+              <div class="flex items-center gap-sm">
+                <div
+                  class="w-8 h-8 rounded-lg bg-green-50 text-success flex items-center justify-center shrink-0"
+                >
+                  <span class="material-symbols-outlined fs-6"
+                    >receipt_long</span
+                  >
+                </div>
+                <div>
+                  <div class="fs-8 font-bold text-dark">#ORD-250526-001</div>
+                  <div class="fs-8 text-secondary">26 May 2026, 10:24 AM</div>
+                </div>
+              </div>
+              <div class="fs-8 text-dark font-medium">John Doe</div>
+              <div class="text-right tabular-nums">
+                <div class="fs-8 font-bold text-dark">$299.00</div>
+                <span class="badge badge-sm badge-success rounded-xl px-2"
+                  >Completed</span
+                >
+              </div>
+            </div>
+            <div
+              class="list-group-item flex items-center justify-between py-sm border-0"
+            >
+              <div class="flex items-center gap-sm">
+                <div
+                  class="w-8 h-8 rounded-lg bg-green-50 text-success flex items-center justify-center shrink-0"
+                >
+                  <span class="material-symbols-outlined fs-6"
+                    >receipt_long</span
+                  >
+                </div>
+                <div>
+                  <div class="fs-8 font-bold text-dark">#ORD-250526-002</div>
+                  <div class="fs-8 text-secondary">26 May 2026, 09:15 AM</div>
+                </div>
+              </div>
+              <div class="fs-8 text-dark font-medium">Sarah Wilson</div>
+              <div class="text-right tabular-nums">
+                <div class="fs-8 font-bold text-dark">$159.00</div>
+                <span class="badge badge-sm badge-warning rounded-xl px-2"
+                  >Processing</span
+                >
+              </div>
+            </div>
+            <div
+              class="list-group-item flex items-center justify-between py-sm border-0"
+            >
+              <div class="flex items-center gap-sm">
+                <div
+                  class="w-8 h-8 rounded-lg bg-green-50 text-success flex items-center justify-center shrink-0"
+                >
+                  <span class="material-symbols-outlined fs-6"
+                    >receipt_long</span
+                  >
+                </div>
+                <div>
+                  <div class="fs-8 font-bold text-dark">#ORD-250526-003</div>
+                  <div class="fs-8 text-secondary">26 May 2026, 08:45 AM</div>
+                </div>
+              </div>
+              <div class="fs-8 text-dark font-medium">Michael Brown</div>
+              <div class="text-right tabular-nums">
+                <div class="fs-8 font-bold text-dark">$89.00</div>
+                <span class="badge badge-sm badge-info rounded-xl px-2"
+                  >Shipped</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sales Performance -->
+    <div class="col-12 col-xl-4 mb-md">
+      <div class="card h-full">
+        <div class="card-header border-b-0 flex justify-between items-center">
+          <span class="h6 mb-0 text-balance">Sales Performance</span>
+          <select class="form-control form-control-sm w-auto">
+            <option>This Month</option>
+          </select>
+        </div>
+        <div class="card-body pt-0 flex flex-col justify-center items-center">
+          <div class="relative w-[140px] h-[140px] mb-md mt-sm">
+            <canvas id="performanceChart"></canvas>
+            <div
+              class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none"
+            >
+              <span class="fs-4 font-bold text-dark lh-1">118%</span>
+              <span
+                class="fs-[10px] text-secondary text-center leading-tight mt-1"
+                >of Sales Target</span
+              >
+            </div>
+          </div>
+          <div
+            class="w-full flex justify-between items-center mt-auto tabular-nums"
+          >
+            <div class="text-center">
+              <span class="fs-8 text-secondary block">Target</span>
+              <span class="fs-6 font-bold text-dark">$21,000</span>
+            </div>
+            <div class="text-center">
+              <span class="fs-8 text-secondary block">Achieved</span>
+              <span class="fs-6 font-bold text-dark">$24,780</span>
+            </div>
+            <div class="text-center">
+              <span class="fs-8 text-secondary block">Remaining</span>
+              <span class="fs-6 font-bold text-dark">$0</span>
+            </div>
+          </div>
+          <div class="w-full mt-sm">
+            <div class="flex items-center gap-xs fs-8 text-secondary">
+              <span class="w-full h-1 bg-gray-200 rounded-full relative">
+                <span
+                  class="absolute left-0 top-0 h-full bg-success rounded-full"
+                  style="width: 100%"
+                ></span>
+              </span>
+            </div>
+            <div class="fs-[10px] text-secondary mt-2">
+              Great job! You've exceeded the target 🎉
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Activities -->
+    <div class="col-12 col-xl-4 mb-md">
+      <div class="card h-full">
+        <div class="card-header border-b-0 flex justify-between items-center">
+          <span class="h6 mb-0 text-balance">Recent Activities</span>
+          <span class="fs-8 text-secondary cursor-pointer">View All</span>
+        </div>
+        <div class="card-body pt-sm">
+          <div
+            class="relative border-l-2 border-gray-100 ml-sm pl-md flex flex-col gap-md"
+          >
+            <!-- Item 1 -->
+            <div class="relative">
+              <span
+                class="absolute -left-[27px] bg-white w-5 h-5 rounded-full border-2 border-success flex items-center justify-center text-success"
+              >
+                <span class="material-symbols-outlined" style="font-size: 12px"
+                  >receipt_long</span
+                >
+              </span>
+              <div class="flex justify-between items-start">
+                <span class="fs-8 font-medium text-dark"
+                  >New order #ORD-250526-004</span
+                >
+                <span class="fs-[10px] text-secondary">2 min ago</span>
+              </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="relative">
+              <span
+                class="absolute -left-[27px] bg-white w-5 h-5 rounded-full border-2 border-success flex items-center justify-center text-success"
+              >
+                <span class="material-symbols-outlined" style="font-size: 12px"
+                  >payments</span
+                >
+              </span>
+              <div class="flex justify-between items-start">
+                <span class="fs-8 font-medium text-dark"
+                  >Payment received from John Doe</span
+                >
+                <span class="fs-[10px] text-secondary">15 min ago</span>
+              </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="relative">
+              <span
+                class="absolute -left-[27px] bg-white w-5 h-5 rounded-full border-2 border-info flex items-center justify-center text-info"
+              >
+                <span class="material-symbols-outlined" style="font-size: 12px"
+                  >person_add</span
+                >
+              </span>
+              <div class="flex justify-between items-start">
+                <span class="fs-8 font-medium text-dark"
+                  >New customer registered: David Smith</span
+                >
+                <span class="fs-[10px] text-secondary">1 hour ago</span>
+              </div>
+            </div>
+            <!-- Item 4 -->
+            <div class="relative">
+              <span
+                class="absolute -left-[27px] bg-white w-5 h-5 rounded-full border-2 border-success flex items-center justify-center text-success"
+              >
+                <span class="material-symbols-outlined" style="font-size: 12px"
+                  >local_shipping</span
+                >
+              </span>
+              <div class="flex justify-between items-start">
+                <span class="fs-8 font-medium text-dark"
+                  >Order #ORD-250526-001 completed</span
+                >
+                <span class="fs-[10px] text-secondary">2 hours ago</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</template>
+
+<script setup>
+definePageMeta({
+  layout: 'presensio'
+})
+</script>

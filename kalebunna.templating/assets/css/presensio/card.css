@@ -1,0 +1,267 @@
+/* Card Component Styles */
+@utility card {
+  background-color: #ffffff;
+  border: 1px solid #f3f4f6;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  @apply flex flex-col;
+}
+@utility card-shadow {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+@utility card-horizontal {
+  @apply flex-row items-center;
+}
+@utility card-body {
+  @apply p-md flex-1;
+}
+@utility card-header {
+  @apply p-sm px-md flex justify-between items-center;
+  border-bottom: 1px solid #f3f4f6;
+  border-top-left-radius: 11px;
+  border-top-right-radius: 11px;
+}
+@utility card-footer {
+  @apply p-sm text-center;
+  border-top: 1px solid #f3f4f6;
+  background-color: #fafafa;
+  border-bottom-left-radius: 11px;
+  border-bottom-right-radius: 11px;
+}
+@utility card-title {
+  @apply text-base font-semibold;
+  color: #111827;
+}
+@utility card-subtitle {
+  @apply text-sm;
+  color: var(--color-on-surface-variant);
+}
+
+/* Background Color Variations (Solid) */
+@utility card-primary {
+  background-color: #08783a;
+  color: #ffffff;
+  border-color: #08783a;
+  & .card-title,
+  & .card-subtitle {
+    color: #ffffff;
+  }
+}
+@utility card-danger {
+  background-color: #dc2626;
+  color: #ffffff;
+  border-color: #dc2626;
+  & .card-title,
+  & .card-subtitle {
+    color: #ffffff;
+  }
+}
+@utility card-warning {
+  background-color: #f59e0b;
+  color: #ffffff;
+  border-color: #f59e0b;
+  & .card-title,
+  & .card-subtitle {
+    color: #ffffff;
+  }
+}
+@utility card-dark {
+  background-color: #111827;
+  color: #ffffff;
+  border-color: #111827;
+  & .card-title,
+  & .card-subtitle {
+    color: #ffffff;
+  }
+}
+@utility card-success {
+  background-color: #16a34a;
+  color: #ffffff;
+  border-color: #16a34a;
+  & .card-title,
+  & .card-subtitle {
+    color: #ffffff;
+  }
+}
+@utility card-info {
+  background-color: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+  & .card-title,
+  & .card-subtitle {
+    color: #ffffff;
+  }
+}
+
+/* ============================================================
+   Light / Soft Background Card Variations (Tanpa Shadow)
+   ============================================================ */
+
+/* Light / Neutral */
+@utility card-light {
+  background-color: #f9fafb;
+  border-color: #e5e7eb;
+  box-shadow: none;
+  color: #1f2937;
+  & .card-title {
+    color: #111827;
+  }
+  & .card-subtitle {
+    color: var(--color-on-surface-variant);
+  }
+  & .card-header,
+  & .card-footer {
+    border-color: #e5e7eb;
+    background-color: transparent;
+  }
+}
+
+/* Light Primary (Hijau Kemenag Soft) */
+@utility card-light-primary {
+  background-color: #f0fdf4;
+  border-color: #bbf7d0;
+  box-shadow: none;
+  color: #166534;
+  & .card-title {
+    color: #14532d;
+  }
+  & .card-subtitle {
+    color: #15803d;
+  }
+  & .card-header,
+  & .card-footer {
+    border-color: #bbf7d0;
+    background-color: transparent;
+  }
+}
+
+/* Light Danger (Merah Soft) */
+@utility card-light-danger {
+  background-color: #fef2f2;
+  border-color: #fecaca;
+  box-shadow: none;
+  color: #991b1b;
+  & .card-title {
+    color: #7f1d1d;
+  }
+  & .card-subtitle {
+    color: #b91c1c;
+  }
+  & .card-header,
+  & .card-footer {
+    border-color: #fecaca;
+    background-color: transparent;
+  }
+}
+
+/* Light Warning (Kuning / Amber Soft) */
+@utility card-light-warning {
+  background-color: #fffbeb;
+  border-color: #fde68a;
+  box-shadow: none;
+  color: #92400e;
+  & .card-title {
+    color: #78350f;
+  }
+  & .card-subtitle {
+    color: #b45309;
+  }
+  & .card-header,
+  & .card-footer {
+    border-color: #fde68a;
+    background-color: transparent;
+  }
+}
+
+/* Light Success (Hijau Soft) */
+@utility card-light-success {
+  background-color: #f0fdf4;
+  border-color: #bbf7d0;
+  box-shadow: none;
+  color: #166534;
+  & .card-title {
+    color: #14532d;
+  }
+  & .card-subtitle {
+    color: #15803d;
+  }
+  & .card-header,
+  & .card-footer {
+    border-color: #bbf7d0;
+    background-color: transparent;
+  }
+}
+
+/* Light Info (Biru Soft) */
+@utility card-light-info {
+  background-color: #eff6ff;
+  border-color: #bfdbfe;
+  box-shadow: none;
+  color: #1e40af;
+  & .card-title {
+    color: #1e3a8a;
+  }
+  & .card-subtitle {
+    color: #2563eb;
+  }
+  & .card-header,
+  & .card-footer {
+    border-color: #bfdbfe;
+    background-color: transparent;
+  }
+}
+
+/* Light Dark (Abu Gelap Soft) */
+@utility card-light-dark {
+  background-color: #f3f4f6;
+  border-color: #d1d5db;
+  box-shadow: none;
+  color: #1f2937;
+  & .card-title {
+    color: #111827;
+  }
+  & .card-subtitle {
+    color: #4b5563;
+  }
+  & .card-header,
+  & .card-footer {
+    border-color: #d1d5db;
+    background-color: transparent;
+  }
+}
+
+/* Utilities to explicitly remove shadow */
+@utility card-flat {
+  box-shadow: none;
+}
+@utility card-no-shadow {
+  box-shadow: none;
+}
+@utility card-shadow-none {
+  box-shadow: none;
+}
+
+/* ============================================================
+   Left Border Accent Cards
+   ============================================================ */
+@utility card-border-left-primary {
+  border-left: 4px solid #08783a;
+}
+@utility card-border-left-secondary {
+  border-left: 4px solid #6b7280;
+}
+@utility card-border-left-success {
+  border-left: 4px solid #16a34a;
+}
+@utility card-border-left-danger {
+  border-left: 4px solid #dc2626;
+}
+@utility card-border-left-warning {
+  border-left: 4px solid #f59e0b;
+}
+@utility card-border-left-info {
+  border-left: 4px solid #2563eb;
+}
+@utility card-border-left-dark {
+  border-left: 4px solid #111827;
+}

@@ -1,0 +1,454 @@
+<template>
+<div class="content-canvas">
+  <!-- Header -->
+  <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-md gap-4">
+    <div class="welcome-section mb-0">
+      <h3 class="welcome-title font-bold text-balance">Education Dashboard</h3>
+      <p class="welcome-subtitle">
+        Overview of your school's attendance and academic performance.
+      </p>
+    </div>
+    <div class="flex items-center gap-sm">
+      <button class="btn btn-outline-dark bg-white flex items-center gap-xs">
+        <span class="material-symbols-outlined fs-6">calendar_month</span>
+        Tahun Ajaran 2025/2026
+        <span class="material-symbols-outlined fs-6 ml-xs">keyboard_arrow_down</span>
+      </button>
+      <button class="btn btn-primary flex items-center gap-xs">
+        <span class="material-symbols-outlined fs-6">download</span>
+        Export Report
+      </button>
+    </div>
+  </div>
+
+  <!-- STAT CARDS -->
+  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-md mb-md">
+    <!-- Total Students -->
+    <div class="card card-light-primary h-full">
+      <div class="card-body">
+        <div class="flex justify-between items-start mb-sm">
+          <div>
+            <span class="fs-7 font-semibold opacity-75 block mb-xs">Total Siswa</span>
+            <div class="fs-3 font-bold tabular-nums mb-0 text-balance">1,245</div>
+          </div>
+          <div class="w-10 h-10 rounded-lg bg-green-200/50 flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined fs-5">group</span>
+          </div>
+        </div>
+        <div class="fs-8 mt-sm font-medium flex items-center gap-1 opacity-90">
+           <span class="flex items-center"><span class="material-symbols-outlined fs-7">trending_up</span> +5.2%</span>
+           <span class="opacity-75">dari bulan lalu</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Avg Attendance -->
+    <div class="card card-light-info h-full">
+      <div class="card-body">
+        <div class="flex justify-between items-start mb-sm">
+          <div>
+            <span class="fs-7 font-semibold opacity-75 block mb-xs">Rata-rata Hadir</span>
+            <div class="fs-3 font-bold tabular-nums mb-0 text-balance">94.8%</div>
+          </div>
+          <div class="w-10 h-10 rounded-lg bg-blue-200/50 flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined fs-5">how_to_reg</span>
+          </div>
+        </div>
+        <div class="fs-8 mt-sm font-medium flex items-center gap-1 opacity-90">
+           <span class="flex items-center"><span class="material-symbols-outlined fs-7">trending_up</span> +1.2%</span>
+           <span class="opacity-75">dari minggu lalu</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Active Assignments -->
+    <div class="card card-light-warning h-full">
+      <div class="card-body">
+        <div class="flex justify-between items-start mb-sm">
+          <div>
+            <span class="fs-7 font-semibold opacity-75 block mb-xs">Tugas Aktif</span>
+            <div class="fs-3 font-bold tabular-nums mb-0 text-balance">38</div>
+          </div>
+          <div class="w-10 h-10 rounded-lg bg-amber-200/50 flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined fs-5">assignment</span>
+          </div>
+        </div>
+        <div class="fs-8 mt-sm font-medium flex items-center gap-1 opacity-90">
+           <span class="flex items-center"><span class="material-symbols-outlined fs-7">schedule</span> 12 tenggat hari ini</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Upcoming Events -->
+    <div class="card card-light-danger h-full">
+      <div class="card-body">
+        <div class="flex justify-between items-start mb-sm">
+          <div>
+            <span class="fs-7 font-semibold opacity-75 block mb-xs">Acara Mendatang</span>
+            <div class="fs-3 font-bold tabular-nums mb-0 text-balance">5</div>
+          </div>
+          <div class="w-10 h-10 rounded-lg bg-red-200/50 flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined fs-5">event</span>
+          </div>
+        </div>
+        <div class="fs-8 mt-sm font-medium flex items-center gap-1 opacity-90">
+           <span class="flex items-center"><span class="material-symbols-outlined fs-7">timer</span> Acara berikutnya dalam 2 hari</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHARTS AND ASSIGNMENTS -->
+  <div class="row mb-md">
+    <!-- Attendance Chart -->
+    <div class="col-12 col-xl-8 mb-md">
+      <div class="card h-full">
+        <div class="card-header border-b-0 flex justify-between items-center">
+          <div class="flex items-center gap-sm">
+            <div class="w-8 h-8 rounded-lg bg-green-50 text-success flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined fs-6">show_chart</span>
+            </div>
+            <span class="h6 mb-0 text-balance">Tren Kehadiran (Mingguan)</span>
+          </div>
+          <select class="form-control form-control-sm w-auto">
+            <option>Minggu Ini</option>
+          </select>
+        </div>
+        <div class="card-body pt-sm">
+          <div class="h-72">
+            <canvas id="attendanceChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Assignment Status Doughnut -->
+    <div class="col-12 col-xl-4 mb-md">
+      <div class="card h-full">
+        <div class="card-header border-b-0 flex justify-between items-center">
+          <div class="flex items-center gap-sm">
+            <div class="w-8 h-8 rounded-lg bg-green-50 text-success flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined fs-6">donut_large</span>
+            </div>
+            <span class="h6 mb-0 text-balance">Status Tugas</span>
+          </div>
+        </div>
+        <div class="card-body pt-sm flex flex-col justify-center">
+          <div class="h-52 flex items-center justify-center">
+            <canvas id="assignmentChart"></canvas>
+          </div>
+          <!-- Legend -->
+          <div class="mt-md flex flex-col gap-xs">
+            <div class="flex items-center justify-between fs-7">
+              <div class="flex items-center gap-xs font-medium text-dark">
+                <span class="w-3 h-3 rounded-full inline-block bg-green-600"></span>
+                <span>Selesai</span>
+              </div>
+              <span class="font-bold tabular-nums text-dark">65%</span>
+            </div>
+            <div class="flex items-center justify-between fs-7">
+              <div class="flex items-center gap-xs font-medium text-dark">
+                <span class="w-3 h-3 rounded-full inline-block bg-amber-500"></span>
+                <span>Pending</span>
+              </div>
+              <span class="font-bold tabular-nums text-dark">25%</span>
+            </div>
+            <div class="flex items-center justify-between fs-7">
+              <div class="flex items-center gap-xs font-medium text-dark">
+                <span class="w-3 h-3 rounded-full inline-block bg-red-500"></span>
+                <span>Terlambat</span>
+              </div>
+              <span class="font-bold tabular-nums text-dark">10%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCHEDULE, EVENTS, ATTENDEES -->
+  <div class="row">
+    <!-- CLASS SCHEDULE -->
+    <div class="col-12 col-xl-6 mb-md">
+      <div class="card card-border-left-primary h-full">
+        <div class="card-header border-b-0 flex justify-between items-center">
+          <div class="flex items-center gap-sm">
+            <div class="w-8 h-8 rounded-lg bg-green-50 text-success flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined fs-6">schedule</span>
+            </div>
+            <span class="h6 mb-0 text-balance">Jadwal Kelas</span>
+          </div>
+          <span class="badge badge-sm badge-success">Hari Ini</span>
+        </div>
+        <div class="card-body p-0">
+          <div class="table-container shadow-none border-0 rounded-none">
+            <table class="table table-hover mb-0">
+              <thead>
+                <tr>
+                  <th>Waktu</th>
+                  <th>Mata Pelajaran</th>
+                  <th>Guru</th>
+                  <th>Ruang</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-bold text-primary tabular-nums">08:00 - 09:30</td>
+                  <td class="font-medium text-dark">Matematika</td>
+                  <td class="text-secondary">Bpk. Ahmad</td>
+                  <td><span class="badge badge-sm badge-primary rounded-xl px-2">Ruang A1</span></td>
+                </tr>
+                <tr>
+                  <td class="font-bold text-dark tabular-nums">09:45 - 11:15</td>
+                  <td class="font-medium text-dark">Fisika</td>
+                  <td class="text-secondary">Ibu Sari</td>
+                  <td><span class="badge badge-sm badge-light rounded-xl px-2 border border-gray-200">Lab 2</span></td>
+                </tr>
+                <tr>
+                  <td class="font-bold text-dark tabular-nums">11:30 - 13:00</td>
+                  <td class="font-medium text-dark">Sejarah</td>
+                  <td class="text-secondary">Bpk. Budi</td>
+                  <td><span class="badge badge-sm badge-primary rounded-xl px-2">Ruang B3</span></td>
+                </tr>
+                <tr>
+                  <td class="font-bold text-dark tabular-nums">14:00 - 15:30</td>
+                  <td class="font-medium text-dark">Biologi</td>
+                  <td class="text-secondary">Ibu Dewi</td>
+                  <td><span class="badge badge-sm badge-light rounded-xl px-2 border border-gray-200">Lab 1</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- UPCOMING EVENTS & RECENT ATTENDEES -->
+    <div class="col-12 col-xl-6 mb-md">
+      <div class="row h-full">
+        <!-- UPCOMING EVENTS -->
+        <div class="col-12 col-md-6 mb-md">
+          <div class="card card-border-left-warning h-full">
+            <div class="card-header border-b-0">
+              <div class="flex items-center gap-sm">
+                <div class="w-8 h-8 rounded-lg bg-amber-50 text-warning flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined fs-6">event_upcoming</span>
+                </div>
+                <span class="h6 mb-0 text-balance">Acara Mendatang</span>
+              </div>
+            </div>
+            <div class="card-body p-0">
+              <div class="list-group list-group-flush border-0">
+                <!-- Event Item 1 -->
+                <div class="list-group-item flex items-center gap-sm py-sm border-0 hover:bg-gray-50 transition-colors cursor-pointer">
+                  <div class="w-12 h-12 rounded-lg bg-green-50 text-success flex flex-col items-center justify-center shrink-0 leading-none">
+                    <span class="font-bold fs-7">15</span>
+                    <span class="font-bold fs-8">JUL</span>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="font-medium text-dark truncate mb-0 fs-7">Science Fair 2026</p>
+                    <p class="text-secondary fs-8 mb-0 flex items-center gap-xs"><span class="material-symbols-outlined" style="font-size:12px;">location_on</span> Aula Utama</p>
+                  </div>
+                </div>
+                <!-- Event Item 2 -->
+                <div class="list-group-item flex items-center gap-sm py-sm border-0 hover:bg-gray-50 transition-colors cursor-pointer">
+                  <div class="w-12 h-12 rounded-lg bg-blue-50 text-info flex flex-col items-center justify-center shrink-0 leading-none">
+                    <span class="font-bold fs-7">22</span>
+                    <span class="font-bold fs-8">JUL</span>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="font-medium text-dark truncate mb-0 fs-7">Pertemuan Orang Tua</p>
+                    <p class="text-secondary fs-8 mb-0 flex items-center gap-xs"><span class="material-symbols-outlined" style="font-size:12px;">location_on</span> Semua Kelas</p>
+                  </div>
+                </div>
+                <!-- Event Item 3 -->
+                <div class="list-group-item flex items-center gap-sm py-sm border-0 hover:bg-gray-50 transition-colors cursor-pointer">
+                  <div class="w-12 h-12 rounded-lg bg-red-50 text-danger flex flex-col items-center justify-center shrink-0 leading-none">
+                    <span class="font-bold fs-7">05</span>
+                    <span class="font-bold fs-8">AGU</span>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="font-medium text-dark truncate mb-0 fs-7">Hari Olahraga</p>
+                    <p class="text-secondary fs-8 mb-0 flex items-center gap-xs"><span class="material-symbols-outlined" style="font-size:12px;">location_on</span> Lapangan</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RECENT ATTENDEES -->
+        <div class="col-12 col-md-6 mb-md">
+          <div class="card card-border-left-success h-full">
+            <div class="card-header border-b-0">
+              <div class="flex items-center gap-sm">
+                <div class="w-8 h-8 rounded-lg bg-green-50 text-success flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined fs-6">recent_actors</span>
+                </div>
+                <span class="h6 mb-0 text-balance">Kehadiran Terkini</span>
+              </div>
+            </div>
+            <div class="card-body p-0">
+              <div class="list-group list-group-flush border-0">
+                <!-- Attendee 1 -->
+                <div class="list-group-item flex items-center gap-sm py-sm border-0 hover:bg-gray-50 transition-colors cursor-pointer">
+                  <img src="https://i.pravatar.cc/150?img=32" alt="Sarah" class="w-10 h-10 rounded-full" />
+                  <div class="flex-1 min-w-0">
+                    <p class="font-medium text-dark truncate mb-0 fs-7">Sarah Jenkins</p>
+                    <p class="text-secondary fs-8 mb-0">Kelas 10A</p>
+                  </div>
+                  <span class="badge badge-sm badge-success rounded-xl px-2">Hadir</span>
+                </div>
+                <!-- Attendee 2 -->
+                <div class="list-group-item flex items-center gap-sm py-sm border-0 hover:bg-gray-50 transition-colors cursor-pointer">
+                  <img src="https://i.pravatar.cc/150?img=11" alt="Michael" class="w-10 h-10 rounded-full" />
+                  <div class="flex-1 min-w-0">
+                    <p class="font-medium text-dark truncate mb-0 fs-7">Michael Chen</p>
+                    <p class="text-secondary fs-8 mb-0">Kelas 10B</p>
+                  </div>
+                  <span class="badge badge-sm badge-warning rounded-xl px-2">Telat</span>
+                </div>
+                <!-- Attendee 3 -->
+                <div class="list-group-item flex items-center gap-sm py-sm border-0 hover:bg-gray-50 transition-colors cursor-pointer">
+                  <img src="https://i.pravatar.cc/150?img=47" alt="Emma" class="w-10 h-10 rounded-full" />
+                  <div class="flex-1 min-w-0">
+                    <p class="font-medium text-dark truncate mb-0 fs-7">Emma Watson</p>
+                    <p class="text-secondary fs-8 mb-0">Kelas 12A</p>
+                  </div>
+                  <span class="badge badge-sm badge-danger rounded-xl px-2">Absen</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Chart Initialization Script -->
+
+</template>
+
+<script setup>import { onMounted } from 'vue'
+import Chart from "chart.js/auto";
+import { useHead } from '#imports'
+
+definePageMeta({
+  layout: 'presensio'
+})
+onMounted(() => {
+
+  
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // Attendance Trend Line Chart — Hijau Modern
+    const ctxAttendance = document.getElementById("attendanceChart");
+    if (ctxAttendance) {
+      new Chart(ctxAttendance, {
+        type: "line",
+        data: {
+          labels: ["Sen", "Sel", "Rab", "Kam", "Jum"],
+          datasets: [
+            {
+              label: "Kehadiran %",
+              data: [92, 95, 93, 98, 96],
+              borderColor: "#08783a",
+              backgroundColor: "rgba(8, 120, 58, 0.08)",
+              borderWidth: 2.5,
+              tension: 0.35,
+              fill: true,
+              pointBackgroundColor: "#ffffff",
+              pointBorderColor: "#08783a",
+              pointBorderWidth: 2,
+              pointRadius: 4,
+              pointHoverRadius: 6,
+              pointHoverBackgroundColor: "#08783a",
+              pointHoverBorderColor: "#ffffff",
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: "#ffffff",
+              titleColor: "#111827",
+              bodyColor: "#374151",
+              borderColor: "#E5E7EB",
+              borderWidth: 1,
+              padding: 10,
+              cornerRadius: 8,
+              callbacks: {
+                label: (ctx) => ` ${ctx.parsed.y}% kehadiran`,
+              },
+            },
+          },
+          scales: {
+            y: {
+              beginAtZero: false,
+              min: 80,
+              max: 100,
+              grid: { color: "#F3F4F6", drawBorder: false },
+              border: { display: false },
+              ticks: {
+                font: { family: "'Poppins', sans-serif", size: 11 },
+                color: "#9CA3AF",
+                callback: (v) => v + "%",
+              },
+            },
+            x: {
+              grid: { display: false },
+              border: { display: false },
+              ticks: {
+                font: { family: "'Poppins', sans-serif", size: 11 },
+                color: "#9CA3AF",
+              },
+            },
+          },
+        },
+      });
+    }
+
+    // Assignment Status Doughnut Chart
+    const ctxAssignment = document.getElementById("assignmentChart");
+    if (ctxAssignment) {
+      new Chart(ctxAssignment, {
+        type: "doughnut",
+        data: {
+          labels: ["Selesai", "Pending", "Terlambat"],
+          datasets: [
+            {
+              data: [65, 25, 10],
+              backgroundColor: ["#08783a", "#f59e0b", "#ef4444"],
+              borderColor: "#ffffff",
+              borderWidth: 3,
+              hoverOffset: 6,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: "#ffffff",
+              titleColor: "#111827",
+              bodyColor: "#374151",
+              borderColor: "#E5E7EB",
+              borderWidth: 1,
+              padding: 10,
+              cornerRadius: 8,
+            },
+          },
+          cutout: "68%",
+        },
+      });
+    }
+  });
+
+})
+</script>

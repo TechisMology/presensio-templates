@@ -1,0 +1,146 @@
+<template>
+<div class="content-canvas">
+  <div class="mb-md"><h3 class="font-bold text-xl">{{ 'Toast Components' }}</h3></div>
+
+  <div class="row">
+    <!-- Interactive Toast Sandbox -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header"><span class="h6 mb-0">Interactive Toast Sandbox</span></div>
+        <div class="card-body">
+          <p class="fs-7 text-secondary mb-md">Configure settings and click "Show Toast" to trigger stacking, time-progressed notifications.</p>
+          
+          <div class="form-group">
+            <label class="form-label">Notification Theme</label>
+            <select id="toast-type" class="form-control">
+              <option value="success">Success (Green)</option>
+              <option value="danger">Danger (Red)</option>
+              <option value="warning">Warning (Yellow)</option>
+              <option value="primary">Primary (Blue)</option>
+              <option value="dark">Dark (Black)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Alert Title</label>
+            <input type="text" id="toast-title-input" value="System Notification" class="form-control" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Alert Message</label>
+            <textarea id="toast-msg-input" rows="2" class="form-control">Database backup completed successfully. System integrity is verified.</textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Display Duration (milliseconds)</label>
+            <input type="number" id="toast-duration" value="4000" class="form-control" />
+          </div>
+
+          <div class="flex items-center gap-xs pb-xs">
+            <input type="checkbox" id="toast-full-bg" class="rounded border-gray-300 text-primary focus:ring-primary cursor-pointer" />
+            <label for="toast-full-bg" class="text-sm font-semibold text-gray-700 cursor-pointer select-none">Full Background Theme</label>
+          </div>
+
+          <button onclick="triggerSandboxToast()" class="btn btn-md btn-primary  w-full">
+            <span class="material-symbols-outlined fs-6">notifications_active</span>
+            Show Toast Alert
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Static Preview Templates -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header"><span class="h6 mb-0">Static Style Previews</span></div>
+        <div class="card-body space-y-sm">
+          <p class="fs-7 text-secondary mb-md">Visual styles and left-accent colors for each stateful configuration.</p>
+          
+          <!-- Success Preview -->
+          <div class="toast toast-success show" style="position: static; transform: none; opacity: 1; width: 100%;">
+            <div class="toast-header">
+              <span class="toast-title">
+                <span class="material-symbols-outlined text-success fs-6">check_circle</span>
+                Transaction Completed
+              </span>
+            </div>
+            <div class="toast-body">Payment was received and processed successfully. Receipt has been emailed.</div>
+          </div>
+
+          <!-- Danger Preview -->
+          <div class="toast toast-danger show" style="position: static; transform: none; opacity: 1; width: 100%;">
+            <div class="toast-header">
+              <span class="toast-title">
+                <span class="material-symbols-outlined text-danger fs-6">error</span>
+                Sync Failed
+              </span>
+            </div>
+            <div class="toast-body">Unable to establish connection with LDAP authorization servers. Code: 504.</div>
+          </div>
+
+          <!-- Warning Preview -->
+          <div class="toast toast-warning show" style="position: static; transform: none; opacity: 1; width: 100%;">
+            <div class="toast-header">
+              <span class="toast-title">
+                <span class="material-symbols-outlined text-warning fs-6">warning</span>
+                Disk Quota Alert
+              </span>
+            </div>
+            <div class="toast-body">Server storage usage is currently at 86%. Clear logs soon.</div>
+          </div>
+
+          <hr class="border-gray-200" />
+          <p class="fs-7 text-secondary mb-md">Full background color variants.</p>
+
+          <!-- Success Full BG Preview -->
+          <div class="toast toast-bg-success show" style="position: static; transform: none; opacity: 1; width: 100%;">
+            <div class="toast-header">
+              <span class="toast-title">
+                <span class="material-symbols-outlined fs-6">check_circle</span>
+                Backup Success (Full BG)
+              </span>
+            </div>
+            <div class="toast-body">All database configurations and school data tables backed up correctly.</div>
+          </div>
+
+          <!-- Danger Full BG Preview -->
+          <div class="toast toast-bg-danger show" style="position: static; transform: none; opacity: 1; width: 100%;">
+            <div class="toast-header">
+              <span class="toast-title">
+                <span class="material-symbols-outlined fs-6">error</span>
+                Error Detected (Full BG)
+              </span>
+            </div>
+            <div class="toast-body">Connection lost to external authentication services. Retry in progress.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</template>
+
+<script setup>import { onMounted } from 'vue'
+import { useHead } from '#imports'
+
+definePageMeta({
+  layout: 'presensio'
+})
+onMounted(() => {
+
+  function triggerSandboxToast() {
+    const type = document.getElementById('toast-type').value;
+    const title = document.getElementById('toast-title-input').value;
+    const message = document.getElementById('toast-msg-input').value;
+    const duration = parseInt(document.getElementById('toast-duration').value) || 4000;
+    const fullBg = document.getElementById('toast-full-bg').checked;
+    
+    if (window.showToast) {
+      window.showToast({ title, message, type, duration, fullBg });
+    }
+  }
+
+})
+</script>

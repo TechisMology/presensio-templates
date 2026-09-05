@@ -1,0 +1,178 @@
+<template>
+<div class="content-canvas">
+  <div class="mb-md"><h3 class="font-bold text-xl">{{ 'Typography & Text Components' }}</h3></div>
+
+  <div class="row">
+    <!-- Headings & Displays -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header">
+          <span class="h6 mb-0">Headings & Displays</span>
+        </div>
+        <div class="card-body space-y-sm">
+          <div>
+            <span class="text-muted text-[10px] uppercase font-bold"
+              >Display Headers</span
+            >
+            <div class="display-1">Display 1</div>
+            <div class="display-4">Display 4</div>
+          </div>
+          <hr class="border-gray-200" />
+          <div class="space-y-xs">
+            <span class="text-muted text-[10px] uppercase font-bold"
+              >Standard Headings</span
+            >
+            <h1 class="h1">Heading 1</h1>
+            <h2 class="h2">Heading 2</h2>
+            <h3 class="h3">Heading 3</h3>
+            <h4 class="h4">Heading 4</h4>
+            <h5 class="h5">Heading 5</h5>
+            <h6 class="h6">Heading 6</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Font Sizes & Weights -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header">
+          <span class="h6 mb-0">Font Sizes & Weights</span>
+        </div>
+        <div class="card-body space-y-sm">
+          <div class="space-y-xs">
+            <span class="text-muted text-[10px] uppercase font-bold"
+              >Font Sizes (fs-*)</span
+            >
+            <div class="fs-1">Size 1 (fs-1)</div>
+            <div class="fs-3">Size 3 (fs-3)</div>
+            <div class="fs-6">Size 6 (fs-6)</div>
+          </div>
+          <hr class="border-gray-200" />
+          <div class="space-y-xs">
+            <span class="text-muted text-[10px] uppercase font-bold"
+              >Font Weights (fw-*)</span
+            >
+            <div class="fw-light">Light text weight (fw-light)</div>
+            <div class="fw-normal">Normal text weight (fw-normal)</div>
+            <div class="fw-bold">Bold text weight (fw-bold)</div>
+            <div class="fw-bolder">Bolder text weight (fw-bolder)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Colors & Backgrounds -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header">
+          <span class="h6 mb-0">Colors & Backgrounds</span>
+        </div>
+        <div class="card-body space-y-sm">
+          <div class="space-y-xs">
+            <span class="text-muted text-[10px] uppercase font-bold"
+              >Text Colors</span
+            >
+            <div class="text-primary font-bold">
+              .text-primary (Hijau Kemenag #08783A)
+            </div>
+            <div class="text-secondary font-medium">
+              .text-secondary (Deskripsi / Subtitle #6B7280)
+            </div>
+            <div class="text-success font-bold">
+              .text-success (Status Sukses #16A34A)
+            </div>
+            <div class="text-danger font-bold">
+              .text-danger (Error / Bahaya)
+            </div>
+            <div class="text-warning font-bold">
+              .text-warning (Peringatan #D97706)
+            </div>
+            <div class="text-info font-bold">
+              .text-info (Informasi #2563EB)
+            </div>
+            <div class="text-muted">.text-muted (Teks Redup #9CA3AF)</div>
+          </div>
+          <hr class="border-gray-200" />
+          <div class="space-y-xs">
+            <span class="text-muted text-[10px] uppercase font-bold"
+              >Text Backgrounds (text-bg-*)</span
+            >
+            <div class="flex flex-wrap gap-xs">
+              <span class="px-2 py-1 rounded text-bg-primary font-bold text-xs"
+                >Primary</span
+              >
+              <span class="px-2 py-1 rounded text-bg-success font-bold text-xs"
+                >Success</span
+              >
+              <span class="px-2 py-1 rounded text-bg-info font-bold text-xs"
+                >Info</span
+              >
+              <span class="px-2 py-1 rounded text-bg-danger font-bold text-xs"
+                >Danger</span
+              >
+              <span class="px-2 py-1 rounded text-bg-warning font-bold text-xs"
+                >Warning</span
+              >
+              <span class="px-2 py-1 rounded text-bg-dark font-bold text-xs"
+                >Dark</span
+              >
+              <span class="px-2 py-1 rounded text-bg-light font-bold text-xs"
+                >Light</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layout, Styles & Lists -->
+    <div class="col-12 col-md-6 mb-md">
+      <div class="card card-shadow">
+        <div class="card-header">
+          <span class="h6 mb-0">Styles, Quotes & Lists</span>
+        </div>
+        <div class="card-body space-y-sm">
+          <div>
+            <span class="text-muted text-[10px] uppercase font-bold"
+              >Lead Paragraph</span
+            >
+            <p class="lead">
+              This is a lead paragraph text designed to stand out relative to
+              other body copies.
+            </p>
+          </div>
+          <hr class="border-gray-200" />
+          <div>
+            <span class="text-muted text-[10px] uppercase font-bold"
+              >Blockquote</span
+            >
+            <blockquote class="blockquote">
+              "Great design is making something intelligible and memorable.
+              Great design is making something memorable and meaningful."
+              <span class="blockquote-footer">Dieter Rams</span>
+            </blockquote>
+          </div>
+          <hr class="border-gray-200" />
+          <div>
+            <span class="text-muted text-[10px] uppercase font-bold"
+              >Inline Lists</span
+            >
+            <ul class="list-inline text-xs font-bold mt-xs">
+              <li class="list-inline-item">Item One</li>
+              <li class="list-inline-item">Item Two</li>
+              <li class="list-inline-item">Item Three</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</template>
+
+<script setup>
+definePageMeta({
+  layout: 'presensio'
+})
+</script>

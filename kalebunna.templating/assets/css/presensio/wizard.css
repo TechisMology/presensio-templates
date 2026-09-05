@@ -1,0 +1,146 @@
+/* Form Wizard Component Styles */
+
+/* ── Wrapper ── */
+@utility wizard {
+  @apply flex flex-col gap-md;
+}
+
+/* ── Step Track (horizontal by default) ── */
+@utility wizard-steps {
+  @apply flex items-start relative;
+}
+
+/* connector line between steps */
+@utility wizard-steps-line {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #e5e7eb; /* gray-200 */
+  z-index: 0;
+}
+
+/* ── Individual step indicator ── */
+@utility wizard-step {
+  @apply flex flex-col items-center flex-1 relative z-10 cursor-pointer select-none;
+}
+
+@utility wizard-step-circle {
+  @apply w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-400 font-bold text-xs mb-xs transition-all shadow-sm border border-gray-200;
+}
+
+@utility wizard-step-label {
+  @apply text-xs font-medium text-gray-500 text-center leading-tight transition-colors;
+}
+
+/* Active step */
+.wizard-step.active .wizard-step-circle {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 10px rgba(8, 120, 58, 0.25);
+}
+.wizard-step.active .wizard-step-label {
+  color: #111827; /* gray-900 */
+  font-weight: 700;
+}
+
+/* Completed step */
+.wizard-step.completed .wizard-step-circle {
+  background-color: #dcfce7; /* green-100 */
+  color: #166534; /* green-800 */
+  border-color: #bbf7d0; /* green-200 */
+}
+.wizard-step.completed .wizard-step-label {
+  color: #166534;
+  font-weight: 600;
+}
+
+/* ── Step panels (content) ── */
+@utility wizard-content {
+  @apply relative overflow-hidden;
+}
+
+@utility wizard-panel {
+  @apply hidden flex-col gap-sm;
+
+  &.active {
+    @apply flex;
+  }
+}
+
+/* ── Progress bar variant ── */
+@utility wizard-progress-bar {
+  @apply flex items-center mb-md;
+}
+
+@utility wizard-progress-track {
+  @apply flex-1 h-2 bg-gray-100 rounded-full overflow-hidden border border-gray-200;
+}
+
+@utility wizard-progress-fill {
+  @apply h-full bg-primary transition-all duration-300;
+}
+
+@utility wizard-progress-label {
+  @apply text-xs font-semibold text-gray-700 ml-sm whitespace-nowrap;
+}
+
+/* ── Numbered sidebar variant ── */
+@utility wizard-sidebar {
+  @apply flex gap-md flex-col md:flex-row;
+}
+
+@utility wizard-sidebar-steps {
+  @apply flex flex-col gap-sm w-full md:w-56 shrink-0;
+}
+
+@utility wizard-sidebar-step {
+  @apply flex items-center gap-sm py-sm px-md rounded-lg cursor-pointer select-none border border-transparent transition-all;
+
+  &.active {
+    background-color: #f0fdf4; /* primary soft */
+    border-color: #bbf7d0;
+  }
+  &.completed {
+    @apply border-transparent opacity-80;
+  }
+}
+
+@utility wizard-sidebar-circle {
+  @apply w-8 h-8 shrink-0 flex items-center justify-center rounded-full bg-gray-100 border border-gray-200 text-gray-400 font-bold text-xs transition-colors;
+}
+
+.wizard-sidebar-step.active .wizard-sidebar-circle {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 8px rgba(8, 120, 58, 0.2);
+}
+.wizard-sidebar-step.completed .wizard-sidebar-circle {
+  background-color: #dcfce7;
+  color: #166534;
+  border-color: #bbf7d0;
+}
+
+@utility wizard-sidebar-label {
+  @apply text-xs font-medium text-gray-500 leading-tight transition-colors;
+}
+.wizard-sidebar-step.active .wizard-sidebar-label {
+  color: #065f46;
+  font-weight: 700;
+}
+.wizard-sidebar-step.completed .wizard-sidebar-label {
+  color: #166534;
+  font-weight: 600;
+}
+
+@utility wizard-sidebar-content {
+  @apply flex-1 min-w-0 bg-white border border-gray-100 rounded-xl p-md shadow-sm;
+}
+
+/* ── Navigation Buttons ── */
+@utility wizard-nav {
+  @apply flex justify-between items-center pt-md border-t border-gray-200 mt-md;
+}
