@@ -1,6 +1,11 @@
 @import "tailwindcss";
 /* Local Fonts & Icons */
-@import "@fontsource/poppins/index.css";
+@import "@fontsource/poppins/300.css";
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/500.css";
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/poppins/700.css";
+@import "@fontsource/poppins/800.css";
 @import "material-symbols/outlined.css";
 @import "lucide-static/font/lucide.css";
 /* Select2 CSS */
@@ -12,6 +17,7 @@
 @import "./accordion.css";
 @import "./carousel.css";
 @import "./collapse.css";
+@import "./calendar.css";
 
 @import "./table.css";
 @import "./badge.css";
@@ -46,15 +52,15 @@
   --color-surface-tint: #08783a;
   --color-inverse-primary: #4ade80;
 
-  /* Secondary — Kuning Emas (aksen) */
-  --color-secondary: #92400e;
-  --color-secondary-container: #fef9c3;
+  /* Secondary — Abu-abu (Neutral / Muted) */
+  --color-secondary: #4b5563; /* gray-600 */
+  --color-secondary-container: #f3f4f6; /* gray-100 */
   --color-on-secondary: #ffffff;
-  --color-on-secondary-container: #713f12;
-  --color-secondary-fixed: #fef08a;
-  --color-secondary-fixed-dim: #fde047;
-  --color-on-secondary-fixed: #713f12;
-  --color-on-secondary-fixed-variant: #92400e;
+  --color-on-secondary-container: #1f2937; /* gray-800 */
+  --color-secondary-fixed: #e5e7eb; /* gray-200 */
+  --color-secondary-fixed-dim: #d1d5db; /* gray-300 */
+  --color-on-secondary-fixed: #111827; /* gray-900 */
+  --color-on-secondary-fixed-variant: #374151; /* gray-700 */
 
   /* Tertiary — Hijau Aksen */
   --color-tertiary: #16a34a;
@@ -232,7 +238,7 @@ pre,
 }
 @utility content-canvas {
   @apply p-lg space-y-md w-full;
-  background-color: #fefefe;
+  background-color: #f9fafb; /* gray-50 untuk kontras profesional dengan card putih */
 }
 /* ============================================================
    DASHBOARD COMPONENTS — Reusable Classes
@@ -578,26 +584,6 @@ a.recent-item:hover {
 }
 
 /* Profile area */
-@utility sidebar-profile {
-  @apply flex items-center gap-sm;
-  padding: 12px 16px;
-  border-bottom: 1px solid #f3f4f6;
-  cursor: pointer;
-  transition: background-color 0.15s;
-  &:hover {
-    background-color: #f9fafb;
-  }
-}
-@utility sidebar-profile-name {
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: #111827;
-  line-height: 1.2;
-}
-@utility sidebar-profile-role {
-  font-size: 0.7rem;
-  color: var(--color-on-surface-variant);
-}
 
 /* Sidebar Navigation */
 .sidebar-nav {

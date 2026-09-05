@@ -2,7 +2,7 @@
 <div class="content-canvas">
   <div class="flex justify-between items-center mb-md">
     <div class="welcome-section mb-0">
-      <h1 class="welcome-title">Dashboard Overview</h1>
+      <h3 class="welcome-title font-bold">Dashboard Overview</h3>
       <p class="welcome-subtitle">
         Here's what's happening with your system today.
       </p>
@@ -22,12 +22,16 @@
   <!-- ROW 1: STAT CARDS -->
   <div class="row">
     <!-- Card 1 -->
-    <div class="col-12 col-md-6 col-xl-3 mb-md">
-      <div class="card card-shadow card-border-left-success h-full">
+    <div class="col-12 col-md-6 col-xl-3">
+      <div class="card card-border-left-success h-full">
         <div class="card-body flex justify-between items-start">
           <div>
-            <h5 class="fs-7 text-secondary font-semibold mb-xs">Total Users</h5>
-            <div class="h3 font-bold text-dark mb-0">2,847</div>
+            <h5 class="fs-7 text-secondary font-bold mb-xs">Total Users</h5>
+            <div
+              class="fs-3 lh-sm text-dark font-extrabold mb-0 tabular-nums text-balance"
+            >
+              2,847
+            </div>
             <div class="fs-8 mt-sm font-medium flex items-center gap-1">
               <span class="text-success flex items-center"
                 ><span class="material-symbols-outlined fs-7"
@@ -48,14 +52,18 @@
     </div>
 
     <!-- Card 2 -->
-    <div class="col-12 col-md-6 col-xl-3 mb-md">
-      <div class="card card-shadow card-border-left-info h-full">
+    <div class="col-12 col-md-6 col-xl-3">
+      <div class="card card-border-left-info h-full">
         <div class="card-body flex justify-between items-start">
           <div>
             <h5 class="fs-7 text-secondary font-semibold mb-xs">
               Total Revenue
             </h5>
-            <div class="h3 font-bold text-dark mb-0">$24,780</div>
+            <div
+              class="fs-3 font-bold text-dark mb-0 tabular-nums text-balance"
+            >
+              $24,780
+            </div>
             <div class="fs-8 mt-sm font-medium flex items-center gap-1">
               <span class="text-success flex items-center"
                 ><span class="material-symbols-outlined fs-7"
@@ -76,14 +84,18 @@
     </div>
 
     <!-- Card 3 -->
-    <div class="col-12 col-md-6 col-xl-3 mb-md">
-      <div class="card card-shadow card-border-left-warning h-full">
+    <div class="col-12 col-md-6 col-xl-3">
+      <div class="card card-border-left-warning h-full">
         <div class="card-body flex justify-between items-start">
           <div>
             <h5 class="fs-7 text-secondary font-semibold mb-xs">
               Total Orders
             </h5>
-            <div class="h3 font-bold text-dark mb-0">1,642</div>
+            <div
+              class="fs-3 font-bold text-dark mb-0 tabular-nums text-balance"
+            >
+              1,642
+            </div>
             <div class="fs-8 mt-sm font-medium flex items-center gap-1">
               <span class="text-success flex items-center"
                 ><span class="material-symbols-outlined fs-7"
@@ -104,14 +116,18 @@
     </div>
 
     <!-- Card 4 -->
-    <div class="col-12 col-md-6 col-xl-3 mb-md">
-      <div class="card card-shadow card-border-left-purple h-full">
+    <div class="col-12 col-md-6 col-xl-3">
+      <div class="card card-border-left-purple h-full">
         <div class="card-body flex justify-between items-start">
           <div>
             <h5 class="fs-7 text-secondary font-semibold mb-xs">
               Active Sessions
             </h5>
-            <div class="h3 font-bold text-dark mb-0">573</div>
+            <div
+              class="fs-3 font-bold text-dark mb-0 tabular-nums text-balance"
+            >
+              573
+            </div>
             <div class="fs-8 mt-sm font-medium flex items-center gap-1">
               <span class="text-success flex items-center"
                 ><span class="material-symbols-outlined fs-7"
@@ -135,36 +151,94 @@
   <!-- ROW 2: CHARTS -->
   <div class="row">
     <!-- Line Chart -->
-    <div class="col-12 col-xl-8 mb-md">
-      <div class="card card-shadow h-full">
+    <div class="col-12 col-xl-8">
+      <div class="card h-full">
         <div
           class="card-header border-b-0 pb-0 flex justify-between items-center"
         >
-          <span class="h6 mb-0">Analytics Overview</span>
+          <span class="h6 mb-0 text-balance">Analytics Overview</span>
           <select class="form-control form-control-sm w-auto">
             <option>This Year</option>
             <option>Last Year</option>
           </select>
         </div>
-        <div class="card-body flex flex-col justify-end min-h-[300px]">
+        <div class="card-body flex flex-col justify-end min-h-25 max-h-78">
           <canvas id="chart-analytics-overview"></canvas>
         </div>
       </div>
     </div>
 
     <!-- Doughnut Chart -->
-    <div class="col-12 col-xl-4 mb-md">
-      <div class="card card-shadow h-full">
+    <div class="col-12 col-xl-4">
+      <div class="card h-full">
         <div
           class="card-header border-b-0 pb-0 flex justify-between items-center"
         >
-          <span class="h6 mb-0">Traffic Sources</span>
+          <span class="h6 mb-0 text-balance">Traffic Sources</span>
           <button class="btn btn-sm btn-light">View Report</button>
         </div>
         <div
-          class="card-body flex flex-col items-center justify-center min-h-[300px]"
+          class="card-body flex flex-col xl:flex-row items-center justify-between gap-md min-h-[220px]"
         >
-          <canvas id="chart-traffic-sources"></canvas>
+          <div class="relative w-48 h-48 shrink-0 mx-auto xl:mx-0">
+            <canvas id="chart-traffic-sources"></canvas>
+            <div
+              class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none"
+            >
+              <span class="fs-7 text-secondary">Total</span>
+              <span class="fs-4 lh-sm font-bold text-dark mb-0 tabular-nums"
+                >28,847</span
+              >
+            </div>
+          </div>
+          <div class="flex-1 w-full">
+            <div
+              class="flex items-center justify-between py-sm border-b border-gray-100"
+            >
+              <div class="flex items-center gap-xs">
+                <span class="w-3 h-3 rounded-full bg-primary"></span>
+                <span class="fs-7 fw-semibold text-dark">Direct</span>
+              </div>
+              <div class="flex items-center gap-sm">
+                <span class="fs-7 fw-bold text-dark">40%</span>
+                <span class="fs-7 text-secondary text-right w-12">11,539</span>
+              </div>
+            </div>
+            <div
+              class="flex items-center justify-between py-sm border-b border-gray-100"
+            >
+              <div class="flex items-center gap-xs">
+                <span class="w-3 h-3 rounded-full bg-info"></span>
+                <span class="fs-7 fw-semibold text-dark">Organic Search</span>
+              </div>
+              <div class="flex items-center gap-sm">
+                <span class="fs-7 fw-bold text-dark">30%</span>
+                <span class="fs-7 text-secondary text-right w-12">8,654</span>
+              </div>
+            </div>
+            <div
+              class="flex items-center justify-between py-sm border-b border-gray-100"
+            >
+              <div class="flex items-center gap-xs">
+                <span class="w-3 h-3 rounded-full bg-warning"></span>
+                <span class="fs-7 fw-semibold text-dark">Social Media</span>
+              </div>
+              <div class="flex items-center gap-sm">
+                <span class="fs-7 fw-bold text-dark">20%</span>
+                <span class="fs-7 text-secondary text-right w-12">5,769</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between py-sm">
+              <div class="flex items-center gap-xs">
+                <span class="w-3 h-3 rounded-full bg-purple-600"></span>
+                <span class="fs-7 fw-semibold text-dark">Referral</span>
+              </div>
+              <div class="flex items-center gap-sm">
+                <span class="fs-7 fw-bold text-dark">10%</span>
+                <span class="fs-7 text-secondary text-right w-12">2,885</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -173,10 +247,10 @@
   <!-- ROW 3: LISTS & BARS -->
   <div class="row">
     <!-- Recent Activities -->
-    <div class="col-12 col-md-6 col-xl-4 mb-md">
-      <div class="card card-shadow h-full">
+    <div class="col-12 col-md-6 col-xl-4">
+      <div class="card h-full">
         <div class="card-header border-b-0">
-          <span class="h6 mb-0">Recent Activities</span>
+          <span class="h6 mb-0 text-balance">Recent Activities</span>
         </div>
         <div class="card-body p-0">
           <div class="list-group list-group-flush">
@@ -280,25 +354,25 @@
     </div>
 
     <!-- User Growth (Bar Chart) -->
-    <div class="col-12 col-md-6 col-xl-4 mb-md">
-      <div class="card card-shadow h-full">
+    <div class="col-12 col-md-6 col-xl-4">
+      <div class="card h-full">
         <div class="card-header border-b-0 flex justify-between items-center">
-          <span class="h6 mb-0">User Growth</span>
+          <span class="h6 mb-0 text-balance">User Growth</span>
           <select class="form-control form-control-sm w-auto">
             <option>This Month</option>
           </select>
         </div>
-        <div class="card-body flex flex-col justify-end min-h-[300px]">
+        <div class="card-body flex flex-col justify-end min-h-[220px]">
           <canvas id="chart-user-growth"></canvas>
         </div>
       </div>
     </div>
 
     <!-- Top Users (Progress Bars) -->
-    <div class="col-12 col-md-12 col-xl-4 mb-md">
-      <div class="card card-shadow h-full">
+    <div class="col-12 col-md-12 col-xl-4">
+      <div class="card h-full">
         <div class="card-header border-b-0 flex justify-between items-center">
-          <span class="h6 mb-0">Top Users</span>
+          <span class="h6 mb-0 text-balance">Top Users</span>
           <a href="#" class="fs-7 text-success text-decoration-none fw-semibold"
             >View All</a
           >
@@ -407,10 +481,8 @@
   <!-- ROW 4: BOTTOM WIDGETS -->
   <div class="row">
     <!-- Secure Banner -->
-    <div class="col-12 col-md-6 col-xl-3 mb-md">
-      <div
-        class="card card-shadow card-primary h-full relative overflow-hidden"
-      >
+    <div class="col-12 col-md-6 col-xl-3">
+      <div class="card card-primary h-full relative overflow-hidden">
         <div class="card-body flex flex-col justify-center z-10">
           <h4 class="h5 text-white mb-xs">System Secure</h4>
           <p class="fs-7 text-white opacity-90 mb-md">
@@ -436,10 +508,10 @@
     </div>
 
     <!-- Quick Actions -->
-    <div class="col-12 col-md-6 col-xl-3 mb-md">
-      <div class="card card-shadow h-full">
+    <div class="col-12 col-md-6 col-xl-3">
+      <div class="card h-full">
         <div class="card-header border-b-0 pb-0">
-          <span class="h6 mb-0">Quick Actions</span>
+          <span class="h6 mb-0 text-balance">Quick Actions</span>
         </div>
         <div class="card-body flex items-center justify-center">
           <div class="grid grid-cols-4 gap-sm text-center w-full">
@@ -496,12 +568,12 @@
     </div>
 
     <!-- Calendar Widget Placeholder -->
-    <div class="col-12 col-md-6 col-xl-3 mb-md">
-      <div class="card card-shadow h-full">
+    <div class="col-12 col-md-6 col-xl-3">
+      <div class="card h-full">
         <div
           class="card-header border-b-0 pb-0 flex justify-between items-center"
         >
-          <span class="h6 mb-0">Calendar</span>
+          <span class="h6 mb-0 text-balance">Calendar</span>
         </div>
         <div class="card-body">
           <div class="flex justify-between items-center mb-sm">
@@ -555,12 +627,12 @@
     </div>
 
     <!-- Notifications -->
-    <div class="col-12 col-md-6 col-xl-3 mb-md">
-      <div class="card card-shadow h-full">
+    <div class="col-12 col-md-6 col-xl-3">
+      <div class="card h-full">
         <div
           class="card-header border-b-0 pb-0 flex justify-between items-center"
         >
-          <span class="h6 mb-0">Notifications</span>
+          <span class="h6 mb-0 text-balance">Notifications</span>
           <a href="#" class="fs-7 text-success text-decoration-none fw-semibold"
             >View All</a
           >

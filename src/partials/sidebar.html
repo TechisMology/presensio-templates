@@ -16,28 +16,6 @@
     </button>
   </div>
 
-  <!-- Profile -->
-  <div class="sidebar-profile">
-    <div
-      class="w-9 h-9 rounded-lg overflow-hidden shrink-0"
-      style="border: 2px solid #e5e7eb"
-    >
-      <img
-        class="w-full h-full object-cover"
-        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTxW-SCaflPUu4H3RECGfkedzcsDUB9rh1rL0GOvCHLfi1RhU9z10Big4Cr14T8cMhgc6PYv-8kDUZsZU-XxCanQHYCQFL4cUf0VhUe1Aq--yTqxPPZQ5xARa4O9PQBR0ZubUdRIvnoTRSWKk3KYzp-esBnkeUv4VsiJtet4TDju69z6opAfqWO55Yfw4uw-uW5d-FwUSusVWpdPyH8UaOwwnvzp0bcE-n7HZCgsUMy62ukNEmHlUGKzylXL4EO6N2v1ss22aVaz8"
-        alt="Profile"
-      />
-    </div>
-    <div class="flex-1 min-w-0">
-      <div class="sidebar-profile-name truncate">Admin Presensio</div>
-      <div class="sidebar-profile-role">Super Admin</div>
-    </div>
-    <i
-      class="icon-chevron-down shrink-0"
-      style="color: #9ca3af; font-size: 16px"
-    ></i>
-  </div>
-
   <!-- Mobile badge container -->
   <div id="sidebar-badge-container" class="px-md mb-sm md:hidden"></div>
 
@@ -45,7 +23,6 @@
   <nav class="sidebar-nav">
     <ul class="nav-menu">
       <!-- MENU -->
-      <li class="nav-heading"><span>Menu</span></li>
 
       <li
         class="nav-item has-submenu {% if page in ['index', 'education', 'sales'] %}open active{% endif %}"
@@ -82,6 +59,16 @@
 
       <!-- PAGES -->
       <li class="nav-heading"><span>Pages</span></li>
+
+      <li class="nav-item">
+        <a
+          class="nav-link {% if page == 'calendar' %}active{% endif %}"
+          href="/calendar.html"
+        >
+          <i class="icon-calendar"></i>
+          <span>Calendar</span>
+        </a>
+      </li>
 
       <li class="nav-item has-submenu">
         <a class="nav-link sidebar-menu-toggle" href="#">
